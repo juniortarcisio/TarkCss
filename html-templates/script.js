@@ -1,12 +1,15 @@
 ﻿
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementsByTagName("main")[0].style.marginLeft = "250px";
-}
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementsByTagName("main")[0].style.marginLeft = "0";
+function toggleNav() {
+    if (document.getElementById("mySidenav").style.width == "250px") {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementsByTagName("main")[0].style.marginLeft = "0";
+    }
+    else {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementsByTagName("main")[0].style.marginLeft = "250px";
+    }
+
 }
 
 function myMap() {
