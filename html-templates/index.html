@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <main>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">News</a>
+            <div class="dropdown">
+                <button class="dropbtn">Item 1</button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Item 2</button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding-left:16px">
+            <h2>Top Navigation Example</h2>
+            <p>Some content..</p>
+            <p>TODO</p>
+            <ul>
+                <li>Add responsive grid system</li>
+                <li>Add css, js files</li>
+                <li>Add cards, dialog functions, masks</li>
+                <li>Add forms, canvas, etc</li>
+                <li>Recycle into N templates: web non-responsive resource full, responsive</li>
+            </ul>
+        </div>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+        <div id="map" style="width:400px;height:400px;background:yellow"></div>
+
+        <!-- Add font awesome icons -->
+        <a href="#" class="fa fa-round fa-facebook fa-stack-1x"></a>
+        <a href="#" class="fa fa-round fa-ban fa-stack-2x"></a>
+        <a href="#" class="fa fa-round fa-twitter"></a>
+        <a href="#" class="fa fa-round fa-google"></a>
+        <a href="#" class="fa fa-round fa-linkedin"></a>
+        <a href="#" class="fa fa-round fa-youtube"></a>
+        <a href="#" class="fa fa-round fa-instagram"></a>
+        <a href="#" class="fa fa-round fa-pinterest"></a>
+        <a href="#" class="fa fa-round fa-skype"></a>
+        <a href="#" class="fa fa-round fa-github"></a>
+
+
+        <a href="#" class="fa fa-user-circle"></a>
+        <div class="fa fa-spinner fa-spin"></div>
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <span class="tooltip">
+            tooltip test
+            <span class="tooltiptext">Tooltip text</span>
+        </span>
+        <div class="chip">
+            <i class="fa fa-html5" aria-hidden="true"></i>
+            John Doe
+        </div>
+
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+                <div class="modal-footer">
+                    <h3>Modal Footer</h3>
+                </div>
+            </div>
+
+        </div>
+        <footer>My HTML template</footer>
+    </main>  
+    <!-- AIzaSyC-Kx-lxSaR6FVip-_3Z9mqobPcjtkLSdU -->
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script>
+</body>
+</html>
