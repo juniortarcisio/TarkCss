@@ -78,6 +78,7 @@
     <Content Include="index.html" />
     <Content Include="script.js" />
     <Content Include="styles.css" />
+    <Content Include="tarks.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
