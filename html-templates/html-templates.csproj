@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SideMenu\index.html" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -76,9 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="script.js" />
+    <Content Include="scripts.js" />
+    <Content Include="SideMenu\scripts.js" />
     <Content Include="styles.css" />
+    <Content Include="SideMenu\style.css" />
     <Content Include="tarks.js" />
+    <Content Include="tarks.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

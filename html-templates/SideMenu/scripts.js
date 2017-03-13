@@ -2,18 +2,11 @@
 
 function toggleNav() {
     if (document.getElementById("mySidenav").style.width == "250px") {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementsByTagName("main")[0].style.marginLeft = "0";
-        document.getElementsByTagName("footer")[0].style.marginLeft = "0";
-        document.getElementsByTagName("nav")[0].style.marginLeft = "0px";
+        document.getElementById("mySidenav").style.width = "0px";
     }
     else {
         document.getElementById("mySidenav").style.width = "250px";
-        document.getElementsByTagName("main")[0].style.marginLeft = "250px";
-        document.getElementsByTagName("footer")[0].style.marginLeft = "250px";
-        document.getElementsByTagName("nav")[0].style.marginLeft = "250px";
     }
-
 }
 
 function myMap() {
@@ -26,8 +19,8 @@ function myMap() {
 
 
 var btn = document.getElementById("myBtn");
-btn.onclick = function(event) {
-    
+btn.onclick = function (event) {
+
     Tarks.MessageBox.Show(
         "You have successfully signed in",
         "Sign In",

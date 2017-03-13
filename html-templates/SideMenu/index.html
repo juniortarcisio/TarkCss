@@ -2,40 +2,27 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="styles.css" rel="stylesheet" />
-    <link href="tarks.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+    <link href="../tarks.css" rel="stylesheet" />
 </head>
 <body>
+    <aside id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">About</a>
+    </aside>
     <nav class="topnav">
         <div class="topnav-container">
-            <!--<a class="active" href="#home" onclick="toggleNav()">
-                <span style="cursor:pointer">&#9776;</span>
-            </a>-->
-            <a href="#news">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Services</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">Clients</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">About</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
+            <a class="topnav-button-side" href="#home" onclick="toggleNav()">
+                <span>&#9776;</span>
+            </a>           
+            <a href="#news">
+                <i class="fa fa-home home-bar" aria-hidden="true"></i>
+                <span>My page using a side menu</span>
+            </a>
             <i class="fa fa-battery-full battery-bar" aria-hidden="true"></i>
         </div>
     </nav>
@@ -55,7 +42,7 @@
             <article>
                 <div id="map" style="width:400px;height:400px;background:yellow"></div>
             </article>
-            <article>                
+            <article>
                 <a href="#" class="fa fa-round fa-facebook"></a>
                 <a href="#" class="fa fa-round fa-twitter"></a>
                 <a href="#" class="fa fa-round fa-google"></a>
@@ -87,8 +74,8 @@
     <footer>My HTML template v0.0.0.1A</footer>
 
     <!-- AIzaSyC-Kx-lxSaR6FVip-_3Z9mqobPcjtkLSdU -->
+    <script src="../tarks.js"></script>
     <script src="scripts.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script>
-    <script src="tarks.js"></script>
 </body>
 </html>

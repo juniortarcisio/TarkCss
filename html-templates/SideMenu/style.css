@@ -12,6 +12,7 @@ footer {
     width: 100%;
     padding: 8px 20px 5px 20px;
     box-shadow: 1px 1px 4px;
+    margin-left:250px;
     box-shadow: 1px -2px 4px #333;
 }
 
@@ -20,14 +21,7 @@ nav, main, footer {
 }
 
 main {
-    width:980px;
-    margin:auto;
-    height:100%;
-    background-color:#f5f5f5;
-    padding:20px;
-    margin-top:10px;
-    border-radius:10px;
-    box-shadow: 0px 2px 10px #ccc;
+    margin-left:270px;
 }
 
 .battery-bar {
@@ -49,6 +43,7 @@ main {
     background-color: #333;
     box-shadow: 1px 2px 4px;
     font-family: Segoe UI, Arial;
+    margin-left:250px;
 }
     .topnav button {
         font-family: Segoe UI, Arial;
@@ -76,51 +71,82 @@ main {
         }
 
 .topnav-container {
-    width: 980px;
-    margin: auto;
     position:relative;
 }
 
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
 
-    .dropdown .dropbtn {
-        font-size: 16px;
-        border: none;
-        outline: none;
-        padding: 14px 16px;
-        background-color: inherit;
-    }
+/* side nav -------------------------------------------------*/
 
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
     z-index: 1;
-    border-radius: 2px;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow:3px 0px 5px;
 }
 
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
         text-decoration: none;
+        font-size: 25px;
+        color: #818181;
         display: block;
-        text-align: left;
+        transition: 0.3s;
     }
 
-        .dropdown-content a:hover {
-            background-color: #ddd;
+    .sidenav i {
+        padding: 8px 8px 32px 32px;
+        color: #818181;
+        font-size:128px;
+    }
+
+        .sidenav a:hover, .offcanvas a:focus {
+            color: #f1f1f1;
         }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-    animation: fade-in .5s;
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .topnav-button-side {
+        font-size:22px !important;
+        cursor:pointer;
+        display:none;
+    }
+    
+@media only screen and (min-width: 1301px) {
+    .sidenav {
+        width:250px!important;
+    }
+    .sidenav .closebtn {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .topnav, footer
+    {
+        margin-left:0px;
+    }
+    main {
+        margin-left:15px;
+    }
+    .sidenav {
+        width:0px;
+    }
+    .topnav-button-side {
+        display:block;
+    }
 }
 
 
@@ -224,4 +250,5 @@ main {
     background: #24292e;
     color: white;
 }
+
 
