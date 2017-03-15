@@ -19,7 +19,7 @@
             /* Header */
             var modalClose = document.createElement("span");
             modalClose.className = "modal-close";
-            modalClose.innerHTML = "&times;";
+            modalClose.innerHTML = "<i class=\"fa fa-window-close\" aria-hidden=\"true\"></i>";
 
             var modalTitle = document.createElement("span");
             modalTitle.innerText = title;

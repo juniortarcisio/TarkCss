@@ -71,8 +71,9 @@
 .modal-close {
     color: white;
     float: right;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
+    margin-top:-3px;
 }
 
     .modal-close:hover,
@@ -277,4 +278,14 @@ table {
     table tr:nth-child(2n+2):hover, table tr:nth-child(2n+3):hover {
         background-color:#e5e5e5;
     }
-    
+
+
+.table-edit tr td:last-child {
+    width:20px;
+    text-align:right;
+}
+
+
+.table-edit tr td:last-child i {
+    cursor:pointer;
+}
