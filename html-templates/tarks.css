@@ -289,3 +289,86 @@ table {
 .table-edit tr td:last-child i {
     cursor:pointer;
 }
+
+
+/* cards -------------------------------------------------*/
+
+
+.card {
+    box-shadow: 0 8px 16px 0 #ddd;
+    border-radius: 5px;
+    transition: 0.3s;
+    width:330px;
+    float:left;
+    margin:20px;
+}
+
+.clear {
+    clear:both;
+}
+
+.card.small {
+    width:250px;
+}
+
+.card.medium {
+    width:330px;
+}
+
+.card.big {
+    width:450px;
+}
+
+
+/*.card.small:hover {
+    width:255px;
+}
+
+.card.medium:hover {
+    width:335px;
+}
+
+.card.big:hover {
+    width:455px;
+}*/
+
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(20,20,20,0.3);
+}
+
+.card img, .card-img {
+    width:100%;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+.card-message {
+    margin-bottom:5px;
+}
+
+.card-subtitle {
+    margin-top:5px;
+    font-size:0.9em;
+    color:#333;
+}
+
+
+/*.card img:hover {
+    transition: 0.5s;
+    position:static;
+    margin:auto;
+    margin-top:100px;
+    width:80%;
+}*/
+
+.card-container {
+    font-family:'Segoe UI';
+    padding: 2px 22px;
+}
+
+.card-container h3, .card-container h2, .card-container h1, .card-container h4, .card-container h5 {
+    text-shadow: 1px 1px 1px rgba(80,80,80,0.5); 
+    font-family:'Segoe UI';
+    color: #333;
+}

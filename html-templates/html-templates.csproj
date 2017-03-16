@@ -66,6 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\cityblur.jpg" />
+    <Content Include="Images\enchanted.jpg" />
+    <Content Include="Images\lake.jpg" />
     <Content Include="SideMenu\index.html" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
