@@ -1,10 +1,9 @@
 ﻿body {
     margin: 0;
     font-family: Arial;
-    margin-bottom:40px;
 }
 
-footer {
+body>footer {
     position: fixed;
     bottom: 0;
     background-color: #222;
@@ -14,14 +13,40 @@ footer {
     box-shadow: 1px 1px 4px;
     margin-left:250px;
     box-shadow: 0px -2px 6px #333;
+    opacity:0.9;
+    font-family: Segoe UI;
+    font-size: 0.9em;
+    animation: shadowBright 2s infinite alternate;
+}
+
+@keyframes shadowBright {
+    from {
+        text-shadow: 0px 0px 3px white;
+    }
+    to {
+        text-shadow: 0px 0px 10px white;
+    }
 }
 
 nav, main, footer {
     transition: margin-left .5s;
 }
 
+main>section {
+    margin-left:20px;
+}
+
+main>footer{
+    background-color:#222;
+    padding:10px;
+    color:#aaa;
+    padding-bottom:30px;
+    margin-top:10px;
+    box-shadow: 0px -2px 3px #333;
+}
+
 main {
-    margin-left:270px;
+    margin-left:250px;
 }
 
 .battery-bar {
@@ -104,10 +129,13 @@ main {
         padding: 8px 8px 32px 32px;
         color: #818181;
         font-size:128px;
+        text-shadow:0px 2px 5px white;
     }
 
         .sidenav a:hover, .offcanvas a:focus {
-            color: #f1f1f1;
+            color: #f1f1f1;            
+            text-shadow: 0px 0px 15px white;
+            
         }
 
     .sidenav .closebtn {
