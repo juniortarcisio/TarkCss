@@ -123,7 +123,7 @@ main {
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 40px;
     box-shadow:3px 0px 5px;
 }
 
@@ -136,11 +136,54 @@ main {
         transition: 0.3s;
     }
 
-    .sidenav i {
-        padding: 8px 8px 32px 32px;
+    .sidenav a i {
+        width:40px;
+    }
+
+    .sidenav .usericon {
+        padding: 8px 0px 8px 0px;
         color: #818181;
         font-size:128px;
         text-shadow:0px 2px 5px white;
+        text-align:center;  
+        width:100%;
+    }
+
+    .sidenav h1 {
+        text-align:center;
+        width:100%;
+        margin-top:10px;
+        margin-bottom:2px;
+        color: white;
+        font-weight: normal;
+        font-size: 1.5em;
+    }
+    
+    .sidenav .edit-username {
+        padding:0px;
+        text-align:center;  
+        width:100%;
+        font-size: 0.9em;
+        color:#8d0000;
+        font-weight:bold;
+    }
+
+    
+        .sidenav .edit-username:hover {
+            color: #ff0000;            
+            text-shadow: 0px 0px 11px #f00;
+        }
+
+
+    .sidenav hr {
+        border-top: 1px solid #555;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #222;
+        width: 80%;
+        margin: auto;
+        margin-top:35px;
+        margin-bottom:25px;
     }
 
         .sidenav a:hover, .offcanvas a:focus {
@@ -149,6 +192,7 @@ main {
             
         }
 
+        
     .sidenav .closebtn {
         position: absolute;
         top: 0;
