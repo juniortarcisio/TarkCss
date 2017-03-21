@@ -8,17 +8,26 @@
     <link href="../tarks.css" rel="stylesheet" />
 </head>
 <body>
-    <aside id="mySidenav" class="sidenav">
+    <aside id="mySidenav" class="sidenav scrollbar-gray">
         <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
         <i class="fa fa-user-circle usericon" aria-hidden="true"></i>
         <h1>Username</h1>
         <a class="edit-username" href="#">Edit profile</a>
         <hr />
-        <a href="#"><i class="fa fa-home"></i>Home</a>
-        <a href="/index.html"><i class="fa fa-plane"></i>Fixed version</a>
-        <a href="#"><i class="fa fa-commenting"></i>Messages</a>
-        <a href="#"><i class="fa fa-cog"></i>Settings</a>
-        <a href="#"><i class="fa fa-building"></i>About</a>
+        <section class="items">
+            <a href="#"><i class="fa fa-home"></i>Home</a>
+            <a href="/index.html"><i class="fa fa-plane"></i>Fixed version</a>
+            <a href="#"><i class="fa fa-commenting"></i>Messages</a>
+            <a href="#"><i class="fa fa-cog"></i>Settings</a>
+            <a href="#"><i class="fa fa-code"></i>About</a>
+        </section>
+        <section class="social">
+            <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
+            <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter"></a>
+            <a href="https://br.linkedin.com/in/tarcisio-de-jesus-ferreira-j%C3%BAnior-2a547425" target="_blank" class="fa fa-round fa-linkedin"></a>
+            <a href="skype:tarcisiocorvo?call" class="fa fa-round fa-skype"></a>
+            <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
+        </section>
     </aside>
     <nav class="topnav">
         <div class="topnav-container">
@@ -42,27 +51,37 @@
                 <li>Add cards, dynamic dialogs, masks</li>
                 <li>Add forms, canvas, etc</li>
                 <li>Recycle into N templates: web non-responsive resource full, responsive</li>
-                <li>Test 1</li>
-                <li>Test 2</li>
-                <li>Test 3</li>
             </ul>
         </section>
         <section>
             <article>
-                <div id="map" style="width:400px;height:400px;background:yellow"></div>
-            </article>
-            <article>
-                <!--<div class="card">
-                    <img />
+                <div class="card small">
+                    <img src="/Images/lake.jpg" alt="" />
                     <div class="card-container">
-                        <h3>It's my test card</h3>
-                        <p>So so so cool bro</p>
+                        <h3>Lake park</h3>
+                        <p class="card-message">It's a park in Embu das Artes</p>
+                        <p class="card-subtitle">São Paulo</p>
                     </div>
-                </div>-->
+                </div>
+                <div class="card small">
+                    <img src="/Images/cityblur.jpg" alt="" />
+                    <div class="card-container">
+                        <h3>The blur skies</h3>
+                        <p class="card-message">A blur city shot</p>
+                        <p class="card-subtitle">São Paulo</p>
+                    </div>
+                </div>
+                <div class="card small">
+                    <img src="/Images/enchanted.jpg" alt="" />
+                    <div class="card-container">
+                        <h3>Enchant</h3>
+                        <p class="card-message">Make someone's eyes bright</p>
+                        <p class="card-subtitle">Anywere</p>
+                    </div>
+                </div>
             </article>
+            <br class="clear" />
             <article>
-
-
                 <a href="#" class="fa fa-ban"></a>
                 <a href="#" class="fa fa-user-circle"></a>
                 <div class="fa fa-spinner fa-spin"></div>
@@ -82,22 +101,11 @@
         <footer>
             <section>
                 <ul>
-                    <li>English</li>
-                    <li>Português</li>
-                    <li>Espaniol</li>
-                    <li>Bahasa</li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Português</a></li>
+                    <li><a href="#">Espaniol</a></li>
+                    <li><a href="#">Bahasa</a></li>
                 </ul>
-            </section>
-            <section>
-                <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
-                <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter"></a>
-                <!--<a href="#" class="fa fa-round fa-google"></a>-->
-                <a href="https://br.linkedin.com/in/tarcisio-de-jesus-ferreira-j%C3%BAnior-2a547425" target="_blank" class="fa fa-round fa-linkedin"></a>
-                <!--<a href="#" class="fa fa-round fa-youtube"></a>-->
-                <!--<a href="#" class="fa fa-round fa-instagram"></a>-->
-                <!--<a href="#" class="fa fa-round fa-pinterest"></a>-->
-                <a href="skype:tarcisiocorvo?call" class="fa fa-round fa-skype"></a>
-                <a href="https://github.com/juniortarcisio" target="_blank"  class="fa fa-round fa-github"></a>
             </section>
             <div class="clear"></div>
         </footer>

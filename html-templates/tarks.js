@@ -62,6 +62,7 @@
             modal.className = "modal";
             modal.appendChild(modalContent);
             modal.style.display = "block";
+            
 
             /*trigger events*/
             var closeModalEvent = function () {
