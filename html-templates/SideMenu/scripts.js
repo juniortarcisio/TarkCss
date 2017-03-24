@@ -27,3 +27,19 @@ btn.onclick = function (event) {
         Tarks.MessageBox.Icons.Success
     );
 }
+
+
+var topnav = document.querySelector(".topnav");
+
+window.onscroll = function () {
+    if (document.body.scrollTop > 100) {
+        topnav.classList.add("topnav-scrolled");
+        document.body.style.paddingTop = topnav.offsetHeight + "px";
+    }
+    else {
+        topnav.classList.remove("topnav-scrolled");
+        document.body.style.paddingTop = "0px";
+    }
+}
+
+

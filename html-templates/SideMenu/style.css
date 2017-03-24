@@ -89,7 +89,34 @@ main {
     box-shadow: 1px 2px 4px;
     font-family: Segoe UI, Arial;
     margin-left:250px;
+    transition: .5s;
+    animation: topnavScroll .5s all;
 }
+
+.topnav-scrolled {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    animation: topnavScroll .3s;
+    opacity:0.95;
+}
+
+.topnav-scrolled .battery-bar {    
+    position: fixed;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+@keyframes topnavScroll {
+    from {
+        top:-75px;
+    }
+    to {
+        top: 0px;
+    }
+}
+
     .topnav button {
         font-family: Segoe UI, Arial;
         color:#CCC;
