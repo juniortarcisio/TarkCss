@@ -32,7 +32,7 @@ btn.onclick = function (event) {
 var topnav = document.querySelector(".topnav");
 
 window.onscroll = function () {
-    if (document.body.scrollTop > 100) {
+    if (document.body.scrollTop > 120) {
         topnav.classList.add("topnav-scrolled");
         document.body.style.paddingTop = topnav.offsetHeight + "px";
     }

@@ -297,7 +297,7 @@ table {
 .card {
     box-shadow: 0 8px 16px 0 #ddd;
     border-radius: 5px;
-    transition: 0.3s;
+    transition: 0.3s all;
     width:330px;
     float:left;
     margin:20px;

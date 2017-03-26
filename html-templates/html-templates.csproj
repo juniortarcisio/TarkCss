@@ -69,6 +69,8 @@
     <Content Include="Images\cityblur.jpg" />
     <Content Include="Images\enchanted.jpg" />
     <Content Include="Images\lake.jpg" />
+    <Content Include="Images\pipi7.png" />
+    <Content Include="Images\pipitlayer.png" />
     <Content Include="SideMenu\index.html" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
