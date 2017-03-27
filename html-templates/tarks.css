@@ -295,12 +295,15 @@ table {
 
 
 .card {
-    box-shadow: 0 8px 16px 0 #ddd;
+    box-shadow: 0 8px 16px 0 rgba(200,200,200,0.5);
     border-radius: 5px;
-    transition: 0.3s all;
+    transition: 0.2s all;
     width:330px;
     float:left;
-    margin:20px;
+    margin-top:5px;
+    margin-bottom:20px;
+    margin-left:20px;
+    margin-right:20px;
 }
 
 .clear {
@@ -334,7 +337,12 @@ table {
 
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(20,20,20,0.3);
+    box-shadow: -1px 8px 14px 0 rgba(20,20,20,0.2);
+    /*box-shadow: -1px 8px 14px 0 rgba(20,20,20,0.4);
+    margin-top:0px;
+    margin-bottom:25px;
+    margin-left:21px;
+    margin-right:19px;*/
 }
 
 .card img, .card-img {
@@ -351,6 +359,24 @@ table {
     margin-top:5px;
     font-size:0.9em;
     color:#333;
+}
+
+
+.card-subtitle a {
+    color:#af0000;
+    text-decoration:none;
+}
+
+.card-subtitle a:hover {
+    text-decoration:underline;
+}
+
+.card-subtitle img {
+    border-radius:0px;
+    box-shadow: 0px 1px 3px #555;
+    width:22px;
+    height:15px;
+    margin-bottom:-2px;
 }
 
 
