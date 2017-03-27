@@ -42,4 +42,15 @@ window.onscroll = function () {
     }
 }
 
+var countryLinks = document.querySelectorAll(".card-subtitle a");
 
+for (var i = 0; i < countryLinks.length - 1; i++) {
+    countryLinks[i].onclick = function () {
+        Tarks.MessageBox.Show(
+            "You have clicked in one country link",
+            "Country",
+            Tarks.MessageBox.Icons.Success
+        );
+        return false;
+    }
+}

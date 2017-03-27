@@ -402,3 +402,37 @@ main {
 }
 
 
+
+/* icons -------------------------------------------------*/
+
+.modal-content {
+    background-color: #333;
+}
+
+.modal-header {
+    color: white;   
+    background: #314248;
+    background: linear-gradient(to bottom, #172125 0%,#1e344e 100%);
+}
+
+.modal-body {
+    background-color:inherit;
+    color:white;
+}
+
+.modal-footer {
+    border-top: 1px #505050 solid;
+    background-color:inherit;
+    color:white;
+}
+
+.modal-icon {
+    color:white !important;
+    text-shadow: 1px 1px 4px #b9b9b9;
+}
+
+.modal-button {
+    background: linear-gradient(to bottom, #949494 0%,#b6bfc5 50%,#818c92 51%,#919ba2 100%);
+    color:white;
+    font-weight:bold;
+}
