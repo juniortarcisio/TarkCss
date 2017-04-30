@@ -71,7 +71,7 @@
     <Content Include="Images\lake.jpg" />
     <Content Include="Images\pipi7.png" />
     <Content Include="Images\pipitlayer.png" />
-    <Content Include="Resposive\index.html" />
+    <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Web.Debug.config">
@@ -84,9 +84,9 @@
   <ItemGroup>
     <Content Include="Blog\index.html" />
     <Content Include="Blog\scripts.js" />
-    <Content Include="Resposive\scripts.js" />
+    <Content Include="Responsive\scripts.js" />
     <Content Include="Blog\styles.css" />
-    <Content Include="Resposive\style.css" />
+    <Content Include="Responsive\style.css" />
     <Content Include="Tarkcss\tarks.js" />
     <Content Include="Tarkcss\tarks.css" />
     <Content Include="Web.config" />
