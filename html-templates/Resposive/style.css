@@ -96,7 +96,7 @@ main {
 .topnav {
     overflow: hidden;
     background-color: #333;
-    box-shadow: 0px 2px 4px #333;
+    box-shadow: 0 1px 6px 0 rgba(32,32,32,0.7);
     font-family: Segoe UI, Arial;
     margin-left:250px;
     transition: .5s;
@@ -167,19 +167,19 @@ main {
 .scrollbar-gray::-webkit-scrollbar-track
 {
 	border-radius: 10px;
-	background-color: transparent;
+	background-color: #090909;
 }
 
 .scrollbar-gray::-webkit-scrollbar
 {
-	width: 12px;
+	width: 10px;
 	background-color: transparent;
 }
 
 .scrollbar-gray::-webkit-scrollbar-thumb
 {
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	border-radius: 15px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
 	background-color: #333;
 }
 
@@ -198,6 +198,10 @@ main {
     transition: 0.5s;
     padding-top: 40px;
     box-shadow:3px 0px 5px;
+}
+
+.sidenav>article {
+    width:250px;
 }
 
     .sidenav .items a {

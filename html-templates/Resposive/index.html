@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="../tarks.css" rel="stylesheet" />
+    <link href="../Tarkcss/tarks.css" rel="stylesheet" />
     <link href="./style.css" rel="stylesheet" />    
 </head>
 <body>
     <aside id="mySidenav" class="sidenav scrollbar-gray">
-        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
-        <i class="fa fa-user-circle usericon" aria-hidden="true"></i>
-        <h1>Username</h1>
-        <a class="edit-username" href="#">Edit profile</a>
-        <hr />
-        <section class="items">
-            <a href="#"><i class="fa fa-home"></i>Home</a>
-            <a href="/index.html"><i class="fa fa-plane"></i>Fixed version</a>
-            <a href="#"><i class="fa fa-commenting"></i>Messages</a>
-            <a href="#"><i class="fa fa-cog"></i>Settings</a>
-            <a href="#"><i class="fa fa-code"></i>About</a>
-        </section>
-        <section class="social">
-            <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
-            <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter"></a>
-            <a href="https://br.linkedin.com/in/tarcisio-de-jesus-ferreira-j%C3%BAnior-2a547425" target="_blank" class="fa fa-round fa-linkedin"></a>
-            <a href="skype:tarcisiocorvo?call" class="fa fa-round fa-skype"></a>
-            <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
-        </section>
+        <article>
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+            <i class="fa fa-user-circle usericon" aria-hidden="true"></i>
+            <h1>Username</h1>
+            <a class="edit-username" href="#">Edit profile</a>
+            <hr />
+            <section class="items">
+                <a href="#"><i class="fa fa-home"></i>Home</a>
+                <a href="../Blog/index.html"><i class="fa fa-plane"></i>Fixed version</a>
+                <a href="#"><i class="fa fa-commenting"></i>Messages</a>
+                <a href="#"><i class="fa fa-cog"></i>Settings</a>
+                <a href="#"><i class="fa fa-code"></i>About</a>
+            </section>
+            <section class="social">
+                <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
+                <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter"></a>
+                <a href="https://br.linkedin.com/in/tarcisio-de-jesus-ferreira-j%C3%BAnior-2a547425" target="_blank" class="fa fa-round fa-linkedin"></a>
+                <a href="skype:tarcisiocorvo?call" class="fa fa-round fa-skype"></a>
+                <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
+            </section><!---->
+        </article>
     </aside>
     <header class="topheader">        
         CoolWebsite
@@ -36,16 +38,24 @@
         <div class="topnav-container">
             <a class="topnav-button-side" href="#home" onclick="toggleNav()">
                 <span>&#9776;</span>
-            </a>           
+            </a>      
             <a href="#news">
                 <i class="fa fa-home home-bar" aria-hidden="true"></i>
-                <span>Home > Details</span>
+            </a>     
+            <a href="#news">
+                <span>Home</span>
+            </a>
+            <a href="#news">
+                <span>></span>
+            </a>
+            <a href="#news">
+                <span>Details</span>
             </a>
             <i class="fa fa-battery-full battery-bar" aria-hidden="true"></i>
         </div>
     </nav>
     <main>
-        <section style="padding-left:16px">
+        <section>
             <article>
                 <h2>Top Navigation Example</h2>
                 <p>Some content..</p>
@@ -91,7 +101,7 @@
         <section>
             <article>
                 <div class="card small">
-                    <img src="/Images/lake.jpg" alt="" />
+                    <img src="../Images/lake.jpg" alt="" />
                     <div class="card-container">
                         <h3>Lake park</h3>
                         <p class="card-message">It's a park in Embu das Artes</p>
@@ -104,7 +114,7 @@
                     </div>
                 </div>
                 <div class="card small">
-                    <img src="/Images/cityblur.jpg" alt="" />
+                    <img src="../Images/cityblur.jpg" alt="" />
                     <div class="card-container">
                         <h3>The blur skies</h3>
                         <p class="card-message">A blur city shot</p>
@@ -117,7 +127,7 @@
                     </div>
                 </div>
                 <div class="card small">
-                    <img src="/Images/enchanted.jpg" alt="" />
+                    <img src="../Images/enchanted.jpg" alt="" />
                     <div class="card-container">
                         <h3>Enchant</h3>
                         <p class="card-message">Make someone's eyes bright</p>
@@ -131,7 +141,7 @@
                 </div>
             </article>
             <br class="clear" />
-            <article>
+            <!--<article>
                 <a href="#" class="fa fa-ban"></a>
                 <a href="#" class="fa fa-user-circle"></a>
                 <div class="fa fa-spinner fa-spin"></div>
@@ -146,7 +156,7 @@
                     <i class="fa fa-html5" aria-hidden="true"></i>
                     John Doe
                 </div>
-            </article>
+            </article>-->
         </section>
         <footer>
             <section>
@@ -154,7 +164,7 @@
                     <li><a href="#">English</a></li>
                     <li><a href="#">Português</a></li>
                     <li><a href="#">Espaniol</a></li>
-                    <li><a href="#">Bahasa</a></li>
+                    <li><a href="#">Bahasa Indonesia</a></li>
                 </ul>
             </section>
             <div class="clear"></div>
@@ -163,8 +173,8 @@
     <footer>My HTML template v0.0.0.1A</footer>
 
     <!-- AIzaSyC-Kx-lxSaR6FVip-_3Z9mqobPcjtkLSdU -->
-    <script src="../tarks.js"></script>
-    <script src="scripts.js"></script>
+    <script src="../Tarkcss/tarks.js"></script>
+    <script src="./scripts.js"></script>
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script>-->
 </body>
 </html>

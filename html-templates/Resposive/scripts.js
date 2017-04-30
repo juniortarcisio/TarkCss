@@ -18,17 +18,6 @@ function myMap() {
 }
 
 
-var btn = document.getElementById("myBtn");
-btn.onclick = function (event) {
-
-    Tarks.MessageBox.Show(
-        "You have successfully signed in",
-        "Sign In",
-        Tarks.MessageBox.Icons.Success
-    );
-}
-
-
 var topnav = document.querySelector(".topnav");
 
 window.onscroll = function () {
@@ -44,7 +33,7 @@ window.onscroll = function () {
 
 var countryLinks = document.querySelectorAll(".card-subtitle a");
 
-for (var i = 0; i < countryLinks.length - 1; i++) {
+for (var i = 0; i < countryLinks.length; i++) {
     countryLinks[i].onclick = function () {
         Tarks.MessageBox.Show(
             "You have clicked in one country link",

@@ -71,8 +71,9 @@
     <Content Include="Images\lake.jpg" />
     <Content Include="Images\pipi7.png" />
     <Content Include="Images\pipitlayer.png" />
-    <Content Include="SideMenu\index.html" />
+    <Content Include="Resposive\index.html" />
     <Content Include="packages.config" />
+    <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -81,13 +82,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
-    <Content Include="scripts.js" />
-    <Content Include="SideMenu\scripts.js" />
-    <Content Include="styles.css" />
-    <Content Include="SideMenu\style.css" />
-    <Content Include="tarks.js" />
-    <Content Include="tarks.css" />
+    <Content Include="Blog\index.html" />
+    <Content Include="Blog\scripts.js" />
+    <Content Include="Resposive\scripts.js" />
+    <Content Include="Blog\styles.css" />
+    <Content Include="Resposive\style.css" />
+    <Content Include="Tarkcss\tarks.js" />
+    <Content Include="Tarkcss\tarks.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
