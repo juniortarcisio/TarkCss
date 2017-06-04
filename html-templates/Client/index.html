@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../Tarkcss/tarks.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />    
+</head>
+<body>
+    <aside id="mySidenav" class="sidenav scrollbar-gray">
+        <article>
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+            <i class="fa fa-user-circle usericon" aria-hidden="true"></i>
+            <h1>Username</h1>
+            <a class="edit-username" href="#">Edit profile</a>
+            <hr />
+            <section class="items">
+                <a href="#"><i class="fa fa-home"></i>Home</a>
+                <a href="../Blog/index.html"><i class="fa fa-plane"></i>Fixed version</a>
+                <a href="#"><i class="fa fa-commenting"></i>Messages</a>
+                <a href="#"><i class="fa fa-cog"></i>Settings</a>
+                <a href="#"><i class="fa fa-code"></i>About</a>
+            </section>
+            <section class="social">
+                <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
+                <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter"></a>
+                <a href="https://br.linkedin.com/in/tarcisio-de-jesus-ferreira-j%C3%BAnior-2a547425" target="_blank" class="fa fa-round fa-linkedin"></a>
+                <a href="skype:tarcisiocorvo?call" class="fa fa-round fa-skype"></a>
+                <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
+            </section><!---->
+        </article>
+    </aside>
+    <header class="topheader">        
+        CoolWebsite
+    </header>
+    <nav class="topnav">
+        <div class="topnav-container">
+            <a class="topnav-button-side" href="#home" onclick="toggleNav()">
+                <span>&#9776;</span>
+            </a>      
+            <a href="#news">
+                <i class="fa fa-home home-bar" aria-hidden="true"></i>
+            </a>     
+            <a href="#news">
+                <span>Home</span>
+            </a>
+            <a href="#news">
+                <span>></span>
+            </a>
+            <a href="#news">
+                <span>Details</span>
+            </a>
+            <i class="fa fa-battery-full battery-bar" aria-hidden="true"></i>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h2>Top Navigation Example</h2>
+                <p>Some content..</p>
+                <p>TODO</p>
+                <ul>
+                    <li>Add responsive grid system</li>
+                    <li>Add cards, dynamic dialogs, masks</li>
+                    <li>Add forms, canvas, etc</li>
+                    <li>Recycle into N templates: web non-responsive resource full, responsive</li>
+                </ul>
+            </article>
+            <article>
+                <div class="card big">
+                    <img src="../Images/pipitlayer.png" />
+                    <div class="card-container">
+                        <h3>Pipit - The flying girl</h3>
+                        <p class="card-message">Flying over the skies</p>
+                        <p class="card-subtitle">
+                            <a href="#">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span>Indonesia</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card big">
+                    <img src="../Images/pipi7.png" />
+                    <div class="card-container">
+                        <h3>Pipit - The flying girl</h3>
+                        <p class="card-message">Kalimantan Beach</p>
+                        <p class="card-subtitle">
+                            <a href="#">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMEUwNDkxMDE3N0QxMUUyODY3Q0FBOTFCQzlGNjlDRiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowMEUwNDkxMTE3N0QxMUUyODY3Q0FBOTFCQzlGNjlDRiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwRTA0OTBFMTc3RDExRTI4NjdDQUE5MUJDOUY2OUNGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAwRTA0OTBGMTc3RDExRTI4NjdDQUE5MUJDOUY2OUNGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+D76wCAAAAG9JREFUeNpiPCeo9pSBgUEKiD8z0AfwAvEzFiiDAYmmi+VMDAMERi0etZhmgOXP+w8DYzGbtOQ/KPsfHUP5H+Of9x/fAxkCQPyXThYzA/EHFmYBPmYkAXoB5tHsNGrxqMXUK7mgTR5eOjd9PgMEGACLNBM7Kx9mIgAAAABJRU5ErkJggg==" alt="Indonesia" title="Indonesia" />
+                                <span>Indonesia</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <!--<img src="../Images/pipi7.png" />-->
+            </article>
+            <br class="clear" />
+        </section>
+        <section>
+            <article>
+                <div class="card small">
+                    <img src="../Images/lake.jpg" alt="" />
+                    <div class="card-container">
+                        <h3>Lake park</h3>
+                        <p class="card-message">It's a park in Embu das Artes</p>
+                        <p class="card-subtitle">
+                            <a href="#">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span>São Paulo</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card small">
+                    <img src="../Images/cityblur.jpg" alt="" />
+                    <div class="card-container">
+                        <h3>The blur skies</h3>
+                        <p class="card-message">A blur city shot</p>
+                        <p class="card-subtitle">
+                            <a href="#">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span>São Paulo</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card small">
+                    <img src="../Images/enchanted.jpg" alt="" />
+                    <div class="card-container">
+                        <h3>Enchant</h3>
+                        <p class="card-message">Make someone's eyes bright</p>
+                        <p class="card-subtitle">
+                            <a href="#">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span>Anywhere</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </article>
+            <br class="clear" />
+            <!--<article>
+                <a href="#" class="fa fa-ban"></a>
+                <a href="#" class="fa fa-user-circle"></a>
+                <div class="fa fa-spinner fa-spin"></div>
+
+                <button id="myBtn">Open Modal</button>
+
+                <span class="tooltip">
+                    tooltip test
+                    <span class="tooltiptext">Tooltip text</span>
+                </span>
+                <div class="chip">
+                    <i class="fa fa-html5" aria-hidden="true"></i>
+                    John Doe
+                </div>
+            </article>-->
+        </section>
+        <footer>
+            <section>
+                <ul>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Português</a></li>
+                    <li><a href="#">Espaniol</a></li>
+                    <li><a href="#">Bahasa Indonesia</a></li>
+                </ul>
+            </section>
+            <div class="clear"></div>
+        </footer>
+    </main>
+    <footer>My HTML template v0.0.0.1A</footer>
+
+    <!-- AIzaSyC-Kx-lxSaR6FVip-_3Z9mqobPcjtkLSdU -->
+    <script src="../Tarkcss/tarks.js"></script>
+    <script src="./scripts.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script>-->
+</body>
+</html>

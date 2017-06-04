@@ -66,6 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\index.html" />
+    <Content Include="Client\scripts.js" />
+    <Content Include="Client\style.css" />
     <Content Include="Images\cityblur.jpg" />
     <Content Include="Images\enchanted.jpg" />
     <Content Include="Images\lake.jpg" />
@@ -73,6 +76,7 @@
     <Content Include="Images\pipitlayer.png" />
     <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
+    <Content Include="Responsive\portuguese.html" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -94,6 +98,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
