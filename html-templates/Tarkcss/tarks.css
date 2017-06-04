@@ -310,17 +310,48 @@ table {
     clear:both;
 }
 
-.card.small {
-    width:250px;
+@media only screen and (min-width: 900px) {
+    .card.small {
+        width:20%;
+    }
+
+    .card.medium {
+        width:25%;
+    }
+
+    .card.big {
+        width:33%;
+    }
 }
 
-.card.medium {
-    width:330px;
+@media only screen and (min-width: 600px) and (max-width:899px) {
+    .card.small {
+        width:25%;
+    }
+
+    .card.medium {
+        width:33%;
+    }
+
+    .card.big {
+        width:45%;
+    }
 }
 
-.card.big {
-    width:450px;
+@media only screen and (max-width:599px) {
+    .card.small {
+        width:33%;
+    }
+
+    .card.medium {
+        width:45%;
+    }
+
+    .card.big {
+        width:95%;
+    }
 }
+
 
 
 /*.card.small:hover {

@@ -36,6 +36,13 @@ main>section {
     margin-left:20px;
 }
 
+
+@media only screen and (max-width:599px) {
+    main>section {
+        margin-left:5px;
+    }
+}
+
 main>footer{
     background-color:#222;
     padding:10px;
