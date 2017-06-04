@@ -447,3 +447,23 @@ main {
     color:white;
     font-weight:bold;
 }
+
+
+/* Text -------------------------------------------------*/
+
+.textmark {
+    font-weight:bold;
+    background-color:#ffff32;
+}
+
+.textmark.blue {
+    background-color:#2fffff;
+}
+
+.textmark.green {
+    background-color:#6dfb47;
+}
+
+.textmark.red {
+    background-color:#ff4848;
+}

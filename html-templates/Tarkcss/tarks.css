@@ -340,11 +340,11 @@ table {
 
 @media only screen and (max-width:599px) {
     .card.small {
-        width:33%;
+        width:45%;
     }
 
     .card.medium {
-        width:45%;
+        width:95%;
     }
 
     .card.big {
