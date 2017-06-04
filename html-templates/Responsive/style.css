@@ -467,3 +467,12 @@ main {
 .textmark.red {
     background-color:#ff4848;
 }
+
+.textmark.linethrough {
+    text-decoration: line-through;
+}
+
+
+.textmark.purple {
+    background-color:#b262ff;
+}
