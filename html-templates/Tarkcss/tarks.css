@@ -312,43 +312,43 @@ table {
 
 @media only screen and (min-width: 900px) {
     .card.small {
-        width:20%;
+        min-width:20%;
     }
 
     .card.medium {
-        width:25%;
+        min-width:25%;
     }
 
     .card.big {
-        width:33%;
+        min-width:33%;
     }
 }
 
 @media only screen and (min-width: 600px) and (max-width:899px) {
     .card.small {
-        width:25%;
+        min-width:25%;
     }
 
     .card.medium {
-        width:33%;
+        min-width:33%;
     }
 
     .card.big {
-        width:45%;
+        min-width:45%;
     }
 }
 
 @media only screen and (max-width:599px) {
     .card.small {
-        width:40%;
+        min-width:40%;
     }
 
     .card.medium {
-        width:90%;
+        min-width:90%;
     }
 
     .card.big {
-        width:90%;
+        min-width:90%;
     }
 }
 
