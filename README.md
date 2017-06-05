@@ -8,6 +8,8 @@ https://juniortarcisio.github.io/TarkCss/TarkCss/Blog/index.html
 
 https://juniortarcisio.github.io/TarkCss/TarkCss/Responsive/index.html
 
+https://juniortarcisio.github.io/TarkCss/TarkCss/Responsive/portuguese.html
+
 
 # Usability details at
 
