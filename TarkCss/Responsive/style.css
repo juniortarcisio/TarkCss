@@ -513,3 +513,11 @@ main {
 .btn-bookmark {
     font-size:14px;
 }
+
+.topheader span {
+    text-shadow:0px 0px 15px #aaffaa;
+}
+
+.topheader img {
+    box-shadow:0px 1px 6px #aaffaa;
+}
