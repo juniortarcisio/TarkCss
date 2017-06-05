@@ -43,3 +43,16 @@ for (var i = 0; i < countryLinks.length; i++) {
         return false;
     }
 }
+
+var countryLinks = document.querySelectorAll(".card-subtitle a");
+
+for (var i = 0; i < countryLinks.length; i++) {
+    countryLinks[i].onclick = function () {
+        Tarks.MessageBox.Show(
+            "I am sorry, this function isn't avaliable yet.<br> Try again some weeks later.",
+            "Bookmark",
+            Tarks.MessageBox.Icons.Success
+        );
+        return false;
+    }
+}

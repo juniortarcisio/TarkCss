@@ -454,18 +454,25 @@ main {
 .textmark {
     font-weight:bold;
     background-color:#ffff32;
+    border-radius:8px;
+    padding-left:3px;
+    padding-right:3px;
+    box-shadow: 1px 1px 2px #cfcf02;
 }
 
-.textmark.blue {
+.textmark.aqua {
     background-color:#2fffff;
+    box-shadow: 1px 1px 2px #0fcfcf;
 }
 
 .textmark.green {
     background-color:#6dfb47;
+    box-shadow: 1px 1px 2px #2ddb07;
 }
 
 .textmark.red {
     background-color:#ff4848;
+    box-shadow: 1px 1px 2px #cf1818;
 }
 
 .textmark.linethrough {
@@ -475,4 +482,34 @@ main {
 
 .textmark.purple {
     background-color:#b262ff;
+    box-shadow: 1px 1px 2px #8232cf;
+}
+
+.textmark.black {
+    color:white;
+    background-color:#333;
+    box-shadow: 1px 1px 2px #000;
+}
+
+.textmark.white {
+    background-color:#fff;
+    box-shadow: 1px 1px 2px #bbb;
+}
+
+.textmark.pink {
+    color:white;
+    background-color:#ca17d8;
+    box-shadow: 1px 1px 2px #632b67;
+}
+
+.textmark.blue {
+    color:white;
+    background-color:#294be4;
+    box-shadow: 1px 1px 2px #283e94;
+}
+
+
+
+.btn-bookmark {
+    font-size:14px;
 }
