@@ -514,8 +514,14 @@ main {
 }
 
 
-.btn-bookmark {
+.btn-bookmark, .btn-bookmark a {
     font-size:14px;
+    font-weight:bold;
+    color:#4b4f56 !important;
+}
+
+.btn-bookmark .fa-comment {
+    margin-left:20px;
 }
 
 .topheader span {
@@ -568,4 +574,6 @@ main {
     .autoresize {
         font-size:11px;
     }
+
+    .home-icon, .home-link, .nav-arrow { display:none }
 }
