@@ -41,6 +41,7 @@ main>section {
     main>section {
         margin-left:5px;
     }
+
 }
 
 main>footer{
@@ -508,6 +509,9 @@ main {
     box-shadow: 1px 1px 2px #283e94;
 }
 
+.autoresize {
+    font-size:14px;
+}
 
 
 .btn-bookmark {
@@ -520,4 +524,48 @@ main {
 
 .topheader img {
     box-shadow:0px 1px 6px #aaffaa;
+}
+
+
+@media only screen and (min-width: 1650px) {
+    .card-to-be {
+        min-width:30% !important;
+    }
+    .autoresize {
+        font-size:15px;
+    }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1649px)  {
+    .card-to-be {
+        min-width:45% !important;
+    }
+    .autoresize {
+        font-size:14px;
+    }
+}
+
+@media only screen and (min-width: 951px) and (max-width:899px) {
+    .card-to-be {
+        min-width:45% !important;
+    }
+    .autoresize {
+        font-size:13px;
+    }
+}
+
+@media only screen and (max-width:950px) {
+    .card-to-be {
+        min-width:90% !important;
+    }
+    .autoresize {
+        font-size:12px;
+    }
+}
+
+
+@media only screen and (max-width:650px) {
+    .autoresize {
+        font-size:11px;
+    }
 }
