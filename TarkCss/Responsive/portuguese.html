@@ -13,9 +13,10 @@
     <link href="../Tarkcss/tarks.css" rel="stylesheet" />
     <link href="./style.css" rel="stylesheet" />
     <link id="page_favicon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAABYlh0AAAAAAF2ZJQAe1N4ApVQ/AHytTwBS6O4Afq1PADP6/wCSLAsAf69SAFyaIwBp1t4AgaxKAIKsSgCMjYAAoMN8AGKXGwBzpkMAibRdAJkqCQBk0KUAjdu2AGyeOQBo3csAjLFVACnr8QBI3tIAu4ReADfBhwBSsWAAjIFxAHK9dwAf2+UAYZccAH2tUQCJtF4AXZAPAFmVGgBWqGEAV4d8AFilWQBflRoARHUSAFOHIQAn7fUARnIKAJ/DfgCQPRgAplg/AF2ZIABLp0QAcmBMAFmVGwCIgGUAocJ5AHS8cwBflRsALM+1AEbg1wCZKAkAE/P/AA35/wAO+f8AKtC7AFPi6gByi4IAZc2gADC/ygB/wHkAsH9fAEmrSwCO2rQAjLNbAKl1SgB/wnwAa2BOAH+uUQCMMw0AmlgxAD7BggCgwnsAQ3YSADH2/wBXlyAAItzVAJW9cQBUr1kAeatKAFyZIwBp1d4ANMWRAHGilgBDdhMAFvH/AHNfSgAT9P8AJdnOADzFiQBLfxsAjycHAIywVQC7knYAkSoHAH69tgBo3s4AL8DKAEV5FABajygAW48oAIwxDQChwXgAqk4uAH+vUQAY6vsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAV1dXV1dUi4uK11dXV1dAQFrWVlZOTJQYgsqWVlZawEBYwI1JTM6akRARyUmAmMBASwiAB0hTGRnXwNbVBEsAQFtV2E+KDxObhRcP1UebAEBKRo9XjQJME9KNnJgLScBARc4G1NoHGZGcEIIOyAXAQESSQdDBg8xBB9BFSNJEgEBWFYTGUUYDFppS2UkVlgBAQUvLy83UUgWEG8vLy8FAQEKCgoKCnENDk0KCgoKCgEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf//AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAA=" rel="icon" type="image/x-icon">
+    <script src="../angular.min.js"></script>
     <title>Brazilian Portuguese lessons - Verb Conjugation</title>
 </head>
-<body>
+<body ng-app="myApp">
     <aside id="mySidenav" class="sidenav scrollbar-gray">
         <article>
             <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
@@ -235,10 +236,18 @@
                     </p>
                 </div>
             </div>
+        </section>
+        <br class="clear" />
+        <section ng-controller="regularVerbsCtrl">
+            <article>
+                <h2>Verbs conjugation - Simple present - Regular verbs</h2>
+                <p>Regular verbs are verbs which follow a same pattern when conjugating, following there are some examples</p>
+            </article>
             <div class="card big card-to-be">
                 <div class="card-container">
-                    <h3><span class="textmark purple">To</span> walk verb - Anda<span class="textmark purple">r</span></h3>
-                    <p class="card-message">Portuguese Verb: "Andar".</p><br /><br />
+                    <select ng-model="selectedVerb" ng-options="x.Portuguese for x in verbs"></select>
+                    <h3><span class="textmark purple">To</span> {{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+                    <p class="card-message">Portuguese Verb: "{{selectedVerb.Portuguese}}".</p><br /><br />
                     <table>
                         <tbody>
                             <tr>
@@ -249,307 +258,61 @@
                             <tr>
                                 <td>I <span class="textmark aqua autoresize">Myself</span></td>
                                 <td>Eu</td>
-                                <td>And<span class="textmark aqua">o</span></td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}<span class="textmark aqua">o</span></td>
                             </tr>
                             <tr>
                                 <td>You <span class="textmark green autoresize">Singular</span></td>
                                 <td>Você</td>
-                                <td>Anda</td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}</td>
                             </tr>
                             <tr>
                                 <td>He <span class="textmark green autoresize">Singular</span></td>
                                 <td>Ele</td>
-                                <td>Anda</td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}</td>
                             </tr>
                             <tr>
                                 <td>She <span class="textmark green autoresize">Singular</span></td>
                                 <td>Ela</td>
-                                <td>Anda</td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}</td>
                             </tr>
                             <tr>
                                 <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
                                 <td>Isto</td>
-                                <td>Anda</td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}</td>
                             </tr>
                             <tr>
                                 <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
                                 <td>Aquilo</td>
-                                <td>Anda</td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}</td>
                             </tr>
                             <tr>
                                 <td>You <span class="textmark yellow autoresize">Plural</span></td>
                                 <td>Vocês</td>
-                                <td>Anda<span class="textmark">m</span></td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark">m</span></td>
                             </tr>
                             <tr>
                                 <td>They/He <span class="textmark yellow autoresize">Plural</span> <span class="textmark blue autoresize">Male</span></td>
                                 <td>Eles</td>
-                                <td>Anda<span class="textmark">m</span></td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark">m</span></td>
                             </tr>
                             <tr>
                                 <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
                                 <td>Elas</td>
-                                <td>Anda<span class="textmark">m</span></td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark">m</span></td>
                             </tr>
                             <tr>
                                 <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
                                 <td>Estes</td>
-                                <td>Anda<span class="textmark">m</span></td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark">m</span></td>
                             </tr>
                             <tr>
                                 <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
                                 <td>Aqueles</td>
-                                <td>Anda<span class="textmark">m</span></td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark">m</span></td>
                             <tr>
                                 <td>We <span class="textmark red autoresize">Ourselves</span></td>
                                 <td>Nós</td>
-                                <td>Anda<span class="textmark red">mos</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="card-subtitle">
-                        <a class="btn-bookmark" href="#">
-                            <i class="fa fa-bookmark" aria-hidden="true"></i>
-                            <span>Bookmark</span>
-                            <i class="fa fa-comment" aria-hidden="true"></i>
-                            <span>Comment</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="card big card-to-be">
-                <div class="card-container">
-                    <h3><span class="textmark purple">To</span> eat verb - Come<span class="textmark purple">r</span></h3>
-                    <p class="card-message">Portuguese Verb: "Comer".</p><br /><br />
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>English</th>
-                                <th>Noun</th>
-                                <th>Verb</th>
-                            </tr>
-                            <tr>
-                                <td>I <span class="textmark aqua autoresize">Myself</span></td>
-                                <td>Eu</td>
-                                <td>Com<span class="textmark aqua">o</span></td>
-                            </tr>
-                            <tr>
-                                <td>You <span class="textmark green autoresize">Singular</span></td>
-                                <td>Você</td>
-                                <td>Come</td>
-                            </tr>
-                            <tr>
-                                <td>He <span class="textmark green autoresize">Singular</span></td>
-                                <td>Ele</td>
-                                <td>Come</td>
-                            </tr>
-                            <tr>
-                                <td>She <span class="textmark green autoresize">Singular</span></td>
-                                <td>Ela</td>
-                                <td>Come</td>
-                            </tr>
-                            <tr>
-                                <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
-                                <td>Isto</td>
-                                <td>Come</td>
-                            </tr>
-                            <tr>
-                                <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
-                                <td>Aquilo</td>
-                                <td>Come</td>
-                            </tr>
-                            <tr>
-                                <td>You <span class="textmark yellow autoresize">Plural</span></td>
-                                <td>Vocês</td>
-                                <td>Come<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>They/He <span class="textmark yellow autoresize">Plural</span> <span class="textmark blue autoresize">Male</span></td>
-                                <td>Eles</td>
-                                <td>Come<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
-                                <td>Elas</td>
-                                <td>Come<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
-                                <td>Estes</td>
-                                <td>Come<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
-                                <td>Aqueles</td>
-                                <td>Come<span class="textmark">m</span></td>
-                            <tr>
-                                <td>We <span class="textmark red autoresize">Ourselves</span></td>
-                                <td>Nós</td>
-                                <td>Come<span class="textmark red">mos</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="card-subtitle">
-                        <a class="btn-bookmark" href="#">
-                            <i class="fa fa-bookmark" aria-hidden="true"></i>
-                            <span>Bookmark</span>
-                            <i class="fa fa-comment" aria-hidden="true"></i>
-                            <span>Comment</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="card big card-to-be">
-                <div class="card-container">
-                    <h3><span class="textmark purple">To</span> drink verb - Bebe<span class="textmark purple">r</span></h3>
-                    <p class="card-message">Portuguese Verb: "Beber".</p><br /><br />
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>English</th>
-                                <th>Noun</th>
-                                <th>Verb</th>
-                            </tr>
-                            <tr>
-                                <td>I <span class="textmark aqua autoresize">Myself</span></td>
-                                <td>Eu</td>
-                                <td>Beb<span class="textmark aqua">o</span></td>
-                            </tr>
-                            <tr>
-                                <td>You <span class="textmark green autoresize">Singular</span></td>
-                                <td>Você</td>
-                                <td>Bebe</td>
-                            </tr>
-                            <tr>
-                                <td>He <span class="textmark green autoresize">Singular</span></td>
-                                <td>Ele</td>
-                                <td>Bebe</td>
-                            </tr>
-                            <tr>
-                                <td>She <span class="textmark green autoresize">Singular</span></td>
-                                <td>Ela</td>
-                                <td>Bebe</td>
-                            </tr>
-                            <tr>
-                                <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
-                                <td>Isto</td>
-                                <td>Bebe</td>
-                            </tr>
-                            <tr>
-                                <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
-                                <td>Aquilo</td>
-                                <td>Bebe</td>
-                            </tr>
-                            <tr>
-                                <td>You <span class="textmark yellow autoresize">Plural</span></td>
-                                <td>Vocês</td>
-                                <td>Bebe<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>They/He <span class="textmark yellow autoresize">Plural</span> <span class="textmark blue autoresize">Male</span></td>
-                                <td>Eles</td>
-                                <td>Bebe<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
-                                <td>Elas</td>
-                                <td>Bebe<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
-                                <td>Estes</td>
-                                <td>Bebe<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
-                                <td>Aqueles</td>
-                                <td>Bebe<span class="textmark">m</span></td>
-                            <tr>
-                                <td>We <span class="textmark red autoresize">Ourselves</span></td>
-                                <td>Nós</td>
-                                <td>Bebe<span class="textmark red">mos</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="card-subtitle">
-                        <a class="btn-bookmark" href="#">
-                            <i class="fa fa-bookmark" aria-hidden="true"></i>
-                            <span>Bookmark</span>
-                            <i class="fa fa-comment" aria-hidden="true"></i>
-                            <span>Comment</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="card big card-to-be">
-                <div class="card-container">
-                    <h3><span class="textmark purple">To</span> buy verb - Compra<span class="textmark purple">r</span></h3>
-                    <p class="card-message">Portuguese Verb: "Comprar".</p><br /><br />
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>English</th>
-                                <th>Noun</th>
-                                <th>Verb</th>
-                            </tr>
-                            <tr>
-                                <td>I <span class="textmark aqua autoresize">Myself</span></td>
-                                <td>Eu</td>
-                                <td>Compr<span class="textmark aqua">o</span></td>
-                            </tr>
-                            <tr>
-                                <td>You <span class="textmark green autoresize">Singular</span></td>
-                                <td>Você</td>
-                                <td>Compra</td>
-                            </tr>
-                            <tr>
-                                <td>He <span class="textmark green autoresize">Singular</span></td>
-                                <td>Ele</td>
-                                <td>Compra</td>
-                            </tr>
-                            <tr>
-                                <td>She <span class="textmark green autoresize">Singular</span></td>
-                                <td>Ela</td>
-                                <td>Compra</td>
-                            </tr>
-                            <tr>
-                                <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
-                                <td>Isto</td>
-                                <td>Compra</td>
-                            </tr>
-                            <tr>
-                                <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
-                                <td>Aquilo</td>
-                                <td>Compra</td>
-                            </tr>
-                            <tr>
-                                <td>You <span class="textmark yellow autoresize">Plural</span></td>
-                                <td>Vocês</td>
-                                <td>Compra<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>They/He <span class="textmark yellow autoresize">Plural</span> <span class="textmark blue autoresize">Male</span></td>
-                                <td>Eles</td>
-                                <td>Compra<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
-                                <td>Elas</td>
-                                <td>Compra<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
-                                <td>Estes</td>
-                                <td>Compra<span class="textmark">m</span></td>
-                            </tr>
-                            <tr>
-                                <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
-                                <td>Aqueles</td>
-                                <td>Compra<span class="textmark">m</span></td>
-                            <tr>
-                                <td>We <span class="textmark red autoresize">Ourselves</span></td>
-                                <td>Nós</td>
-                                <td>Compra<span class="textmark red">mos</span></td>
+                                <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark red">mos</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -603,5 +366,36 @@
     <script src="../Tarkcss/tarks.js"></script>
     <script src="./scripts.js"></script>
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script>-->
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('regularVerbsCtrl', function($scope, $http) {
+            //$http.get("customers.php")
+            //.then(function (response) { $scope.names = response.data.records; });
+
+            $scope.verbs = [
+                { Portuguese: "Andar", English: "Walk" },
+                { Portuguese: "Comer", English: "Eat" },
+                { Portuguese: "Beber", English: "Drink" },
+                { Portuguese: "Comprar", English: "Buy" },
+                { Portuguese: "Nadar", English: "Swim" },
+                { Portuguese: "Pular", English: "Jump" }
+            ];
+
+            $scope.selectedVerb = $scope.verbs[0];
+
+            //$scope.Table_OnClick = function (x) {
+    	    //    $scope.selected = x;
+            //}
+        });
+
+        app.filter('RemoveLastChar', function () {
+            return function (x, q) {
+                if (typeof q == "undefined")
+                    q = 1;
+                return x.substr(0, x.length - q);
+            };
+        });
+
+    </script>
 </body>
 </html>
