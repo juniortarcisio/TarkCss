@@ -245,7 +245,7 @@
             </article>
             <div class="card big card-to-be">
                 <div class="card-container">
-                    <select ng-model="selectedVerb" ng-options="x.Portuguese for x in verbs"></select>
+                    <select ng-model="selectedVerb" ng-options="x.English for x in verbs"></select>
                     <h3><span class="textmark purple">To</span> {{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
                     <p class="card-message">Portuguese Verb: "{{selectedVerb.Portuguese}}".</p><br /><br />
                     <table>
@@ -378,7 +378,14 @@
                 { Portuguese: "Beber", English: "Drink" },
                 { Portuguese: "Comprar", English: "Buy" },
                 { Portuguese: "Nadar", English: "Swim" },
-                { Portuguese: "Pular", English: "Jump" }
+                //{ Portuguese: "Pular", English: "Jump" },
+                { Portuguese: "Cantar", English: "Sing" },
+                { Portuguese: "Falar", English: "Speak" },
+                { Portuguese: "Entender", English: "Understand" },
+                { Portuguese: "Trabalhar", English: "Work" },
+                { Portuguese: "Estudar", English: "Study" },
+                { Portuguese: "Aprender", English: "Learn" },
+                { Portuguese: "Jogar", English: "Play" }
             ];
 
             $scope.selectedVerb = $scope.verbs[0];
