@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:site_name" content="Where in the world is Ayan Goreng?">
+    <meta property="og:title" content="Where in the world is Ayan Goreng?" />
+    <meta property="og:description" content="I'm prototyping a new game for a while" />
+    <meta property="og:image" itemprop="image" content="https://s-media-cache-ak0.pinimg.com/originals/95/0f/82/950f82666ee0031d948c7f5352c87337.jpg">
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="1440432930" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../Tarkcss/tarks.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+    <link id="page_favicon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAABYlh0AAAAAAF2ZJQAe1N4ApVQ/AHytTwBS6O4Afq1PADP6/wCSLAsAf69SAFyaIwBp1t4AgaxKAIKsSgCMjYAAoMN8AGKXGwBzpkMAibRdAJkqCQBk0KUAjdu2AGyeOQBo3csAjLFVACnr8QBI3tIAu4ReADfBhwBSsWAAjIFxAHK9dwAf2+UAYZccAH2tUQCJtF4AXZAPAFmVGgBWqGEAV4d8AFilWQBflRoARHUSAFOHIQAn7fUARnIKAJ/DfgCQPRgAplg/AF2ZIABLp0QAcmBMAFmVGwCIgGUAocJ5AHS8cwBflRsALM+1AEbg1wCZKAkAE/P/AA35/wAO+f8AKtC7AFPi6gByi4IAZc2gADC/ygB/wHkAsH9fAEmrSwCO2rQAjLNbAKl1SgB/wnwAa2BOAH+uUQCMMw0AmlgxAD7BggCgwnsAQ3YSADH2/wBXlyAAItzVAJW9cQBUr1kAeatKAFyZIwBp1d4ANMWRAHGilgBDdhMAFvH/AHNfSgAT9P8AJdnOADzFiQBLfxsAjycHAIywVQC7knYAkSoHAH69tgBo3s4AL8DKAEV5FABajygAW48oAIwxDQChwXgAqk4uAH+vUQAY6vsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAV1dXV1dUi4uK11dXV1dAQFrWVlZOTJQYgsqWVlZawEBYwI1JTM6akRARyUmAmMBASwiAB0hTGRnXwNbVBEsAQFtV2E+KDxObhRcP1UebAEBKRo9XjQJME9KNnJgLScBARc4G1NoHGZGcEIIOyAXAQESSQdDBg8xBB9BFSNJEgEBWFYTGUUYDFppS2UkVlgBAQUvLy83UUgWEG8vLy8FAQEKCgoKCnENDk0KCgoKCgEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf//AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAA=" rel="icon" type="image/x-icon">
+    <script src="../angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <title>Where in the world is Ayam Goreng?</title>
+</head>
+<body ng-app="myApp">
+    <aside id="mySidenav" class="sidenav scrollbar-gray">
+        <article>
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+            <i class="fa fa-user-circle usericon" aria-hidden="true"></i>
+            <h1 ng-show="connectedServer!=null">{{username}}</h1>
+            <h1 ng-hide="connectedServer!=null">Disconnected</h1>
+            <a class="edit-username" ng-show="connectedServer!=null">{{connectedServer.Name}}</a>
+            <hr />
+            <section class="items">
+                <a href="#"><i class="fa fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-plane"></i>Map</a>
+                <a href="#"><i class="fa fa-commenting"></i>Messages</a>
+                <a href="#"><i class="fa fa-cog"></i>Settings</a>
+                <a href="#"><i class="fa fa-code"></i>About</a>
+                <a href="#"><i class="fa fa-plug"></i>Disconnect</a>
+            </section>
+            <section class="social">
+                <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
+                <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter"></a>
+                <a href="https://www.linkedin.com/in/jr-tarcisio-587980138/" target="_blank" class="fa fa-round fa-linkedin"></a>
+                <a href="skype:tarcisiocorvo?call" class="fa fa-round fa-skype"></a>
+                <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
+            </section>
+        </article>
+    </aside>
+    <header class="topheader">
+        <span><i class="fa fa-search" aria-hidden="true"></i> Where in the world is Ayam Goreng?</span>
+    </header>
+    <nav class="topnav">
+        <div class="topnav-container">
+            <a class="topnav-button-side" href="#home" onclick="toggleNav()">
+                <span>&#9776;</span>
+            </a>
+            <a href="#news" class="home-icon">
+                <i class="fa fa-home home-bar" aria-hidden="true"></i>
+            </a>
+            <a href="#news" class="home-link">
+                <span>Game</span>
+            </a>
+            <a href="#news" class="nav-arrow">
+                <span>></span>
+            </a>
+            <a href="#news" class="nav-page">
+                <span>{{pageTitle}}</span>
+            </a>
+            <i class="fa fa-battery-full battery-bar" aria-hidden="true"></i>
+        </div>
+    </nav>
+    <main>
+        <div>
+            <section ng-view></section>
+        </div>
+        <footer>
+            <section>
+                <ul>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Português</a></li>
+                    <li><a href="#">Espaniol</a></li>
+                    <li><a href="#">Bahasa Indonesia</a></li>
+                </ul>
+            </section>
+            <div class="clear"></div>
+        </footer>
+    </main>
+    <footer>Powered by TarkCss v0.0.0.1A</footer>
+    <script src="../Prototype/app.js"></script>
+</body>
+</html>

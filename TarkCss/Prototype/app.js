@@ -1,65 +1,59 @@
 ﻿var app = angular.module('myApp', ["ngRoute"]);
-app.controller('serversCtrl', function ($scope, $http) {
 
-    $http.get("http://localhost:50907/Server/1")
-    .then(function (response) {
-        $scope.servers = response.data;
-    }, function myError(response) {
-        $scope.servers = response.statusText;
-    });
+app.filter('to_trusted', ['$sce', function ($sce) {
+        return function (text) {
+            return $sce.trustAsHtml(text);
+        };
+}]);
+
+app.controller('serversCtrl', function ($scope, $rootScope, $http, $location) {
+    $rootScope.pageTitle = "Servers";
+    $rootScope.username = "Player One";
 
     $scope.SelectServer = function(server) {
         $scope.selectedServer = server;
-        $scope.selectedName = server.Name;
     };
 
-    //$http({
-    //    method: "GET",
-    //    url: "welcome.htm"
-    //}).then(function mySuccess(response) {
-    //    $scope.results = response.data;
-    //}, function myError(response) {
-    //    $scope.results = response.statusText;
-    //});
+    $scope.RefreshServer = function () {
+        $http.get("http://localhost:50907/Server/1")
+        .then(function (response) {
+            $scope.servers = response.data;
+        }, function myError(response) {
+            $scope.servers = response.statusText;
+        });
+        $scope.selectedServer = null;
+    };
 
+    $scope.ConnectToServer = function (server) {
+        $rootScope.connectedServer = server;
+        $location.path("/home");
+    };
+
+    $scope.RefreshServer();
 });
 
+app.controller('homeCtrl', function ($scope, $rootScope, $interval) {
+    $rootScope.pageTitle = "Home";
+    $scope.welcomeMessage = "You are soon to enter in a new experience inside a parallel  world which is related to the reality...<br/>I warn you to be ready and to don't expect anything and at the same time be ready for everything";
+    $scope.writtingCount = 0;
 
-//app.controller('simplePresentCtrl', function ($scope, $rootScope) {
-//    $rootScope.title = "SimplePresent";
-//});
+    $scope.Write = function () {
+        if ($scope.writtingCount < $scope.welcomeMessage.length) {
+            $scope.writtingCount++;
+        }
+        else
+            $interval.cancel($scope.stopWritting);
+    };
 
-//app.controller('toBeCtrl', function ($scope, $rootScope) {
-//    $rootScope.title = "To be verb";
-//});
+    $scope.stopWritting = $interval($scope.Write, 30);
+});
 
-//app.controller('settingsCtrl', function ($scope, $rootScope) {
-//    $rootScope.title = "Settings";
-//});
-
-//app.controller('aboutCtrl', function ($scope, $rootScope) {
-//    $rootScope.title = "About";
-//});
-
-//app.controller('homeCtrl', function ($scope, $rootScope) {
-//    $rootScope.title = "Home";
-//});
-
-//app.config(function ($routeProvider) {
-//    $routeProvider
-//    .when("/SimplePresent", {
-//        templateUrl: "portuguese_present.html", controller: "simplePresentCtrl"
-//    })
-//    .when("/ToBe", {
-//        templateUrl: "portuguese_tobe.html", controller: "toBeCtrl"
-//    })
-//    .when("/Settings", {
-//        templateUrl: "portuguese_settings.html", controller: "settingsCtrl"
-//    })
-//    .when("/About", {
-//        templateUrl: "portuguese_about.html", controller: "aboutCtrl"
-//    })
-//    .otherwise({
-//        templateUrl: "portuguese_home.html", controller: "homeCtrl"
-//    });
-//});
+app.config(function ($routeProvider) {
+    $routeProvider
+    .when("/Servers", {
+        templateUrl: "servers.html", controller: "serversCtrl"
+    })
+    .otherwise({
+        templateUrl: "home.html", controller: "homeCtrl"
+    });
+});

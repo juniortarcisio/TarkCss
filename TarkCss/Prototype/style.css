@@ -19,6 +19,28 @@ body>footer {
     animation: shadowBright 2s infinite alternate;
 }
 
+main {
+    background-color:#020202;
+    background-image:url('worldnasahexa.jpg');
+    background-size:cover;
+    background-position-x: center;
+    color:#bbb;
+}
+
+main>div:first-of-type {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    flex: 1 0 auto;
+    min-height:700px;
+}
+
+h1, h2 {
+    color:#fff;
+    text-shadow: 0px 0px 15px #afa;
+}
+
+
 @keyframes shadowBright {
     from {
         text-shadow: 0px 0px 3px white;
@@ -32,7 +54,7 @@ nav, main, footer {
     transition: margin-left .5s;
 }
 
-main>section {
+main>div:first-of-type>section:first-of-type {
     margin-left:20px;
 }
 
@@ -92,18 +114,20 @@ main {
 
 /* top header ----------------------------------------------*/
 .topheader {    
-    background-color: #333;
+    background-color: #222;
     padding: 8px 0px 0px 0px;
     color:white;
     text-align:center;
     font-weight:bold;
-    font-size:24px;
+    font-size:24px;    
+    margin-left:250px;
+    transition: .5s;
 }
 
 /* top nav -------------------------------------------------*/
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #222;
     box-shadow: 0 1px 6px 0 rgba(32,32,32,0.7);
     font-family: Segoe UI, Arial;
     margin-left:250px;
@@ -320,7 +344,7 @@ main {
 }
 
 @media only screen and (max-width: 1300px) {
-    .topnav, body>footer
+    .topnav, body>footer, .topheader
     {
         margin-left:0px;
     }
@@ -361,7 +385,6 @@ main {
     transition: .3s;
 }
 
-
 .fa-round:hover {
     opacity: 1;
     box-shadow: 0px 0px 25px #fff;
@@ -377,28 +400,8 @@ main {
     color: white;
 }
 
-.fa-google {
-    background: #dd4b39;
-    color: white;
-}
-
 .fa-linkedin {
     background: #007bb5;
-    color: white;
-}
-
-.fa-youtube {
-    background: #bb0000;
-    color: white;
-}
-
-.fa-instagram {
-    background: #125688;
-    color: white;
-}
-
-.fa-pinterest {
-    background: #cb2027;
     color: white;
 }
 
@@ -412,7 +415,6 @@ main {
     background: #24292e;
     color: white;
 }
-
 
 
 /* icons -------------------------------------------------*/
@@ -452,78 +454,6 @@ main {
 
 /* Text -------------------------------------------------*/
 
-.textmark {
-    font-weight:bold;
-    background-color:#ffff32;
-    border-radius:8px;
-    padding-left:3px;
-    padding-right:3px;
-    box-shadow: 1px 1px 2px #cfcf02;
-}
-
-.textmark.aqua {
-    background-color:#2fffff;
-    box-shadow: 1px 1px 2px #0fcfcf;
-}
-
-.textmark.green {
-    background-color:#6dfb47;
-    box-shadow: 1px 1px 2px #2ddb07;
-}
-
-.textmark.red {
-    background-color:#ff4848;
-    box-shadow: 1px 1px 2px #cf1818;
-}
-
-.textmark.linethrough {
-    text-decoration: line-through;
-}
-
-
-.textmark.purple {
-    background-color:#b262ff;
-    box-shadow: 1px 1px 2px #8232cf;
-}
-
-.textmark.black {
-    color:white;
-    background-color:#333;
-    box-shadow: 1px 1px 2px #000;
-}
-
-.textmark.white {
-    background-color:#fff;
-    box-shadow: 1px 1px 2px #bbb;
-}
-
-.textmark.pink {
-    color:white;
-    background-color:#ca17d8;
-    box-shadow: 1px 1px 2px #632b67;
-}
-
-.textmark.blue {
-    color:white;
-    background-color:#294be4;
-    box-shadow: 1px 1px 2px #283e94;
-}
-
-.autoresize {
-    font-size:14px;
-}
-
-
-.btn-bookmark, .btn-bookmark a {
-    font-size:14px;
-    font-weight:bold;
-    color:#4b4f56 !important;
-}
-
-.btn-bookmark .fa-comment {
-    margin-left:20px;
-}
-
 .topheader span {
     text-shadow:0px 0px 15px #aaffaa;
 }
@@ -531,7 +461,6 @@ main {
 .topheader img {
     box-shadow:0px 1px 6px #aaffaa;
 }
-
 
 @media only screen and (min-width: 1650px) {
     .card-to-be {
@@ -578,6 +507,233 @@ main {
     .home-icon, .home-link, .nav-arrow { display:none }
 }
 
+/* Table -------------------------------------------------*/
+
+
+table {
+    color:#ccc;
+    background-color: #333;
+}
+
+    table tr.selected td, td.selected {
+        background-color: #555;
+        color:white;
+    }
+
+    table tr:nth-child(2n+2) {
+        background-color:#3a3a3a;
+    }
+    
+    table tr:nth-child(2n+2):hover, table tr:nth-child(2n+3):hover {
+        background-color:#333;
+        color:#fff;
+    }
+
+
+/* cards -------------------------------------------------*/
+
+.card {
+    box-shadow: 2px 2px 1px #111;
+    background-color: #2d2d2d;
+    color: #fff;
+    border: outset 2px #555;
+    border-bottom-color: #999;
+    border-right-color: #999;
+}
+
+.card:hover {
+    box-shadow: 2px 2px 1px #111;
+}
+
+.card img, .card-img {
+    width:100%;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+.card-message {
+    margin-bottom:5px;
+}
+
+.card-subtitle {
+    margin-top:5px;
+    font-size:0.9em;
+    color:#333;
+}
+
+
+.card-subtitle a {
+    color:#00af00;
+    text-decoration:none;
+}
+
+.card-subtitle a:hover {
+    text-decoration:underline;
+}
+
+.card-subtitle img {
+    border-radius:0px;
+    box-shadow: 0px 1px 3px #555;
+    width:22px;
+    height:15px;
+    margin-bottom:-2px;
+}
+
+.card-container {
+    font-family:'Segoe UI';
+    padding: 0px;
+}
+
+.card-container h3, .card-container h2, .card-container h1, .card-container h4, .card-container h5 {
+    text-shadow: 0px 1px 2px #000;
+    font-family:'Segoe UI';
+    color: #ccc;
+}
+
+
+/* page ******************************************/
+
+.table-servers-container {
+    border: 1px inset #444;
+    padding: 0px;
+    height:200px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.scrollbar-servers::-webkit-scrollbar-track
+{
+	/*border-radius: 10px;
+	background-color: #090909;*/
+}
+
+.scrollbar-servers::-webkit-scrollbar
+{
+	/*width: 10px;
+	background-color: transparent;*/
+	background-color: #222;
+}
+
+.scrollbar-servers::-webkit-scrollbar-thumb
+{
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+    background-color:#333;
+    border: 1px outset #444;
+}
+
+.scrollbar-servers::-webkit-scrollbar-button
+{
+    background-color:red;
+    background-color:#333;
+    border: 1px outset #444;
+}
+
+.scrollbar-servers::-webkit-scrollbar-button:vertical:increment 
+{
+    background-image: url('arrowdown.png');
+    background-size:cover;
+}
+.scrollbar-servers::-webkit-scrollbar-button:vertical:decrement 
+{
+    background-image: url('arrowup.png');
+    background-size:cover;
+}
+
 .table-servers tr td {
     cursor:pointer;
+}
+
+.table-servers {
+    padding: 0px;
+}
+
+.table-servers td:first-child {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.table-servers td:last-child {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.cardservers {
+    border-radius: 0px;
+    background-color: #222;
+    float:none;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:70px;
+}
+
+.cardservers h4 {
+    margin:0px;
+    padding:10px;
+    color:#888;
+}
+
+.cardservers-container {
+    background-color: #2d2d2d;
+    padding:10px;
+}
+
+
+.cardservers .card-subtitle {
+    position:relative;
+}
+.cardservers-container button {
+    background-color: #3a3a3a;
+    border: outset 1px #555;
+    color: #ccc;
+    padding: 4px 10px 4px 10px;
+}
+
+.cardservers-container .btnConnect {
+    position:absolute;
+    right:0px;
+    top:5px;
+}
+
+
+.cardservers-container .btnRefresh {
+    position:absolute;
+    right:80px;
+    top:5px;
+}
+
+.cardservers hr {
+    border-top: 1px #111 solid;
+    border-bottom: 1px #777 solid;
+    border-left: none;
+    border-right: none;
+}
+
+.cardservers .card-message {
+    text-shadow: 0px 1px 0px #000;
+    font-family: 'Segoe UI';
+    color: #ccc;
+}
+
+.cardservers-container button:disabled {
+    color:#6f6f6f;
+    text-shadow: 0px 1px 0px #989898;
+}
+
+.cardservers-container button:active {
+    border: inset 1px #555;
+}
+
+.cardservers-container button:focus {
+    outline:none;
+}
+
+
+/*change screen bightness**/
+main:after {
+  content: "";
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0; 
+  background: rgba(0,0,0,0.1);
+  pointer-events: none;
 }

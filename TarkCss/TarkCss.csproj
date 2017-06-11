@@ -76,6 +76,9 @@
     <Content Include="Images\pipi7.png" />
     <Content Include="Images\pipitlayer.png" />
     <Content Include="Prototype\app.js" />
+    <Content Include="Prototype\home.html" />
+    <Content Include="Prototype\map.jpg" />
+    <Content Include="Prototype\servers.html" />
     <Content Include="Prototype\style.css" />
     <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
@@ -86,7 +89,7 @@
     <Content Include="Responsive\portuguese_present.html" />
     <Content Include="Responsive\portuguese_settings.html" />
     <Content Include="Responsive\portuguese_tobe.html" />
-    <Content Include="Prototype\home.html" />
+    <Content Include="Prototype\index.html" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
