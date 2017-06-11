@@ -75,9 +75,18 @@
     <Content Include="Images\lake.jpg" />
     <Content Include="Images\pipi7.png" />
     <Content Include="Images\pipitlayer.png" />
+    <Content Include="Prototype\app.js" />
+    <Content Include="Prototype\style.css" />
     <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
     <Content Include="Responsive\portuguese.html" />
+    <Content Include="Responsive\portuguese_about.html" />
+    <Content Include="Responsive\portuguese_app.js" />
+    <Content Include="Responsive\portuguese_home.html" />
+    <Content Include="Responsive\portuguese_present.html" />
+    <Content Include="Responsive\portuguese_settings.html" />
+    <Content Include="Responsive\portuguese_tobe.html" />
+    <Content Include="Prototype\home.html" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
