@@ -199,7 +199,7 @@ main {
 .scrollbar-gray::-webkit-scrollbar-track
 {
 	border-radius: 10px;
-	background-color: #090909;
+	background-color: transparent;
 }
 
 .scrollbar-gray::-webkit-scrollbar
@@ -212,7 +212,7 @@ main {
 {
 	border-radius: 15px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
-	background-color: #333;
+	background-color:transparent;
 }
 
 
