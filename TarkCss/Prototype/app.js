@@ -10,12 +10,12 @@ app.controller('serversCtrl', function ($scope, $rootScope, $http, $location) {
     $rootScope.pageTitle = "Servers";
     $rootScope.username = "Player One";
 
-    $scope.SelectServer = function(server) {
+    $scope.SelectServer = function (server) {
         $scope.selectedServer = server;
     };
 
     $scope.RefreshServer = function () {
-        $http.get("http://localhost:50907/Server/1")
+        $http.get("http://200.153.165.174:27500/TarkNoIP/Server/1")
         .then(function (response) {
             $scope.servers = response.data;
         }, function myError(response) {
@@ -34,15 +34,34 @@ app.controller('serversCtrl', function ($scope, $rootScope, $http, $location) {
 
 app.controller('homeCtrl', function ($scope, $rootScope, $interval) {
     $rootScope.pageTitle = "Home";
-    $scope.welcomeMessage = "You are soon to enter in a new experience inside a parallel  world which is related to the reality...<br/>I warn you to be ready and to don't expect anything and at the same time be ready for everything";
+    $scope.welcomeMessage = "You are soon entering in a new experience inside a parallel world...                              Which is related to the reality...                            <br>.....                                I warn you to be ready...                              Don't expect anything and at the same time                             be ready for everything.";
     $scope.writtingCount = 0;
 
+    if ($rootScope.keyboardSound == null)
+        $rootScope.keyboardSound = new Audio('keyboard.mp4');
+
     $scope.Write = function () {
+        if ($rootScope.keyboardSound.paused)
+        {
+            $rootScope.keyboardSound.play();
+        }
         if ($scope.writtingCount < $scope.welcomeMessage.length) {
             $scope.writtingCount++;
+
+            //ignore html tags
+            if ($scope.welcomeMessage.charAt($scope.writtingCount) == "<") {
+                while($scope.writtingCount < $scope.welcomeMessage.length)
+                {
+                    $scope.writtingCount++;
+                    if ($scope.welcomeMessage.charAt($scope.writtingCount) == ">")
+                        return;
+                }
+            }
         }
-        else
+        else {
             $interval.cancel($scope.stopWritting);
+            $rootScope.keyboardSound.pause();
+        }
     };
 
     $scope.stopWritting = $interval($scope.Write, 30);

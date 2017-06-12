@@ -10,8 +10,10 @@
             </table>
         </div>
         <div class="card-container">
-            <h3>{{selectedServer.Name}}</h3>
-            <p class="card-message">{{selectedServer.Description}} </p>
+            <article class="server-description" ng-hide="selectedServer == null">
+                <h3>{{selectedServer.Name}}</h3>
+                <p class="card-message">{{selectedServer.Description}} </p>
+            </article>
             <hr ng-hide="selectedServer == null" />
             <p class="card-subtitle">
                 <a href="#" ng-hide="selectedServer == null">

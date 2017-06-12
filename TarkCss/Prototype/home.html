@@ -1,6 +1,6 @@
 ﻿<h1 ng-show="connectedServer!=null">Welcome to {{ connectedServer.Name }}, {{ username }}</h1>
 <h1 ng-show="connectedServer==null">Welcome to "Where in the world is Ayam Goreng"</h1>
 <p ng-bind-html="welcomeMessage | limitTo: writtingCount | to_trusted "></p>
-<a href="#!Servers">Click here to connect to a server</a>
+<a ng-show="connectedServer==null" href="#!Servers">Click here to connect to a server</a>
 
 
