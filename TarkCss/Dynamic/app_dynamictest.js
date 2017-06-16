@@ -51,18 +51,36 @@ app.controller('executionCtrl', function ($scope, $rootScope) {
         $rootScope.CamposUser = [
             { Campo: "Name", Tipo: "text", Required: true, Valor: null },
             { Campo: "Address", Tipo: "text", Required: false, Valor: null },
-            { Campo: "AddressNumber", Tipo: "number", Required: false, Valor: null },
+            { Campo: "Number", Tipo: "number", Required: false, Valor: null },
             {
                 Campo: "UF", Tipo: "select", Required: true, Valor: null, Opcoes: [
+                    { Text: "Acre", Value: "AC" },
+                    { Text: "Alagoas", Value: "AL" },
+                    { Text: "Amapá", Value: "AP" },
                     { Text: "Amazonas", Value: "AM" },
-                    { Text: "Roraima", Value: "RO" },
-                    { Text: "Paraná", Value: "PR" },
-                    { Text: "Mato grosso", Value: "MT" },
-                    { Text: "Rio grande do Sul", Value: "RS" },
-                    { Text: "Santa Catarina", Value: "SC" },
+                    { Text: "Bahia", Value: "BH" },
+                    { Text: "Ceará", Value: "CE" },
+                    { Text: "Distrito Federal", Value: "DF" },
+                    { Text: "Espírito Santos", Value: "ES" },
+                    { Text: "Goiás", Value: "GO" },
+                    { Text: "Maranhão", Value: "MA" },
+                    { Text: "Mato Grosso", Value: "MT" },
+                    { Text: "Mato Grosso do Sul", Value: "MS" },
                     { Text: "Minas Gerais", Value: "MG" },
-                    { Text: "São Paulo", Value: "SP", Default: true },
+                    { Text: "Pará", Value: "PA" },
+                    { Text: "Paraiba", Value: "PB" },
+                    { Text: "Paraná", Value: "PR" },
+                    { Text: "Pernambuco", Value: "PE" },
+                    { Text: "Piauí", Value: "PI" },
                     { Text: "Rio de Janeiro", Value: "RJ" },
+                    { Text: "Rio grande do norte", Value: "RN" },
+                    { Text: "Rio grande do Sul", Value: "RS" },
+                    { Text: "Rondônia", Value: "RO" },
+                    { Text: "Roraima", Value: "RO" },
+                    { Text: "Santa Catarina", Value: "SC" },
+                    { Text: "São Paulo", Value: "SP", Default: true },
+                    { Text: "Sergipe", Value: "SE" },
+                    { Text: "Tocantins", Value: "TO" }
                 ]
             },
             { Campo: "AcceptTerms", Tipo: "checkbox", Required: false, Valor: false }
@@ -78,19 +96,44 @@ app.controller('resultCtrl', function ($scope, $rootScope) {
 
 app.controller('configurationCtrl', function ($scope, $rootScope) {
     $rootScope.page = 'Configuration';
-    $scope.Delete = function (campo) {
-        var index = $rootScope.CamposUser.indexOf(campo);
-        $rootScope.CamposUser.splice(index, 1);
-    }
 
-    $scope.Add = function () {
+    $scope.add = function () {
         var newCampo = {
             Campo: "NewField", Tipo: "text", Required: false
         };
         $rootScope.CamposUser.push(newCampo)
     }
 
-    $scope.ChangeType = function (campo) {
+    $scope.delete = function (campo) {
+        var index = $rootScope.CamposUser.indexOf(campo);
+        $rootScope.CamposUser.splice(index, 1);
+    }
+
+    $scope.moveUp = function (campo) {
+        var index = $rootScope.CamposUser.indexOf(campo);
+        if (index == 0)
+            return;
+
+        var aboveItem = $rootScope.CamposUser[index - 1];
+        $rootScope.CamposUser[index - 1] = campo;
+        $rootScope.CamposUser[index] = aboveItem;
+    }
+
+    $scope.moveDown = function (campo) {
+        var index = $rootScope.CamposUser.indexOf(campo);
+        if (index == $rootScope.CamposUser.length - 1)
+            return;
+
+        var underItem = $rootScope.CamposUser[index + 1];
+        $rootScope.CamposUser[index + 1] = campo;
+        $rootScope.CamposUser[index] = underItem;
+    }
+
+    $scope.index = function (campo) {
+        return $rootScope.CamposUser.indexOf(campo);
+    }
+
+    $scope.changeType = function (campo) {
         if (campo.Tipo == 'checkbox') {
             campo.Required = false;
             campo.Valor = false;

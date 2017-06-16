@@ -7,7 +7,7 @@
                 <input type="text" ng-model="campo.Campo" />
             </td>
             <td>
-                <select ng-change="ChangeType(campo)" ng-model="campo.Tipo">
+                <select ng-change="changeType(campo)" ng-model="campo.Tipo">
                     <option value="text">Text</option>
                     <option value="number">Numeric</option>
                     <option value="checkbox">Boolean</option>
@@ -19,12 +19,16 @@
                 <label for="{{campo.Campo+'Required'}}" ng-disabled="campo.Tipo=='checkbox'">Required</label>
             </td>
             <td>
-                <button class="btn btn-danger" ng-click="Delete(campo)">Remove</button>
+                <button class="btn btn-danger" ng-click="delete(campo)">Remove</button>
+            </td>
+            <td>
+                <span class="glyphicon glyphicon-arrow-down icon-move" aria-hidden="true" ng-click="moveDown(campo)"></span>
+                <span class="glyphicon glyphicon-arrow-up icon-move" aria-hidden="true" ng-click="moveUp(campo)"></span>                
             </td>
         </tr>
         <tr>
-            <td colspan="4">
-                <button class="btn btn-success" ng-click="Add()">New field</button>
+            <td colspan="5">
+                <button class="btn btn-success" ng-click="add()">New field</button>
             </td>
         </tr>
     </table>
