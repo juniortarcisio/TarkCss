@@ -66,16 +66,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angular-route.js" />
     <Content Include="angular.min.js" />
     <Content Include="Client\index.html" />
     <Content Include="Client\scripts.js" />
     <Content Include="Client\style.css" />
+    <Content Include="Dynamic\1execution.html" />
+    <Content Include="Dynamic\2result.html" />
+    <Content Include="Dynamic\3configuration.html" />
+    <Content Include="Dynamic\bootstrap.min.css" />
     <Content Include="Images\cityblur.jpg" />
     <Content Include="Images\enchanted.jpg" />
     <Content Include="Images\lake.jpg" />
     <Content Include="Images\pipi7.png" />
     <Content Include="Images\pipitlayer.png" />
     <Content Include="Prototype\app.js" />
+    <Content Include="Dynamic\app_dynamictest.js" />
+    <Content Include="Dynamic\dynamictest.html" />
     <Content Include="Prototype\home.html" />
     <Content Include="Prototype\map.jpg" />
     <Content Include="Prototype\servers.html" />

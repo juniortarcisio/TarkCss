@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Dynamic/bootstrap.min.css" rel="stylesheet" />
+    <script src="../angular.min.js"></script>
+    <script src="../angular-route.js"></script>
+    <style type="text/css">
+        .red { color:red }
+        input.ng-invalid.ng-touched, select.ng-invalid.ng-touched { background-color:#f6eeee}
+        .body-content { margin-top: 50px;}
+        form { padding:20px; border-radius:8px}
+        input, select { border-radius:3px ; border: 1px solid #cccccc; padding: 6px 12px}
+        label[disabled] { color:#aaa}
+        .table-result tr th { min-width:100px}
+        .navbar-selected { background-color:#888 !important; color:white !important }
+        pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+        .string { color: green; }
+        .number { color: darkorange; }
+        .boolean { color: blue; }
+        .null { color: magenta; }
+        .key { color: red; }
+        /*main { transition: .5s;}*/
+    </style>
+</head>
+<body ng-app="myApp">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Dynamic forms</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ng-class="{'navbar-selected':page=='Execution'}" href="#!Execution">Execution</a></li>
+                    <li><a ng-class="{'navbar-selected':page=='Result'}" href="#!Result">Result</a></li>
+                    <li><a ng-class="{'navbar-selected':page=='Configuration'}" href="#!Configuration">Configuration</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <main class="container body-content">         
+        <div ng-view></div>
+    </main>
+    <script src="app_dynamictest.js"></script>
+</body>
+</html>

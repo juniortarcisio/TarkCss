@@ -1,0 +1,30 @@
+﻿<section>
+    <h2>Fields execution</h2>
+    <h4>Rendenize the form using the configurated fields</h4>
+    <form name="myForm">
+        <table border="0" cellpadding="5">
+            <tr ng-repeat="campo in CamposUser">
+                <td align="right">
+                    <label for="{{campo.Campo}}">{{campo.Campo}}</label>
+                </td>
+                <td>
+                    <input name="{{campo.Campo}}" type="{{campo.Tipo}}" ng-model="campo.Valor"
+                           ng-hide="campo.Tipo == 'select'" ng-required="campo.Required" />
+                    <select name="{{campo.Campo + 'ddl'}}" ng-show="campo.Tipo=='select'"
+                            ng-model="campo.Valor" ng-required="campo.Required">
+                        <option value="">Selecione</option>
+                        <option ng-repeat="opcao in campo.Opcoes"
+                                ng-selected="opcao.Default" value="{{opcao.Value}}">
+                            {{opcao.Text}}
+                        </option>
+                    </select>
+                    <span ng-show="campo.Required" class="red">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button ng-class="{'btn':true,'btn-success':myForm.$valid, 'btn-default':!myForm.$valid}" ng-disabled="!myForm.$valid">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+</section>

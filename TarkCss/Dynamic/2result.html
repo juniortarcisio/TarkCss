@@ -1,0 +1,20 @@
+﻿<section>
+    <h2>Fields result</h2>
+    <h4>Result view from the filled fields values</h4>
+    <table class="table-result" border="1" cellpadding="5">
+        <tr>
+            <th>Campo</th>
+            <!--<th>Tipo</th>
+            <th>Required</th>-->
+            <th>Valor</th>
+        </tr>
+        <tr ng-repeat="campo in CamposUser">
+            <td>{{campo.Campo}}</td>
+            <!--<td>{{campo.Tipo}}</td>
+            <td>{{campo.Required}}</td>-->
+            <td>{{campo.Valor}}</td>
+        </tr>
+    </table>
+    <br />
+    <pre ng-bind-html="CamposUser|json|highlight|to_trusted"></pre>
+</section>

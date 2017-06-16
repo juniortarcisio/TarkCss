@@ -67,10 +67,23 @@ app.controller('homeCtrl', function ($scope, $rootScope, $interval) {
     $scope.stopWritting = $interval($scope.Write, 30);
 });
 
+
+app.controller('dynamicCtrl', function ($scope) {
+    $scope.CamposUser = [
+        { Campo: "Nome", Tipo: "String", Exibicao: "Obrigatorio" },
+        { Campo: "Endereco", Tipo: "String", Exibicao: "Obrigatorio" },
+        { Campo: "Numero", Tipo: "Integer", Exibicao: "Obrigatorio" },
+        { Campo: "AutorizaContato", Tipo: "Boolean", Exibicao: "Obrigatorio" }
+    ];
+});
+
 app.config(function ($routeProvider) {
     $routeProvider
     .when("/Servers", {
         templateUrl: "servers.html", controller: "serversCtrl"
+    })
+    .when("/Dynamic", {
+        templateUrl: "dynamictest.html", controller: "dynamicCtrl"
     })
     .otherwise({
         templateUrl: "home.html", controller: "homeCtrl"
