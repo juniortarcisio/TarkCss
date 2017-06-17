@@ -15,7 +15,7 @@ app.controller('serversCtrl', function ($scope, $rootScope, $http, $location) {
     };
 
     $scope.RefreshServer = function () {
-        $http.get("http://200.153.165.174:27500/TarkNoIP/Server/1")
+        $http.get("http://tarksapi.azurewebsites.net/Server?serviceId=2")
         .then(function (response) {
             $scope.servers = response.data;
         }, function myError(response) {
