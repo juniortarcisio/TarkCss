@@ -20,7 +20,7 @@
 <body ng-app="myApp">
     <aside id="mySidenav" class="sidenav scrollbar-gray">
         <article>
-            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+            <i class="closebtn" onclick="toggleNav()">&times;</i>
             <i class="fa fa-user-circle usericon" aria-hidden="true"></i>
             <h1 ng-show="connectedServer!=null">{{username}}</h1>
             <h1 ng-hide="connectedServer!=null">Disconnected</h1>
@@ -48,7 +48,7 @@
     </header>
     <nav class="topnav">
         <div class="topnav-container">
-            <a class="topnav-button-side" href="#home" onclick="toggleNav()">
+            <a class="topnav-button-side" onclick="toggleNav()">
                 <span>&#9776;</span>
             </a>
             <a href="#news" class="home-icon">
@@ -67,22 +67,20 @@
         </div>
     </nav>
     <main>
-        <div>
-            <section ng-view></section>
-        </div>
-        <footer>
-            <section>
-                <ul>
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">Português</a></li>
-                    <li><a href="#">Espaniol</a></li>
-                    <li><a href="#">Bahasa Indonesia</a></li>
-                </ul>
-            </section>
-            <div class="clear"></div>
-        </footer>
+        <section ng-view></section>
     </main>
-    <footer>Powered by TarkCss v0.0.0.1A</footer>
+    <footer class="footer-page">
+        <section>
+            <ul>
+                <li><a href="#">English</a></li>
+                <li><a href="#">Português</a></li>
+                <li><a href="#">Espaniol</a></li>
+                <li><a href="#">Bahasa Indonesia</a></li>
+            </ul>
+        </section>
+        <div class="clear"></div>
+    </footer>
+    <footer class="footer-tark-css">Powered by TarkCss v0.0.0.1A</footer>
     <script src="../Prototype/app.js"></script>
 </body>
 </html>

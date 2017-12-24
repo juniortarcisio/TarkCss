@@ -221,6 +221,10 @@ main {
         transition: 0.3s;
     }
 
+    .sidenav .items .small {
+        font-size:18px;
+    }
+
     .sidenav .items a i {
         width:40px;
     }
@@ -509,6 +513,13 @@ main {
     box-shadow: 1px 1px 2px #283e94;
 }
 
+.textmark.gray {
+    color:white;
+    background-color:gray;
+    box-shadow: 1px 1px 2px #333;
+}
+
+
 .autoresize {
     font-size:14px;
 }
@@ -535,7 +546,7 @@ main {
 
 @media only screen and (min-width: 1650px) {
     .card-to-be {
-        min-width:30% !important;
+        min-width:32% !important;
     }
     .autoresize {
         font-size:15px;

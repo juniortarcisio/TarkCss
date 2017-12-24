@@ -1,0 +1,179 @@
+﻿<section ng-controller="regularVerbsCtrl">
+    <article>
+        <h2>Verbs conjugation - Simple past - Regular verbs</h2>
+        <p>Regular verbs are verbs which follow a same pattern when conjugating, following there are some examples</p>
+        <p>On past conjugating, we can divide two patterns:
+            <ul>
+                <li>Verbs that ends with "E(R)"</li>
+                <li>Verbs that ends with any other vowel different that "E" (plus R) as A, I, O, U (plus R)</li>
+            </ul>
+        </p>        
+    </article>    
+    <div class="card big card-to-be">
+        <div class="card-container">
+            <h1>Verbs that ends with A, I, O, U (plus R)</h1>
+            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs">
+            </select>
+            <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>English</th>
+                        <th>Noun</th>
+                        <th>Verb</th>
+                    </tr>
+                    <tr>
+                        <td>I <span class="textmark aqua autoresize">Myself</span></td>
+                        <td>Eu</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}<span class="textmark aqua">ei</span></td>
+                    </tr>
+                    <tr>
+                        <td>You <span class="textmark green autoresize">Singular</span></td>
+                        <td>Você</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">ou</span></td>
+                    </tr>
+                    <tr>
+                        <td>He <span class="textmark green autoresize">Singular</span></td>
+                        <td>Ele</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">ou</span></td>
+                    </tr>
+                    <tr>
+                        <td>She <span class="textmark green autoresize">Singular</span></td>
+                        <td>Ela</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">ou</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
+                        <td>Isto</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">ou</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
+                        <td>Aquilo</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">ou</span></td>
+                    </tr>
+                    <tr>
+                        <td>You <span class="textmark yellow autoresize">Plural</span></td>
+                        <td>Vocês</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}ara<span class="textmark">m</span></td>
+                    </tr>
+                    <tr>
+                        <td>They/He <span class="textmark yellow autoresize">Plural</span> <span class="textmark blue autoresize">Male</span></td>
+                        <td>Eles</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}ara<span class="textmark">m</span></td>
+                    </tr>
+                    <tr>
+                        <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
+                        <td>Elas</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}ara<span class="textmark">m</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
+                        <td>Estes</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}ara<span class="textmark">m</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
+                        <td>Aqueles</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:2}}ara<span class="textmark">m</span></td>
+                    <tr>
+                        <td>We <span class="textmark red autoresize">Ourselves</span></td>
+                        <td>Nós</td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark red">mos</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="card-subtitle">
+                <a class="btn-bookmark" href="#">
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <span>Bookmark</span>
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                    <span>Comment</span>
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="card big card-to-be">
+        <div class="card-container">
+            <h1>Verbs that ends with E(R)</h1>
+            <select ng-model="selectedVerbE" ng-options="format(x) for x in verbsE"></select>
+            <h3>{{selectedVerbE.English}} verb - {{selectedVerbE.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>English</th>
+                        <th>Noun</th>
+                        <th>Verb</th>
+                    </tr>
+                    <tr>
+                        <td>I <span class="textmark aqua autoresize">Myself</span></td>
+                        <td>Eu</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark aqua">i</span></td>
+                    </tr>
+                    <tr>
+                        <td>You <span class="textmark green autoresize">Singular</span></td>
+                        <td>Você</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">eu</span></td>
+                    </tr>
+                    <tr>
+                        <td>He <span class="textmark green autoresize">Singular</span></td>
+                        <td>Ele</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">eu</span></td>
+                    </tr>
+                    <tr>
+                        <td>She <span class="textmark green autoresize">Singular</span></td>
+                        <td>Ela</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">eu</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
+                        <td>Isto</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">eu</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
+                        <td>Aquilo</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark green autoresize">eu</span></td>
+                    </tr>
+                    <tr>
+                        <td>You <span class="textmark yellow autoresize">Plural</span></td>
+                        <td>Vocês</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark">eram</span></td>
+                    </tr>
+                    <tr>
+                        <td>They/He <span class="textmark yellow autoresize">Plural</span> <span class="textmark blue autoresize">Male</span></td>
+                        <td>Eles</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark">eram</span></td>
+                    </tr>
+                    <tr>
+                        <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
+                        <td>Elas</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark">eram</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
+                        <td>Estes</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark">eram</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
+                        <td>Aqueles</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:2}}<span class="textmark">eram</span></td>
+                    <tr>
+                        <td>We <span class="textmark red autoresize">Ourselves</span></td>
+                        <td>Nós</td>
+                        <td>{{selectedVerbE.Portuguese | RemoveLastChar:1}}<span class="textmark red">mos</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="card-subtitle">
+                <a class="btn-bookmark" href="#">
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <span>Bookmark</span>
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                    <span>Comment</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>

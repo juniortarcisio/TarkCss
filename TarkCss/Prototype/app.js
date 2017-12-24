@@ -6,6 +6,15 @@ app.filter('to_trusted', ['$sce', function ($sce) {
         };
 }]);
 
+function toggleNav() {
+    if (document.getElementById("mySidenav").style.width == "250px") {
+        document.getElementById("mySidenav").style.width = "0px";
+    }
+    else {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+}
+
 app.controller('serversCtrl', function ($scope, $rootScope, $http, $location) {
     $rootScope.pageTitle = "Servers";
     $rootScope.username = "Player One";
@@ -29,6 +38,10 @@ app.controller('serversCtrl', function ($scope, $rootScope, $http, $location) {
         $location.path("/home");
     };
 
+    $scope.GoBack = function () {
+        $location.path("/home");
+    };
+
     $scope.RefreshServer();
 });
 
@@ -37,15 +50,17 @@ app.controller('homeCtrl', function ($scope, $rootScope, $interval) {
     $scope.welcomeMessage = "You are soon entering in a new experience inside a parallel world...                              Which is related to the reality...                            <br>.....                                I warn you to be ready...                              Don't expect anything and at the same time                             be ready for everything.";
     $scope.writtingCount = 0;
 
-    if ($rootScope.keyboardSound == null)
+    if ($rootScope.keyboardSound == null) {
         $rootScope.keyboardSound = new Audio('keyboard.mp4');
+        $rootScope.keyboardSound.loop = false;
+    }
 
     $scope.Write = function () {
         if ($rootScope.keyboardSound.paused)
         {
             $rootScope.keyboardSound.play();
         }
-        if ($scope.writtingCount < $scope.welcomeMessage.length) {
+        if ($scope.writtingCount < $scope.welcomeMessage.length && $rootScope.pageTitle == "Home") {
             $scope.writtingCount++;
 
             //ignore html tags
@@ -68,22 +83,10 @@ app.controller('homeCtrl', function ($scope, $rootScope, $interval) {
 });
 
 
-app.controller('dynamicCtrl', function ($scope) {
-    $scope.CamposUser = [
-        { Campo: "Nome", Tipo: "String", Exibicao: "Obrigatorio" },
-        { Campo: "Endereco", Tipo: "String", Exibicao: "Obrigatorio" },
-        { Campo: "Numero", Tipo: "Integer", Exibicao: "Obrigatorio" },
-        { Campo: "AutorizaContato", Tipo: "Boolean", Exibicao: "Obrigatorio" }
-    ];
-});
-
 app.config(function ($routeProvider) {
     $routeProvider
     .when("/Servers", {
         templateUrl: "servers.html", controller: "serversCtrl"
-    })
-    .when("/Dynamic", {
-        templateUrl: "dynamictest.html", controller: "dynamicCtrl"
     })
     .otherwise({
         templateUrl: "home.html", controller: "homeCtrl"

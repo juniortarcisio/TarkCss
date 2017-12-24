@@ -1,30 +1,34 @@
-﻿<div class="card cardservers big">
-    <h4><i class="fa fa-plug" aria-hidden="true"></i> Select a game server</h4>
-    <div class="cardservers-container">
-        <div class="table-servers-container scrollbar-servers">
-            <table class="table-servers">
-                <tr ng-repeat="server in servers" ng-click="SelectServer(server)" ng-class="{selected: server.Name == selectedServer.Name}">
-                    <td>{{server.Name}}</td>
-                    <td>{{server.Address}}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="card-container">
-            <article class="server-description" ng-hide="selectedServer == null">
-                <h3>{{selectedServer.Name}}</h3>
-                <p class="card-message">{{selectedServer.Description}} </p>
-            </article>
-            <hr ng-hide="selectedServer == null" />
-            <p class="card-subtitle">
-                <a href="#" ng-hide="selectedServer == null">
-                    <span>Online</span>
-                </a>
-                <a href="#" ng-show="selectedServer == null">
-                    <span>&nbsp;</span>
-                </a>
-                <button class="btnConnect" ng-click="ConnectToServer(selectedServer)" ng-disabled="selectedServer == null">Connect</button>
-                <button class="btnRefresh" ng-click="RefreshServer()">Refresh</button>
-            </p>
+﻿<div class="cardservers-holder">
+    <div class="card cardservers big">
+        <h4><i class="fa fa-plug" aria-hidden="true"></i> Select a game server</h4>
+        <div class="cardservers-container">
+            <div class="table-servers-container scrollbar-servers">
+                <table class="table-servers">
+                    <tr ng-repeat="server in servers" ng-click="SelectServer(server)" ng-class="{selected: server.Name == selectedServer.Name}">
+                        <td>{{server.Name}}</td>
+                        <td>{{server.Address}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-container">
+                <article class="server-description" ng-hide="selectedServer == null">
+                    <h3>{{selectedServer.Name}}</h3>
+                    <p class="card-message">{{selectedServer.Description}} </p>
+                </article>
+                <hr ng-hide="selectedServer == null" />
+                <p class="card-subtitle">
+                    <a href="#" ng-hide="selectedServer == null">
+                        <span>Online</span>
+                    </a>
+                    <a href="#" ng-show="selectedServer == null">
+                        <span>&nbsp;</span>
+                    </a>
+                    <button class="btnBack" ng-click="GoBack()">Back</button>
+                    <button class="btnConnect" ng-click="ConnectToServer(selectedServer)" ng-disabled="selectedServer == null">Connect</button>
+                    <button class="btnRefresh" ng-click="RefreshServer()">Refresh</button>
+                </p>
+            </div>
         </div>
     </div>
+
 </div>

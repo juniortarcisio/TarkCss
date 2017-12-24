@@ -3,7 +3,12 @@
     font-family: Arial;
 }
 
-body>footer {
+html, body {
+    height:100%;
+    background-color:#020202;
+}
+
+.footer-tark-css {
     position: fixed;
     bottom: 0;
     background-color: #222;
@@ -25,14 +30,11 @@ main {
     background-size:cover;
     background-position-x: center;
     color:#bbb;
+    min-height:80%;
 }
 
-main>div:first-of-type {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    flex: 1 0 auto;
-    min-height:700px;
+main>section:first-of-type {
+    height:90%;
 }
 
 h1, h2 {
@@ -66,7 +68,7 @@ main>div:first-of-type>section:first-of-type {
 
 }
 
-main>footer{
+.footer-page{
     background-color:#222;
     padding:10px;
     color:#aaa;
@@ -75,22 +77,22 @@ main>footer{
     box-shadow: 0px -2px 3px #333;
 }
 
-main>footer section {
+.footer-page section {
     float:left;
     padding:10px;
 }
 
 
-main>footer ul {
+.footer-page ul {
     list-style:none;
 }
 
-main>footer ul li {
+.footer-page ul li {
     list-style:none;
     padding:6px;
 }
 
-main>footer ul li a {
+.footer-page ul li a {
     color:#aaa;
     text-decoration:none;
 }
@@ -317,7 +319,10 @@ main {
         margin:15px;
         margin-left:25px;
     }
-        
+    
+    .closebtn {
+        cursor:pointer;
+    }        
     .sidenav .closebtn {
         color: #818181;
         position: absolute;
@@ -344,7 +349,7 @@ main {
 }
 
 @media only screen and (max-width: 1300px) {
-    .topnav, body>footer, .topheader
+    .topnav, .footer-tark-css, .topheader
     {
         margin-left:0px;
     }
@@ -658,15 +663,52 @@ table {
     border-bottom-right-radius: 0px;
 }
 
+.cardservers-holder {
+    position:relative;
+}
+
 .cardservers {
+    position:relative;
     border-radius: 0px;
     background-color: #222;
     float:none;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:70px;
+    margin:auto;
+    margin-top:10px;
     animation-name: fadeInSlide;
     animation-duration: 0.8s;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    .cardservers {
+        margin-top:10px;
+    }
+
+    .topheader { 
+        font-size:18px;
+    }
+    main>div:first-of-type>section:first-of-type {
+        margin-left:10px;
+    }
+    
+    @keyframes fadeInSlide {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
 }
 
 .server-description {
@@ -675,17 +717,6 @@ table {
 }
 
 
-@keyframes fadeInSlide {
-    from {
-        opacity: 0;
-        margin-top:-900px;
-    }
-
-    to {
-        opacity: 1;
-        margin-top:70px;
-    }
-}
 
 @keyframes fadeIn {
     from {
@@ -725,10 +756,15 @@ table {
     top:5px;
 }
 
-
 .cardservers-container .btnRefresh {
     position:absolute;
     right:80px;
+    top:5px;
+}
+
+.cardservers-container .btnBack {
+    position:absolute;
+    right:160px;
     top:5px;
 }
 
