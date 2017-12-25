@@ -438,3 +438,7 @@ table {
     font-family:'Segoe UI';
     color: #333;
 }
+
+.bold {
+    font-weight:bold;
+}

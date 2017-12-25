@@ -92,6 +92,7 @@
     <Content Include="Responsive\portuguese.html" />
     <Content Include="Responsive\portuguese_about.html" />
     <Content Include="Responsive\portuguese_app.js" />
+    <Content Include="Responsive\portuguese_exercises.html" />
     <Content Include="Responsive\portuguese_future.html" />
     <Content Include="Responsive\portuguese_home.html" />
     <Content Include="Responsive\portuguese_past.html" />
@@ -99,6 +100,7 @@
     <Content Include="Responsive\portuguese_present.html" />
     <Content Include="Responsive\portuguese_presentContinuous.html" />
     <Content Include="Responsive\portuguese_settings.html" />
+    <Content Include="Responsive\portuguese_tenseComparison.html" />
     <Content Include="Responsive\portuguese_tobe.html" />
     <Content Include="Prototype\index.html" />
     <Content Include="Tarkcss\tarkslesscss.less" />

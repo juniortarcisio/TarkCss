@@ -1,5 +1,20 @@
 ﻿var app = angular.module('myApp', ["ngRoute"]);
 
+var basicList = [
+        { Portuguese: "Andar", English: "To Walk" },
+        { Portuguese: "Comer", English: "To Eat" },
+        { Portuguese: "Beber", English: "To Drink" },
+        { Portuguese: "Comprar", English: "To Buy" },
+        { Portuguese: "Nadar", English: "To Swim" },
+        { Portuguese: "Cantar", English: "To Sing" },
+        { Portuguese: "Falar", English: "To Speak" },
+        { Portuguese: "Entender", English: "To Understand" },
+        { Portuguese: "Trabalhar", English: "To Work" },
+        { Portuguese: "Estudar", English: "To Study" },
+        { Portuguese: "Aprender", English: "To Learn" },
+        { Portuguese: "Jogar", English: "To Play" }
+];
+
 app.controller('regularVerbsCtrl', function ($scope, $http) {
 
 
@@ -15,20 +30,7 @@ app.filter('RemoveLastChar', function () {
 
 app.controller('simplePresentCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Simple Present";
-    $scope.verbs = [
-        { Portuguese: "Andar", English: "To Walk" },
-        { Portuguese: "Comer", English: "To Eat" },
-        { Portuguese: "Beber", English: "To Drink" },
-        { Portuguese: "Comprar", English: "To Buy" },
-        { Portuguese: "Nadar", English: "To Swim" },
-        { Portuguese: "Cantar", English: "To Sing" },
-        { Portuguese: "Falar", English: "To Speak" },
-        { Portuguese: "Entender", English: "To Understand" },
-        { Portuguese: "Trabalhar", English: "To Work" },
-        { Portuguese: "Estudar", English: "To Study" },
-        { Portuguese: "Aprender", English: "To Learn" },
-        { Portuguese: "Jogar", English: "To Play" }
-    ];
+    $scope.verbs = basicList;
 
     $scope.selectedVerb = $scope.verbs[0];
 
@@ -39,20 +41,7 @@ app.controller('simplePresentCtrl', function ($scope, $rootScope) {
 
 app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Present Continuous";
-    $scope.verbs = [
-        { Portuguese: "Andar", English: "To Walk" },
-        { Portuguese: "Comer", English: "To Eat" },
-        { Portuguese: "Beber", English: "To Drink" },
-        { Portuguese: "Comprar", English: "To Buy" },
-        { Portuguese: "Nadar", English: "To Swim" },
-        { Portuguese: "Cantar", English: "To Sing" },
-        { Portuguese: "Falar", English: "To Speak" },
-        { Portuguese: "Entender", English: "To Understand" },
-        { Portuguese: "Trabalhar", English: "To Work" },
-        { Portuguese: "Estudar", English: "To Study" },
-        { Portuguese: "Aprender", English: "To Learn" },
-        { Portuguese: "Jogar", English: "To Play" }
-    ];
+    $scope.verbs = basicList;
 
     $scope.selectedVerb = $scope.verbs[0];
 
@@ -95,20 +84,7 @@ app.controller('simplePastCtrl', function ($scope, $rootScope) {
 
 app.controller('pastContinuousCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Present Continuous";
-    $scope.verbs = [
-        { Portuguese: "Andar", English: "To Walk" },
-        { Portuguese: "Comer", English: "To Eat" },
-        { Portuguese: "Beber", English: "To Drink" },
-        { Portuguese: "Comprar", English: "To Buy" },
-        { Portuguese: "Nadar", English: "To Swim" },
-        { Portuguese: "Cantar", English: "To Sing" },
-        { Portuguese: "Falar", English: "To Speak" },
-        { Portuguese: "Entender", English: "To Understand" },
-        { Portuguese: "Trabalhar", English: "To Work" },
-        { Portuguese: "Estudar", English: "To Study" },
-        { Portuguese: "Aprender", English: "To Learn" },
-        { Portuguese: "Jogar", English: "To Play" }
-    ];
+    $scope.verbs = basicList;
 
     $scope.selectedVerb = $scope.verbs[0];
 
@@ -119,18 +95,26 @@ app.controller('pastContinuousCtrl', function ($scope, $rootScope) {
 
 app.controller('simpleFutureCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Simple Future";
+    $scope.verbs = basicList;
+
+    $scope.selectedVerb = $scope.verbs[0];
+
+    $scope.format = function (verb) {
+        return verb.English + ' -> ' + verb.Portuguese;
+    };
+});
+
+
+app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
+    $rootScope.title = "Tenses Comparison";
     $scope.verbs = [
         { Portuguese: "Andar", English: "To Walk" },
-        { Portuguese: "Comer", English: "To Eat" },
-        { Portuguese: "Beber", English: "To Drink" },
         { Portuguese: "Comprar", English: "To Buy" },
         { Portuguese: "Nadar", English: "To Swim" },
         { Portuguese: "Cantar", English: "To Sing" },
         { Portuguese: "Falar", English: "To Speak" },
-        { Portuguese: "Entender", English: "To Understand" },
         { Portuguese: "Trabalhar", English: "To Work" },
         { Portuguese: "Estudar", English: "To Study" },
-        { Portuguese: "Aprender", English: "To Learn" },
         { Portuguese: "Jogar", English: "To Play" }
     ];
 
@@ -140,7 +124,6 @@ app.controller('simpleFutureCtrl', function ($scope, $rootScope) {
         return verb.English + ' -> ' + verb.Portuguese;
     };
 });
-
 
 app.controller('toBeCtrl', function ($scope, $rootScope) {
     $rootScope.title = "To be verb";
@@ -185,6 +168,9 @@ app.config(function ($routeProvider) {
     .when("/About", {
         templateUrl: "portuguese_about.html", controller: "aboutCtrl"
     })
+    .when("/TenseComparison", {
+        templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
+    })    
     .otherwise({
         templateUrl: "portuguese_home.html", controller: "homeCtrl"
     });

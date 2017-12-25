@@ -8,7 +8,7 @@
             <select ng-model="selectedVerb" ng-options="format(x) for x in verbs">
             </select>
             <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
-            <p>Using the auxiliar verb ir on present "vou" (the most common)</p>
+            <p>Using the auxiliar verb ir on present "vou" (the most common) <br />It's equivalent to "going to", explain a sure or close future</p>
             <table>
                 <tbody>
                     <tr>
@@ -91,7 +91,7 @@
         <div class="card-container">
             <br />
             <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
-            <p>Using the auxiliar verb ir on future "irei" (not as common as "vou")</p>
+            <p>Using the auxiliar verb ir on future "irei" (not as common as "vou")<br />It's equivalent to "Will", explains a far or incertain future</p>
             <table>
                 <tbody>
                     <tr>

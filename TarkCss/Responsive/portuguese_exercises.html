@@ -1,0 +1,89 @@
+﻿<section ng-controller="regularVerbsCtrl">
+    <article>
+        <h2>Verbs conjugation - Present Continous - Regular verbs</h2>
+        <p>Regular verbs are verbs which follow a same pattern when conjugating, following there are some examples</p>
+    </article>
+    <div class="card big card-to-be">
+        <div class="card-container">
+            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs">
+            </select>
+            <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>English</th>
+                        <th>Noun</th>
+                        <th>Verb</th>
+                    </tr>
+                    <tr>
+                        <td>I <span class="textmark aqua autoresize">Myself</span></td>
+                        <td>Eu <span class="textmark aqua">estava</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>You <span class="textmark green autoresize">Singular</span></td>
+                        <td>Você <span class="textmark green autoresize">estava</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>He <span class="textmark green autoresize">Singular</span></td>
+                        <td>Ele <span class="textmark green autoresize">estava</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>She <span class="textmark green autoresize">Singular</span></td>
+                        <td>Ela <span class="textmark green autoresize">estava</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
+                        <td>Isto <span class="textmark green autoresize">estava</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
+                        <td>Aquilo <span class="textmark green autoresize">estava</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>You <span class="textmark yellow autoresize">Plural</span></td>
+                        <td>Vocês <span class="textmark yellow autoresize">estam</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>They/He <span class="textmark yellow autoresize">Plural</span><span class="textmark blue autoresize">Male</span></td>
+                        <td>Eles <span class="textmark yellow autoresize">estam</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
+                        <td>Elas <span class="textmark yellow autoresize">estam</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
+                        <td>Estes <span class="textmark yellow autoresize">estam</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                    </tr>
+                    <tr>
+                        <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
+                        <td>Aqueles <span class="textmark yellow autoresize">estam</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                    <tr>
+                        <td>We <span class="textmark red autoresize">Ourselves</span></td>
+                        <td>Nós <span class="textmark red">estavamos</span></td>
+                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="card-subtitle">
+                <a class="btn-bookmark" href="#">
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <span>Bookmark</span>
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                    <span>Comment</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>

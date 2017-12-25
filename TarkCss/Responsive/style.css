@@ -222,7 +222,7 @@ main {
     }
 
     .sidenav .items .small {
-        font-size:18px;
+        font-size:16px;
     }
 
     .sidenav .items a i {
@@ -548,6 +548,9 @@ main {
     .card-to-be {
         min-width:32% !important;
     }
+    .card-to-be.large {
+        min-width:49% !important;
+    }
     .autoresize {
         font-size:15px;
     }
@@ -557,6 +560,9 @@ main {
     .card-to-be {
         min-width:45% !important;
     }
+    .card-to-be.large {
+        min-width:90% !important;
+    }
     .autoresize {
         font-size:14px;
     }
@@ -565,6 +571,9 @@ main {
 @media only screen and (min-width: 951px) and (max-width:899px) {
     .card-to-be {
         min-width:45% !important;
+    }
+    .card-to-be.large {
+        min-width:90% !important;
     }
     .autoresize {
         font-size:13px;
