@@ -458,26 +458,26 @@ main {
 
 .textmark {
     font-weight:bold;
-    background-color:#ffff32;
+    background-color:#f7f78a;
     border-radius:8px;
     padding-left:3px;
     padding-right:3px;
-    box-shadow: 1px 1px 2px #cfcf02;
+    box-shadow: 1px 1px 2px #cccc4e;
 }
 
 .textmark.aqua {
-    background-color:#2fffff;
-    box-shadow: 1px 1px 2px #0fcfcf;
+    background-color:#b8f5f5;
+    box-shadow: 1px 1px 2px #79d0d0;
 }
 
 .textmark.green {
-    background-color:#6dfb47;
-    box-shadow: 1px 1px 2px #2ddb07;
+    background-color:#bbffa9;
+    box-shadow: 1px 1px 2px #82d870;
 }
 
 .textmark.red {
-    background-color:#ff4848;
-    box-shadow: 1px 1px 2px #cf1818;
+    background-color: #ff8080;
+    box-shadow: 1px 1px 2px #d86868;
 }
 
 .textmark.linethrough {
@@ -486,14 +486,14 @@ main {
 
 
 .textmark.purple {
-    background-color:#b262ff;
-    box-shadow: 1px 1px 2px #8232cf;
+    background-color:#ca95fd;
+    box-shadow: 1px 1px 2px #8a49ca;
 }
 
 .textmark.black {
     color:white;
-    background-color:#333;
-    box-shadow: 1px 1px 2px #000;
+    background-color: #6d6c6c;
+    box-shadow: 1px 1px 2px #191818;
 }
 
 .textmark.white {
@@ -503,14 +503,14 @@ main {
 
 .textmark.pink {
     color:white;
-    background-color:#ca17d8;
+    background-color:#cb59d4;
     box-shadow: 1px 1px 2px #632b67;
 }
 
 .textmark.blue {
     color:white;
-    background-color:#294be4;
-    box-shadow: 1px 1px 2px #283e94;
+    background-color:#5b70ce;
+    box-shadow: 1px 1px 2px #4a5994;
 }
 
 .textmark.gray {
