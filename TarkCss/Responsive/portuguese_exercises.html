@@ -1,78 +1,171 @@
 ﻿<section ng-controller="regularVerbsCtrl">
     <article>
-        <h2>Verbs conjugation - Present Continous - Regular verbs</h2>
-        <p>Regular verbs are verbs which follow a same pattern when conjugating, following there are some examples</p>
+        <h2>Simple present exercises</h2>
     </article>
-    <div class="card big card-to-be">
+    <div class="card big card-to-be large">
         <div class="card-container">
-            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs">
-            </select>
-            <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+            <p>Select the correct answer that represent the simple present</p>
             <table>
                 <tbody>
                     <tr>
-                        <th>English</th>
-                        <th>Noun</th>
-                        <th>Verb</th>
+                        <td>1.</td>
+                        <td>
+                            <span>Frango frito</span>
+                            <select>
+                                <option></option>
+                                <option>Ser</option>
+                                <option>Era</option>
+                                <option>É</option>            
+                                <option>Com</option>
+                            </select> 
+                            <span>uma delícia</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td>I <span class="textmark aqua autoresize">Myself</span></td>
-                        <td>Eu <span class="textmark aqua">estava</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                        <td>2.</td>
+                        <td>
+                            <span>A Fitria</span>
+                            <select>
+                                <option></option>
+                                <option>Cantou</option>
+                                <option>Cantar</option>
+                                <option>Canta</option>
+                                <option>Catalonia</option>
+                            </select>
+                            <span>muito bem</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td>You <span class="textmark green autoresize">Singular</span></td>
-                        <td>Você <span class="textmark green autoresize">estava</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                        <td>3.</td>
+                        <td>
+                            <span>Eu</span>
+                            <select>
+                                <option></option>
+                                <option>Entender</option>
+                                <option>Entendi</option>
+                                <option>Entendo</option>
+                                <option>Entendemos</option>
+                            </select>
+                            <span>um pouco de Português e também</span>
+                            <select>
+                                <option></option>
+                                <option>Falei</option>
+                                <option>Falar</option>
+                                <option>Fala</option>
+                                <option>Falo</option>
+                            </select>
+                            <span>apenas um pouco</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td>He <span class="textmark green autoresize">Singular</span></td>
-                        <td>Ele <span class="textmark green autoresize">estava</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                        <td>4.</td>
+                        <td>
+                            <span>Ele</span>
+                            <select>
+                                <option></option>
+                                <option>Jogar</option>
+                                <option>Jogava</option>
+                                <option>Joga</option>
+                                <option>Jogamos</option>
+                            </select>
+                            <span>futebol muito bem, mas</span>
+                            <select>
+                                <option></option>
+                                <option>Trabalha</option>
+                                <option>Trabalhar</option>
+                                <option>Trabalhava</option>
+                                <option>Trabalhou</option>
+                            </select>
+                            <span>pouco</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td>She <span class="textmark green autoresize">Singular</span></td>
-                        <td>Ela <span class="textmark green autoresize">estava</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                        <td>5.</td>
+                        <td>
+                            <span>Nós</span>
+                            <select>
+                                <option></option>
+                                <option>Comeremos</option>
+                                <option>Comer</option>
+                                <option>Come</option>
+                                <option>Comemos</option>
+                            </select>
+                            <span>muitos panetones no natal. Panetone</span>
+                            <select>
+                                <option></option>
+                                <option>Ser</option>
+                                <option>Será</option>
+                                <option>É</option>
+                                <option>Era</option>
+                            </select>
+                            <span>muito caro</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
-                        <td>Isto <span class="textmark green autoresize">estava</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                        <td>6.</td>
+                        <td>
+                            <span>Vocês</span>
+                            <select>
+                                <option></option>
+                                <option>Trabalhar</option>
+                                <option>Trabalho</option>
+                                <option>Trabalham</option>
+                                <option>Trabalharam</option>
+                            </select>
+                            <span>muito todos os dias, e</span>
+                            <select>
+                                <option></option>
+                                <option>Bebem</option>
+                                <option>Beber</option>
+                                <option>Beberam</option>
+                                <option>Bebo</option>
+                            </select>
+                            <span>muita água também</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
-                        <td>Aquilo <span class="textmark green autoresize">estava</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray autoresize">ndo</span></td>
+                        <td>7.</td>
+                        <td>
+                            <span>Você</span>
+                            <select>
+                                <option></option>
+                                <option>Estudar</option>
+                                <option>Estudo</option>
+                                <option>Estuda</option>
+                                <option>Estudaram</option>
+                            </select>
+                            <span>bastante nesta escola, esta escola</span>
+                            <select>
+                                <option></option>
+                                <option>Seria</option>
+                                <option>Será</option>
+                                <option>Era</option>
+                                <option>É</option>
+                            </select>
+                            <span>a melhor escola de todas</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td>You <span class="textmark yellow autoresize">Plural</span></td>
-                        <td>Vocês <span class="textmark yellow autoresize">estam</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
-                    </tr>
-                    <tr>
-                        <td>They/He <span class="textmark yellow autoresize">Plural</span><span class="textmark blue autoresize">Male</span></td>
-                        <td>Eles <span class="textmark yellow autoresize">estam</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
-                    </tr>
-                    <tr>
-                        <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
-                        <td>Elas <span class="textmark yellow autoresize">estam</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
-                    </tr>
-                    <tr>
-                        <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
-                        <td>Estes <span class="textmark yellow autoresize">estam</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
-                    </tr>
-                    <tr>
-                        <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
-                        <td>Aqueles <span class="textmark yellow autoresize">estam</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
-                    <tr>
-                        <td>We <span class="textmark red autoresize">Ourselves</span></td>
-                        <td>Nós <span class="textmark red">estavamos</span></td>
-                        <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark gray">ndo</span></td>
+                        <td>8.</td>
+                        <td>
+                            <span>Este cachorro</span>
+                            <select>
+                                <option></option>
+                                <option>Nadar</option>
+                                <option>Nada</option>
+                                <option>Nadou</option>
+                                <option>Nado</option>
+                            </select>
+                            <span>uma longa distância todos os dias, ele</span>
+                            <select>
+                                <option></option>
+                                <option>Andar</option>
+                                <option>Andou</option>
+                                <option>Ando</option>
+                                <option>Anda</option>
+                            </select>
+                            <span>bastante também</span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -80,6 +173,8 @@
                 <a class="btn-bookmark" href="#">
                     <i class="fa fa-bookmark" aria-hidden="true"></i>
                     <span>Bookmark</span>
+                </a>
+                <a class="btn-bookmark" href="#">
                     <i class="fa fa-comment" aria-hidden="true"></i>
                     <span>Comment</span>
                 </a>

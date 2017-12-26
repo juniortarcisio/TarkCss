@@ -125,6 +125,11 @@ app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
     };
 });
 
+
+app.controller('exercisesCtrl', function ($scope, $rootScope) {
+    $rootScope.title = "Exercises";
+});
+
 app.controller('toBeCtrl', function ($scope, $rootScope) {
     $rootScope.title = "To be verb";
 });
@@ -170,7 +175,10 @@ app.config(function ($routeProvider) {
     })
     .when("/TenseComparison", {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
-    })    
+    })
+    .when("/Exercises", {
+        templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
+    })
     .otherwise({
         templateUrl: "portuguese_home.html", controller: "homeCtrl"
     });
