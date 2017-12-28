@@ -480,6 +480,14 @@ main {
     box-shadow: 1px 1px 2px #d86868;
 }
 
+.text-red {
+    color:red;
+}
+
+.text-green {
+    color:green;
+}
+
 .textmark.linethrough {
     text-decoration: line-through;
 }

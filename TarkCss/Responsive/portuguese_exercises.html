@@ -1,4 +1,4 @@
-﻿<section ng-controller="regularVerbsCtrl">
+﻿<section>
     <article>
         <h2>Simple present exercises</h2>
     </article>
@@ -7,164 +7,20 @@
             <p>Select the correct answer that represent the simple present</p>
             <table>
                 <tbody>
-                    <tr>
-                        <td>1.</td>
+                    <tr ng-repeat="question in questions">
+                        <td>{{$index+1}}.</td>
                         <td>
-                            <span>Frango frito</span>
-                            <select>
-                                <option></option>
-                                <option>Ser</option>
-                                <option>Era</option>
-                                <option>É</option>            
-                                <option>Com</option>
-                            </select> 
-                            <span>uma delícia</span>
+                            <span ng-repeat="questionPart in question.parts">
+                                <span ng-show="questionPart.type=='text'">{{questionPart.value}}</span>
+                                <select ng-show="questionPart.type=='answer'" ng-model="questionPart.answer">
+                                    <option selected></option>
+                                    <option ng-repeat="option in questionPart.options">{{option}}</option>
+                                </select>
+                            </span>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
                         <td>
-                            <span>A Fitria</span>
-                            <select>
-                                <option></option>
-                                <option>Cantou</option>
-                                <option>Cantar</option>
-                                <option>Canta</option>
-                                <option>Catalonia</option>
-                            </select>
-                            <span>muito bem</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>
-                            <span>Eu</span>
-                            <select>
-                                <option></option>
-                                <option>Entender</option>
-                                <option>Entendi</option>
-                                <option>Entendo</option>
-                                <option>Entendemos</option>
-                            </select>
-                            <span>um pouco de Português e também</span>
-                            <select>
-                                <option></option>
-                                <option>Falei</option>
-                                <option>Falar</option>
-                                <option>Fala</option>
-                                <option>Falo</option>
-                            </select>
-                            <span>apenas um pouco</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>
-                            <span>Ele</span>
-                            <select>
-                                <option></option>
-                                <option>Jogar</option>
-                                <option>Jogava</option>
-                                <option>Joga</option>
-                                <option>Jogamos</option>
-                            </select>
-                            <span>futebol muito bem, mas</span>
-                            <select>
-                                <option></option>
-                                <option>Trabalha</option>
-                                <option>Trabalhar</option>
-                                <option>Trabalhava</option>
-                                <option>Trabalhou</option>
-                            </select>
-                            <span>pouco</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5.</td>
-                        <td>
-                            <span>Nós</span>
-                            <select>
-                                <option></option>
-                                <option>Comeremos</option>
-                                <option>Comer</option>
-                                <option>Come</option>
-                                <option>Comemos</option>
-                            </select>
-                            <span>muitos panetones no natal. Panetone</span>
-                            <select>
-                                <option></option>
-                                <option>Ser</option>
-                                <option>Será</option>
-                                <option>É</option>
-                                <option>Era</option>
-                            </select>
-                            <span>muito caro</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6.</td>
-                        <td>
-                            <span>Vocês</span>
-                            <select>
-                                <option></option>
-                                <option>Trabalhar</option>
-                                <option>Trabalho</option>
-                                <option>Trabalham</option>
-                                <option>Trabalharam</option>
-                            </select>
-                            <span>muito todos os dias, e</span>
-                            <select>
-                                <option></option>
-                                <option>Bebem</option>
-                                <option>Beber</option>
-                                <option>Beberam</option>
-                                <option>Bebo</option>
-                            </select>
-                            <span>muita água também</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7.</td>
-                        <td>
-                            <span>Você</span>
-                            <select>
-                                <option></option>
-                                <option>Estudar</option>
-                                <option>Estudo</option>
-                                <option>Estuda</option>
-                                <option>Estudaram</option>
-                            </select>
-                            <span>bastante nesta escola, esta escola</span>
-                            <select>
-                                <option></option>
-                                <option>Seria</option>
-                                <option>Será</option>
-                                <option>Era</option>
-                                <option>É</option>
-                            </select>
-                            <span>a melhor escola de todas</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8.</td>
-                        <td>
-                            <span>Este cachorro</span>
-                            <select>
-                                <option></option>
-                                <option>Nadar</option>
-                                <option>Nada</option>
-                                <option>Nadou</option>
-                                <option>Nado</option>
-                            </select>
-                            <span>uma longa distância todos os dias, ele</span>
-                            <select>
-                                <option></option>
-                                <option>Andar</option>
-                                <option>Andou</option>
-                                <option>Ando</option>
-                                <option>Anda</option>
-                            </select>
-                            <span>bastante também</span>
+                            <i ng-show="rightAnswer(question) == true" class="fa fa-check text-green" aria-hidden="true"></i>
+                            <i ng-show="rightAnswer(question) == false" class="fa fa-times text-red" aria-hidden="true"></i>
                         </td>
                     </tr>
                 </tbody>

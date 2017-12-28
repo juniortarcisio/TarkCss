@@ -125,9 +125,142 @@ app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
     };
 });
 
+function shuffle(array) {
+    /* source: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 
 app.controller('exercisesCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Exercises";
+
+    $scope.questions = [
+        {
+            parts: [
+                { type: "text", value: "Frango frito" },
+                { type: "answer", correctAnswer: "é", options: ["ser", "era", "é", "com"] },
+                { type: "text", value: "uma delícia" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "A Fitria" },
+                { type: "answer", correctAnswer: "canta", options: ["cantou", "cantar", "canta", "catalonia"] },
+                { type: "text", value: "muito bem" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Eu" },
+                { type: "answer", correctAnswer: "entendo", options: ["entender", "entendo", "entendi", "entendemos"] },
+                { type: "text", value: "um pouco de português e também" },
+                { type: "answer", correctAnswer: "falo", options: ["falei", "falar", "fala", "falo"] },
+                { type: "text", value: "apenas um pouco" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Ele" },
+                { type: "answer", correctAnswer: "joga", options: ["joga", "jogar", "jogava", "jogamos"] },
+                { type: "text", value: "futebol muito bem, mas" },
+                { type: "answer", correctAnswer: "falo", options: ["trabalha", "trabalhar", "trabalhava", "trabalhou"] },
+                { type: "text", value: "pouco" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Nós" },
+                { type: "answer", correctAnswer: "comemos", options: ["comemos", "comer", "comiamos", "comeremos"] },
+                { type: "text", value: "muitos panetones no natal. Panetone" },
+                { type: "answer", correctAnswer: "é", options: ["é", "era", "ser", "seria"] },
+                { type: "text", value: "muito caro" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Vocês" },
+                { type: "answer", correctAnswer: "trabalham", options: ["trabalhar", "trabalho", "trabalham", "trabalhou"] },
+                { type: "text", value: "muito todos os dias, e" },
+                { type: "answer", correctAnswer: "bebem", options: ["bebem", "beber", "bebo", "beberam"] },
+                { type: "text", value: "muita água também" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Você" },
+                { type: "answer", correctAnswer: "estuda", options: ["estuda", "estudar", "estudo", "estudaram"] },
+                { type: "text", value: "bastante nesta escola, esta escola" },
+                { type: "answer", correctAnswer: "é", options: ["é", "era", "seria", "será"] },
+                { type: "text", value: "a melhor escola de todas" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Este cachorro" },
+                { type: "answer", correctAnswer: "nada", options: ["nada", "nadava", "nadar", "nadara"] },
+                { type: "text", value: "uma longa distância todos os dias, ele" },
+                { type: "answer", correctAnswer: "anda", options: ["anda", "andava", "andara", "andas"] },
+                { type: "text", value: "bastante também" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Eu" },
+                { type: "answer", correctAnswer: "gosto", options: ["gosto", "gosta", "gostava", "gostaria"] },
+                { type: "text", value: "de trabalhar, mas eu não" },
+                { type: "answer", correctAnswer: "gosto", options: ["gosto", "gosta", "gostava", "gostaria"] },
+                { type: "text", value: "muito de estudar" }
+            ]
+        },
+        {
+            parts: [
+                { type: "text", value: "Esta casa" },
+                { type: "answer", correctAnswer: "é", options: ["é", "era", "seria", "sera"] },
+                { type: "text", value: "muito cara, mas" },
+                { type: "answer", correctAnswer: "parece", options: ["parece", "parecia", "pareceria", "parecer"] },
+                { type: "text", value: "muito segura" }
+            ]
+        }
+    ];
+
+    $scope.rightAnswer = function(question) {
+        for (var i = 0; i < question.parts.length; i++) {
+            var part = question.parts[i];
+            if (part.type == "answer" && part.answer != part.correctAnswer) {
+                if (part.answer == null || part.answer == "")
+                    return null;
+                else
+                    return false;
+            }
+        }
+        return true;
+    };
+
+    for (var i = 0; i < $scope.questions.length; i++) {
+        for (var j = 0; j < $scope.questions[i].parts.length; j++) {
+            if ($scope.questions[i].parts[j].type == "answer") {
+                $scope.questions[i].parts[j].options = shuffle($scope.questions[i].parts[j].options);
+            }
+        }
+    }
+
+    $scope.questions = shuffle($scope.questions);
+    
 });
 
 app.controller('toBeCtrl', function ($scope, $rootScope) {
