@@ -178,7 +178,7 @@ app.controller('exercisesCtrl', function ($scope, $rootScope) {
                 { type: "text", value: "Ele" },
                 { type: "answer", correctAnswer: "joga", options: ["joga", "jogar", "jogava", "jogamos"] },
                 { type: "text", value: "futebol muito bem, mas" },
-                { type: "answer", correctAnswer: "falo", options: ["trabalha", "trabalhar", "trabalhava", "trabalhou"] },
+                { type: "answer", correctAnswer: "trabalha", options: ["trabalha", "trabalhar", "trabalhava", "trabalhou"] },
                 { type: "text", value: "pouco" }
             ]
         },
