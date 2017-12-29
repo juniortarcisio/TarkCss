@@ -21,20 +21,33 @@
                         <td>
                             <i ng-show="rightAnswer(question) == true" class="fa fa-lg fa-check text-green" aria-hidden="true"></i>
                             <i ng-show="rightAnswer(question) == false" class="fa fa-lg fa-times text-red" aria-hidden="true"></i>
-                            <i ng-show="IsGoogleChrome && rightAnswer(question) != null" class="fa fa-lg fa-play cursor-pointer" aria-hidden="true" ng-click="Speak(question)"></i>
+                            <i ng-show="IsGoogleChrome && rightAnswer(question) != null" class="fa fa-lg fa-play cursor-pointer" aria-hidden="true" ng-click="SpeakQuestion(question)"></i>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <p class="card-subtitle">
-                <a class="btn-bookmark" href="#">
-                    <i class="fa fa-bookmark" aria-hidden="true"></i>
-                    <span>Bookmark</span>
-                </a>
-                <a class="btn-bookmark" href="#">
-                    <i class="fa fa-comment" aria-hidden="true"></i>
-                    <span>Comment</span>
-                </a>
+        </div>
+    </div>
+    <div class="card big card-to-be large">
+        <div class="card-container">
+            <p>Listen to the audio and select the right answer</p>
+            <i class="fa fa-3x fa-play cursor-pointer" aria-hidden="true" ng-click="Speak('Um dia, uma garota muito bonita, estava indo para o parque que fica perto da escola. O nome dela era Beatriz, ela é irmã da Piêtra. Quando ela chegou lá, ela ficou muito feliz e brincou bastante')"></i>        
+            <p>Qual é o nome da garota?
+                <br /><input type="radio" name="teste1" /> Maria
+                <br /><input type="radio" name="teste1" /> Beatriz
+                <br /><input type="radio" name="teste1" /> Pietra
+            </p>
+            <p>
+                Onde ela estava indo?
+                <br /><input type="radio" name="teste1" /> Para o parque
+                <br /><input type="radio" name="teste1" /> Para casa
+                <br /><input type="radio" name="teste1" /> Para a escola
+            </p>
+            <p>
+                O que ela foi fazer?
+                <br /><input type="radio" name="teste1" /> Estudar
+                <br /><input type="radio" name="teste1" /> Comer
+                <br /><input type="radio" name="teste1" /> Brincar
             </p>
         </div>
     </div>
