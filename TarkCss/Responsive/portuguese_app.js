@@ -280,6 +280,7 @@ app.controller('exercisesCtrl', function ($scope, $rootScope) {
         msg.volume = 1;
         msg.text = text;
         msg.lang = 'pt-BR';
+        msg.rate = 0.7;
         window.speechSynthesis.speak(msg);
     };
 
