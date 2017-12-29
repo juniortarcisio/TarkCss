@@ -19,8 +19,9 @@
                             </span>
                         </td>
                         <td>
-                            <i ng-show="rightAnswer(question) == true" class="fa fa-check text-green" aria-hidden="true"></i>
-                            <i ng-show="rightAnswer(question) == false" class="fa fa-times text-red" aria-hidden="true"></i>
+                            <i ng-show="rightAnswer(question) == true" class="fa fa-lg fa-check text-green" aria-hidden="true"></i>
+                            <i ng-show="rightAnswer(question) == false" class="fa fa-lg fa-times text-red" aria-hidden="true"></i>
+                            <i ng-show="IsGoogleChrome && rightAnswer(question) != null" class="fa fa-lg fa-play cursor-pointer" aria-hidden="true" ng-click="Speak(question)"></i>
                         </td>
                     </tr>
                 </tbody>

@@ -260,6 +260,25 @@ app.controller('exercisesCtrl', function ($scope, $rootScope) {
     }
 
     $scope.questions = shuffle($scope.questions);
+
+    $scope.Speak = function(question) {
+        var msg = new SpeechSynthesisUtterance();
+        var voices = window.speechSynthesis.getVoices();
+        msg.voiceURI = 'native';
+        msg.volume = 1;
+
+        for (var i = 0; i < question.parts.length; i++) {
+            if (question.parts[i].type == "text") {
+                msg.text += question.parts[i].value;
+            } else if (question.parts[i].type == "answer") {
+                msg.text += question.parts[i].answer;
+            }
+        }
+        msg.lang = 'pt-BR';
+        window.speechSynthesis.speak(msg);
+    };
+
+    $scope.IsGoogleChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
     
 });
 
