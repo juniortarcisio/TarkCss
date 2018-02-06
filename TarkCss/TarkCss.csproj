@@ -103,6 +103,7 @@
     <Content Include="Responsive\portuguese_tenseComparison.html" />
     <Content Include="Responsive\portuguese_tobe.html" />
     <Content Include="Prototype\index.html" />
+    <Content Include="Responsive\Scripts\ServerService.js" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

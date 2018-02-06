@@ -342,3 +342,12 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_home.html", controller: "homeCtrl"
     });
 });
+
+app.run(function ($rootScope, $location, ServerService) {
+
+    ServerService.GetLastServer($rootScope.serverLoadedCallback, $rootScope.errorCallback);
+
+    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+
+    });
+});
