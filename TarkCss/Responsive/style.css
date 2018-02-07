@@ -95,7 +95,7 @@ main {
 .topheader {    
     background-color: #1c1c1c;
     padding: 16px;
-    color:white;
+    color:#eee;
     /*text-align:center;*/
     font-weight:bold;
     font-size:24px;
@@ -221,7 +221,7 @@ main {
 
 .top-nav-separator {
     display:inline-block;
-    width:10px;
+    width:20px;
 }
 
 .scrollbar-gray::-webkit-scrollbar-track
