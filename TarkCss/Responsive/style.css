@@ -4,19 +4,19 @@
 }
 
 body>footer {
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
-    background-color: #222;
+    background-color: #262626;
     color:#ccc;
-    width: 100%;
+    /*width: 100%;*/
     padding: 8px 20px 5px 20px;
-    box-shadow: 1px 1px 4px;
-    margin-left:250px;
-    box-shadow: 0px -2px 6px #333;
-    opacity:0.9;
+    /*box-shadow: 1px 1px 4px;*/
+    /*margin-left:250px;*/
+    /*box-shadow: 0px -2px 6px #333;*/
+    /*opacity:0.9;*/
     font-family: Segoe UI;
     font-size: 0.9em;
-    animation: shadowBright 2s infinite alternate;
+    /*animation: shadowBright 2s infinite alternate;*/
 }
 
 @keyframes shadowBright {
@@ -45,12 +45,12 @@ main>section {
 }
 
 main>footer{
-    background-color:#222;
+    background-color:#111;
     padding:10px;
     color:#aaa;
     padding-bottom:30px;
     margin-top:10px;
-    box-shadow: 0px -2px 3px #333;
+    /*box-shadow: 0px -2px 3px #333;*/
 }
 
 main>footer section {
@@ -75,6 +75,7 @@ main>footer ul li a {
 
 main {
     margin-left:250px;
+    padding-top:70px;
 }
 
 .battery-bar {
@@ -92,12 +93,15 @@ main {
 
 /* top header ----------------------------------------------*/
 .topheader {    
-    background-color: #333;
-    padding: 8px 0px 0px 0px;
+    background-color: #1c1c1c;
+    padding: 16px;
     color:white;
-    text-align:center;
+    /*text-align:center;*/
     font-weight:bold;
     font-size:24px;
+    position:fixed;
+    width:100%;
+    z-index:1000;
 }
 
 /* top nav -------------------------------------------------*/
@@ -168,14 +172,62 @@ main {
 
 .topnav-container {
     position:relative;
+    float: left;
+    padding-right:16px;
 }
 
+    .topnav-button-side {
+        font-size:22px !important;
+        cursor:pointer;
+        display:none;
+        color: #CCC;
+        text-decoration:none;
+        padding:2px 8px 4px 8px;
+    }
+    
 
+    .topnav-button-side:hover {
+        background-color: #ddd;
+        color: black;
+        border-radius: 2px;
+    }
+
+.topnav-right {
+    float:right;
+    padding-right:30px;
+    font-size:14px;
+    font-family: "Segoe UI",Tahoma,Arial,sans-serif;
+    font-weight:normal;
+}
+
+.top-nav-item {
+    display:inline-block;
+}
+
+.server-info {
+}
+
+.server-info-add {
+    
+}
+.server-info-lat {
+    text-align:right;
+}
+
+.top-nav-item i {
+    margin-top:-3px;
+    font-size:42px;
+}
+
+.top-nav-separator {
+    display:inline-block;
+    width:10px;
+}
 
 .scrollbar-gray::-webkit-scrollbar-track
 {
 	border-radius: 10px;
-	background-color: #090909;
+	/*background-color: #090909;*/
 }
 
 .scrollbar-gray::-webkit-scrollbar
@@ -188,7 +240,7 @@ main {
 {
 	border-radius: 15px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
-	background-color: #333;
+	background-color: #555;
 }
 
 
@@ -199,13 +251,17 @@ main {
     width: 250px;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 60px;
     left: 0;
-    background-color: #111;
-    overflow-x: hidden;
+    background-color: #222;
+    overflow: hidden;
     transition: 0.5s;
     padding-top: 40px;
-    box-shadow:3px 0px 5px;
+    /*box-shadow:3px 0px 5px;*/
+}
+
+.sidenav:hover {
+    overflow-y:scroll;
 }
 
 .sidenav>article {
@@ -216,7 +272,7 @@ main {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 25px;
-        color: #818181;
+        color: #adadad;
         display: block;
         transition: 0.3s;
     }
@@ -308,12 +364,6 @@ main {
         text-decoration:none;
     }
 
-    .topnav-button-side {
-        font-size:22px !important;
-        cursor:pointer;
-        display:none;
-    }
-    
 @media only screen and (min-width: 1301px) {
     .sidenav {
         width:250px!important;
@@ -546,12 +596,18 @@ main {
     margin-left:20px;
 }
 
-.topheader span {
-    text-shadow:0px 0px 15px #aaffaa;
+.topheader>span {
+    /*text-shadow:0px 0px 15px #aaffaa;*/
+    font-family: Segoe UI;
+    font-weight: normal;
+    font-size:24px;
+    color: #7cf930;
 }
 
 .topheader img {
-    box-shadow:0px 1px 6px #aaffaa;
+    border: 2px outset #27af27;
+    border-radius: 5px;
+    margin-bottom: -3px;
 }
 
 
@@ -608,3 +664,17 @@ main {
 
     .home-icon, .home-link, .nav-arrow { display:none }
 }
+
+.breadcrumb {
+    padding:15px;
+    padding-top:20px;
+}
+.breadcrumb a {
+    clear:both;
+    text-decoration:none !important;
+    padding:5px;
+        font-family: Segoe UI;
+    font-size: 21px;
+    color: #888;
+}
+    

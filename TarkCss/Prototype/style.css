@@ -338,7 +338,8 @@ main {
         cursor:pointer;
         display:none;
     }
-    
+
+
 @media only screen and (min-width: 1301px) {
     .sidenav {
         width:250px!important;
