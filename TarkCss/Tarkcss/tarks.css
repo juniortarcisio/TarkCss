@@ -315,6 +315,18 @@ table {
     margin-right:20px;
 }
 
+.card.noborder {
+    box-shadow: none;
+    border-radius: unset;
+    transition: none;
+}
+
+.card.noborder:hover {
+    box-shadow: none;
+    border-radius: unset;
+    transition: none;
+}
+
 .clear {
     clear:both;
 }

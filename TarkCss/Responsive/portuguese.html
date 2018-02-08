@@ -58,7 +58,11 @@
         <div class="topnav-right">
             <div class="top-nav-item">
                 <div>You aren't authenticated</div>
-                <div>Sign On / Sign In</div>
+                <div>
+                    <a class="text-bold text-white nounderline hover-shiny" href="#">Sign In</a> 
+                    <span class="text-gray">or</span>
+                    <a class="text-bold text-white nounderline hover-shiny" href="#">Sign Up</a>
+                </div>
             </div>
             <div class="top-nav-item">
                 <i class="fa fa-user-circle"></i>
@@ -68,7 +72,7 @@
             </div>
             <div class="top-nav-item server-info">
                 <div class="server-info-add">{{server.Address}}</div>
-                <div class="server-info-lat">{{server.Latency}} ms</div>
+                <div class="server-info-lat text-gray">{{server.Latency}} ms</div>
             </div>
             <div class="top-nav-item">
                 <i class="fa fa-globe"></i>
