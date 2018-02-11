@@ -95,6 +95,8 @@
     <Content Include="Responsive\portuguese_exercises.html" />
     <Content Include="Responsive\portuguese_future.html" />
     <Content Include="Responsive\portuguese_home.html" />
+    <Content Include="Responsive\sign_up.html" />
+    <Content Include="Responsive\sign_in.html" />
     <Content Include="Responsive\portuguese_past.html" />
     <Content Include="Responsive\portuguese_pastContinuous.html" />
     <Content Include="Responsive\portuguese_present.html" />

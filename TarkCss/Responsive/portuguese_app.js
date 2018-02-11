@@ -1,4 +1,5 @@
-﻿var app = angular.module('myApp', ["ngRoute"]);
+﻿//This app is a very kiss prototype, I am gonna refactor it if I decide it's a good and viable project
+var app = angular.module('myApp', ["ngRoute"]);
 
 var basicList = [
         { Portuguese: "Andar", English: "To Walk" },
@@ -306,6 +307,15 @@ app.controller('homeCtrl', function ($scope, $rootScope) {
 });
 
 
+app.controller('signUpCtrl', function ($scope, $rootScope) {
+    $rootScope.title = "Sign Up";
+});
+
+app.controller('signInCtrl', function ($scope, $rootScope) {
+    $rootScope.title = "Sign In";
+});
+
+
 app.config(function ($routeProvider) {
     $routeProvider
     .when("/ToBe", {
@@ -338,6 +348,12 @@ app.config(function ($routeProvider) {
     .when("/Exercises", {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })
+    .when("/SignUp", {
+        templateUrl: "sign_up.html", controller: "signUpCtrl"
+    })
+    .when("/SignIn", {
+        templateUrl: "sign_in.html", controller: "signInCtrl"
+    })
     .otherwise({
         templateUrl: "portuguese_home.html", controller: "homeCtrl"
     });
@@ -351,3 +367,4 @@ app.run(function ($rootScope, $location, ServerService) {
 
     });
 });
+
