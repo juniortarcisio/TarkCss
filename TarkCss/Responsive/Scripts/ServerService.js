@@ -1,13 +1,25 @@
 ﻿app.service('ServerService', function ($http, $rootScope) {
 
-    this.config = {
-        headers: { 'token': null },
-        timeout: 60000
-    };
+    this.getAzureServerAddress = function () {
+        return "http://tarksapi.azurewebsites.net/Server?serviceId=2";
+    }
+
+    this.getServerAddress = function () {
+        return "http://" + $rootScope.server.Address + ":27500";
+    }
+
+    this.getConfig = function () {
+        return {
+            headers: { 'token': null },
+            timeout: 60000
+        };
+    }
 
     this.GetLastServer = function (filtros, successCallback, errorCallback) {
         var startTime = new Date();
-        $http.get("http://tarksapi.azurewebsites.net/Server?serviceId=2")
+        var service = this;
+
+        $http.get(this.getAzureServerAddress())
         .then(function (response) {
             var endTime = new Date();
             var latency = endTime - startTime;
@@ -16,23 +28,50 @@
             $rootScope.server.LatencyAzure = latency;
             console.log(response);
 
-
-            var startTimePing = new Date();
-            $http.get("http://" + $rootScope.server.Address + ":27500/TarkServer/api/Ping")
-            .then(function (response) {
-                var endTime = new Date();
-                var latency = endTime - startTimePing;
-
-                console.log(response);
-                $rootScope.server.Latency = latency;
+            service.handleHttpAction($http.get, "/TarkServer/api/Ping", null,
+            function () {
                 $rootScope.server.Online = true;
-            }, function (response) {
-                console.log(response);
+            }, function () {
                 $rootScope.server.Online = false;
             });
 
         }, function myError(response) {
             $rootScope.error = response;
+        });
+    }
+
+    this.get = function (route, successCallback, errorCallback) {
+        this.handleHttpAction($http.get, route, null, successCallback, errorCallback);
+    }
+
+    this.post = function (route, data, successCallback, errorCallback) {
+        this.handleHttpAction($http.post, route, data, successCallback, errorCallback);
+    }
+
+    this.handleHttpAction = function(action, route, data, successCallBack, errorCallback) {
+        var startTime = new Date();
+        
+        if (typeof data != "undefined")
+            console.log("requesting data: ");
+            console.log(data);
+
+        action(this.getServerAddress() + route, data, this.getConfig())
+        .then(function (response) {
+            var endTime = new Date();
+            var latency = endTime - startTime;
+
+            $rootScope.server.Latency = latency;
+            console.log("receiving data: ");
+            console.log(response);
+
+            if (typeof successCallBack != "undefined")
+                successCallBack();
+
+        }, function myError(response) {
+            $rootScope.error = response;
+
+            if (typeof errorCallback != "undefined")
+                errorCallback();
         });
     }
 });
