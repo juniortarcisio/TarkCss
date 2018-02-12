@@ -5,7 +5,8 @@
     }
 
     this.getServerAddress = function () {
-        return "http://" + $rootScope.server.Address + ":27500";
+        //TODO: refactor the schema, port, virtual route in the server side
+        return "http://" + $rootScope.server.Address + ":27500/TarkServer/api";
     }
 
     this.getConfig = function () {
@@ -28,7 +29,7 @@
             $rootScope.server.LatencyAzure = latency;
             console.log(response);
 
-            service.handleHttpAction($http.get, "/TarkServer/api/Ping", null,
+            service.handleHttpAction($http.get, "/Ping", null,
             function () {
                 $rootScope.server.Online = true;
             }, function () {
@@ -46,6 +47,14 @@
 
     this.post = function (route, data, successCallback, errorCallback) {
         this.handleHttpAction($http.post, route, data, successCallback, errorCallback);
+    }
+
+    this.put = function (route, data, successCallback, errorCallback) {
+        this.handleHttpAction($http.put, route, data, successCallback, errorCallback);
+    }
+
+    this.delete = function (route, successCallback, errorCallback) {
+        this.handleHttpAction($http.delete, route, null, successCallback, errorCallback);
     }
 
     this.handleHttpAction = function(action, route, data, successCallBack, errorCallback) {
