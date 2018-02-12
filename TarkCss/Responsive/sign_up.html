@@ -2,23 +2,19 @@
     <div class="card big">
         <div class="card-container">
             <h3>Sign Up</h3>
-            <div>
+            <div class="row">
                 Name: <input type="text" ng-model="newUser.name" />
             </div>
-            <div>
+            <div class="row">
                 E-mail: <input type="text" ng-model="newUser.email" />
             </div>
-            <div>
+            <div class="row">
                 Password: <input type="password" ng-model="newUser.password" />
             </div>
-            <div>
+            <div class="row">
                 Password Confirm: <input type="password" ng-model="newUser.passwordConfirm" />
             </div>
-            <p class="card-subtitle">
-                <a ng-click="submit()">
-                    <span>Submit</span>
-                </a>
-            </p>
+            <a class="btn" ng-click="submit()">SUBMIT</a>
         </div>
     </div>
     <div class="clear"></div>
