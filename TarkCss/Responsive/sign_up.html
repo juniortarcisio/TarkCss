@@ -3,18 +3,42 @@
         <div class="card-container">
             <h3>Sign Up</h3>
             <div class="row">
-                Name: <input type="text" ng-model="newUser.name" />
+                <div class="col m5 right">
+                    Name/Nickname: 
+                </div>
+                <div class="col m6">
+                    <input type="text" ng-model="newUser.name" />
+                </div>
             </div>
             <div class="row">
-                E-mail: <input type="text" ng-model="newUser.email" />
+                <div class="col m5 right">
+                    Email Address:
+                </div>
+                <div class="col m6">
+                    <input type="text" ng-model="newUser.email" />
+                </div>
             </div>
             <div class="row">
-                Password: <input type="password" ng-model="newUser.password" />
+                <div class="col m5 right">
+                    Password:
+                </div>
+                <div class="col m6">
+                    <input type="password" ng-model="newUser.password" />
+                </div>
             </div>
             <div class="row">
-                Password Confirm: <input type="password" ng-model="newUser.passwordConfirm" />
+                <div class="col m5 right">
+                    Password Confirm:
+                </div>
+                <div class="col m6">
+                    <input type="password" ng-model="newUser.passwordConfirm" />
+                </div>
             </div>
-            <a class="btn" ng-click="submit()">SUBMIT</a>
+            <br />
+            <br />
+            <div class="row center">
+                <a class="btn" ng-click="submit()">SUBMIT</a>
+            </div>
         </div>
     </div>
     <div class="clear"></div>
