@@ -46,7 +46,7 @@
                 <span>&#9776;</span>
             </a>
         </div>
-        <span>Brazilian Portuguese lessons</span>
+        <span>INGES | Portuguese</span>
         <div class="topnav-right">
             <div class="top-nav-item">
                 <div>You aren't authenticated</div>
@@ -63,8 +63,16 @@
                 &nbsp;
             </div>
             <div class="top-nav-item server-info">
-                <div class="server-info-add">{{server.Address}}</div>
-                <div class="server-info-lat text-gray">{{server.Latency}} ms</div>
+                <div ng-show="server.Online">
+                    <div class="server-info-add">{{server.Address}}</div>
+                    <div class="server-info-lat text-gray">{{server.Latency}} ms</div>
+                </div>
+                <div ng-show="!server.Online">
+                    <div class="bold text-red">Backend off-line or unacessible</div>
+                    <div class="server-info-lat text-gray">
+                        <a class="text-bold text-white nounderline hover-shiny" href="">Reconnect</a>
+                    </div>
+                </div>
             </div>
             <div class="top-nav-item">
                 <i class="fa fa-globe"></i>
