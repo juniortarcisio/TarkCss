@@ -1,16 +1,28 @@
 ﻿<section>
     <div class="card big">
         <div class="card-container">
-            <h3>Sign In</h3>
-            <div>
-                E-mail: <input type="text" ng-model="user.email" />
+            <h3>Sign Up</h3>
+            <div class="row">
+                <div class="col m5 right">
+                    Email Address
+                </div>
+                <div class="col m6">
+                    <input type="text" ng-model="newUser.email" />
+                </div>
             </div>
-            <div>
-                Password: <input type="password" ng-model="user.password" />
+            <div class="row">
+                <div class="col m5 right">
+                    Password
+                </div>
+                <div class="col m6">
+                    <input type="password" ng-model="newUser.password" />
+                </div>
             </div>
-            <p class="card-subtitle">
-                <a class="btn" ng-click="submit()">Submit</a>
-            </p>
+            <br />
+            <br />
+            <div class="row center">
+                <a class="btn" ng-click="submit()">SUBMIT</a>
+            </div>
         </div>
     </div>
     <div class="clear"></div>
