@@ -307,17 +307,6 @@ app.controller('homeCtrl', function ($scope, $rootScope) {
 });
 
 
-app.controller('signUpCtrl', function ($scope, $rootScope, AuthenticationService) {
-    $rootScope.title = "Sign Up";
-
-    $scope.submit = function () {
-        AuthenticationService.SignUp($scope.signUp);
-    }
-});
-
-app.controller('signInCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Sign In";
-});
 
 
 app.config(function ($routeProvider) {

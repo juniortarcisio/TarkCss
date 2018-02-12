@@ -50,18 +50,21 @@
 
     this.handleHttpAction = function(action, route, data, successCallBack, errorCallback) {
         var startTime = new Date();
-        
-        if (typeof data != "undefined")
-            console.log("requesting data: ");
-            console.log(data);
+        var fullRoute = this.getServerAddress() + route;
 
-        action(this.getServerAddress() + route, data, this.getConfig())
+        console.log("handleHttpAction: ");
+        console.log(fullRoute);
+
+        console.log("request payload: ");
+        console.log(data);
+
+        action(fullRoute, data, this.getConfig())
         .then(function (response) {
             var endTime = new Date();
             var latency = endTime - startTime;
 
             $rootScope.server.Latency = latency;
-            console.log("receiving data: ");
+            console.log("response: ");
             console.log(response);
 
             if (typeof successCallBack != "undefined")

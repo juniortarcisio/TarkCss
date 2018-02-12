@@ -95,7 +95,9 @@
     <Content Include="Responsive\portuguese_exercises.html" />
     <Content Include="Responsive\portuguese_future.html" />
     <Content Include="Responsive\portuguese_home.html" />
-    <Content Include="Responsive\Scripts\AuthenticationService.js" />
+    <Content Include="Responsive\Scripts\Controllers\SignInController.js" />
+    <Content Include="Responsive\Scripts\Services\AuthenticationService.js" />
+    <Content Include="Responsive\Scripts\Controllers\SignUpController.js" />
     <Content Include="Responsive\sign_up.html" />
     <Content Include="Responsive\sign_in.html" />
     <Content Include="Responsive\portuguese_past.html" />
@@ -106,7 +108,7 @@
     <Content Include="Responsive\portuguese_tenseComparison.html" />
     <Content Include="Responsive\portuguese_tobe.html" />
     <Content Include="Prototype\index.html" />
-    <Content Include="Responsive\Scripts\ServerService.js" />
+    <Content Include="Responsive\Scripts\Services\ServerService.js" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
