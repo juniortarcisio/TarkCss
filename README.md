@@ -5,11 +5,11 @@ Indeed I have been prototyping some front ends using AngularJs here, I am having
 
 http://whereintheplanet.com
 
-https://whereintheplanet.com/TarkCss/TarkCss/Blog/index.html
+http://whereintheplanet.com/TarkCss/TarkCss/Blog/index.html
 
-https://whereintheplanet.com/TarkCss/TarkCss/Responsive/index.html
+http://whereintheplanet.com/TarkCss/TarkCss/Responsive/index.html
 
-https://whereintheplanet.com/TarkCss/TarkCss/Responsive/portuguese.html
+http://whereintheplanet.com/TarkCss/TarkCss/Responsive/portuguese.html
 
 
 # Usability details at
