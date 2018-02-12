@@ -12,8 +12,8 @@
     }
 
     $scope.submit = function () {
-        $scope.signedUp.grecaptchaResponse = GrecaptchaService.GetResponse();
-        AuthenticationService.SignUp($scope.newUser, $scope.signedUp, $scope.errorCallback);
+        $scope.account.grecaptchaResponse = GrecaptchaService.GetResponse();
+        AuthenticationService.SignUp($scope.account, $scope.signedUp, $scope.errorCallback);
     }
 
     GrecaptchaService.Configure($scope, 'g-recaptcha-sign-up');

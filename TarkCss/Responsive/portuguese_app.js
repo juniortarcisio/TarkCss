@@ -16,9 +16,19 @@ var basicList = [
         { Portuguese: "Jogar", English: "To Play" }
 ];
 
-app.controller('regularVerbsCtrl', function ($scope, $http) {
 
-
+app.directive('startfocus', function ($timeout) {
+    return {
+        restrict: 'AC',
+        link: function (_scope, _element) {
+            $timeout(function () {
+                console.log(_element);
+                for (var i = 0; i < _element.length; i++) {
+                    _element[i].focus();
+                }
+            }, 300);
+        }
+    };
 });
 
 app.filter('RemoveLastChar', function () {
@@ -27,6 +37,10 @@ app.filter('RemoveLastChar', function () {
             q = 1;
         return x.substr(0, x.length - q);
     };
+});
+
+app.controller('regularVerbsCtrl', function ($scope, $http) {
+
 });
 
 app.controller('simplePresentCtrl', function ($scope, $rootScope) {

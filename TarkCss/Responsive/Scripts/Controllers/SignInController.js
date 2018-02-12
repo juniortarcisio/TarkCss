@@ -1,7 +1,7 @@
 ﻿app.controller('signInCtrl', function ($scope, $rootScope, $location, AuthenticationService, GrecaptchaService) {
     $rootScope.title = "Sign In";
 
-    $scope.signedUp = function (response) {
+    $scope.successCallback = function (response) {
         alert('ok you were signed in, but it\'s on construction');
         $location.path("/Home");
     }
@@ -12,8 +12,8 @@
     }
 
     $scope.submit = function () {
-        $scope.signedUp.grecaptchaResponse = GrecaptchaService.GetResponse();
-        AuthenticationService.SignIn($scope.user, $scope.signedUp, $scope.errorCallback);
+        $scope.account.grecaptchaResponse = GrecaptchaService.GetResponse();
+        AuthenticationService.SignIn($scope.account, $scope.successCallback, $scope.errorCallback);
     }
 
     GrecaptchaService.Configure($scope, 'g-recaptcha-sign-in');

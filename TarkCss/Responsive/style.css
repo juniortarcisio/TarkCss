@@ -732,6 +732,11 @@ main {
     text-align:center;
 }
 
+.margin-auto {
+    margin:auto;
+    float:none;
+}
+
 .g-recaptcha {
     margin:auto;
     width:304px;
