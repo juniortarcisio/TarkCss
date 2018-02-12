@@ -98,6 +98,7 @@
     <Content Include="Responsive\Scripts\Controllers\SignInController.js" />
     <Content Include="Responsive\Scripts\Services\AuthenticationService.js" />
     <Content Include="Responsive\Scripts\Controllers\SignUpController.js" />
+    <Content Include="Responsive\Scripts\Services\GrecaptchaService.js" />
     <Content Include="Responsive\sign_up.html" />
     <Content Include="Responsive\sign_in.html" />
     <Content Include="Responsive\portuguese_past.html" />

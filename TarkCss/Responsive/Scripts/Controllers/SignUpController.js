@@ -1,4 +1,4 @@
-﻿app.controller('signUpCtrl', function ($scope, $rootScope, $location, AuthenticationService) {
+﻿app.controller('signUpCtrl', function ($scope, $rootScope, $location, AuthenticationService, GrecaptchaService) {
     $rootScope.title = "Sign Up";
 
     $scope.signedUp = function (response) {
@@ -12,6 +12,9 @@
     }
 
     $scope.submit = function () {
+        $scope.signedUp.grecaptchaResponse = GrecaptchaService.GetResponse();
         AuthenticationService.SignUp($scope.newUser, $scope.signedUp, $scope.errorCallback);
     }
+
+    GrecaptchaService.Configure($scope, 'g-recaptcha-sign-up');
 });
