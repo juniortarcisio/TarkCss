@@ -27,8 +27,11 @@
                 <div class="row center">
                     <a class="btn" ng-disabled="!formSignIn.$valid" ng-click="submit()">SUBMIT</a>
                 </div>
+                <br />
+                <div class="clear center error-box" ng-show="errorMessage.length > 0">
+                    <span>{{ errorMessage }}</span>
+                </div>
             </form>
-            <br />
         </div>
     </div>
     <div class="clear"></div>

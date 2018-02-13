@@ -2,17 +2,26 @@
     $rootScope.title = "Sign Up";
 
     $scope.signedUp = function (response) {
-        alert('ok you were signed in, but it\'s on construction');
+        alert('ok you were signed in, but it\'s yet on construction');
         $location.path("/Home");
     }
 
     $scope.errorCallback = function (response) {
         alert('error: ' + response);
-        $location.path("/Home");
+        $scope.errorMessage = response;
     }
 
     $scope.submit = function () {
         $scope.account.grecaptchaResponse = GrecaptchaService.GetResponse();
+
+        if ($scope.account.grecaptchaResponse == null || $scope.account.grecaptchaResponse.length == 0) {
+            $scope.errorMessage = "You must prove you aren't a robot on recaptcha";
+            console.log("invalid recaptcha")
+            return;
+        }
+
+        $scope.errorMessage = "";
+
         AuthenticationService.SignUp($scope.account, $scope.signedUp, $scope.errorCallback);
     }
 

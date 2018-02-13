@@ -13,6 +13,13 @@
 
     $scope.submit = function () {
         $scope.account.grecaptchaResponse = GrecaptchaService.GetResponse();
+
+        if ($scope.account.grecaptchaResponse == null || $scope.account.grecaptchaResponse.length == 0) {
+            $scope.errorMessage = "You must prove you aren't a robot on recaptcha";
+            console.log("invalid recaptcha")
+            return;
+        }
+
         AuthenticationService.SignIn($scope.account, $scope.successCallback, $scope.errorCallback);
     }
 
