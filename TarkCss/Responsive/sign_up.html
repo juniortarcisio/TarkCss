@@ -2,47 +2,50 @@
     <div class="card big margin-auto">
         <div class="card-container">
             <h3>Sign Up</h3>
-            <div class="row">
-                <div class="col m4 right">
-                    Nickname 
+            <form name="formSignUp">
+                <div class="row">
+                    <div class="col m4 right">
+                        Nickname
+                    </div>
+                    <div class="col m6">
+                        <input type="text" ng-model="account.name" startfocus required ng-minlength="4" />
+                    </div>
                 </div>
-                <div class="col m6">
-                    <input type="text" ng-model="account.name" startfocus />
+                <div class="row">
+                    <div class="col m4 right">
+                        Email Address
+                    </div>
+                    <div class="col m6">
+                        <input type="email" ng-model="account.email" required />
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col m4 right">
-                    Email Address 
+                <div class="row">
+                    <div class="col m4 right">
+                        Password
+                    </div>
+                    <div class="col m6">
+                        <input name="password" type="password" ng-model="account.password" required ng-minlength="6" />
+                    </div>
                 </div>
-                <div class="col m6">
-                    <input type="text" ng-model="account.email" />
+                <div class="row">
+                    <div class="col m4 right">
+                        Confirm Password
+                    </div>
+                    <div class="col m6">
+                        <input name="passwordConfirm" type="password" ng-model="account.passwordConfirm" required ng-minlength="6" />
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col m4 right">
-                    Password
+                <div class="clear center">
+                    <span ng-class="{'text-red':true,'invisible': account.password === account.passwordConfirm || formSignUp.passwordConfirm.$pristine}">passwords must match</span>
                 </div>
-                <div class="col m6">
-                    <input type="password" ng-model="account.password" />
+                <div class="row">
+                    <div id="g-recaptcha-sign-up" class="g-recaptcha"></div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col m4 right">
-                    Confirm
+                <div class="row center">
+                    <a class="btn" ng-disabled="!formSignUp.$valid || account.password !== account.passwordConfirm" ng-click="submit()">SUBMIT</a>
                 </div>
-                <div class="col m6">
-                    <input type="password" ng-model="account.passwordConfirm" />
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="row">
-                <div id="g-recaptcha-sign-up" class="g-recaptcha"></div>
-            </div>
-            <div class="row center">
-                <a class="btn" ng-click="submit()">SUBMIT</a>
-            </div>
-            <br />
+                <br />
+            </form>
         </div>
     </div>
     <div class="clear"></div>

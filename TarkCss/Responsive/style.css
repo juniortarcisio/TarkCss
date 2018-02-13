@@ -732,6 +732,10 @@ main {
     text-align:center;
 }
 
+.invisible {
+    visibility:hidden;
+}
+
 .margin-auto {
     margin:auto;
     float:none;
@@ -765,6 +769,12 @@ main {
 
 .btn:hover {
     background-color: #2bbbad;
+}
+
+.btn[disabled] {
+    background-color:#d0d0d0;
+    box-shadow:none;
+    text-shadow:0px -2px -1px #555;
 }
 
 input {
@@ -873,3 +883,7 @@ input:focus {
 .col.l2 { width:16.66666666666667%}
 .col.l1 { width:8.33333333333333%}
 }
+
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched { background-color:#f6eeee}
+
+

@@ -27,6 +27,7 @@
 
             $rootScope.server = response.data[0];
             $rootScope.server.LatencyAzure = latency;
+            $rootScope.server.Online = true;
             console.log(response);
 
             service.handleHttpAction($http.get, "/Ping", null,
@@ -59,6 +60,12 @@
 
     this.handleHttpAction = function(action, route, data, successCallBack, errorCallback) {
         var startTime = new Date();
+
+        if ($rootScope.server == null || typeof $rootScope.server == "undefined" || !$rootScope.server.Online) {
+            alert('Sorry but we cannot attend your request due the server is offline. Please try again later.');
+            return;
+        }
+
         var fullRoute = this.getServerAddress() + route;
 
         console.log("handleHttpAction: ");

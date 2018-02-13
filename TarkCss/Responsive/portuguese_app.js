@@ -16,13 +16,11 @@ var basicList = [
         { Portuguese: "Jogar", English: "To Play" }
 ];
 
-
 app.directive('startfocus', function ($timeout) {
     return {
         restrict: 'AC',
         link: function (_scope, _element) {
             $timeout(function () {
-                console.log(_element);
                 for (var i = 0; i < _element.length; i++) {
                     _element[i].focus();
                 }

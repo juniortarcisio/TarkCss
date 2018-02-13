@@ -16,5 +16,10 @@
         AuthenticationService.SignIn($scope.account, $scope.successCallback, $scope.errorCallback);
     }
 
+    $scope.recaptchaValid = function() {
+        var recaptchaValue = GrecaptchaService.GetResponse();
+        return recaptchaValue != null && typeof recaptchaValue != "undefined" && recaptchaValue.length > 0;
+    }
+
     GrecaptchaService.Configure($scope, 'g-recaptcha-sign-in');
 });

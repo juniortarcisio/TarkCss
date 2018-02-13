@@ -2,30 +2,32 @@
     <div class="card big margin-auto">
         <div class="card-container">
             <h3>Sign In</h3>
-            <div class="row">
-                <div class="col m4 right">
-                    Email Address
+            <form name="formSignIn">
+                <div class="row">
+                    <div class="col m4 right">
+                        Email Address
+                    </div>
+                    <div class="col m6">
+                        <input type="email" ng-model="account.email" startfocus required />
+                    </div>
                 </div>
-                <div class="col m6">
-                    <input type="text" ng-model="account.email" startfocus />
+                <div class="row">
+                    <div class="col m4 right">
+                        Password
+                    </div>
+                    <div class="col m6">
+                        <input type="password" ng-model="account.password" required ng-minlength="6" />
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col m4 right">
-                    Password
+                <br />
+                <br />
+                <div class="row">
+                    <div id="g-recaptcha-sign-in" class="g-recaptcha"></div>
                 </div>
-                <div class="col m6">
-                    <input type="password" ng-model="account.password" />
+                <div class="row center">
+                    <a class="btn" ng-disabled="!formSignIn.$valid" ng-click="submit()">SUBMIT</a>
                 </div>
-            </div>
-            <br />
-            <br />
-            <div class="row">
-                <div id="g-recaptcha-sign-in" class="g-recaptcha"></div>
-            </div>
-            <div class="row center">
-                <a class="btn" ng-click="submit()">SUBMIT</a>
-            </div>
+            </form>
             <br />
         </div>
     </div>
