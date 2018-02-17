@@ -359,14 +359,18 @@ app.config(function ($routeProvider) {
     .when("/SignIn", {
         templateUrl: "sign_in.html", controller: "signInCtrl"
     })
+    .when("/SignOut", {
+        templateUrl: "sign_out.html", controller: "signOutCtrl"
+    })
     .otherwise({
         templateUrl: "portuguese_home.html", controller: "homeCtrl"
     });
 });
 
-app.run(function ($rootScope, $location, ServerService) {
+app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
 
     ServerService.GetLastServer($rootScope.serverLoadedCallback, $rootScope.errorCallback);
+    AuthenticationService.TryLoadStorageSession();
 
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
 

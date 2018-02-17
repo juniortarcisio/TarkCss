@@ -18,5 +18,10 @@
             window.grecatpchaRender();
         });
     }
+
+    this.Reload = function () {
+        if (typeof grecaptcha != "undefined" && grecaptcha != null)
+            grecaptcha.reset();
+    }
 });
 

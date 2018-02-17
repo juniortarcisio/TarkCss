@@ -7,11 +7,11 @@
     }
 
     $scope.errorCallback = function (response) {
-        alert('error: ' + response);
         $scope.errorMessage = response;
     }
 
     $scope.submit = function () {
+        $scope.errorMessage = "";
         $scope.account.grecaptchaResponse = GrecaptchaService.GetResponse();
 
         if ($scope.account.grecaptchaResponse == null || $scope.account.grecaptchaResponse.length == 0) {
@@ -20,7 +20,6 @@
             return;
         }
 
-        $scope.errorMessage = "";
 
         AuthenticationService.SignUp($scope.account, $scope.signedUp, $scope.errorCallback);
     }

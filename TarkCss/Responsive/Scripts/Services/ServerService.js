@@ -6,7 +6,7 @@
 
     this.getServerAddress = function () {
         //TODO: refactor the schema, port, virtual route in the server side
-        return "http://" + $rootScope.server.Address + ":27500/TarkServer/api";
+        return "http://" + $rootScope.server.Address + ":27500/TarkServer/";
     }
 
     this.getConfig = function () {
@@ -30,7 +30,7 @@
             $rootScope.server.Online = true;
             console.log(response);
 
-            service.handleHttpAction($http.get, "/Ping", null,
+            service.handleHttpAction($http.get, "Ping", null,
             function () {
                 $rootScope.server.Online = true;
             }, function () {

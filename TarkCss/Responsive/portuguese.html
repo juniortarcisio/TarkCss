@@ -49,11 +49,19 @@
         <span>INGES | Portuguese</span>
         <div class="topnav-right">
             <div class="top-nav-item">
-                <div>You aren't authenticated</div>
-                <div>
-                    <a class="text-bold text-white nounderline hover-shiny" href="#!SignIn">Sign In</a> 
-                    <span class="text-gray">or</span>
-                    <a class="text-bold text-white nounderline hover-shiny" href="#!SignUp">Sign Up</a>
+                <div ng-hide="account.authenticated == true">
+                    <div>You aren't authenticated</div>
+                    <div>
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!SignIn">Sign In</a>
+                        <span class="text-gray">or</span>
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!SignUp">Sign Up</a>
+                    </div>
+                </div>
+                <div ng-show="account.authenticated == true">
+                    <div>{{ account.email }}</div>
+                    <div class="right">
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!SignOut">Sign Out</a>
+                    </div>
                 </div>
             </div>
             <div class="top-nav-item">
@@ -114,6 +122,7 @@
     <script src="Scripts/Services/GrecaptchaService.js"></script>
     <script src="Scripts/Controllers/SignUpController.js"></script>
     <script src="Scripts/Controllers/SignInController.js"></script>
+    <script src="Scripts/Controllers/SignOutController.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=grecatpchaRender&render=explicit" async defer></script>
 </body>
 </html>
