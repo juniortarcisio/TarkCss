@@ -1,9 +1,9 @@
-﻿app.service('AuthenticationService', function (ServerService, $http, $rootScope, $location) {
+﻿app.service('AuthenticationService', function (ServerService, $http, $rootScope, $location, $q) {
     this.SignUp = function (data, successCallback, errorCallback) {
         ServerService.post("SignUp", data, successCallback, errorCallback);
     }
 
-    this.SignIn = function (account, successCallback, errorCallback) {
+    this.SignIn = function ( account, successCallback, errorCallback) {
         var address = ServerService.getServerAddress();
         var data = "grant_type=password&username=" + account.email + "&password=" + account.password + "&client_id=1&captcha=" + account.grecaptchaResponse;
         var auxThis = this;
@@ -15,14 +15,9 @@
             localStorage.setItem('authorizationData', JSON.stringify({ token: response.access_token, email: account.email, expires_in: expires_in }));
             auxThis.TryLoadStorageSession();
             return { success : true};
-        }, function (response, status) {
+           }, function (response, status) {
             auxThis.SignOut();
-            console.log('err');
-
-            return {
-                success: false,
-                error: response.data.error_description
-            };
+            return $q.reject(response.data.error_description);
         });
     }
 
