@@ -364,14 +364,20 @@ table {
 @media only screen and (max-width:599px) {
     .card.small {
         min-width:40%;
+        margin-left:2%;
+        margin-right:2%;
     }
 
     .card.medium {
         min-width:95%;
+        margin-left:1%;
+        margin-right:1%;
     }
 
     .card.big {
         min-width:95%;
+        margin-left:1%;
+        margin-right:1%;
     }
 }
 

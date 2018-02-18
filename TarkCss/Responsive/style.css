@@ -36,7 +36,7 @@ main>section {
 
 @media only screen and (max-width:599px) {
     main>section {
-        margin-left:5px;
+        margin-left:2px;
     }
 
 }
@@ -105,6 +105,8 @@ main>*:first-child {
     position:fixed;
     width:100%;
     z-index:1000;
+    height:40px;
+    overflow:hidden;
 }
 
 /* top nav -------------------------------------------------*/
@@ -726,8 +728,18 @@ main>*:first-child {
     }
 }
 
+
+@media only screen and (min-width:651px) {
+    .show-only-on-mobile {
+        display:none;
+    }
+}
+
 .hide-on-mobile {
 
+}
+
+.show-only-on-mobile {
 }
 
 .breadcrumb {
