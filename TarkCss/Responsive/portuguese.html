@@ -24,28 +24,28 @@
             <section class="items">
                 <section class="menu-group">
                     <h1>General</h1>
-                    <a href="#!Home" class="small"><i class="fa fa-home"></i>Home</a>
-                    <a href="#" class="small"><i class="fa fa-commenting"></i>About</a>
+                    <a href="#!Home" class="small"><i class="fa fa-home"></i>Home and news</a>
+                    <a href="#" class="small"><i class="fa fa-address-card"></i>About</a>
                 </section>
                 <section class="menu-group">
                     <h1>Lessons</h1>
-                    <a href="#!ToBe" class="small"><i class="fa fa-commenting"></i>To be verb</a>
-                    <a href="#!SimplePresent" class="small"><i class="fa fa-commenting"></i>Simple Present</a>
-                    <a href="#!PresentContinuous" class="small"><i class="fa fa-commenting"></i>Present Continuous</a>
-                    <a href="#!SimplePast" class="small"><i class="fa fa-commenting"></i>Simple Past</a>
-                    <a href="#!PastContinuous" class="small"><i class="fa fa-commenting"></i>Past Continuous</a>
-                    <a href="#!SimpleFuture" class="small"><i class="fa fa-commenting"></i>Simple Future</a>
-                    <a href="#!TenseComparison" class="small"><i class="fa fa-commenting"></i>Tenses Comparison</a>
+                    <a href="#!ToBe" class="small"><i class="fa fa-book"></i>To be verb</a>
+                    <a href="#!SimplePresent" class="small"><i class="fa fa-book"></i>Simple Present</a>
+                    <a href="#!PresentContinuous" class="small"><i class="fa fa-book"></i>Present Continuous</a>
+                    <a href="#!SimplePast" class="small"><i class="fa fa-book"></i>Simple Past</a>
+                    <a href="#!PastContinuous" class="small"><i class="fa fa-book"></i>Past Continuous</a>
+                    <a href="#!SimpleFuture" class="small"><i class="fa fa-book"></i>Simple Future</a>
+                    <a href="#!TenseComparison" class="small"><i class="fa fa-book"></i>Tenses Comparison</a>
                 </section>
                 <section class="menu-group">
                     <h1>Exercises</h1>
-                    <a href="#!Exercises" class="small"><i class="fa fa-commenting"></i>Prototype Exercises</a>
+                    <a href="#!Exercises" class="small"><i class="fa fa-edit"></i>Prototype Exercises</a>
                 </section>
                 <section class="menu-group">
                     <h1>Community</h1>
-                    <a href="#" class="small"><i class="fa fa-commenting"></i>Forum</a>
-                    <a href="#" class="small"><i class="fa fa-commenting"></i>Chat</a>
-                    <a href="#" class="small"><i class="fa fa-commenting"></i>People</a>
+                    <a href="#" class="small"><i class="fa fa-wpforms"></i>Forum</a>
+                    <a href="#" class="small"><i class="fa fa-comments"></i>Chat</a>
+                    <a href="#" class="small"><i class="fa fa-users"></i>People</a>
                 </section>
             </section>
             <section class="social">
@@ -96,7 +96,10 @@
             <div class="top-nav-item server-info">
                 <div ng-show="server.Online">
                     <div class="server-info-add">{{server.Address}}</div>
-                    <div class="server-info-lat text-gray">{{server.Latency}} ms</div>
+                    <div class="server-info-lat text-gray">
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!Server">Server</a>
+                        <span>| {{server.Latency}} ms</span>
+                    </div>
                 </div>
                 <div ng-show="!server.Online">
                     <div class="bold text-red">Backend off-line or unacessible</div>
@@ -136,7 +139,7 @@
             <div class="clear"></div>
         </footer>
     </main>
-    <footer>Powered by TarkCss v0.0.0.1A</footer>
+    <footer><a class="nounderline text-gray" href="https://github.com/juniortarcisio/TarkCss/" target="_blank">Powered by TarkCss v0.0.0.1A</a></footer>
     <script src="../Tarkcss/tarks.js"></script>
     <script src="./scripts.js"></script>
     <script src="portuguese_app.js"></script>

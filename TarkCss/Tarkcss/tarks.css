@@ -304,7 +304,7 @@ table {
 
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(200,200,200,1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     border-radius: 5px;
     transition: 0.2s all;
     width:330px;
@@ -313,6 +313,7 @@ table {
     margin-bottom:20px;
     margin-left:20px;
     margin-right:20px;
+    padding:5px;
 }
 
 .card.noborder {
@@ -389,7 +390,7 @@ table {
 
 
 .card:hover {
-    box-shadow: -1px 8px 14px 0 rgba(20,20,20,0.2);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     /*box-shadow: -1px 8px 14px 0 rgba(20,20,20,0.4);
     margin-top:0px;
     margin-bottom:25px;
@@ -399,8 +400,7 @@ table {
 
 .card img, .card-img {
     width:100%;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
+    border-radius:5px;
     transition: 0.5s;
 }
 
@@ -447,6 +447,7 @@ table {
 
 .img-holder {
     overflow:hidden;
+    border-radius:5px;
 }
 
 .card-container {

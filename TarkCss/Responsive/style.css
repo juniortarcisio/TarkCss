@@ -1,4 +1,8 @@
-﻿body {
+﻿html, body {
+    height:100%;
+}
+
+body {
     margin: 0;
     font-family: Arial;
 }
@@ -245,6 +249,7 @@ main {
 }
 
 
+
 /* side nav -------------------------------------------------*/
 
 .sidenav {
@@ -390,6 +395,10 @@ main {
     }
 }
 
+.g-recaptcha:first-child {
+    animation: fade-in 2.5s;
+}
+
 
 /* icons -------------------------------------------------*/
 
@@ -403,9 +412,39 @@ main {
     }
 }
 
+@keyframes slide-down {
+    from {
+        transform: translate(0px,-20px);
+    }
+
+    to {
+        transform: translate(0px, 0px);
+    }
+}
+
 .fade-in {
     animation: fade-in .5s;
 }
+
+.fade-in-slow {
+    animation: fade-in 2.5s;
+}
+
+.fade-in-slide-down-slow {
+    animation: fade-in 2.0s, slide-down 1.0s;
+}
+
+
+
+.slide-down {
+    animation: slide-down .5s;
+}
+
+.slide-down-slow {
+    animation: slide-down 2.5s;
+}
+
+
 
 .fa-round {
     border-radius: 50px;
