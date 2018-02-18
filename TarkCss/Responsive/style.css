@@ -7,20 +7,12 @@ body {
     font-family: Arial;
 }
 
-body>footer {
-    /*position: fixed;*/
-    bottom: 0;
+.footer-tarkcss {
     background-color: #262626;
     color:#ccc;
-    /*width: 100%;*/
-    padding: 8px 20px 5px 20px;
-    /*box-shadow: 1px 1px 4px;*/
-    margin-left:250px;
-    /*box-shadow: 0px -2px 6px #333;*/
-    /*opacity:0.9;*/
+    padding: 8px 20px;
     font-family: Segoe UI;
     font-size: 0.9em;
-    /*animation: shadowBright 2s infinite alternate;*/
 }
 
 @keyframes shadowBright {
@@ -50,15 +42,11 @@ main>section {
 
 main>footer{
     background-color:#111;
-    padding:10px;
     color:#aaa;
-    padding-bottom:30px;
     margin-top:10px;
-    /*box-shadow: 0px -2px 3px #333;*/
 }
 
 main>footer section {
-    float:left;
     padding:10px;
 }
 
@@ -79,7 +67,13 @@ main>footer ul li a {
 
 main {
     margin-left:250px;
-    padding-top:70px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main>*:first-child {
+    margin-top:72px;
 }
 
 .battery-bar {
@@ -93,6 +87,10 @@ main {
 
 .home-bar {
     font-size:24px;
+}
+
+.view-container {
+    flex: 1 0 auto;
 }
 
 /* top header ----------------------------------------------*/
@@ -257,12 +255,12 @@ main {
     width: 250px;
     position: fixed;
     z-index: 1;
-    top: 60px;
+    top: 72px;
     left: 0;
     background-color: #222;
     overflow: hidden;
     transition: 0.5s;
-    padding-top: 40px;
+    padding-top: 25px;
     /*box-shadow:3px 0px 5px;*/
 }
 
@@ -721,7 +719,6 @@ main {
 
 .breadcrumb {
     padding:15px;
-    padding-top:20px;
 }
 .breadcrumb a {
     clear:both;
