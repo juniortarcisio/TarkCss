@@ -71,6 +71,7 @@ main {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    z-index:0;
 }
 
 main>*:first-child {
@@ -261,7 +262,7 @@ main>*:first-child {
     top: 72px;
     left: 0;
     background-color: #222;
-    overflow: hidden;
+    overflow-x: hidden;
     transition: 0.5s;
     padding-top: 25px;
     /*box-shadow:3px 0px 5px;*/
