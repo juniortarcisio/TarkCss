@@ -1,11 +1,14 @@
-﻿<section>
-    <div class="card big margin-auto fade-in-slide-down-slow">
+﻿<style type="text/css">
+    .card-sign-up { min-width: 430px !important; }
+</style>
+<section>
+    <div class="card big margin-auto fade-in-slide-down-slow card-sign-up">
         <div class="card-container">
             <h3>Sign Up</h3>
             <form name="formSignUp">
                 <div class="row">
                     <div class="col m4 right">
-                        Nickname
+                        <label>Nickname</label> 
                     </div>
                     <div class="col m6">
                         <input type="text" ng-model="account.name" startfocus required ng-minlength="4" />
@@ -13,7 +16,7 @@
                 </div>
                 <div class="row">
                     <div class="col m4 right">
-                        Email Address
+                        <label>Email Address</label> 
                     </div>
                     <div class="col m6">
                         <input type="email" ng-model="account.email" required />
@@ -21,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col m4 right">
-                        Password
+                        <label>Password</label> 
                     </div>
                     <div class="col m6">
                         <input name="password" type="password" ng-model="account.password" required ng-minlength="6" />
@@ -29,7 +32,7 @@
                 </div>
                 <div class="row">
                     <div class="col m4 right">
-                        Confirm Password
+                        <label>Confirm Password</label> 
                     </div>
                     <div class="col m6">
                         <input name="passwordConfirm" type="password" ng-model="account.passwordConfirm" required ng-minlength="6" />

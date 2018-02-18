@@ -1,11 +1,14 @@
-﻿<section>
-    <div class="card big margin-auto fade-in-slide-down-slow">
+﻿<style type="text/css">
+    .card-sign-in { min-width: 430px !important; }
+</style>
+<section>
+    <div class="card big margin-auto fade-in-slide-down-slow card-sign-in">
         <div class="card-container">
             <h3>Sign In</h3>
             <form name="formSignIn">
                 <div class="row">
                     <div class="col m4 right">
-                        Email Address
+                        <label>Email Address</label> 
                     </div>
                     <div class="col m6">
                         <input type="email" ng-model="account.email" startfocus required />
@@ -13,7 +16,7 @@
                 </div>
                 <div class="row">
                     <div class="col m4 right">
-                        Password
+                        <label>Password</label>
                     </div>
                     <div class="col m6">
                         <input type="password" ng-model="account.password" required ng-minlength="6" />
@@ -25,7 +28,8 @@
                     <div id="g-recaptcha-sign-in" class="g-recaptcha"></div>
                 </div>
                 <div class="row center">
-                    <a class="btn" ng-disabled="!formSignIn.$valid" ng-click="submit()">SUBMIT</a>
+                    <button type="button" class="btn" ng-disabled="!formSignIn.$valid" ng-click="submit()">SUBMIT</button>
+                    <!--<a class="btn" ng-disabled="!formSignIn.$valid" ng-click="submit()">SUBMIT</a>-->
                 </div>
                 <br />
                 <div class="clear center error-box" ng-show="errorMessage.length > 0">

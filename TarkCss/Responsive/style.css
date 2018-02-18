@@ -230,10 +230,10 @@ main>*:first-child {
     width:20px;
 }
 
+
 .scrollbar-gray::-webkit-scrollbar-track
 {
 	border-radius: 10px;
-	/*background-color: #090909;*/
 }
 
 .scrollbar-gray::-webkit-scrollbar
@@ -245,11 +245,16 @@ main>*:first-child {
 .scrollbar-gray::-webkit-scrollbar-thumb
 {
 	border-radius: 15px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
-	background-color: #555;
+	-webkit-box-shadow: inset 0 0 6px transparent;
+	background-color: transparent;
     padding-top:50px;
 }
 
+.scrollbar-gray:hover::-webkit-scrollbar-thumb
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: #555;
+}
 
 
 /* side nav -------------------------------------------------*/
@@ -555,7 +560,7 @@ main>*:first-child {
 .textmark {
     font-weight:bold;
     background-color:#f7f78a;
-    border-radius:8px;
+    border-radius:4px;
     padding-left:3px;
     padding-right:3px;
     box-shadow: 1px 1px 2px #cccc4e;
@@ -664,6 +669,7 @@ main>*:first-child {
     text-align: left;
     padding: 10px 0px 3px 20px;
     text-transform: uppercase;
+    text-shadow:none;
 }
 
 
@@ -822,8 +828,8 @@ main>*:first-child {
 }
 
 .margin-auto {
-    margin:auto;
-    float:none;
+    margin:auto !important;
+    float:none !important;
 }
 
 .g-recaptcha {
@@ -837,19 +843,17 @@ main>*:first-child {
     background-color: #26a69a;
     text-align: center;
     letter-spacing: .5px;
-    font-size: 1rem;
+    font-size: 15px;
     outline: 0;
     border: none;
     border-radius: 3px;
-    height: 36px;
-    line-height: 36px;
     padding: 0 2rem;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
     font-family: sans-serif;
-    font-weight: normal;
+    font-weight: bold;
     cursor: pointer;
     transition: .3s ease-out;
-    padding:5px 30px 5px 30px;
+    padding:10px 30px 10px 30px;
 }
 
 .btn:hover {
@@ -858,24 +862,47 @@ main>*:first-child {
 
 .btn[disabled] {
     background-color:#d0d0d0;
-    box-shadow:none;
-    text-shadow:0px -2px -1px #555;
+    cursor: not-allowed;
 }
 
 input {
-    border: 1px solid #ced4da;
-    border-radius:3px;
-    padding: .375rem .75rem;
+    /*border: 1px solid #ced4da;
+    border-radius:3px;*/
+    padding: .3rem .75rem .1rem .75rem;
+    border: none;
+    border-bottom:1px solid #b5b5b5;
+    border-top:1px solid transparent;
+}
+
+
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched { 
+    /*box-shadow: 0 0 0 0.1rem rgba(255,120,120,.5);*/
+    border-bottom-color: #fd9090;
+}
+
+label {
+    
 }
 
 input:focus {
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.15);
+    border-bottom: 2px solid #4285f4 !important;
+    outline: 0 !important;
+    border-top:none;
+    /*box-shadow: 0 0 0 0.2rem rgba(0,123,255,.15) !important;*/
+}
+
+select {
+    padding: 10px 5px;
+    font-size: 14px;
+    color: #06a271;
+    font-weight: 600;
+    border: none;
+    border-bottom:1px solid #b5b5b5;
+    outline: none;
 }
 
 .row {
-    margin:5px 0px;
+    padding:5px 0px;
     clear:both;
 }
 
@@ -968,7 +995,3 @@ input:focus {
 .col.l2 { width:16.66666666666667%}
 .col.l1 { width:8.33333333333333%}
 }
-
-input.ng-invalid.ng-touched, select.ng-invalid.ng-touched { background-color:#f6eeee}
-
-
