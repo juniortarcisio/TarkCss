@@ -5,6 +5,7 @@
 body {
     margin: 0;
     font-family: Arial;
+    background-color:#f7f7f7;
 }
 
 .footer-tarkcss {
@@ -715,6 +716,18 @@ main>*:first-child {
     }
 
     .home-icon, .home-link, .nav-arrow { display:none }
+}
+
+
+
+@media only screen and (max-width:650px) {
+    .hide-on-mobile {
+        display:none;
+    }
+}
+
+.hide-on-mobile {
+
 }
 
 .breadcrumb {

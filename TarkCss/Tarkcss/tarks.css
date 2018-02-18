@@ -1,6 +1,6 @@
 ﻿h1, h2 {
     color:#333;
-    text-shadow: 0px 1px 1px #888
+    text-shadow: 0px 1px 1px #aaa;
 }
 
 /* Modal -------------------------------------------------*/
@@ -314,6 +314,7 @@ table {
     margin-left:20px;
     margin-right:20px;
     padding:5px;
+    background-color:white;
 }
 
 .card.noborder {

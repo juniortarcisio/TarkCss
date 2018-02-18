@@ -48,7 +48,7 @@
                     <a href="#" class="small"><i class="fa fa-users"></i>People</a>
                 </section>
             </section>
-            <section class="social">
+            <section class="social hide-on-mobile">
                 <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
                 <a href="https://www.linkedin.com/in/jr-tarcisio-587980138/" target="_blank" class="fa fa-round fa-linkedin"></a>
                 <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
@@ -68,7 +68,7 @@
             </a>
         </div>
         <span>INGES | Portuguese</span>
-        <div class="topnav-right">
+        <div class="topnav-right hide-on-mobile">
             <div class="top-nav-item">
                 <div ng-hide="account.authenticated == true">
                     <div>You aren't authenticated</div>
@@ -125,7 +125,7 @@
                 <span>{{title}}</span>
             </a>
         </div>
-        <section class="view-container" ng-view></section>
+        <section class="view-container fade-in" ng-view></section>
         <br class="clear" />
         <footer>
             <section>
