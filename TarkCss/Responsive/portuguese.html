@@ -22,21 +22,42 @@
         <article>
             <a href="" class="closebtn" onclick="toggleNav()">&times;</a>
             <section class="items">
-                <a href="#!Home" class="small"><i class="fa fa-home"></i>Home</a>
-                <a href="#!ToBe" class="small"><i class="fa fa-commenting"></i>To be verb</a>
-                <a href="#!SimplePresent" class="small"><i class="fa fa-commenting"></i>Simple Present</a>
-                <a href="#!PresentContinuous" class="small"><i class="fa fa-commenting"></i>Present Continuous</a>
-                <a href="#!SimplePast" class="small"><i class="fa fa-commenting"></i>Simple Past</a>
-                <a href="#!PastContinuous" class="small"><i class="fa fa-commenting"></i>Past Continuous</a>
-                <a href="#!SimpleFuture" class="small"><i class="fa fa-commenting"></i>Simple Future</a>
-                <a href="#!TenseComparison" class="small"><i class="fa fa-commenting"></i>Tenses Comparison</a>
-                <a href="#!Exercises" class="small"><i class="fa fa-commenting"></i>Exercises</a>
+                <section class="menu-group">
+                    <h1>General</h1>
+                    <a href="#!Home" class="small"><i class="fa fa-home"></i>Home</a>
+                    <a href="#" class="small"><i class="fa fa-commenting"></i>About</a>
+                </section>
+                <section class="menu-group">
+                    <h1>Lessons</h1>
+                    <a href="#!ToBe" class="small"><i class="fa fa-commenting"></i>To be verb</a>
+                    <a href="#!SimplePresent" class="small"><i class="fa fa-commenting"></i>Simple Present</a>
+                    <a href="#!PresentContinuous" class="small"><i class="fa fa-commenting"></i>Present Continuous</a>
+                    <a href="#!SimplePast" class="small"><i class="fa fa-commenting"></i>Simple Past</a>
+                    <a href="#!PastContinuous" class="small"><i class="fa fa-commenting"></i>Past Continuous</a>
+                    <a href="#!SimpleFuture" class="small"><i class="fa fa-commenting"></i>Simple Future</a>
+                    <a href="#!TenseComparison" class="small"><i class="fa fa-commenting"></i>Tenses Comparison</a>
+                </section>
+                <section class="menu-group">
+                    <h1>Exercises</h1>
+                    <a href="#!Exercises" class="small"><i class="fa fa-commenting"></i>Prototype Exercises</a>
+                </section>
+                <section class="menu-group">
+                    <h1>Community</h1>
+                    <a href="#" class="small"><i class="fa fa-commenting"></i>Forum</a>
+                    <a href="#" class="small"><i class="fa fa-commenting"></i>Chat</a>
+                    <a href="#" class="small"><i class="fa fa-commenting"></i>People</a>
+                </section>
             </section>
             <section class="social">
+                <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
+                <a href="https://www.linkedin.com/in/jr-tarcisio-587980138/" target="_blank" class="fa fa-round fa-linkedin"></a>
                 <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook"></a>
                 <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter"></a>
-                <a href="https://www.linkedin.com/in/jr-tarcisio-587980138/" target="_blank" class="fa fa-round fa-linkedin"></a>
-                <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </section>
         </article>
     </aside>
@@ -60,6 +81,8 @@
                 <div ng-show="account.authenticated == true">
                     <div>{{ account.email }}</div>
                     <div class="right">
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!Account/Manage">Manage</a>
+                        <span class="text-gray">|</span>
                         <a class="text-bold text-white nounderline hover-shiny" href="#!SignOut">Sign Out</a>
                     </div>
                 </div>
