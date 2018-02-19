@@ -270,10 +270,10 @@ main>*:first-child {
     background-color: #222;
     transition: 0.5s;
     box-shadow:3px 0px 5px rgba(0,0,0,.5);
+    overflow-x: hidden;
 }
 
 .sidenav-content {
-    overflow-x: hidden;
     overflow-y:scroll;
     height:100%; 
     height: calc(100% - 72px);
