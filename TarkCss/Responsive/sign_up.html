@@ -1,5 +1,5 @@
 ﻿<style type="text/css">
-    .card-sign-up { min-width: 430px !important; }
+    .card-sign-up { min-width: 440px !important; }
 </style>
 <section>
     <div class="card big margin-auto fade-in-slide-down-slow card-sign-up">
@@ -45,7 +45,8 @@
                     <div id="g-recaptcha-sign-up" class="g-recaptcha"></div>
                 </div>
                 <div class="row center">
-                    <a class="btn" ng-disabled="!formSignUp.$valid || account.password !== account.passwordConfirm" ng-click="submit()">SUBMIT</a>
+                    <button type="button" class="btn" ng-disabled="!formSignUp.$valid || account.password !== account.passwordConfirm" ng-click="submit()">SUBMIT</button>
+                    <!--<a class="btn" ng-disabled="!formSignUp.$valid || account.password !== account.passwordConfirm" ng-click="submit()">SUBMIT</a>-->
                 </div>
                 <br />
                 <div class="clear center error-box" ng-show="errorMessage.length > 0">

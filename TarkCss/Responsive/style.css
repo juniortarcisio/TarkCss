@@ -876,11 +876,12 @@ main>*:first-child {
 input {
     /*border: 1px solid #ced4da;
     border-radius:3px;*/
-    padding: .3rem .75rem .1rem .75rem;
+    padding: 5px;
     border: none;
     border-bottom:1px solid #b5b5b5;
     border-top:1px solid transparent;
     font-family: 'Roboto', sans-serif;
+    width:100%;
 
 }
 
@@ -894,7 +895,7 @@ label {
     
 }
 
-input:focus {
+input:focus, select:focus {
     border-bottom: 2px solid #4285f4 !important;
     outline: 0 !important;
     border-top:none;
@@ -908,12 +909,14 @@ select {
     font-weight: 600;
     border: none;
     border-bottom:1px solid #b5b5b5;
+    border-top:1px solid transparent;
     outline: none;
     font-family: 'Roboto', sans-serif;
+    width:100%;
 }
 
 .row {
-    padding:5px 0px;
+    padding-top:10px;
     clear:both;
 }
 
