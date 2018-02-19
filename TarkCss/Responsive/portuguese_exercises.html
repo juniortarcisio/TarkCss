@@ -12,7 +12,7 @@
                         <td>
                             <span ng-repeat="questionPart in question.parts">
                                 <span ng-show="questionPart.type=='text'">{{questionPart.value}}</span>
-                                <select ng-show="questionPart.type=='answer'" ng-model="questionPart.answer">
+                                <select class="width-auto" ng-show="questionPart.type=='answer'" ng-model="questionPart.answer">
                                     <option selected></option>
                                     <option ng-repeat="option in questionPart.options">{{option}}</option>
                                 </select>

@@ -87,6 +87,7 @@
     <Content Include="Prototype\map.jpg" />
     <Content Include="Prototype\servers.html" />
     <Content Include="Prototype\style.css" />
+    <Content Include="Responsive\construction.html" />
     <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
     <Content Include="Responsive\portuguese.html" />

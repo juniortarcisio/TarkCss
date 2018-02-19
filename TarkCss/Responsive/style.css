@@ -8,6 +8,11 @@ body {
     background-color:#f7f7f7;
 }
 
+h1 {
+    font-size:42px;
+    margin: 25px 0px;
+}
+
 .footer-tarkcss {
     background-color: #262626;
     color:#ccc;
@@ -470,10 +475,16 @@ main>*:first-child {
     text-decoration: none;
     margin: 5px 2px;
     animation: focus-shadow-out .3s;
-    opacity:0.3;
-    transition: .3s;
+    transition: .5s;
 }
 
+.opaque-30 {
+    opacity:0.3;
+}
+
+.hover-bright:hover {
+    box-shadow: 0px 0px 25px #fff !important;
+}
 
 .fa-round:hover {
     opacity: 1;
@@ -485,9 +496,17 @@ main>*:first-child {
     color: white;
 }
 
+.fa-facebook:hover {
+    box-shadow: 0px 0px 25px #3B5998;
+}
+
 .fa-twitter {
     background: #55ACEE;
     color: white;
+}
+
+.fa-twitter:hover {
+    box-shadow: 0px 0px 25px #55ACEE;
 }
 
 .fa-google {
@@ -499,6 +518,11 @@ main>*:first-child {
     background: #007bb5;
     color: white;
 }
+
+.fa-linkedin:hover {
+    box-shadow: 0px 0px 25px #007bb5;
+}
+
 
 .fa-youtube {
     background: #bb0000;
@@ -525,6 +549,11 @@ main>*:first-child {
     background: #24292e;
     color: white;
 }
+
+.fa-github:hover {
+    box-shadow: 0px 0px 25px #24292e;
+}
+
 
 
 
@@ -840,6 +869,10 @@ main>*:first-child {
     float:none !important;
 }
 
+.width-auto {
+    width:auto;
+}
+
 .g-recaptcha {
     margin:auto;
     width:304px;
@@ -882,6 +915,7 @@ input {
     border-top:1px solid transparent;
     font-family: 'Roboto', sans-serif;
     width:100%;
+    background-color: transparent;
 
 }
 
@@ -913,6 +947,7 @@ select {
     outline: none;
     font-family: 'Roboto', sans-serif;
     width:100%;
+    background-color: transparent;
 }
 
 .row {

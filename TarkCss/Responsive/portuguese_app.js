@@ -362,6 +362,12 @@ app.config(function ($routeProvider) {
     .when("/SignOut", {
         templateUrl: "sign_out.html", controller: "signOutCtrl"
     })
+    .when("/About", {
+        templateUrl: "portuguese_about.html", controller: "aboutCtrl"
+    })
+    .when("/Construction", {
+        templateUrl: "construction.html", controller: "aboutCtrl"
+    })
     .otherwise({
         templateUrl: "portuguese_home.html", controller: "homeCtrl"
     });
