@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: 'Roboto', sans-serif;
     background-color:#f7f7f7;
 }
 
@@ -12,7 +12,7 @@ body {
     background-color: #262626;
     color:#ccc;
     padding: 8px 20px;
-    font-family: Segoe UI;
+    /*font-family: Segoe UI;*/
     font-size: 0.9em;
 }
 
@@ -115,7 +115,7 @@ main>*:first-child {
     overflow: hidden;
     background-color: #333;
     box-shadow: 0 1px 6px 0 rgba(32,32,32,0.7);
-    font-family: Segoe UI, Arial;
+    /*font-family: Segoe UI, Arial;*/
     margin-left:250px;
     transition: .5s;
     animation: topnavScroll .5s all;
@@ -152,7 +152,7 @@ main>*:first-child {
 }
 
     .topnav button {
-        font-family: Segoe UI, Arial;
+        /*font-family: Segoe UI, Arial;*/
         color:#CCC;
     }
 
@@ -202,7 +202,7 @@ main>*:first-child {
     float:right;
     padding-right:30px;
     font-size:14px;
-    font-family: "Segoe UI",Tahoma,Arial,sans-serif;
+    /*font-family: "Segoe UI",Tahoma,Arial,sans-serif;*/
     font-weight:normal;
 }
 
@@ -274,6 +274,7 @@ main>*:first-child {
 }
 
 .sidenav-content {
+    overflow-x: hidden;
     overflow-y:scroll;
     height:100%; 
     height: calc(100% - 72px);
@@ -656,7 +657,7 @@ main>*:first-child {
 
 .topheader>span {
     /*text-shadow:0px 0px 15px #aaffaa;*/
-    font-family: Segoe UI;
+    /*font-family: Segoe UI;*/
     font-weight: normal;
     font-size:24px;
     color: #5fffcc;
@@ -669,7 +670,7 @@ main>*:first-child {
 }
 
 .menu-group h1 {
-    font-family: Segoe UI;
+    /*font-family: Segoe UI;*/
     font-weight: normal;
     font-size: 18px;
     color: #5fffcc;
@@ -763,7 +764,7 @@ main>*:first-child {
     clear:both;
     text-decoration:none !important;
     padding:5px;
-        font-family: Segoe UI;
+        /*font-family: Segoe UI;*/
     font-size: 21px;
     color: #888;
 }
@@ -856,7 +857,7 @@ main>*:first-child {
     border-radius: 3px;
     padding: 0 2rem;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
     font-weight: bold;
     cursor: pointer;
     transition: .3s ease-out;
@@ -879,6 +880,8 @@ input {
     border: none;
     border-bottom:1px solid #b5b5b5;
     border-top:1px solid transparent;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 
@@ -906,6 +909,7 @@ select {
     border: none;
     border-bottom:1px solid #b5b5b5;
     outline: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .row {

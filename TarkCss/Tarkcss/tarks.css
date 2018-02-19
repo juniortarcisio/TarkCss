@@ -1,6 +1,6 @@
 ﻿h1, h2 {
     color:#333;
-    text-shadow: 0px 1px 1px #aaa;
+    /*text-shadow: 0px 1px 1px #aaa;*/
 }
 
 /* Modal -------------------------------------------------*/
@@ -458,13 +458,13 @@ table {
 }
 
 .card-container {
-    font-family:'Segoe UI';
+    /*font-family:'Segoe UI';*/
     padding: 2px 22px;
 }
 
 .card-container h3, .card-container h2, .card-container h1, .card-container h4, .card-container h5 {
-    text-shadow: 0px 1px 1px rgba(80,80,80,1); 
-    font-family:'Segoe UI';
+    /*text-shadow: 0px 1px 1px rgba(80,80,80,1);*/ 
+    /*font-family:'Segoe UI';*/
     color: #333;
 }
 
