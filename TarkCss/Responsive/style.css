@@ -278,6 +278,14 @@ main>*:first-child {
     overflow-x: hidden;
 }
 
+@media only screen and (max-width:650px) {
+    /*performance trick*/
+    .sidenav {
+        box-shadow:none; 
+    }
+}
+
+
 .sidenav-content {
     overflow-x: hidden;
     overflow-y:scroll;
