@@ -248,6 +248,7 @@ main>*:first-child {
 	-webkit-box-shadow: inset 0 0 6px transparent;
 	background-color: transparent;
     padding-top:50px;
+    transition: .5s;
 }
 
 .scrollbar-gray:hover::-webkit-scrollbar-thumb
@@ -264,17 +265,23 @@ main>*:first-child {
     width: 250px;
     position: fixed;
     z-index: 1;
-    top: 72px;
+    top:0;
     left: 0;
     background-color: #222;
-    overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 25px;
-    /*box-shadow:3px 0px 5px;*/
+    box-shadow:3px 0px 5px rgba(0,0,0,.5);
 }
 
-.sidenav:hover {
+.sidenav-content {
+    overflow-x: hidden;
     overflow-y:scroll;
+    height:100%; 
+    height: calc(100% - 72px);
+}
+
+/* margin adjustment*/
+.sidenav-top-margin {
+    height:72px
 }
 
 .sidenav>article {
