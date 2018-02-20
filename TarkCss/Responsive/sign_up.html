@@ -7,35 +7,27 @@
             <h3>Sign Up</h3>
             <form name="formSignUp">
                 <div class="row">
-                    <div class="col m4 right">
+                    <div class="col m11">
+                        <input type="text" ng-model="account.name" startfocus required ng-minlength="4" />
                         <label>Nickname</label> 
                     </div>
-                    <div class="col m6">
-                        <input type="text" ng-model="account.name" startfocus required ng-minlength="4" />
-                    </div>
                 </div>
                 <div class="row">
-                    <div class="col m4 right">
-                        <label>Email Address</label> 
-                    </div>
-                    <div class="col m6">
+                    <div class="col m11">
                         <input type="email" ng-model="account.email" required />
+                        <label>Email Address</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m4 right">
-                        <label>Password</label> 
-                    </div>
-                    <div class="col m6">
+                    <div class="col m11">
                         <input name="password" type="password" ng-model="account.password" required ng-minlength="6" />
+                        <label>Password</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m4 right">
-                        <label>Confirm Password</label> 
-                    </div>
-                    <div class="col m6">
+                    <div class="col m11">
                         <input name="passwordConfirm" type="password" ng-model="account.passwordConfirm" required ng-minlength="6" />
+                        <label>Confirm Password</label>
                     </div>
                 </div>
                 <div class="clear center">

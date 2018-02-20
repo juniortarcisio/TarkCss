@@ -697,7 +697,7 @@ main>*:first-child {
     /*font-family: Segoe UI;*/
     font-weight: normal;
     font-size:24px;
-    color: #5fffcc;
+    color: #00ffae;
 }
 
 .topheader img {
@@ -710,7 +710,7 @@ main>*:first-child {
     /*font-family: Segoe UI;*/
     font-weight: normal;
     font-size: 18px;
-    color: #5fffcc;
+    color: #00ffae;
     text-align: left;
     padding: 10px 0px 3px 20px;
     text-transform: uppercase;
@@ -923,14 +923,14 @@ input {
     border-top:1px solid transparent;
     font-family: 'Roboto', sans-serif;
     width:100%;
-    background-color: transparent;
-
+    background-color: transparent;    
+    transition: .25s border-bottom-color ease-in-out;
 }
 
 
 input.ng-invalid.ng-touched, select.ng-invalid.ng-touched { 
     /*box-shadow: 0 0 0 0.1rem rgba(255,120,120,.5);*/
-    border-bottom-color: #fd9090;
+    /*border-bottom-color: #fd9090;*/
 }
 
 label {
@@ -942,6 +942,29 @@ input:focus, select:focus {
     outline: 0 !important;
     border-top:none;
     /*box-shadow: 0 0 0 0.2rem rgba(0,123,255,.15) !important;*/
+}
+
+
+input+label {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #757575;
+  -webkit-transform-origin: bottom left;
+  transform-origin: bottom left;
+  pointer-events: none;
+  transition: .25s all ease-in-out;
+}
+
+input:focus+label,input:not(.ng-empty)+label{
+  position: absolute;
+  font-size: 14px;
+  color: #4285f4;
+  -webkit-transform: scale(.75) translateY(-39px);
 }
 
 select {
@@ -959,13 +982,14 @@ select {
 }
 
 .row {
-    padding-top:10px;
+    padding-top:30px;
     clear:both;
 }
 
 .col {
     float:left;
     padding: 3px 5px;
+    position:relative;
 }
 
 .col.s12 { width:100%; }

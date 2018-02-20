@@ -7,19 +7,15 @@
             <h3>Sign In</h3>
             <form name="formSignIn">
                 <div class="row">
-                    <div class="col m4 right">
-                        <label>Email Address</label> 
-                    </div>
-                    <div class="col m6">
+                    <div class="col m11">
                         <input type="email" ng-model="account.email" startfocus required />
+                        <label>Email Address</label> 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m4 right">
-                        <label>Password</label>
-                    </div>
-                    <div class="col m6">
+                    <div class="col m11">
                         <input type="password" ng-model="account.password" required ng-minlength="6" />
+                        <label>Password</label>
                     </div>
                 </div>
                 <br />
