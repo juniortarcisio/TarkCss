@@ -986,6 +986,15 @@ select {
     clear:both;
 }
 
+@media only screen and (max-width:650px) {
+    .row {
+        padding-top:20px;
+        clear:both;
+    }
+}
+
+
+
 .col {
     float:left;
     padding: 3px 5px;

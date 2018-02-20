@@ -1,15 +1,18 @@
 ﻿<style type="text/css">
-    .card-sign-up { min-width: 440px !important; }
+    .card-sign-up {
+        min-width: 355px !important;
+        max-width: 410px !important;
+    }
 </style>
 <section>
-    <div class="card big margin-auto fade-in-slide-down-slow card-sign-up">
+    <div class="card col s11 m5 l3 margin-auto fade-in-slide-down-slow card-sign-up">
         <div class="card-container">
             <h3>Sign Up</h3>
             <form name="formSignUp">
                 <div class="row">
                     <div class="col m11">
                         <input type="text" ng-model="account.name" startfocus required ng-minlength="4" />
-                        <label>Nickname</label> 
+                        <label>Nickname</label>
                     </div>
                 </div>
                 <div class="row">

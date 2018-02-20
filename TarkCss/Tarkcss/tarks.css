@@ -333,7 +333,7 @@ table {
     clear:both;
 }
 
-@media only screen and (min-width: 900px) {
+/*@media only screen and (min-width: 900px) {
     .card.small {
         min-width:20%;
     }
@@ -379,7 +379,7 @@ table {
         margin-left:1%;
         margin-right:1%;
     }
-}
+}*/
 
 
 
