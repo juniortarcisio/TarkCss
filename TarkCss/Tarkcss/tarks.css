@@ -307,12 +307,10 @@ table {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     border-radius: 5px;
     transition: 0.2s all;
-    width:330px;
+    width:100%;
     float:left;
     margin-top:5px;
     margin-bottom:20px;
-    margin-left:20px;
-    margin-right:20px;
     padding:5px;
     background-color:white;
 }

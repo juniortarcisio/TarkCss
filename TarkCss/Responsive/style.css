@@ -35,13 +35,13 @@ nav, main, footer {
 }
 
 main>section {
-    margin-left:20px;
+    padding:10px 20px;
 }
 
 
 @media only screen and (max-width:599px) {
     main>section {
-        margin-left:2px;
+        padding:10px 10px;
     }
 
 }
@@ -997,7 +997,8 @@ select {
 
 .col {
     float:left;
-    padding: 3px 5px;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
     position:relative;
 }
 
@@ -1016,7 +1017,7 @@ select {
 
 .col.m12 { width:100%; }
 .col.m11 { width:91.66666666666667%; }
-.col.s10 { width:83.33333333333333%; }
+.col.m10 { width:83.33333333333333%; }
 .col.m9 { width:75%; }
 .col.m8 { width:66.66666666666667%}
 .col.m7 { width:58.33333333333333%}
@@ -1056,10 +1057,10 @@ select {
 .col.s1 { width:8.33333333333333%}
 }
 
-@media only screen and (min-width:600px) {
+@media only screen and (min-width:600px) and (max-width: 992px) {
 .col.m12 { width:100%; }
 .col.m11 { width:91.66666666666667%; }
-.col.s10 { width:83.33333333333333%; }
+.col.m10 { width:83.33333333333333%; }
 .col.m9 { width:75%; }
 .col.m8 { width:66.66666666666667%}
 .col.m7 { width:58.33333333333333%}

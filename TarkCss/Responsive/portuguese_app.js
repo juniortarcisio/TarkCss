@@ -379,7 +379,7 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
     AuthenticationService.TryLoadStorageSession();
 
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
-
+        document.getElementById("mySidenav").style.width = "0px";
     });
 });
 
