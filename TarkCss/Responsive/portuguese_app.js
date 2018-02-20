@@ -378,7 +378,7 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
     ServerService.GetLastServer($rootScope.serverLoadedCallback, $rootScope.errorCallback);
     AuthenticationService.TryLoadStorageSession();
 
-    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+    $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         document.getElementById("mySidenav").style.width = "0px";
     });
 });
