@@ -386,5 +386,9 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
     $rootScope.toggleShowMobUser = function () {
         $rootScope.showMobUser = !$rootScope.showMobUser;
     };
+
+    $rootScope.home = function () {
+        $location.path("/Home");
+    }
 });
 

@@ -1,4 +1,8 @@
 ﻿<style type="text/css">
+    .row-recaptcha-mob-fix {
+        width: calc(100% + 16px);
+        margin-left: -8px;
+    }
     .card-sign-in { 
         min-width: 355px !important; 
         max-width: 410px !important;
@@ -15,20 +19,20 @@
             <h3>Sign In</h3>
             <form name="formSignIn">
                 <div class="row">
-                    <div class="col m11">
+                    <div class="col m12">
                         <input type="email" ng-model="account.email" startfocus required />
                         <label>Email Address</label> 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m11">
+                    <div class="col m12">
                         <input type="password" ng-model="account.password" required ng-minlength="6" />
                         <label>Password</label>
                     </div>
                 </div>
                 <br />
                 <br />
-                <div class="row">
+                <div class="row row-recaptcha-mob-fix">
                     <div id="g-recaptcha-sign-in" class="g-recaptcha"></div>
                 </div>
                 <div class="row center">

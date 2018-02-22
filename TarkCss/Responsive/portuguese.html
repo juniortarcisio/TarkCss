@@ -64,7 +64,7 @@
                 <span>&#9776;</span>
             </a>
         </div>
-        <span>INGES | Portuguese</span>
+        <span ng-click="home()">INGES | Portuguese</span>
         <div class="topnav-right hide-on-mobile">
             <div class="top-nav-item">
                 <div ng-hide="account.authenticated == true">
@@ -113,7 +113,9 @@
             <div class="top-nav-item-mob">
                 <i class="fa fa-user-circle" ng-click="toggleShowMobUser()"></i>
                 <div class="popup-mob" ng-show="showMobUser" ng-click="toggleShowMobUser()">
-                    <div class="card pop-mob-user">
+                    <div class="card pop-mob-user fade-in-slide-down">
+                        <div class="gb_rb"></div>
+                        <div class="gb_qb"></div>
                         <a class="btn" href="#!SignIn">Sign In</a>
                         <a class="btn" href="#!SignUp">Sign Up</a>
                     </div>
