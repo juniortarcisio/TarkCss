@@ -745,45 +745,24 @@ main>*:first-child {
 
 
 @media only screen and (min-width: 1650px) {
-    .card-to-be {
-        min-width:32% !important;
-    }
-    .card-to-be.large {
-        min-width:49% !important;
-    }
     .autoresize {
         font-size:15px;
     }
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1649px)  {
-    .card-to-be {
-        min-width:45% !important;
-    }
-    .card-to-be.large {
-        min-width:90% !important;
-    }
     .autoresize {
         font-size:14px;
     }
 }
 
 @media only screen and (min-width: 951px) and (max-width:899px) {
-    .card-to-be {
-        min-width:45% !important;
-    }
-    .card-to-be.large {
-        min-width:90% !important;
-    }
     .autoresize {
         font-size:13px;
     }
 }
 
 @media only screen and (max-width:950px) {
-    .card-to-be {
-        min-width:90% !important;
-    }
     .autoresize {
         font-size:12px;
     }

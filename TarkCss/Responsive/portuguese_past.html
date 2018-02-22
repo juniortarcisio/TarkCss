@@ -1,4 +1,4 @@
-﻿<section ng-controller="regularVerbsCtrl">
+﻿<section class="container">
     <article>
         <h2>Verbs conjugation - Simple past - Regular verbs</h2>
         <p>Regular verbs are verbs which follow a same pattern when conjugating, following there are some examples</p>
@@ -9,8 +9,8 @@
             </ul>
         </p>        
     </article>    
-    <div class="col l5 m8 s12">
-        <div class="card card-to-be">
+    <div class="col l6 m12 s12">
+        <div class="card">
             <div class="card-container">
                 <h2>Verbs that ends with A, I, O, U (plus R)</h2>
                 <select ng-model="selectedVerb" ng-options="format(x) for x in verbs"></select>
@@ -94,8 +94,8 @@
             </div>
         </div>
     </div>
-    <div class="col l5 m8 s12">
-        <div class="card card-to-be">
+    <div class="col l6 m12 s12">
+        <div class="card">
             <div class="card-container">
                 <h2>Verbs that ends with E(R)</h2>
                 <select ng-model="selectedVerbE" ng-options="format(x) for x in verbsE"></select>

@@ -315,6 +315,7 @@ table {
     margin-bottom:20px;
     padding:5px;
     background-color:white;
+    width:100%;
 }
 
 .card.noborder {
