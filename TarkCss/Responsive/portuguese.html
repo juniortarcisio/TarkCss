@@ -109,6 +109,20 @@
                 <i class="fa fa-globe fa-spin"></i>
             </div>
         </div>
+        <div class="topnav-right show-only-on-mobile">
+            <div class="top-nav-item-mob">
+                <i class="fa fa-user-circle" ng-click="toggleShowMobUser()"></i>
+                <div class="popup-mob" ng-show="showMobUser" ng-click="toggleShowMobUser()">
+                    <div class="card pop-mob-user">
+                        <a class="btn" href="#!SignIn">Sign In</a>
+                        <a class="btn" href="#!SignUp">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="top-nav-item-mob">
+                <i class="fa fa-globe fa-spin"></i>
+            </div>
+        </div>
     </header>
     <main>
         <div class="breadcrumb">

@@ -380,6 +380,11 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
 
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         document.getElementById("mySidenav").style.width = "0px";
+        $rootScope.showMobUser = false;
     });
+
+    $rootScope.toggleShowMobUser = function () {
+        $rootScope.showMobUser = !$rootScope.showMobUser;
+    };
 });
 
