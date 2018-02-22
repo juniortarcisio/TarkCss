@@ -114,6 +114,7 @@
     <Content Include="Prototype\index.html" />
     <Content Include="Responsive\Scripts\Services\ServerService.js" />
     <Content Include="Tarkcss\tarkslesscss.less" />
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

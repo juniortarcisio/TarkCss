@@ -79,10 +79,6 @@ main {
     z-index:0;
 }
 
-main>*:first-child {
-    margin-top:72px;
-}
-
 .battery-bar {
     color: white;
     font-size: 24px;
@@ -103,16 +99,47 @@ main>*:first-child {
 /* top header ----------------------------------------------*/
 .topheader {    
     background-color: #1c1c1c;
-    padding: 16px;
     color:#eee;
-    /*text-align:center;*/
     font-weight:bold;
     font-size:24px;
     position:fixed;
     width:100%;
     z-index:1000;
     height:40px;
-    overflow:hidden;
+    height: 72px;
+    line-height: 72px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+}
+
+main>*:first-child {
+        margin-top:72px;
+}
+
+@media only screen and (max-width:599px) {
+    .topheader {
+        text-align: center;
+        height: 56px;
+        line-height: 56px;
+    }
+
+    .topnav-right{
+        top:7px;
+    }
+
+    main>*:first-child {
+        margin-top:56px;
+    }
+}
+
+.topnav-right {
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    line-height: 20px;
 }
 
 /* top nav -------------------------------------------------*/
@@ -182,9 +209,10 @@ main>*:first-child {
         }
 
 .topnav-container {
-    position:relative;
-    float: left;
-    padding-right:16px;
+    line-height: 40px;
+    position: absolute;
+    top: 8px;
+    left: 10px;
 }
 
     .topnav-button-side {
@@ -193,7 +221,7 @@ main>*:first-child {
         display:none;
         color: #CCC;
         text-decoration:none;
-        padding:2px 8px 4px 8px;
+        padding: 0px 10px;
     }
     
 
@@ -203,13 +231,7 @@ main>*:first-child {
         border-radius: 2px;
     }
 
-.topnav-right {
-    float:right;
-    padding-right:30px;
-    font-size:14px;
-    /*font-family: "Segoe UI",Tahoma,Arial,sans-serif;*/
-    font-weight:normal;
-}
+
 
 .top-nav-item {
     display:inline-block;
@@ -398,7 +420,7 @@ main>*:first-child {
         text-decoration:none;
     }
 
-@media only screen and (min-width: 1301px) {
+@media only screen and (min-width: 600px) {
     .sidenav {
         width:250px!important;
     }
@@ -407,7 +429,7 @@ main>*:first-child {
     }
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 599px) {
     .topnav, body>footer
     {
         margin-left:0px;
@@ -801,7 +823,6 @@ main>*:first-child {
     clear:both;
     text-decoration:none !important;
     padding:5px;
-        /*font-family: Segoe UI;*/
     font-size: 21px;
     color: #888;
 }
@@ -956,6 +977,7 @@ input+label {
   color: #757575;
   -webkit-transform-origin: bottom left;
   transform-origin: bottom left;
+  transform-origin: bottom left;
   pointer-events: none;
   transition: .25s all ease-in-out;
 }
@@ -965,6 +987,7 @@ input:focus+label,input:not(.ng-empty)+label{
   font-size: 14px;
   color: #4285f4;
   -webkit-transform: scale(.75) translateY(-39px);
+  transform: scale(.75) translateY(-39px);
 }
 
 select {
@@ -1043,7 +1066,7 @@ select {
 
 
 @media only screen and (max-width:599px) {
-.col.s12 { width:100%; }
+.col.s12 { width:100%; padding:0px; }
 .col.s11 { width:91.66666666666667%; }
 .col.s10 { width:83.33333333333333%; }
 .col.s9 { width:75%; }

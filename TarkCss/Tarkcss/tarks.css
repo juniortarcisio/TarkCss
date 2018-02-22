@@ -3,6 +3,10 @@
     /*text-shadow: 0px 1px 1px #aaa;*/
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 /* Modal -------------------------------------------------*/
 
 /* The Modal (background) */
@@ -307,7 +311,6 @@ table {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     border-radius: 5px;
     transition: 0.2s all;
-    width:100%;
     float:left;
     margin-top:5px;
     margin-bottom:20px;
