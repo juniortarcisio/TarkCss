@@ -865,6 +865,14 @@ main>*:first-child {
     right: 5px;
 }
 
+.citation {
+    border-left: 8px solid gray;
+    background-color:#eee;
+    padding:8px;
+    padding-right:16px;
+    text-align: justify;
+}
+
 
 .error-box {
     padding: 20px;
