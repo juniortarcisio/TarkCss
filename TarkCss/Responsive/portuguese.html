@@ -19,10 +19,10 @@
     <title>Brazilian Portuguese lessons - Verb Conjugation</title>
 </head>
 <body ng-app="myApp">
-    <aside id="mySidenav" class="sidenav">
+    <aside id="mySidenav" ng-class="{ 'sidenav' : true, 'open' : sidenavOpen }">
         <article class="sidenav-top-margin"></article>
         <article class="sidenav-content scrollbar-gray">
-            <a href="" class="closebtn" onclick="toggleNav()">&times;</a>
+            <a href="" class="closebtn show-only-on-mobile" ng-click="toggleSivenav()">&times;</a>
             <section class="items">
                 <section class="menu-group">
                     <h1>General</h1>
@@ -58,9 +58,10 @@
             </section>
         </article>
     </aside>
+    <section class="sidenav-bg show-only-on-mobile" ng-show="sidenavOpen" ng-click="toggleSivenav()"></section>
     <header class="topheader">
-        <div class="topnav-container">
-            <a class="topnav-button-side" onclick="toggleNav()">
+        <div class="topnav-container show-only-on-mobile">
+            <a class="topnav-button-side" ng-click="toggleSivenav()">
                 <span>&#9776;</span>
             </a>
         </div>

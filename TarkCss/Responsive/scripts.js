@@ -1,13 +1,13 @@
 ﻿/// <reference path="E:\Projects\html-templates\html-templates\tarks.js" />
 
-function toggleNav() {
-    if (document.getElementById("mySidenav").style.width == "250px") {
-        document.getElementById("mySidenav").style.width = "0px";
-    }
-    else {
-        document.getElementById("mySidenav").style.width = "250px";
-    }
-}
+//function toggleNav() {
+//    if (document.getElementById("mySidenav").style.width == "250px") {
+//        document.getElementById("mySidenav").style.width = "0px";
+//    }
+//    else {
+//        document.getElementById("mySidenav").style.width = "250px";
+//    }
+//}
 
 //function myMap() {
 //    var mapCanvas = document.getElementById("map");

@@ -379,7 +379,7 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
     AuthenticationService.TryLoadStorageSession();
 
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
-        document.getElementById("mySidenav").style.width = "0px";
+        $rootScope.sidenavOpen = false;
         $rootScope.showMobUser = false;
     });
 
@@ -387,8 +387,14 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
         $rootScope.showMobUser = !$rootScope.showMobUser;
     };
 
+    $rootScope.toggleSivenav = function () {
+        $rootScope.sidenavOpen = !$rootScope.sidenavOpen;
+    };
+
     $rootScope.home = function () {
         $location.path("/Home");
     }
+
+    //document.documentElement.webkitRequestFullscreen();
 });
 

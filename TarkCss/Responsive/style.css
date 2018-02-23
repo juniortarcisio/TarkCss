@@ -320,6 +320,22 @@ main>*:first-child {
     overflow-x: hidden;
 }
 
+.sidenav.open {
+    width:250px;
+}
+
+.sidenav-bg
+{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    height:100%;
+    width:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index: 0;
+} 
+
 @media only screen and (max-width:650px) {
     /*performance trick*/
     .sidenav {
@@ -433,7 +449,7 @@ main>*:first-child {
     .sidenav .closebtn {
         color: #818181;
         position: absolute;
-        top: 15px;
+        top: 60px;
         left: 165px;
         font-size: 36px;
         margin-left: 50px;
