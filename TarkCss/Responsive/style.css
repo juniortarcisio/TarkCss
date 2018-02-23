@@ -902,7 +902,7 @@ border-color: transparent;
 
 .pop-mob-user {
     position:absolute;
-    width:275px;
+    width:280px;
     padding:20px;
     top: 55px;
     right: 38px;
@@ -911,6 +911,21 @@ border-color: transparent;
     border: 1px solid #ccc;
     border-color: rgba(0,0,0,.2);
 }
+
+.pop-mob-user>article {
+    font-size: 13px;
+    line-height: 20px;
+    color: #333;
+    padding-bottom: 10px;
+}
+
+.pop-mob-user>article>p {
+    font-size: 100px;
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
 
 .citation {
     border-left: 8px solid gray;
