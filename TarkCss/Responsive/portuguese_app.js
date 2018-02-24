@@ -323,53 +323,62 @@ app.controller('homeCtrl', function ($scope, $rootScope) {
 
 app.config(function ($routeProvider) {
     $routeProvider
-    .when("/ToBe", {
-        templateUrl: "portuguese_tobe.html", controller: "toBeCtrl"
+    .when("/", {
+        templateUrl: "portuguese_home.html", controller: "homeCtrl"
     })
-    .when("/SimplePresent", {
-        templateUrl: "portuguese_present.html", controller: "simplePresentCtrl"
+    .when("/General", {
+        templateUrl: "construction.html", controller: "aboutCtrl"
     })
-    .when("/PresentContinuous", {
-        templateUrl: "portuguese_presentContinuous.html", controller: "presentContinuousCtrl"
-    })    
-    .when("/SimplePast", {
-        templateUrl: "portuguese_past.html", controller: "simplePastCtrl"
-    })
-    .when("/PastContinuous", {
-        templateUrl: "portuguese_pastContinuous.html", controller: "pastContinuousCtrl"
-    })
-    .when("/SimpleFuture", {
-        templateUrl: "portuguese_future.html", controller: "simpleFutureCtrl"
-    })
-    .when("/Settings", {
-        templateUrl: "portuguese_settings.html", controller: "settingsCtrl"
-    })
-    .when("/About", {
+    .when("/General/About", {
         templateUrl: "portuguese_about.html", controller: "aboutCtrl"
     })
-    .when("/TenseComparison", {
+    .when("/General/Home", {
+        templateUrl: "portuguese_home.html", controller: "homeCtrl"
+    })
+    .when("/Account", {
+        templateUrl: "construction.html", controller: "aboutCtrl"
+    })
+    .when("/Account/SignUp", {
+        templateUrl: "sign_up.html", controller: "signUpCtrl"
+    })
+    .when("/Account/SignIn", {
+        templateUrl: "sign_in.html", controller: "signInCtrl"
+    })
+    .when("/Account/SignOut", {
+        templateUrl: "sign_out.html", controller: "signOutCtrl"
+    })
+    .when("/Lessons", {
+        templateUrl: "construction.html", controller: "toBeCtrl"
+    })
+    .when("/Lessons/ToBeVerb", {
+        templateUrl: "portuguese_tobe.html", controller: "toBeCtrl"
+    })
+    .when("/Lessons/SimplePresent", {
+        templateUrl: "portuguese_present.html", controller: "simplePresentCtrl"
+    })
+    .when("/Lessons/PresentContinuous", {
+        templateUrl: "portuguese_presentContinuous.html", controller: "presentContinuousCtrl"
+    })    
+    .when("/Lessons/SimplePast", {
+        templateUrl: "portuguese_past.html", controller: "simplePastCtrl"
+    })
+    .when("/Lessons/PastContinuous", {
+        templateUrl: "portuguese_pastContinuous.html", controller: "pastContinuousCtrl"
+    })
+    .when("/Lessons/SimpleFuture", {
+        templateUrl: "portuguese_future.html", controller: "simpleFutureCtrl"
+    })
+    .when("/Lessons/TenseComparison", {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
     })
     .when("/Exercises", {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })
-    .when("/SignUp", {
-        templateUrl: "sign_up.html", controller: "signUpCtrl"
-    })
-    .when("/SignIn", {
-        templateUrl: "sign_in.html", controller: "signInCtrl"
-    })
-    .when("/SignOut", {
-        templateUrl: "sign_out.html", controller: "signOutCtrl"
-    })
-    .when("/About", {
-        templateUrl: "portuguese_about.html", controller: "aboutCtrl"
-    })
     .when("/Construction", {
         templateUrl: "construction.html", controller: "aboutCtrl"
     })
     .otherwise({
-        templateUrl: "portuguese_home.html", controller: "homeCtrl"
+        templateUrl: "notfound.html", controller: "homeCtrl"
     });
 });
 
@@ -377,10 +386,31 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
 
     ServerService.GetLastServer($rootScope.serverLoadedCallback, $rootScope.errorCallback);
     AuthenticationService.TryLoadStorageSession();
+    
 
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         $rootScope.sidenavOpen = false;
         $rootScope.showMobUser = false;
+
+        var routes = $location.path().split('/').filter(function (v) { return v !== '' });
+        var breadcrumbs = [];
+
+        //routes.unshift('Portuguese');
+
+        for (var i = 0; i <= routes.length - 1; i++) {
+            var route_i = new Object();
+            route_i.name = routes[i].replace(/([A-Z])/g, ' $1').trim();
+            route_i.link = '';
+
+            for (var j = i; j >= 0; j--)                
+                route_i.link = routes[j] + '/' + route_i.link;
+
+            route_i.link = '#!' + route_i.link;
+
+            breadcrumbs.push(route_i);
+        }
+        
+        $rootScope.breadcrumbs = breadcrumbs;
     });
 
     $rootScope.toggleShowMobUser = function () {
@@ -392,7 +422,7 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
     };
 
     $rootScope.home = function () {
-        $location.path("/Home");
+        $location.path("/General/Home");
     }
 
     //document.documentElement.webkitRequestFullscreen();

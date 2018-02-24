@@ -30,7 +30,7 @@
             Host: www.inges.tarksoftware.org
         </p>
         <p>
-            if (IO.Exists(_requested.uri) == false)<br />
+            if (_requested.uri.onConstruction == false)<br />
             &nbsp;&nbsp;&nbsp; Response.Write("Under Construction");
         </p>
     </div>

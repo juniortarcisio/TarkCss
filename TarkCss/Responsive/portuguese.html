@@ -26,18 +26,18 @@
             <section class="items">
                 <section class="menu-group">
                     <h1>General</h1>
-                    <a href="#!Home" class="small"><i class="fa fa-home"></i>Home and news</a>
-                    <a href="#!About" class="small"><i class="fa fa-address-card"></i>About</a>
+                    <a href="#!General/Home" class="small"><i class="fa fa-home"></i>Home and news</a>
+                    <a href="#!General/About" class="small"><i class="fa fa-address-card"></i>About</a>
                 </section>
                 <section class="menu-group">
                     <h1>Lessons</h1>
-                    <a href="#!ToBe" class="small"><i class="fa fa-book"></i>To be verb</a>
-                    <a href="#!SimplePresent" class="small"><i class="fa fa-book"></i>Simple Present</a>
-                    <a href="#!PresentContinuous" class="small"><i class="fa fa-book"></i>Present Continuous</a>
-                    <a href="#!SimplePast" class="small"><i class="fa fa-book"></i>Simple Past</a>
-                    <a href="#!PastContinuous" class="small"><i class="fa fa-book"></i>Past Continuous</a>
-                    <a href="#!SimpleFuture" class="small"><i class="fa fa-book"></i>Simple Future</a>
-                    <a href="#!TenseComparison" class="small"><i class="fa fa-book"></i>Tenses Comparison</a>
+                    <a href="#!Lessons/ToBeVerb" class="small"><i class="fa fa-book"></i>To be verb</a>
+                    <a href="#!Lessons/SimplePresent" class="small"><i class="fa fa-book"></i>Simple Present</a>
+                    <a href="#!Lessons/PresentContinuous" class="small"><i class="fa fa-book"></i>Present Continuous</a>
+                    <a href="#!Lessons/SimplePast" class="small"><i class="fa fa-book"></i>Simple Past</a>
+                    <a href="#!Lessons/PastContinuous" class="small"><i class="fa fa-book"></i>Past Continuous</a>
+                    <a href="#!Lessons/SimpleFuture" class="small"><i class="fa fa-book"></i>Simple Future</a>
+                    <a href="#!Lessons/TenseComparison" class="small"><i class="fa fa-book"></i>Tenses Comparison</a>
                 </section>
                 <section class="menu-group">
                     <h1>Exercises</h1>
@@ -71,17 +71,17 @@
                 <div ng-hide="account.authenticated == true">
                     <div>You aren't authenticated</div>
                     <div>
-                        <a class="text-bold text-white nounderline hover-shiny" href="#!SignIn">Sign In</a>
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!Account/SignIn">Sign In</a>
                         <span class="text-gray">or</span>
-                        <a class="text-bold text-white nounderline hover-shiny" href="#!SignUp">Sign Up</a>
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!Account/SignUp">Sign Up</a>
                     </div>
                 </div>
                 <div ng-show="account.authenticated == true">
                     <div>{{ account.email }}</div>
                     <div class="right">
-                        <a class="text-bold text-white nounderline hover-shiny" href="#!Account/Manage">Manage</a>
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!Account">Manage</a>
                         <span class="text-gray">|</span>
-                        <a class="text-bold text-white nounderline hover-shiny" href="#!SignOut">Sign Out</a>
+                        <a class="text-bold text-white nounderline hover-shiny" href="#!Account/SignOut">Sign Out</a>
                     </div>
                 </div>
             </div>
@@ -127,8 +127,8 @@
                                 <li>Record your progress</li>
                             </ul>  
                         </article>
-                        <a class="btn" href="#!SignIn">Sign In</a>
-                        <a class="btn" href="#!SignUp">Sign Up</a>
+                        <a class="btn" href="#!Account/SignIn">Sign In</a>
+                        <a class="btn" href="#!Account/SignUp">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -139,15 +139,14 @@
     </header>
     <main>
         <div class="breadcrumb">
-            <a href="#news">
-                <span>Lessons</span>
-            </a>
-            <a href="#news">
-                <span>></span>
-            </a>
-            <a href="#news">
-                <span>{{title}}</span>
-            </a>
+            <span ng-repeat="breadcrumb in breadcrumbs">
+                <a ng-href="{{$last?null:breadcrumb.link }}">
+                    <span>{{ breadcrumb.name }}</span>
+                </a>
+                <a ng-hide="$last">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </span>
         </div>
         <section class="view-container fade-in" ng-view></section>
         <br class="clear" />
