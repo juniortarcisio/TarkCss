@@ -785,8 +785,31 @@ main>*:first-child {
     padding: 10px 0px 3px 20px;
     text-transform: uppercase;
     text-shadow:none;
+    position:relative;
 }
 
+.menu-group h1 i {
+    color: #009868;
+    font-size: 14px;
+    padding-left: 3px;
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    cursor:pointer;
+}
+
+.menu-group h1:hover i {
+    color: #00ffae;
+    font-size: 14px;
+    padding-left: 3px;
+    position: absolute;
+    top: 12px;
+    right: 30px;
+}
+
+.menu-group.closed a {
+    display: none;
+}
 
 @media only screen and (min-width: 1650px) {
     .autoresize {

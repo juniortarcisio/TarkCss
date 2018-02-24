@@ -24,13 +24,13 @@
         <article class="sidenav-content scrollbar-gray">
             <a href="" class="closebtn show-only-on-mobile" ng-click="toggleSivenav()">&times;</a>
             <section class="items">
-                <section class="menu-group">
-                    <h1>General</h1>
+                <section ng-init="menuClosed1 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed1 }">
+                    <h1 ng-click="menuClosed1 = !menuClosed1">General <i class="fa fa-chevron-up" ng-hide="menuClosed1"></i><i class="fa fa-chevron-down" ng-show="menuClosed1"></i></h1>
                     <a href="#!General/Home" class="small"><i class="fa fa-home"></i>Home and news</a>
                     <a href="#!General/About" class="small"><i class="fa fa-address-card"></i>About</a>
                 </section>
-                <section class="menu-group">
-                    <h1>Lessons</h1>
+                <section ng-init="menuClosed2 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed2 }">
+                    <h1 ng-click="menuClosed2 = !menuClosed2">Lessons <i class="fa fa-chevron-up" ng-hide="menuClosed2"></i><i class="fa fa-chevron-down" ng-show="menuClosed2"></i></h1>
                     <a href="#!Lessons/ToBeVerb" class="small"><i class="fa fa-book"></i>To be verb</a>
                     <a href="#!Lessons/SimplePresent" class="small"><i class="fa fa-book"></i>Simple Present</a>
                     <a href="#!Lessons/PresentContinuous" class="small"><i class="fa fa-book"></i>Present Continuous</a>
@@ -39,12 +39,12 @@
                     <a href="#!Lessons/SimpleFuture" class="small"><i class="fa fa-book"></i>Simple Future</a>
                     <a href="#!Lessons/TenseComparison" class="small"><i class="fa fa-book"></i>Tenses Comparison</a>
                 </section>
-                <section class="menu-group">
-                    <h1>Exercises</h1>
+                <section ng-init="menuClosed3 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed3 }">
+                    <h1 ng-click="menuClosed3 = !menuClosed3">Exercises <i class="fa fa-chevron-up" ng-hide="menuClosed3"></i><i class="fa fa-chevron-down" ng-show="menuClosed3"></i></h1>
                     <a href="#!Exercises" class="small"><i class="fa fa-edit"></i>Prototype Exercises</a>
                 </section>
-                <section class="menu-group">
-                    <h1>Community</h1>
+                <section ng-init="menuClosed4 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed4 }">
+                    <h1 ng-click="menuClosed4 = !menuClosed4">Community <i class="fa fa-chevron-up" ng-hide="menuClosed4"></i><i class="fa fa-chevron-down" ng-show="menuClosed4"></i></h1>
                     <a href="#!Construction" class="small"><i class="fa fa-wpforms"></i>Forum</a>
                     <a href="#!Construction" class="small"><i class="fa fa-comments"></i>Chat</a>
                     <a href="#!Construction" class="small"><i class="fa fa-users"></i>People</a>
