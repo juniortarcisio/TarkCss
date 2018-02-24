@@ -465,10 +465,6 @@ table {
     padding: 2px 22px;
 }
 
-.card-container h3, .card-container h2, .card-container h1, .card-container h4, .card-container h5 {
-    color: #333;
-}
-
 .bold {
     font-weight:bold;
 }

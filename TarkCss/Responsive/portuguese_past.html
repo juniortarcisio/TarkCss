@@ -14,7 +14,7 @@
     <div class="col l6 m12 s12">
         <div class="card">
             <div class="card-container">
-                <h2>Verbs that ends with A, I, O, U (plus R)</h2>
+                <h3>Verbs that ends with A, I, O, U (plus R)</h3>
                 <select ng-model="selectedVerb" ng-options="format(x) for x in verbs"></select>
                 <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
                 <table>
@@ -99,7 +99,7 @@
     <div class="col l6 m12 s12">
         <div class="card">
             <div class="card-container">
-                <h2>Verbs that ends with E(R)</h2>
+                <h3>Verbs that ends with E(R)</h3>
                 <select ng-model="selectedVerbE" ng-options="format(x) for x in verbsE"></select>
                 <h3>{{selectedVerbE.English}} verb - {{selectedVerbE.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
                 <table>
