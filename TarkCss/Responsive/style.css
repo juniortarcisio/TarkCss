@@ -8,6 +8,15 @@ body {
     background-color:#f7f7f7;
 }
 
+.below-top-nav {
+    display:flex;
+	position:absolute;
+	left:250px;
+	right:0;
+	top:72px;
+	bottom:0;
+}
+
 h1 {
     font-size:42px;
     margin: 25px 0px;
@@ -61,7 +70,7 @@ main>footer{
 }
 
 main>footer section {
-    padding:10px;
+    padding:5px;
 }
 
 
@@ -80,11 +89,14 @@ main>footer ul li a {
 }
 
 main {
-    margin-left:250px;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
     z-index:0;
+    position:relative;
+	box-sizing:border-box;
+	overflow-y:auto;
+    overflow-x:hidden;
+	display:flex;
+	flex-direction:column;
+	flex:auto;
 }
 
 .battery-bar {
@@ -119,11 +131,13 @@ main {
     box-sizing: border-box;
     padding: 0px 20px;
     box-shadow: 0px 3px 2px rgba(0,0,0,0.25);
+    top: 0px;
+    left: 0px;
 }
 
-main>*:first-child {
+/*main>*:first-child {
         margin-top:72px;
-}
+}*/
 
 @media only screen and (max-width:599px) {
     .topheader {
@@ -139,8 +153,8 @@ main>*:first-child {
         top:7px;
     }
 
-    main>*:first-child {
-        margin-top:56px;
+    .below-top-nav {
+        top:56px;
     }
 }
 
@@ -481,8 +495,8 @@ main>*:first-child {
     {
         margin-left:0px;
     }
-    main {
-        margin-left:0px;
+    .below-top-nav {
+        left:0px;
     }
     .sidenav {
         width:0px;

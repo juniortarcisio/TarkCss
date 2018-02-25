@@ -137,34 +137,36 @@
             </div>
         </div>
     </header>
-    <main>
-        <div class="breadcrumb">
-            <span ng-repeat="breadcrumb in breadcrumbs">
-                <a ng-href="{{$last?null:breadcrumb.link }}">
-                    <span>{{ breadcrumb.name }}</span>
-                </a>
-                <a ng-hide="$last">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </span>
-        </div>
-        <section class="view-container fade-in" ng-view></section>
-        <br class="clear" />
-        <footer>
-            <section>
-                <ul>
-                    <li><a href="#!Construction">English</a></li>
-                    <li><a href="#!Construction">Português</a></li>
-                    <li><a href="#!Construction">Español</a></li>
-                    <li><a href="#!Construction">Bahasa Indonesia</a></li>
-                </ul>
-            </section>
-            <section class="footer-tarkcss">
-                <a class="nounderline text-gray" href="https://github.com/juniortarcisio/TarkCss/" target="_blank">Powered by TarkCss v0.0.0.1A</a>
-            </section>
-            <div class="clear"></div>
-        </footer>
-    </main>
+    <div class="below-top-nav">
+        <main>
+            <div class="breadcrumb">
+                <span ng-repeat="breadcrumb in breadcrumbs">
+                    <a ng-href="{{$last?null:breadcrumb.link }}">
+                        <span>{{ breadcrumb.name }}</span>
+                    </a>
+                    <a ng-hide="$last">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </span>
+            </div>
+            <section class="view-container fade-in" ng-view></section>
+            <br class="clear" />
+            <footer>
+                <section>
+                    <ul>
+                        <li><a href="#!Construction">English</a></li>
+                        <li><a href="#!Construction">Português</a></li>
+                        <li><a href="#!Construction">Español</a></li>
+                        <li><a href="#!Construction">Bahasa Indonesia</a></li>
+                    </ul>
+                </section>
+                <section class="footer-tarkcss">
+                    <a class="nounderline text-gray" href="https://github.com/juniortarcisio/TarkCss/" target="_blank">Powered by TarkCss v0.0.0.1A</a>
+                </section>
+                <div class="clear"></div>
+            </footer>
+        </main>
+    </div>
     <script src="../Tarkcss/tarks.js"></script>
     <script src="./scripts.js"></script>
     <script src="portuguese_app.js"></script>
