@@ -409,8 +409,9 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
 
             breadcrumbs.push(route_i);
         }
-        
+                
         $rootScope.breadcrumbs = breadcrumbs;
+        $rootScope.currentRoute = breadcrumbs[breadcrumbs.length - 1];
     });
 
     $rootScope.toggleShowMobUser = function () {
