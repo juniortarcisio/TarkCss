@@ -47,9 +47,16 @@ app.controller('simplePresentCtrl', function ($scope, $rootScope) {
 
     $scope.selectedVerb = $scope.verbs[0];
 
+    $scope.loadProcessedVerbs = function (verb) {
+        var gp_tp = new GrammarProcessorPT();
+        $scope.engineVerbs = gp_tp.getSimplePresent(verb);
+    };
+
     $scope.format = function (verb) {
         return verb.English + ' -> ' + verb.Portuguese;
     };
+
+    $scope.loadProcessedVerbs($scope.verbs[0].Portuguese);
 });
 
 app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
@@ -368,10 +375,10 @@ app.config(function ($routeProvider) {
     .when("/Lessons/SimpleFuture", {
         templateUrl: "portuguese_future.html", controller: "simpleFutureCtrl"
     })
-    .when("/Lessons/TenseComparison", {
+    .when("/Lessons/TensesComparison", {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
     })
-    .when("/Exercises", {
+    .when("/PrototypeExercises", {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })
     .when("/Construction", {
@@ -426,6 +433,6 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
         $location.path("/General/Home");
     }
 
-    //document.documentElement.webkitRequestFullscreen();
+    document.documentElement.webkitRequestFullscreen();
 });
 

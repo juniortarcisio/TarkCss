@@ -573,6 +573,7 @@ main {
     margin: 5px 2px;
     animation: focus-shadow-out .3s;
     transition: .5s;
+    box-sizing: content-box;
 }
 
 .opaque-30 {

@@ -37,11 +37,11 @@
                     <a href="#!Lessons/SimplePast" ng-class="{'small':true, 'active': currentRoute.name==='Simple Past'}"><i class="fa fa-book"></i>Simple Past</a>
                     <a href="#!Lessons/PastContinuous" ng-class="{'small':true, 'active': currentRoute.name==='Past Continuous'}"><i class="fa fa-book"></i>Past Continuous</a>
                     <a href="#!Lessons/SimpleFuture" ng-class="{'small':true, 'active': currentRoute.name==='Simple Future'}"><i class="fa fa-book"></i>Simple Future</a>
-                    <a href="#!Lessons/TenseComparison" ng-class="{'small':true, 'active': currentRoute.name==='Tenses Comparison'}"><i class="fa fa-book"></i>Tenses Comparison</a>
+                    <a href="#!Lessons/TensesComparison" ng-class="{'small':true, 'active': currentRoute.name==='Tenses Comparison'}"><i class="fa fa-book"></i>Tenses Comparison</a>
                 </section>
                 <section ng-init="menuClosed3 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed3 }">
                     <h1 ng-click="menuClosed3 = !menuClosed3">Exercises <i class="fa fa-chevron-up" ng-hide="menuClosed3"></i><i class="fa fa-chevron-down" ng-show="menuClosed3"></i></h1>
-                    <a href="#!Exercises"  ng-class="{'small':true, 'active': currentRoute.name==='Prototype Exercises'}"><i class="fa fa-edit"></i>Prototype Exercises</a>
+                    <a href="#!PrototypeExercises"  ng-class="{'small':true, 'active': currentRoute.name==='Prototype Exercises'}"><i class="fa fa-edit"></i>Prototype Exercises</a>
                 </section>
                 <section ng-init="menuClosed4 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed4 }">
                     <h1 ng-click="menuClosed4 = !menuClosed4">Community <i class="fa fa-chevron-up" ng-hide="menuClosed4"></i><i class="fa fa-chevron-down" ng-show="menuClosed4"></i></h1>
@@ -173,6 +173,7 @@
     <script src="Scripts/Services/ServerService.js"></script>
     <script src="Scripts/Services/AuthenticationService.js"></script>
     <script src="Scripts/Services/GrecaptchaService.js"></script>
+    <script src="Scripts/Services/GrammarService.js"></script>
     <script src="Scripts/Controllers/SignUpController.js"></script>
     <script src="Scripts/Controllers/SignInController.js"></script>
     <script src="Scripts/Controllers/SignOutController.js"></script>

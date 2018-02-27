@@ -102,6 +102,7 @@
     <Content Include="Responsive\Scripts\Controllers\SignOutController.js" />
     <Content Include="Responsive\Scripts\Services\AuthenticationService.js" />
     <Content Include="Responsive\Scripts\Controllers\SignUpController.js" />
+    <Content Include="Responsive\Scripts\Services\GrammarService.js" />
     <Content Include="Responsive\Scripts\Services\GrecaptchaService.js" />
     <Content Include="Responsive\sign_out.html" />
     <Content Include="Responsive\sign_up.html" />

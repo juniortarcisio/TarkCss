@@ -5,7 +5,7 @@
     </article>
     <div class="card col l8 m12 s12">
         <div class="card-container">
-            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs">
+            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(x)">
             </select>
             <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
             <table>
@@ -73,6 +73,39 @@
                         <td>We <span class="textmark red autoresize">Ourselves</span></td>
                         <td>Nós</td>
                         <td>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark red">mos</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="card-subtitle">
+                <a class="btn-bookmark" href="#">
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <span>Bookmark</span>
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                    <span>Comment</span>
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="card col l8 m12 s12">
+        <div class="card-container">
+            <h2>Prototyping</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>English</th>
+                        <th>Noun</th>
+                        <th>Verb</th>
+                    </tr>
+                    <tr ng-repeat="verb in engineVerbs">
+                        <td>{{verb.subject}} 
+                            <span ng-repeat="tag in verb.tags">
+                                <span class="textmark aqua autoresize" ng-class="{tag:true}">{{tag}}</span>
+                            </span>
+                        </td>
+                        <td>{{verb.targetsubject}}</td>
+                        <td>
+                            {{verb.targetverb.verb}}
+                        </td>
                     </tr>
                 </tbody>
             </table>
