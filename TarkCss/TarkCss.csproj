@@ -128,7 +128,6 @@
   <ItemGroup>
     <Content Include="Blog\index.html" />
     <Content Include="Blog\scripts.js" />
-    <Content Include="Responsive\scripts.js" />
     <Content Include="Blog\styles.css" />
     <Content Include="Responsive\style.css" />
     <Content Include="Tarkcss\tarks.js" />

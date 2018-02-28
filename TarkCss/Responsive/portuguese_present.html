@@ -5,7 +5,7 @@
     </article>
     <div class="card col l8 m12 s12">
         <div class="card-container">
-            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(x)">
+            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(selectedVerb)">
             </select>
             <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
             <table>
@@ -99,12 +99,12 @@
                     <tr ng-repeat="verb in engineVerbs">
                         <td>{{verb.subject}} 
                             <span ng-repeat="tag in verb.tags">
-                                <span class="textmark aqua autoresize" ng-class="{tag:true}">{{tag}}</span>
+                                <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
                             </span>
                         </td>
                         <td>{{verb.targetsubject}}</td>
                         <td>
-                            {{verb.targetverb.verb}}
+                            {{verb.targetverb.prefix}}<span ng-show="verb.targetverb.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.targetverb.sufix}}</span>
                         </td>
                     </tr>
                 </tbody>

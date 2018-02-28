@@ -49,14 +49,14 @@ app.controller('simplePresentCtrl', function ($scope, $rootScope) {
 
     $scope.loadProcessedVerbs = function (verb) {
         var gp_tp = new GrammarProcessorPT();
-        $scope.engineVerbs = gp_tp.getSimplePresent(verb);
+        $scope.engineVerbs = gp_tp.getSimplePresent(verb.Portuguese);
     };
 
     $scope.format = function (verb) {
         return verb.English + ' -> ' + verb.Portuguese;
     };
 
-    $scope.loadProcessedVerbs($scope.verbs[0].Portuguese);
+    $scope.loadProcessedVerbs($scope.verbs[0]);
 });
 
 app.controller('presentContinuousCtrl', function ($scope, $rootScope) {

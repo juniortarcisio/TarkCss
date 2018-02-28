@@ -343,7 +343,8 @@ main {
 }
 
 .sidenav.open {
-    width:250px;
+    /*width:250px;*/
+    transform: translateX(0px);
 }
 
 .sidenav-bg
@@ -499,7 +500,8 @@ main {
         left:0px;
     }
     .sidenav {
-        width:0px;
+        /*width:0px;*/
+        transform: translateX(-250px);
     }
     .topnav-button-side {
         display:block;
@@ -701,17 +703,17 @@ main {
     box-shadow: 1px 1px 2px #cccc4e;
 }
 
-.textmark.aqua {
+.textmark.aqua, .textmark.myself {
     background-color:#b8f5f5;
     box-shadow: 1px 1px 2px #79d0d0;
 }
 
-.textmark.green {
+.textmark.green, .textmark.singular {
     background-color:#bbffa9;
     box-shadow: 1px 1px 2px #82d870;
 }
 
-.textmark.red {
+.textmark.red, .textmark.ourselves {
     background-color: #ff8080;
     box-shadow: 1px 1px 2px #d86868;
 }
@@ -738,24 +740,24 @@ main {
     box-shadow: 1px 1px 2px #8a49ca;
 }
 
-.textmark.black {
+.textmark.black, .textmark.far {
     color:white;
     background-color: #6d6c6c;
     box-shadow: 1px 1px 2px #191818;
 }
 
-.textmark.white {
+.textmark.white, .textmark.near {
     background-color:#fff;
     box-shadow: 1px 1px 2px #bbb;
 }
 
-.textmark.pink {
+.textmark.pink, .textmark.female {
     color:white;
     background-color:#cb59d4;
     box-shadow: 1px 1px 2px #632b67;
 }
 
-.textmark.blue {
+.textmark.blue, .textmark.male {
     color:white;
     background-color:#5b70ce;
     box-shadow: 1px 1px 2px #4a5994;

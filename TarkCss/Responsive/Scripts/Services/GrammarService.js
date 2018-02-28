@@ -11,6 +11,10 @@ var SUBJECT_NEAR_PLURAL = 9;
 var SUBJECT_FAR_PLURAL = 10;
 var SUBJECT_1P_PLURAL = 11;
 
+//var createTag = function (tagName, cssClass) {
+//    return { name: tagName, cssClass : cssClass};
+//}
+
 var createModelBase = function () {
     var _arr = new Array();
     _arr[SUBJECT_1P] = { subject: "I", tags: ["myself"] };
