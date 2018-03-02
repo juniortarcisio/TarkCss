@@ -97,6 +97,7 @@ main {
 	display:flex;
 	flex-direction:column;
 	flex:auto;
+    will-change: scroll-position;
 }
 
 .battery-bar {
@@ -340,6 +341,7 @@ main {
     transition: 0.5s;
     box-shadow:3px 0px 5px rgba(0,0,0,.5);
     overflow-x: hidden;
+    will-change: transform;
 }
 
 .sidenav.open {
@@ -527,7 +529,7 @@ main {
 
 @keyframes slide-down {
     from {
-        transform: translate(0px,-20px);
+        transform: translate(0px,-50px);
     }
 
     to {

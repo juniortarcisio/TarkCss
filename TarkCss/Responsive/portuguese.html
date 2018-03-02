@@ -11,8 +11,8 @@
     <meta property="og:updated_time" content="1440432930" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="../Tarkcss/tarks.css?v=201802272323" rel="stylesheet" />
-    <link href="./style.css?v=201802272323" rel="stylesheet" />
+    <link href="../Tarkcss/tarks.css?v=201802282246" rel="stylesheet" />
+    <link href="./style.css?v=201802282246" rel="stylesheet" />
     <link id="page_favicon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAABYlh0AAAAAAF2ZJQAe1N4ApVQ/AHytTwBS6O4Afq1PADP6/wCSLAsAf69SAFyaIwBp1t4AgaxKAIKsSgCMjYAAoMN8AGKXGwBzpkMAibRdAJkqCQBk0KUAjdu2AGyeOQBo3csAjLFVACnr8QBI3tIAu4ReADfBhwBSsWAAjIFxAHK9dwAf2+UAYZccAH2tUQCJtF4AXZAPAFmVGgBWqGEAV4d8AFilWQBflRoARHUSAFOHIQAn7fUARnIKAJ/DfgCQPRgAplg/AF2ZIABLp0QAcmBMAFmVGwCIgGUAocJ5AHS8cwBflRsALM+1AEbg1wCZKAkAE/P/AA35/wAO+f8AKtC7AFPi6gByi4IAZc2gADC/ygB/wHkAsH9fAEmrSwCO2rQAjLNbAKl1SgB/wnwAa2BOAH+uUQCMMw0AmlgxAD7BggCgwnsAQ3YSADH2/wBXlyAAItzVAJW9cQBUr1kAeatKAFyZIwBp1d4ANMWRAHGilgBDdhMAFvH/AHNfSgAT9P8AJdnOADzFiQBLfxsAjycHAIywVQC7knYAkSoHAH69tgBo3s4AL8DKAEV5FABajygAW48oAIwxDQChwXgAqk4uAH+vUQAY6vsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAV1dXV1dUi4uK11dXV1dAQFrWVlZOTJQYgsqWVlZawEBYwI1JTM6akRARyUmAmMBASwiAB0hTGRnXwNbVBEsAQFtV2E+KDxObhRcP1UebAEBKRo9XjQJME9KNnJgLScBARc4G1NoHGZGcEIIOyAXAQESSQdDBg8xBB9BFSNJEgEBWFYTGUUYDFppS2UkVlgBAQUvLy83UUgWEG8vLy8FAQEKCgoKCnENDk0KCgoKCgEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf//AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAA=" rel="icon" type="image/x-icon">
     <script src="../angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
@@ -49,12 +49,6 @@
                     <a href="#!Construction" ng-class="{'small':true, 'active': currentRoute.name==='Chat'}"><i class="fa fa-comments"></i>Chat</a>
                     <a href="#!Construction" ng-class="{'small':true, 'active': currentRoute.name==='People'}"><i class="fa fa-users"></i>People</a>
                 </section>
-            </section>
-            <section class="social hide-on-mobile">
-                <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github opaque-30 hover-bright"></a>
-                <a href="https://www.linkedin.com/in/jr-tarcisio-587980138/" target="_blank" class="fa fa-round fa-linkedin opaque-30 hover-bright"></a>
-                <a href="https://www.facebook.com/jrtarcisiowins" target="_blank" class="fa fa-round fa-facebook opaque-30 hover-bright"></a>
-                <a href="https://twitter.com/mythosacrifice" target="_blank" class="fa fa-round fa-twitter opaque-30 hover-bright"></a>
             </section>
         </article>
     </aside>
@@ -152,30 +146,51 @@
             <section class="view-container fade-in" ng-view></section>
             <br class="clear" />
             <footer>
-                <section>
-                    <ul>
-                        <li><a href="#!Construction">English</a></li>
-                        <li><a href="#!Construction">Português</a></li>
-                        <li><a href="#!Construction">Español</a></li>
-                        <li><a href="#!Construction">Bahasa Indonesia</a></li>
-                    </ul>
+                <section class="container row">
+                    <div class="col m4">
+                        <ul>
+                            <li><a href="#!Construction">English</a></li>
+                            <li><a href="#!Construction">Português</a></li>
+                            <li><a href="#!Construction">Español</a></li>
+                            <li><a href="#!Construction">Bahasa Indonesia</a></li>
+                        </ul>
+                    </div>
+                    <div class="col m4">
+                        <ul>
+                            <li><a href="#!Construction">Donate</a></li>
+                            <li><a href="#!Construction">Legal</a></li>
+                            <li><a href="#!General/About">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col m4">
+                        <ul>
+                            <li><a href="#!Construction">Github</a></li>
+                            <li><a href="#!Construction">Twitter</a></li>
+                            <li><a href="#!Construction">LinkedIn</a></li>
+                            <li><a href="#!Construction">Facebook</a></li>
+                        </ul>
+                    </div>
                 </section>
+                <br class="clear" />
+                <br />
                 <section class="footer-tarkcss">
-                    <a class="nounderline text-gray" href="https://github.com/juniortarcisio/TarkCss/" target="_blank">Powered by TarkCss v0.0.0.1A</a>
+                    <div class="container">
+                        <a class="nounderline text-gray" href="https://github.com/juniortarcisio/TarkCss/" target="_blank">Powered by TarkCss v0.0.0.1A</a>
+                    </div>                    
                 </section>
                 <div class="clear"></div>
             </footer>
         </main>
     </div>
-    <script src="../Tarkcss/tarks.js?v=201802272323"></script>
-    <script src="portuguese_app.js?v=201802272323"></script>
-    <script src="Scripts/Services/ServerService.js?v=201802272323"></script>
-    <script src="Scripts/Services/AuthenticationService.js?v=201802272323"></script>
-    <script src="Scripts/Services/GrecaptchaService.js?v=201802272323"></script>
-    <script src="Scripts/Services/GrammarService.js?v=201802272323"></script>
-    <script src="Scripts/Controllers/SignUpController.js?v=201802272323"></script>
-    <script src="Scripts/Controllers/SignInController.js?v=201802272323"></script>
-    <script src="Scripts/Controllers/SignOutController.js?v=201802272323"></script>
+    <script src="../Tarkcss/tarks.js?v=201802282246"></script>
+    <script src="portuguese_app.js?v=201802282246"></script>
+    <script src="Scripts/Services/ServerService.js?v=201802282246"></script>
+    <script src="Scripts/Services/AuthenticationService.js?v=201802282246"></script>
+    <script src="Scripts/Services/GrecaptchaService.js?v=201802282246"></script>
+    <script src="Scripts/Services/GrammarService.js?v=201802282246"></script>
+    <script src="Scripts/Controllers/SignUpController.js?v=201802282246"></script>
+    <script src="Scripts/Controllers/SignInController.js?v=201802282246"></script>
+    <script src="Scripts/Controllers/SignOutController.js?v=201802282246"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=grecatpchaRender&render=explicit" async defer></script>
 </body>
 </html>

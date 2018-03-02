@@ -325,9 +325,6 @@ app.controller('homeCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Home";
 });
 
-
-
-
 app.config(function ($routeProvider) {
     $routeProvider
     .when("/", {
@@ -393,8 +390,11 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
 
     ServerService.GetLastServer($rootScope.serverLoadedCallback, $rootScope.errorCallback);
     AuthenticationService.TryLoadStorageSession();
-    
 
+    $rootScope.$on('$viewContentLoaded', function () {
+    });
+
+    //TODO: move to BreadcrumbService or view?
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         $rootScope.sidenavOpen = false;
         $rootScope.showMobUser = false;
