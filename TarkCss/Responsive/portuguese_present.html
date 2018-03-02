@@ -1,13 +1,15 @@
 ﻿<section class="container">
     <article>
         <h2>Simple present</h2>
-        <p class="citation">Regular verbs are verbs which follow a same pattern when conjugating, following there are some examples using simple presente tense</p>
+        <p class="citation">Following there are some examples using simple <b>presente tense</b>, it's applied for <b>regular verbs</b></p>
     </article>
-    <div class="card col l8 m12 s12">
+    <h4>Simple present fits on the situations</h4>
+    <ul>
+        <li>The action is a <b>fact</b></li>
+        <li>The action is a <b>routine</b> (everyday or eventually)</li>
+    </ul>    
+    <!--<div class="card col l8 m12 s12">
         <div class="card-container">
-            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(selectedVerb)">
-            </select>
-            <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
             <table>
                 <tbody>
                     <tr>
@@ -78,10 +80,12 @@
             </table>
             <br />
         </div>
-    </div>
+    </div>-->
     <div class="card col l8 m12 s12">
         <div class="card-container">
-            <h2>Prototyping</h2>
+            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(selectedVerb)"></select>
+            <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+            <!--<h2>Prototyping</h2>-->
             <table>
                 <tbody>
                     <tr>
@@ -102,7 +106,15 @@
                     </tr>
                 </tbody>
             </table>
-            <br />
+            <div class="card-subtitle">
+                <h4>Examples of application</h4>
+                <ul>
+                    <li>Eu ando todos os dias (walk everyday - routine)</li>
+                    <li>Ele bebe muita água (drink so much water - fact)</li>
+                    <li>Vocês jogam futebol bem (play soccer well - fact) </li>
+                    <li>Nós gostamos de feijão (like beans - fact)</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
