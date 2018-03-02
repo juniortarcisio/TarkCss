@@ -508,6 +508,12 @@ main {
     .topnav-button-side {
         display:block;
     }
+    ul {
+        padding-left:25px !important;
+    }
+    body {
+        font-size: 0.9em;
+    }
 }
 
 .g-recaptcha:first-child {
