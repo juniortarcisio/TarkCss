@@ -1,4 +1,9 @@
-﻿html, body {
+﻿article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+html, body {
     height:100%;
 }
 
@@ -507,9 +512,6 @@ main {
     }
     .topnav-button-side {
         display:block;
-    }
-    ul {
-        padding-left:25px !important;
     }
     body {
         font-size: 0.9em;
@@ -1111,7 +1113,7 @@ border-color: transparent;
 }
 
 .nopadding {
-    padding:0px;
+    padding:0px !important;
 }
 
 .g-recaptcha {

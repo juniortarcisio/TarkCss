@@ -243,3 +243,7 @@ ModelManifest.xml
 /AgendaPrototype47
 /TarkServer
 /TarkServer.Tests
+*.pubxml
+/TarkDomain
+/TarkData
+/TarkOauth
