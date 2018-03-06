@@ -398,6 +398,7 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         $rootScope.sidenavOpen = false;
         $rootScope.showMobUser = false;
+        $rootScope.showMobServer = false;
 
         var routes = $location.path().split('/').filter(function (v) { return v !== '' });
         var breadcrumbs = [];
@@ -423,6 +424,10 @@ app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
 
     $rootScope.toggleShowMobUser = function () {
         $rootScope.showMobUser = !$rootScope.showMobUser;
+    };
+
+    $rootScope.toggleShowMobServer = function () {
+        $rootScope.showMobServer = !$rootScope.showMobServer;
     };
 
     $rootScope.toggleSivenav = function () {

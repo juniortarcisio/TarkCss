@@ -247,3 +247,5 @@ ModelManifest.xml
 /TarkDomain
 /TarkData
 /TarkOauth
+/TarkDB
+/TarkIOC
