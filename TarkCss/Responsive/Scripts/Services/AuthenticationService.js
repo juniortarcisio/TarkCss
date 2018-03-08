@@ -1,6 +1,6 @@
 ﻿app.service('AuthenticationService', function (ServerService, $http, $rootScope, $location, $q) {
     this.SignUp = function (data, successCallback, errorCallback) {
-        ServerService.post("SignUp", data, successCallback, errorCallback);
+        ServerService.post("Account/SignUp", data, successCallback, errorCallback);
     }
 
     this.SignIn = function ( account, successCallback, errorCallback) {

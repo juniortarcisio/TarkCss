@@ -12,14 +12,12 @@
 
     $scope.submit = function () {
         $scope.errorMessage = "";
-        $scope.account.grecaptchaResponse = GrecaptchaService.GetResponse();
+        $scope.account.GrecaptchaResponse = GrecaptchaService.GetResponse();
 
-        if ($scope.account.grecaptchaResponse == null || $scope.account.grecaptchaResponse.length == 0) {
+        if ($scope.account.GrecaptchaResponse == null || $scope.account.GrecaptchaResponse.length == 0) {
             $scope.errorMessage = "You must prove you aren't a robot on recaptcha";
-            console.log("invalid recaptcha")
             return;
         }
-
 
         AuthenticationService.SignUp($scope.account, $scope.signedUp, $scope.errorCallback);
     }
