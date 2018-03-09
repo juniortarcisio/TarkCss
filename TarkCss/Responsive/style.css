@@ -105,6 +105,7 @@ main {
     will-change: scroll-position;
 }
 
+
 .battery-bar {
     color: white;
     font-size: 24px;
@@ -1142,6 +1143,14 @@ border-color: transparent;
     text-decoration: none;
     color: #009d9e;
     cursor:pointer;
+}
+
+.spaced-line {
+    line-height:1.6;
+}
+
+.spaced-line-2x {
+    line-height:2;
 }
 
 .g-recaptcha {
