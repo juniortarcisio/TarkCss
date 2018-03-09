@@ -100,6 +100,7 @@
     <Content Include="Responsive\portuguese_home.html" />
     <Content Include="Responsive\Scripts\Controllers\SignInController.js" />
     <Content Include="Responsive\Scripts\Controllers\SignOutController.js" />
+    <Content Include="Responsive\Scripts\Controllers\TestsController.js" />
     <Content Include="Responsive\Scripts\Services\AuthenticationService.js" />
     <Content Include="Responsive\Scripts\Controllers\SignUpController.js" />
     <Content Include="Responsive\Scripts\Services\GrammarService.js" />
@@ -116,6 +117,7 @@
     <Content Include="Responsive\portuguese_tobe.html" />
     <Content Include="Prototype\index.html" />
     <Content Include="Responsive\Scripts\Services\ServerService.js" />
+    <Content Include="Responsive\tests.html" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Web.Debug.config">

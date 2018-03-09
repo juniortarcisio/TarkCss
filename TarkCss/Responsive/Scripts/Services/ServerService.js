@@ -84,13 +84,13 @@
             console.log(response);
 
             if (typeof successCallBack != "undefined")
-                successCallBack();
+                successCallBack(response);
 
         }, function myError(response) {
             $rootScope.error = response;
 
             if (typeof errorCallback != "undefined")
-                errorCallback();
+                errorCallback(response);
         });
     }
 });

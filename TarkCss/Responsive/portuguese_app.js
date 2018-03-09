@@ -325,6 +325,38 @@ app.controller('homeCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Home";
 });
 
+app.filter('highlight', ['$sce', function ($sce) {
+    return function (json) {
+        if (typeof (json) == "undefined") return undefined;
+        //by http://jsfiddle.net/KJQ9K/554/
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    };
+}]);
+
+app.filter('to_trusted', ['$sce', function ($sce) {
+    return function (text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);
+
 app.config(function ($routeProvider) {
     $routeProvider
     .when("/", {
@@ -380,6 +412,9 @@ app.config(function ($routeProvider) {
     })
     .when("/Construction", {
         templateUrl: "construction.html", controller: "aboutCtrl"
+    })
+    .when("/Tests", {
+        templateUrl: "tests.html", controller: "testsCtrl"
     })
     .otherwise({
         templateUrl: "notfound.html", controller: "homeCtrl"
