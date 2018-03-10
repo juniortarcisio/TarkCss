@@ -588,7 +588,6 @@ main {
     width: 30px;
     text-align: center;
     text-decoration: none;
-    margin: 5px 2px;
     animation: focus-shadow-out .3s;
     transition: .5s;
     box-sizing: content-box;
