@@ -421,16 +421,28 @@ app.config(function ($routeProvider) {
     });
 });
 
-app.run(function ($rootScope, $location, ServerService, AuthenticationService) {
+app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService) {
 
     ServerService.GetLastServer($rootScope.serverLoadedCallback, $rootScope.errorCallback);
     AuthenticationService.TryLoadStorageSession();
-
+    
     $rootScope.$on('$viewContentLoaded', function () {
+        try {
+            //$window._gaq.push(['_trackPageView', $location.url()]);
+           // $window.ga('send', 'pageview', { page: $location.url() });
+        } catch (e) {
+        }
     });
 
     //TODO: move to BreadcrumbService or view?
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
+        if ($window.ga) {
+            var page = $location.path().replace('#', '');
+            $window.ga('set', 'page', page);
+            $window.ga('send', 'pageview');
+            console.log(page);
+        }
+        //ServerSide pushstate... (history)
         $rootScope.sidenavOpen = false;
         $rootScope.showMobUser = false;
         $rootScope.showMobServer = false;
