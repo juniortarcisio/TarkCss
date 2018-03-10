@@ -243,6 +243,7 @@ table {
     border-spacing: 0px;
     width:100%;
     color:#333;
+    line-height:1;
 }
     table th, table td {
         padding:10px 10px 10px 10px;
@@ -300,6 +301,10 @@ table {
 
 .table-edit tr td:last-child i {
     cursor:pointer;
+}
+
+.high-lines {
+    line-height:1.6;
 }
 
 
