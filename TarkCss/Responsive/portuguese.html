@@ -26,7 +26,7 @@
             <section class="items">
                 <section ng-init="menuClosed1 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed1 }">
                     <h1 ng-click="menuClosed1 = !menuClosed1">General <i class="fa fa-chevron-up" ng-hide="menuClosed1"></i><i class="fa fa-chevron-down" ng-show="menuClosed1"></i></h1>
-                    <a href="#!General/Home" ng-class="{'small':true, 'active': currentRoute.name==='Home'}"><i class="fa fa-home"></i>Home</a>
+                    <a href="#!General/Home" ng-class="{'small':true, 'active': currentRoute.name==='Home' || currentRoute.name==null}"><i class="fa fa-home"></i>Home</a>
                     <a href="#!General/About" ng-class="{'small':true, 'active': currentRoute.name==='About'}"><i class="fa fa-address-card"></i>About</a>
                 </section>
                 <section ng-init="menuClosed2 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed2 }">
@@ -172,7 +172,7 @@
                     <div class="col m3 s4">
                         <ul class="nopadding">
                             <li>
-                                <span class="bold">Languages</span>
+                                <span class="footer-subtitle">Languages</span>
                             </li>
                             <li>
                                 <a class="nowrap" href="#!Construction">
@@ -204,7 +204,7 @@
                     <div class="col m3 s4">
                         <ul class="nopadding">
                             <li>
-                                <span class="bold">About us</span>
+                                <span class="footer-subtitle">About us</span>
                             </li>
                             <li><a class="nowrap" href="#!Construction"><i class="fa fa-footer fa-money"></i> Donate</a></li>
                             <li><a class="nowrap" href="#!General/About"><i class="fa fa-footer fa-envelope"></i> Contact Us</a></li>
@@ -216,7 +216,7 @@
                     <div class="col m3 s4">
                         <ul class="nopadding">
                             <li>
-                                <span class="bold">Social</span>
+                                <span class="footer-subtitle">Social</span>
                             </li>
                             <li><a class="nowrap" href="#!Construction"><i class="fa fa-footer fa-github"></i> Github</a></li>
                             <li><a class="nowrap" href="#!Construction"><i class="fa fa-footer fa-twitter"></i> Twitter</a></li>
