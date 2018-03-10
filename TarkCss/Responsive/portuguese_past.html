@@ -1,25 +1,32 @@
 ﻿<section class="container">
-    <h2>Simple Past</h2>
+    <h1>Simple Past</h1>
+    <h2 class="margin-top-2em">1. Objective</h2>
     <article>
         <p class="citation">
-            Following there are some examples using simple <b>simple past</b>, it's applied for <b>regular verbs</b>
+            Explain and give some examples of <b>Simple Past Tense</b>, using <b>regular verbs</b>
         </p>
     </article>
-    <h4>Simple Past fits on the situations</h4>
-    <ul>
-        <li>The action time is defined or undefined (for portuguese)</li>
-        <li>The action has already been finished</li>
-    </ul>
-    <h4>On Portuguese past conjugating, there are two patterns</h4>
-    <ul>
-        <li>Verbs that ends with "E(R)", example "comer", "beber"</li>
-        <li>Verbs that ends with any other vowel different that "E" (plus R) as A, I, O, U (plus R), example "andar", "falar"</li>
-    </ul>
-    <br class="clear" />
+    <h2 class="margin-top-2em">2. Use Cases</h2>
+    <section class="citation">
+        <ul class="spaced-line-2x">
+            <li>The action has already been <b>finished</b></li>
+            <li>The action time is <b>defined or undefined</b> (For portuguese, different than English which Simple Past contemplates undefined time only)</li>
+        </ul>
+    </section>
+    <section class="margin-top-2em citation">
+        <h3>On Portuguese past conjugating, there are two patterns</h3>
+        Regular verbs that ends with:
+        <ul>
+            <li>AR, example "and<b>a</b>r", "nad<b>a</b>r"</li>
+            <li>ER, IR example "com<b>e</b>r", "beb<b>e</b>r", "com<b>e</b>r", "ped<b>i</b>r"</li>
+        </ul>
+        <p>Mostly of portuguese verbs ends with AR and ER, sometimes IR, dont worry about exceptions now</p>
+    </section>
+    <h2 class="margin-top-2em">3. Grammar table</h2>
     <div class="col l6 m12 s12">
         <div class="card">
             <div class="card-container">
-                <h3>Verbs that ends with A, I, O, U (plus R)</h3>
+                <h3>Verbs that ends with AR</h3>
                 <select ng-model="selectedVerb" ng-options="format(x) for x in verbs"></select>
                 <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
                 <table>
@@ -90,21 +97,13 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="card-subtitle">
-                    <a class="btn-bookmark" href="#">
-                        <i class="fa fa-bookmark" aria-hidden="true"></i>
-                        <span>Bookmark</span>
-                        <i class="fa fa-comment" aria-hidden="true"></i>
-                        <span>Comment</span>
-                    </a>
-                </p>
             </div>
         </div>
     </div>
     <div class="col l6 m12 s12">
         <div class="card">
             <div class="card-container">
-                <h3>Verbs that ends with E(R)</h3>
+                <h3>Verbs that ends with ER, IR</h3>
                 <select ng-model="selectedVerbE" ng-options="format(x) for x in verbsE"></select>
                 <h3>{{selectedVerbE.English}} verb - {{selectedVerbE.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
                 <table>
@@ -175,14 +174,66 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="card-subtitle">
-                    <a class="btn-bookmark" href="#">
-                        <i class="fa fa-bookmark" aria-hidden="true"></i>
-                        <span>Bookmark</span>
-                        <i class="fa fa-comment" aria-hidden="true"></i>
-                        <span>Comment</span>
-                    </a>
-                </p>
+            </div>
+        </div>
+    </div>
+    <br class="clear" />
+    <h2>4. Examples</h2>
+    <div class="col l6 m12 s12">
+        <div class="card card-to-be">
+            <div class="card-container">
+                <h3>Verbs that ends with AR</h3>
+                <table>
+                    <tr>
+                        <th>Statement</th>
+                        <th width="40%">Reason</th>
+                    </tr>
+                    <tr>
+                        <td>Eu nadei ontem, então andei pouco</td>
+                        <td>Finished Defined Time</td>
+                    </tr>
+                    <tr>
+                        <td>Ele estudou muito e ganhou uma boa nota</td>
+                        <td>Finished Undefined Time</td>
+                    </tr>
+                    <tr>
+                        <td>Nós falamos com ele, mas ele não entendeu</td>
+                        <td>Finished Undefined Time</td>
+                    </tr>
+                    <tr>
+                        <td>Elas trabalharam mais cedo, e ficaram cansadas</td>
+                        <td>Finished Defined Time</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col l6 m12 s12">
+        <div class="card card-to-be">
+            <div class="card-container">
+                <h3>Verbs that ends with ER, IR</h3>
+                <table>
+                    <tr>
+                        <th>Statement</th>
+                        <th width="40%">Reason</th>
+                    </tr>
+                    <tr>
+                        <td>Eu comi bastante</td>
+                        <td>Finished Undefined Time</td>
+                    </tr>
+                    <tr>
+                        <td>Ele pediu dinheiro para mim</td>
+                        <td>Finished Undefined Time</td>
+                    </tr>
+                    <tr>
+                        <td>Vocês queriam viajar a semana passada</td>
+                        <td>Finished Defined Time</td>
+                    </tr>
+                    <tr>
+                        <td>Aqueles garotos aprenderam muito Português</td>
+                        <td>Finished Undefined Time</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
