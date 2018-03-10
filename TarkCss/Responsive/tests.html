@@ -24,9 +24,31 @@
     .key {
         color: red;
     }
+    /*Filter styles*/
+.saturate { filter: saturate(3); }
+.grayscale { filter: grayscale(100%); }
+.contrast { filter: contrast(160%); }
+.brightness { filter: brightness(0.25); }
+.blur { filter: blur(3px); }
+.invert { filter: invert(100%); }
+.sepia { filter: sepia(100%); }
+.huerotate { filter: hue-rotate(180deg); }
+.rss.opacity { filter: opacity(50%); }
 </style>
 <div>
     <button type="button" ng-click="testRequestOk()">Ok</button>
     <button type="button" ng-click="testRequestError()">Error</button>
 </div>
 <pre ng-bind-html="response|highlight|to_trusted"></pre>
+
+
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="original">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="saturate" class="saturate">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="grayscale" class="grayscale">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="contrast" class="contrast">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="brightness" class="brightness">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="blur" class="blur">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="invert" class="invert">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="sepia" class="sepia">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="huerotate" class="huerotate">
+<img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="opacity" class="rss opacity">
