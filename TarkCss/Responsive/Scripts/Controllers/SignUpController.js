@@ -3,7 +3,7 @@
 
     $scope.signedUp = function (response) {
         alert('ok you were signed in, but it\'s yet on construction');
-        $location.path("/General/Home");
+        $rootScope.home();
     }
 
     $scope.errorCallback = function (response) {
@@ -19,7 +19,20 @@
             return;
         }
 
-        AuthenticationService.SignUp($scope.account, $scope.signedUp, $scope.errorCallback);
+        AuthenticationService.SignUp($scope.account).then(
+            function (result) {
+                console.log('okctrl')
+                $rootScope.home();
+            }, function (err) {
+                console.log('errctrl')
+                $scope.errorMessage = err;
+                GrecaptchaService.Reload();
+            }).catch(function (data) {
+                console.log('catchctrl')
+                $scope.errorMessage = "internal client error";
+                console.log(data);
+                GrecaptchaService.Reload();
+            });
     }
 
     GrecaptchaService.Configure($scope, 'g-recaptcha-sign-up');

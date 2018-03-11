@@ -11,13 +11,14 @@
 
         AuthenticationService.SignIn($scope.account).then(
             function (result) {
-                $location.path("/Home");
+                $rootScope.home();
             }, function (err) {
                 $scope.errorMessage = err;
                 GrecaptchaService.Reload();
             }).catch(function (data) {
-                $scope.errorMessage = "internal error";
+                $scope.errorMessage = "internal client error";
                 console.log(data);
+                GrecaptchaService.Reload();
             });
     }
 

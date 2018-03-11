@@ -423,13 +423,13 @@ app.config(function ($routeProvider) {
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService) {
 
-    ServerService.GetLastServer($rootScope.serverLoadedCallback, $rootScope.errorCallback);
+    ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
     
     $rootScope.$on('$viewContentLoaded', function () {
         try {
             //$window._gaq.push(['_trackPageView', $location.url()]);
-           // $window.ga('send', 'pageview', { page: $location.url() });
+            $window.ga('send', 'pageview', { page: $location.url() });
         } catch (e) {
         }
     });
@@ -484,7 +484,5 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     $rootScope.home = function () {
         $location.path("/General/Home");
     }
-
-    //document.documentElement.webkitRequestFullscreen();
 });
 
