@@ -42,7 +42,6 @@ app.controller('regularVerbsCtrl', function ($scope, $http) {
 });
 
 app.controller('simplePresentCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Simple Present";
     $scope.verbs = basicList;
 
     $scope.selectedVerb = $scope.verbs[0];
@@ -71,8 +70,6 @@ app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
 });
 
 app.controller('simplePastCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Simple Past";
-
     $scope.verbs = [
         { Portuguese: "Andar", English: "To Walk" },
         { Portuguese: "Comprar", English: "To Buy" },
@@ -103,7 +100,6 @@ app.controller('simplePastCtrl', function ($scope, $rootScope) {
 
 
 app.controller('pastContinuousCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Present Continuous";
     $scope.verbs = basicList;
 
     $scope.selectedVerb = $scope.verbs[0];
@@ -114,7 +110,6 @@ app.controller('pastContinuousCtrl', function ($scope, $rootScope) {
 });
 
 app.controller('simpleFutureCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Simple Future";
     $scope.verbs = basicList;
 
     $scope.selectedVerb = $scope.verbs[0];
@@ -167,8 +162,6 @@ function shuffle(array) {
 
 
 app.controller('exercisesCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Exercises";
-
     $scope.questions = [
         {
             parts: [
@@ -310,19 +303,20 @@ app.controller('exercisesCtrl', function ($scope, $rootScope) {
 });
 
 app.controller('toBeCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "To be verb";
 });
 
 app.controller('settingsCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Settings";
 });
 
 app.controller('aboutCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "About";
+    $rootScope.mainClass = "bgmtx";
 });
 
 app.controller('homeCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Home";
+});
+
+app.controller('constructionCtrl', function ($scope, $rootScope) {
+    $rootScope.mainClass = "bgmtx";
 });
 
 app.filter('highlight', ['$sce', function ($sce) {
@@ -411,7 +405,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })
     .when("/Construction", {
-        templateUrl: "construction.html", controller: "aboutCtrl"
+        templateUrl: "construction.html", controller: "constructionCtrl"
     })
     .when("/Tests", {
         templateUrl: "tests.html", controller: "testsCtrl"
@@ -434,15 +428,16 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         }
     });
 
-    //TODO: move to BreadcrumbService or view?
+    //TODO: move to BreadcrumbService or view/component?
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
+        $rootScope.mainClass = "";
         if ($window.ga) {
             var page = $location.path().replace('#', '');
             $window.ga('set', 'page', page);
             $window.ga('send', 'pageview');
             console.log(page);
         }
-        //ServerSide pushstate... (history)
+        //ServerSide pushstate... (history) can't work well on github hosting
         $rootScope.sidenavOpen = false;
         $rootScope.showMobUser = false;
         $rootScope.showMobServer = false;

@@ -125,7 +125,10 @@ main {
 	flex:auto;
     will-change: scroll-position;
     background-image:url('../Images/bgx.png');
-    /*animation: bgmove;
+    /*
+        
+    background-image:url('../Images/bgxmtx.png');
+    animation: bgmove;
     animation-duration:5s;
     animation-direction:normal;
     animation-iteration-count:infinite;
@@ -133,7 +136,35 @@ main {
     animation-direction:alternate-reverse;*/
 }
 
-@keyframes bgmove {
+main.bgmtx {
+    background-image:url('../Images/bgxmtx.png');
+    animation: bgmovedown;
+    animation-duration:5s;
+    animation-direction:normal;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+
+main.bgstr {
+    background-image:url('../Images/bgxstr.png');
+    animation: bgmovehorizontal;
+    animation-duration:20s;
+    animation-direction:normal;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+
+@keyframes bgmovedown {
+    from {
+        background-position-y:0px;
+    }
+
+    to {
+        background-position-y:380px;
+    }
+}
+
+@keyframes bgmovehorizontal {
     from {
         background-position-x:0px;
         background-position-y:0px;
