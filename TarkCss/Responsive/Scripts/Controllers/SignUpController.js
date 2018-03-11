@@ -3,7 +3,7 @@
 
     $scope.signedUp = function (response) {
         alert('ok you were signed in, but it\'s yet on construction');
-        $location.path("/Home");
+        $location.path("/General/Home");
     }
 
     $scope.errorCallback = function (response) {
