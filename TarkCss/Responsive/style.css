@@ -572,6 +572,7 @@ main {
     }
 }
 
+
 @keyframes slide-down {
     from {
         transform: translate(0px,-50px);
@@ -579,6 +580,28 @@ main {
 
     to {
         transform: translate(0px, 0px);
+    }
+}
+
+@keyframes grow-down {
+    from {
+        transform: translate(50%,-50%) scale(0);
+    }
+
+    to {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+@keyframes grow-up {
+    from {
+        transform: translate(0px, 0px) scale(1);
+        display:block;
+    }
+
+    to {
+        transform: translate(50%,-50%) scale(0);
+        display:none;
     }
 }
 
@@ -600,10 +623,22 @@ main {
     animation: fade-in 2.0s, slide-down 1.0s;
 }
 
+.grow-down {
+    animation: grow-down .5s;
+}
 
+.grow-up {
+    animation: grow-up .5s;
+    display:none;
+}
 
 .slide-down {
     animation: slide-down .5s;
+}
+
+.slide-up {
+    animation:slide-down .5s;
+    animation-direction:reverse;
 }
 
 .slide-down-slow {

@@ -485,6 +485,6 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         $location.path("/General/Home");
     }
 
-    document.documentElement.webkitRequestFullscreen();
+    //document.documentElement.webkitRequestFullscreen();
 });
 
