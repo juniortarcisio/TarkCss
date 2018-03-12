@@ -46,7 +46,7 @@ h2 {/*
 h1, h2 {
     /*text-shadow: 0px -2px 0px #098, 0px 2px 0px #053, 2px 0px 0px #098, -2px 0px 0px #053, 2px -2px 0px #098, -2px -2px 0px #098, -2px 2px 0px #053, 2px 2px 0px #053;
     color: #4cf7a1;*/
-    text-shadow:0px 1px 1px rgba(0,80,0,0.5)
+    /*text-shadow:0px 1px 1px rgba(0,80,0,0.5)*/
 }
 
 .footer-tarkcss {
@@ -73,6 +73,11 @@ h1, h2 {
 
 nav, main, footer {
     transition: margin-left .5s;
+}
+
+ul {
+    margin:0px;
+    padding-left: 10px;
 }
 
 main>section {
@@ -1163,10 +1168,6 @@ border-color: transparent;
     margin-top:0px;
 }
 
-.citation>ul {
-    margin:0px;
-    padding-left: 10px;
-}
 
 @media only screen and (max-width:650px) {
     .citation {
