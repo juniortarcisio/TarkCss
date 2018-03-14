@@ -368,13 +368,13 @@ app.config(function ($routeProvider) {
         templateUrl: "construction.html", controller: "aboutCtrl"
     })
     .when("/Account/SignUp", {
-        templateUrl: "sign_up.html", controller: "signUpCtrl"
+        templateUrl: "SignUp/sign_up.html", controller: "signUpCtrl"
     })
     .when("/Account/SignIn", {
-        templateUrl: "sign_in.html", controller: "signInCtrl"
+        templateUrl: "SignIn/sign_in.html", controller: "signInCtrl"
     })
     .when("/Account/SignOut", {
-        templateUrl: "sign_out.html", controller: "signOutCtrl"
+        templateUrl: "SignOut/sign_out.html", controller: "signOutCtrl"
     })
     .when("/Lessons", {
         templateUrl: "construction.html", controller: "toBeCtrl"
@@ -407,7 +407,7 @@ app.config(function ($routeProvider) {
         templateUrl: "construction.html", controller: "constructionCtrl"
     })
     .when("/Tests", {
-        templateUrl: "tests.html", controller: "testsCtrl"
+        templateUrl: "Tests/tests.html", controller: "testsCtrl"
     })
     .when("/Vocabulary", {
         templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
@@ -448,7 +448,8 @@ function loadEffectWaves() {
             return;
 
         el.loadedWaves = true;
-        return el.addEventListener('mousedown', createWaves);
+        //el.addEventListener('touchstart', createWaves);
+        el.addEventListener('click', createWaves);
     });
 }
 

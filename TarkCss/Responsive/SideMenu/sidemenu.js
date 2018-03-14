@@ -1,13 +1,13 @@
-﻿app.controller('sideMenuCtrl', function ($scope, $rootScope) {
-    alert($rootScope.currentRoute);
+﻿app.controller('sideMenuCtrl', function () {
 });
 
 
 app.component('sidemenu', {
     bindings: {
-        //value: '=',
-        //disabled: '='
+        currentRoute: '=',
+        sidenavOpen: '='
     },
+    scope:true,
     templateUrl: 'SideMenu/sidemenu.html',
     controller: 'sideMenuCtrl'
 });

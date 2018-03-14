@@ -1,5 +1,6 @@
 ﻿app.controller('testsCtrl', function ($scope, $rootScope, ServerService) {
     $rootScope.title = "Tests";
+    $scope.testxpto = "abc";
 
     $scope.successCallback = function (response) {
         console.log(response);
