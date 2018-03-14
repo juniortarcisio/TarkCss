@@ -114,6 +114,8 @@
     <Content Include="Responsive\Scripts\Controllers\SignUpController.js" />
     <Content Include="Responsive\Scripts\Services\GrammarService.js" />
     <Content Include="Responsive\Scripts\Services\GrecaptchaService.js" />
+    <Content Include="Responsive\SideMenu\sidemenu.html" />
+    <Content Include="Responsive\SideMenu\sidemenu.js" />
     <Content Include="Responsive\sign_out.html" />
     <Content Include="Responsive\sign_up.html" />
     <Content Include="Responsive\sign_in.html" />
@@ -127,6 +129,8 @@
     <Content Include="Prototype\index.html" />
     <Content Include="Responsive\Scripts\Services\ServerService.js" />
     <Content Include="Responsive\tests.html" />
+    <Content Include="Responsive\Vocabulary\vocabulary.html" />
+    <Content Include="Responsive\Vocabulary\vocabulary.js" />
     <Content Include="Tarkcss\tarkslesscss.less" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Web.Debug.config">
@@ -150,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Agenda47\" />
-    <Folder Include="Responsive\NewFolder1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -309,7 +309,6 @@ app.controller('settingsCtrl', function ($scope, $rootScope) {
 });
 
 app.controller('aboutCtrl', function ($scope, $rootScope) {
-    $rootScope.mainClass = "bgmtx";
 });
 
 app.controller('homeCtrl', function ($scope, $rootScope) {
@@ -410,10 +409,48 @@ app.config(function ($routeProvider) {
     .when("/Tests", {
         templateUrl: "tests.html", controller: "testsCtrl"
     })
+    .when("/Vocabulary", {
+        templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
+    })
     .otherwise({
         templateUrl: "notfound.html", controller: "homeCtrl"
     });
 });
+
+function loadEffectWaves() {
+    var waveElements;
+
+    function createWaves(e) {
+        var _this, firedOnce, posX, posY, waves;
+        _this = this;
+        firedOnce = false;
+        posX = e.offsetX;
+        posY = e.offsetY;
+        waves = document.createElement('div');
+        waves.classList.add('effect-waves__waves');
+        waves.style.left = posX + 'px';
+        waves.style.top = posY + 'px';
+        _this.appendChild(waves).focus();
+        waves.classList.add('effect-waves__waves--in');
+        return waves.addEventListener('transitionend', function (e) {
+            if (firedOnce) {
+                return waves.parentNode.removeChild(waves);
+            } else {
+                return firedOnce = true;
+            }
+        });
+    }
+
+    waveElements = document.querySelectorAll('.effect-waves');
+    
+    Array.prototype.forEach.call(waveElements, function (el, i) {
+        if (el.loadedWaves === true)
+            return;
+
+        el.loadedWaves = true;
+        return el.addEventListener('mousedown', createWaves);
+    });
+}
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService) {
 
@@ -421,6 +458,8 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     AuthenticationService.TryLoadStorageSession();
     
     $rootScope.$on('$viewContentLoaded', function () {
+        $window.document.getElementsByTagName('main')[0].scrollTo(0, 0);
+        loadEffectWaves();
         try {
             //$window._gaq.push(['_trackPageView', $location.url()]);
             $window.ga('send', 'pageview', { page: $location.url() });

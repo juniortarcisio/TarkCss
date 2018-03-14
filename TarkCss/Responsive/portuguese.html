@@ -17,38 +17,7 @@
     <title>Brazilian Portuguese lessons - Verb Conjugation</title>
 </head>
 <body ng-app="myApp">
-    <aside id="mySidenav" ng-class="{ 'sidenav' : true, 'open' : sidenavOpen }">
-        <article class="sidenav-top-margin"></article>
-        <article class="sidenav-content scrollbar-gray">
-            <section class="items">
-                <section ng-init="menuClosed1 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed1 }">
-                    <h1 ng-click="menuClosed1 = !menuClosed1">General <i class="fa fa-chevron-up" ng-hide="menuClosed1"></i><i class="fa fa-chevron-down" ng-show="menuClosed1"></i></h1>
-                    <a href="#!General/Home" ng-class="{'small':true, 'active': currentRoute.name==='Home' || currentRoute.name==null}"><i class="fa fa-home"></i>Home</a>
-                    <a href="#!General/About" ng-class="{'small':true, 'active': currentRoute.name==='About'}"><i class="fa fa-address-card"></i>About</a>
-                </section>
-                <section ng-init="menuClosed2 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed2 }">
-                    <h1 ng-click="menuClosed2 = !menuClosed2">Lessons <i class="fa fa-chevron-up" ng-hide="menuClosed2"></i><i class="fa fa-chevron-down" ng-show="menuClosed2"></i></h1>
-                    <a href="#!Lessons/ToBeVerb"  ng-class="{'small':true, 'active': currentRoute.name==='To Be Verb'}"><i class="fa fa-book"></i>To Be Verb</a>
-                    <a href="#!Lessons/SimplePresent" ng-class="{'small':true, 'active': currentRoute.name==='Simple Present'}"><i class="fa fa-book"></i>Simple Present</a>
-                    <a href="#!Lessons/PresentContinuous" ng-class="{'small':true, 'active': currentRoute.name==='Present Continuous'}"><i class="fa fa-book"></i>Present Continuous</a>
-                    <a href="#!Lessons/SimplePast" ng-class="{'small':true, 'active': currentRoute.name==='Simple Past'}"><i class="fa fa-book"></i>Simple Past</a>
-                    <a href="#!Lessons/PastContinuous" ng-class="{'small':true, 'active': currentRoute.name==='Past Continuous'}"><i class="fa fa-book"></i>Past Continuous</a>
-                    <a href="#!Lessons/SimpleFuture" ng-class="{'small':true, 'active': currentRoute.name==='Simple Future'}"><i class="fa fa-book"></i>Simple Future</a>
-                    <a href="#!Lessons/TensesComparison" ng-class="{'small':true, 'active': currentRoute.name==='Tenses Comparison'}"><i class="fa fa-book"></i>Tenses Comparison</a>
-                </section>
-                <section ng-init="menuClosed3 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed3 }">
-                    <h1 ng-click="menuClosed3 = !menuClosed3">Exercises <i class="fa fa-chevron-up" ng-hide="menuClosed3"></i><i class="fa fa-chevron-down" ng-show="menuClosed3"></i></h1>
-                    <a href="#!PrototypeExercises"  ng-class="{'small':true, 'active': currentRoute.name==='Prototype Exercises'}"><i class="fa fa-edit"></i>Prototype Exercises</a>
-                </section>
-                <section ng-init="menuClosed4 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed4 }">
-                    <h1 ng-click="menuClosed4 = !menuClosed4">Community <i class="fa fa-chevron-up" ng-hide="menuClosed4"></i><i class="fa fa-chevron-down" ng-show="menuClosed4"></i></h1>
-                    <a href="#!Construction" ng-class="{'small':true, 'active': currentRoute.name==='Forum'}"><i class="fa fa-wpforms"></i>Forum</a>
-                    <a href="#!Construction" ng-class="{'small':true, 'active': currentRoute.name==='Chat'}"><i class="fa fa-comments"></i>Chat</a>
-                    <a href="#!Construction" ng-class="{'small':true, 'active': currentRoute.name==='People'}"><i class="fa fa-users"></i>People</a>
-                </section>
-            </section>
-        </article>
-    </aside>
+    <sidemenu></sidemenu>
     <section class="sidenav-bg show-only-on-mobile" ng-show="sidenavOpen" ng-click="toggleSivenav()"></section>
     <header class="topheader">
         <div class="topnav-container show-only-on-mobile">
@@ -57,8 +26,8 @@
             </a>
         </div>
         <span ng-click="home()">INGES | Portuguese</span>
-        <div class="topnav-right hide-on-mobile">
-            <div class="top-nav-item">
+        <div class="topnav-right">
+            <div class="top-nav-item hide-on-mobile">
                 <div ng-hide="account.authenticated == true">
                     <div>You aren't authenticated</div>
                     <div>
@@ -77,12 +46,29 @@
                 </div>
             </div>
             <div class="top-nav-item">
-                <i class="fa fa-user-circle"></i>
+                <div class="top-nav-item-mob">
+                    <i class="fa fa-user-circle" ng-click="toggleShowMobUser()"></i>
+                    <div class="popup-mob" ng-show="showMobUser" ng-click="toggleShowMobUser()">
+                        <div class="card pop-mob-user grow-down">
+                            <div class="gb_rb"></div>
+                            <div class="gb_qb"></div>
+                            <article>
+                                You aren't authenticated, you may sign up in order to:
+                                <ul>
+                                    <li>Get full features access</li>
+                                    <li>Record your progress</li>
+                                </ul>
+                            </article>
+                            <a class="btn" href="#!Account/SignIn">Sign In</a>
+                            <a class="btn" href="#!Account/SignUp">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="top-nav-separator">
                 &nbsp;
             </div>
-            <div class="top-nav-item server-info">
+            <div class="top-nav-item server-info hide-on-mobile">
                 <div ng-show="server.Online">
                     <div class="server-info-add">{{server.Address}}</div>
                     <div class="server-info-lat text-gray">
@@ -98,7 +84,30 @@
                 </div>
             </div>
             <div class="top-nav-item">
-                <i class="fa fa-globe fa-spin"></i>
+                <div class="top-nav-item-mob">
+                    <i class="fa fa-globe fa-spin" ng-click="toggleShowMobServer()"></i>
+                    <div class="popup-mob" ng-show="showMobServer" ng-click="toggleShowMobServer()">
+                        <div class="card pop-mob-server grow-down">
+                            <div class="gb_rb"></div>
+                            <div class="gb_qb"></div>
+                            <article>
+                                <div ng-show="server.Online">
+                                    <div>Server Address: {{server.Address}}</div>
+                                    <div>
+                                        <a class="softlink bold" href="#!Construction">Server</a>
+                                        <span>| Latency {{server.Latency}} ms</span>
+                                    </div>
+                                </div>
+                                <div ng-show="!server.Online">
+                                    <div class="bold text-red">Backend off-line or unacessible</div>
+                                    <div class="text-gray">
+                                        <a class="text-bold nounderline hover-shiny" href="#!Construction">Reconnect</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="topnav-right show-only-on-mobile">
@@ -242,6 +251,8 @@
     <script src="Scripts/Controllers/SignInController.js?v=201803102233"></script>
     <script src="Scripts/Controllers/SignOutController.js?v=201803102233"></script>
     <script src="Scripts/Controllers/TestsController.js?v=201803102233"></script>
+    <script src="Vocabulary/vocabulary.js?v=201803102233"></script>
+    <script src="SideMenu/sidemenu.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=grecatpchaRender&render=explicit" async defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115424551-1"></script>
     <script>
