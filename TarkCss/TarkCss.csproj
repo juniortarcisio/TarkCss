@@ -101,6 +101,10 @@
     <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
     <Content Include="Responsive\notfound.html" />
+    <Content Include="Responsive\PageFooter\pageFooter.html" />
+    <Content Include="Responsive\PageFooter\pageFooter.js" />
+    <Content Include="Responsive\PageHeader\pageHeader.html" />
+    <Content Include="Responsive\PageHeader\pageHeader.js" />
     <Content Include="Responsive\portuguese.html" />
     <Content Include="Responsive\portuguese_about.html" />
     <Content Include="Responsive\portuguese_app.js" />
@@ -115,8 +119,8 @@
     <Content Include="Responsive\SignUp\SignUpController.js" />
     <Content Include="Responsive\Services\GrammarService.js" />
     <Content Include="Responsive\Services\GrecaptchaService.js" />
-    <Content Include="Responsive\SideMenu\sidemenu.html" />
-    <Content Include="Responsive\SideMenu\sidemenu.js" />
+    <Content Include="Responsive\PageMenu\pageMenu.html" />
+    <Content Include="Responsive\PageMenu\pageMenu.js" />
     <Content Include="Responsive\Tests\testcomp.html" />
     <Content Include="Responsive\Tests\testcomp.js" />
     <Content Include="Responsive\SignOut\sign_out.html" />

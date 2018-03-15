@@ -1,0 +1,95 @@
+﻿<header class="page-header">
+    <div class="topnav-container show-only-on-mobile">
+        <a class="topnav-button-side" ng-click="$root.toggleSivenav()">
+            <span>&#9776;</span>
+        </a>
+    </div>
+    <span ng-click="$root.home()">INGES | Portuguese</span>
+    <div class="topnav-right">
+        <div class="top-nav-item hide-on-mobile">
+            <div ng-hide="$root.account.authenticated == true">
+                <div>You aren't authenticated</div>
+                <div>
+                    <a class="text-bold text-white nounderline hover-shiny" href="#!Account/SignIn">Sign In</a>
+                    <span class="text-gray">or</span>
+                    <a class="text-bold text-white nounderline hover-shiny" href="#!Account/SignUp">Sign Up</a>
+                </div>
+            </div>
+            <div ng-show="$root.account.authenticated == true">
+                <div>{{ $root.account.email }}</div>
+                <div class="right">
+                    <a class="text-bold text-white nounderline hover-shiny" href="#!Account">Manage</a>
+                    <span class="text-gray">|</span>
+                    <a class="text-bold text-white nounderline hover-shiny" href="#!Account/SignOut">Sign Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="top-nav-item">
+            <div class="top-nav-item-mob">
+                <i class="fa fa-user-circle" ng-click="$root.toggleShowMobUser()"></i>
+                <div class="popup-mob" ng-show="$root.showMobUser" ng-click="$root.toggleShowMobUser()">
+                </div>
+                <div class="card pop-mob-user grow-down" ng-show="$root.showMobUser">
+                    <div class="gb_rb"></div>
+                    <div class="gb_qb"></div>
+                    <article>
+                        You aren't authenticated, you may sign up in order to:
+                        <ul>
+                            <li>Get full features access</li>
+                            <li>Record your progress</li>
+                        </ul>
+                    </article>
+                    <a class="btn effect-waves" href="#!Account/SignIn">Sign In</a>
+                    <a class="btn effect-waves" href="#!Account/SignUp">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <div class="top-nav-separator">
+            &nbsp;
+        </div>
+        <div class="top-nav-item server-info hide-on-mobile">
+            <div ng-show="$root.server.Online">
+                <div class="server-info-add">{{$root.server.Address}}</div>
+                <div class="server-info-lat text-gray">
+                    <a class="text-bold text-white nounderline hover-shiny" href="#!Construction">Server</a>
+                    <span>| {{$root.server.Latency}} ms</span>
+                </div>
+            </div>
+            <div ng-show="!$root.server.Online">
+                <div class="bold text-red">Backend off-line or unacessible</div>
+                <div class="server-info-lat text-gray">
+                    <a class="text-bold text-white nounderline hover-shiny" href="#!Construction">Reconnect</a>
+                </div>
+            </div>
+        </div>
+        <div class="top-nav-item">
+            <div class="top-nav-item-mob">
+                <i class="fa fa-globe fa-spin" ng-click="$root.toggleShowMobServer()"></i>
+                <div class="popup-mob" ng-show="$root.showMobServer" ng-click="$root.toggleShowMobServer()">
+                </div>
+                <div class="card pop-mob-server grow-down" ng-show="$root.showMobServer">
+                    <div class="gb_rb"></div>
+                    <div class="gb_qb"></div>
+                    <article>
+                        <div ng-show="$root.server.Online">
+                            <div>Server Address: {{$root.server.Address}}</div>
+                            <div>
+                                <a class="softlink bold" href="#!Construction">Server</a>
+                                <span>| Latency {{$root.server.Latency}} ms</span>
+                            </div>
+                        </div>
+                        <div ng-show="!$root.server.Online">
+                            <div class="bold text-red">Backend off-line or unacessible</div>
+                            <div class="text-gray">
+                                <a class="text-bold nounderline hover-shiny" href="#!Construction">Reconnect</a>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="center">
+                        <button type="button" class="btn effect-waves" ng-click="$root.toggleShowMobServer()">Close It</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

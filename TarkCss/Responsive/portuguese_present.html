@@ -1,4 +1,4 @@
-﻿<section class="container">
+﻿<section class="container-short">
     <h1>Simple present</h1>
     <h2 class="margin-top-2em">1. Objective</h2>
     <section class="card col l12">
@@ -18,7 +18,7 @@
     </section>
     <br class="clear" />
     <h2 class="margin-top-2em">3. Grammar table</h2>
-    <div class="card col l8 m12 s12">
+    <div class="card col l12 m12 s12">
         <div class="card-container">
             <select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(selectedVerb)"></select>
             <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
@@ -46,7 +46,7 @@
     </div>
     <br class="clear" />
     <h2>4. Examples</h2>
-    <div class="col l8 m12 s12">
+    <div class="col l12 m12 s12">
         <div class="card card-to-be">
             <div class="card-container">
                 <table>
