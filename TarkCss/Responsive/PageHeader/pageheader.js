@@ -1,4 +1,4 @@
-﻿app.controller('pageHeaderCtrl', function () {
+app.controller('pageHeaderCtrl', function () {
 
 
 });
