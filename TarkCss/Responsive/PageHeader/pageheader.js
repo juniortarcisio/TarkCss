@@ -10,4 +10,4 @@ app.component('pageHeader', {
     scope: true,
     templateUrl: 'PageHeader/pageHeader.html',
     controller: 'pageHeaderCtrl'
-});
+}); 
