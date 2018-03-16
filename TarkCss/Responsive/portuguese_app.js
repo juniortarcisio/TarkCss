@@ -161,7 +161,7 @@ function shuffle(array) {
 }
 
 
-app.controller('exercisesCtrl', function ($scope, $rootScope) {
+app.controller('exercisesCtrl', function ($scope, $rootScope, SpeechService) {
     $scope.questions = [
         {
             parts: [
@@ -283,19 +283,11 @@ app.controller('exercisesCtrl', function ($scope, $rootScope) {
                 text += question.parts[i].answer;
             }
         }
-        $scope.Speak(text);
+        SpeechService.Speak(text, 'pt-br');
     };
 
     $scope.Speak = function (text) {
-        var msg = new SpeechSynthesisUtterance();
-        var voices = window.speechSynthesis.getVoices();
-        msg.voiceURI = 'native';
-        msg.volume = 1;
-        msg.text = text;
-        msg.lang = 'pt-BR';
-        msg.rate = 1;
-
-        window.speechSynthesis.speak(msg);
+        SpeechService.Speak(msg, 'pt-br');
     };
 
     $scope.IsGoogleChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
@@ -453,7 +445,9 @@ function loadEffectWaves() {
     });
 }
 
-app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService) {
+app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService) {
+
+    SpeechService.Speak('Welcome to INGES, International global educational system. Nice to see you again, you have no new messages.')
 
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
@@ -502,6 +496,7 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
                 
         $rootScope.breadcrumbs = breadcrumbs;
         $rootScope.currentRoute = breadcrumbs[breadcrumbs.length - 1];
+        SpeechService.Speak($rootScope.currentRoute.name);
     });
 
     $rootScope.toggleShowMobUser = function () {
