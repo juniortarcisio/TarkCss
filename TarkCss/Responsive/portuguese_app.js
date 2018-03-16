@@ -300,7 +300,8 @@ app.controller('toBeCtrl', function ($scope, $rootScope) {
 app.controller('settingsCtrl', function ($scope, $rootScope) {
 });
 
-app.controller('aboutCtrl', function ($scope, $rootScope) {
+app.controller('aboutCtrl', function ($scope, SpeechService) {
+    SpeechService.Speak('They are pretty cute ham?');
 });
 
 app.controller('homeCtrl', function ($scope, $rootScope) {
@@ -445,12 +446,14 @@ function loadEffectWaves() {
     });
 }
 
-app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService) {
-
-    SpeechService.Speak('Welcome to INGES, International global educational system. Nice to see you again, you have no new messages.')
-
+app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService) {    
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
+    
+    SpeechService.Speak('Welcome to INGES, International global educational system, my name is Dory and I will be your guide. You can mute me on top bar anytime you want');
+
+    if ($rootScope.account != null && $rootScope.account.authenticated)
+        SpeechService.Speak('Nice to see you again' + $rootScope.account.email + ', you have no new messages.');
     
     $rootScope.$on('$viewContentLoaded', function () {
         $window.document.getElementsByTagName('main')[0].scrollTo(0, 0);
@@ -496,7 +499,10 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
                 
         $rootScope.breadcrumbs = breadcrumbs;
         $rootScope.currentRoute = breadcrumbs[breadcrumbs.length - 1];
-        SpeechService.Speak($rootScope.currentRoute.name);
+
+        if (current != null) {
+            SpeechService.Speak($rootScope.currentRoute.name);
+        }
     });
 
     $rootScope.toggleShowMobUser = function () {

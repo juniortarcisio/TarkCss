@@ -33,6 +33,10 @@
         return window.speechSynthesis.getVoices();
     }
 
+    this.Stop = function () {
+        window.speechSynthesis.cancel();
+    }
+
     this.BrowseSupported = function () {
         return typeof SpeechSynthesisUtterance != "undefined";
     }
