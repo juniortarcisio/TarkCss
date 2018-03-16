@@ -91,4 +91,8 @@
         SpeechService.Speak(msg, $scope.lang);
     }
 
+    $scope.SpeakSpaced = function (msg) {
+        SpeechService.SpeakSpaced(msg, $scope.lang);
+    }
+
 });

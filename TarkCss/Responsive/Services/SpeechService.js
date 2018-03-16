@@ -12,6 +12,23 @@
         window.speechSynthesis.speak(msg);
     };
 
+    this.SpeakSpaced = function (text, lang) {
+        var words = text.split(' ');
+
+        for (var i = 0; i < words.length; i++) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.voiceURI = 'native';
+            msg.volume = 1;
+            msg.rate = 1;
+            msg.text = words[i];
+
+            if (typeof lang != "undefined")
+                msg.lang = lang;
+
+            window.speechSynthesis.speak(msg);
+        }        
+    };
+
     this.Voices = function () {
         return window.speechSynthesis.getVoices();
     }
