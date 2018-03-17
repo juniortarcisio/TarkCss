@@ -14,6 +14,12 @@
         var subGroup = $scope.selectedWordGroup.wordSubGroups[randomIndex];
 
         randomIndex = Math.floor(Math.random() * subGroup.words.length);
+        
+        if ($scope.randomWord != null && subGroup.words.length > 1 && $scope.randomWord.word === subGroup.words[randomIndex].word) {
+            $scope.nextWord();
+            return;
+        }
+
         $scope.randomWord = subGroup.words[randomIndex];
 
         $scope.response = "";
@@ -36,6 +42,8 @@
             $scope.wrong++;
             $scope.errorMessage = "The right answer was \"" + $scope.randomWord.word + "\"";
         }
+
+        $scope.Speak($scope.randomWord.word);
 
         $scope.nextWord();
     }
