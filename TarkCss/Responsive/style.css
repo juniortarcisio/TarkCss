@@ -350,7 +350,7 @@ select {
 }
 
 
-@media only screen and (max-width: 992px) { /*(min-width:600px) and **/
+@media only screen and (max-width: 992px) { 
 .m12 { width:100%; }
 .m11 { width:91.66666666666667%; }
 .m10 { width:83.33333333333333%; }
@@ -483,17 +483,34 @@ select {
 }
 .effect-waves__waves {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
   opacity: 1;
-  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
-  transition: transform 0.5s ease, opacity 0.2s ease 0.3s;
+  transform: translate3d(-50%, -50%, 0) scale(0);
+  transition: transform 0.75s ease, opacity 0.2s ease 0.55s;
 }
 .effect-waves__waves--in {
   opacity: 0;
-  transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  transform: translate3d(-50%, -50%, 0) scale(30);
+}
+
+.effect-waves.waves-aqua .effect-waves__waves {
+  background: rgba(112, 255, 224, 0.3);
+}
+
+.effect-waves.waves-red .effect-waves__waves {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.effect-waves.waves-blue .effect-waves__waves {
+  background: rgba(0, 0, 255, 0.3);
+}
+
+
+.effect-waves.waves-green .effect-waves__waves {
+  background: rgba(0, 255, 0, 0.3);
 }
 
 .btn {
