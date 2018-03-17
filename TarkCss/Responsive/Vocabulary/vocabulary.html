@@ -11,6 +11,9 @@
     .word-pack table tr {
         background-color:inherit;
     }
+    .word-pack table tr:hover {
+        background-color: #e5e5e5;
+    }
     .scrollbar-card::-webkit-scrollbar-track
     {
 	    border-radius: 10px;
@@ -37,6 +40,7 @@
         font-weight: bold;
         color: #129880;
         width:auto;
+        border-bottom:2px solid #129880;
     }
     page-footer {
         display:none
@@ -55,7 +59,7 @@
                 <div class="word-pack scrollbar-card">
                     <table>
                         <tr ng-repeat="word in wordSubGroup.words" class="cursor-pointer" ng-click="Speak(word.word)">
-                            <td>{{word.word}}</td>
+                            <td ng-class="{'bold':word.important}">{{word.word}}</td>
                         </tr>
                     </table>
                 </div>
