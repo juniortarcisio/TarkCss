@@ -23,13 +23,13 @@
         $scope.randomWord = subGroup.words[randomIndex];
 
         $scope.response = "";
-        document.getElementsByName('response')[0].focus();
+        AnimationService.focusByName('response');
     }
 
     $scope.answer = function (ignoreEmpty) {
         $scope.clearError();
         if ($scope.response.length === 0 && !ignoreEmpty) {
-            document.getElementsByName('response')[0].focus();
+            AnimationService.focusByName('response');
             $scope.errorMessage = "Write your response or Skip";
             return;
         }
@@ -74,4 +74,5 @@
     }
 
     $scope.nextWord();
+    AnimationService.focusByName('response');
 });

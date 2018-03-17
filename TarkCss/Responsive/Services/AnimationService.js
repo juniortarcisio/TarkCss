@@ -1,4 +1,8 @@
 ﻿app.service('AnimationService', function ($http, $q) {
+
+    this.focusByName = function(name) {
+        document.getElementsByName(name)[0].focus();
+    }
     
     this.animate = function (cssTarget, cssAnimation) {
         document.getElementsByClassName(cssTarget)[0].classList.remove(cssAnimation);

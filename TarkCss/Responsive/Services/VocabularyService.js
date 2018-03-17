@@ -85,10 +85,10 @@ app.service('VocabularyService', function ($http, $q) {
                         { word: "Timur", description: "East" },
                         { word: "Selatan", description: "South" },
                         { word: "Barat", description: "West" },
-                        { word: "Depan", description: "Straight Ahead" },
-                        { word: "Kiri", description: "To the left" },
+                        { word: "Depan", description: "Ahead" },
+                        { word: "Kiri", description: "Left" },
                         { word: "Belakang", description: "Behind" },
-                        { word: "Kanan", description: "To the right" },
+                        { word: "Kanan", description: "Right" },
                         { word: "Dekat", description: "Near" },
                         { word: "Jauh", description: "Far" }
                     ]

@@ -746,7 +746,7 @@ border-color: transparent;
         text-shadow: 0 2px 2px rgba(50, 0, 0, 0.5);
     }
     50% { 
-        transform: scale(1.4, 1.4);            
+        transform: scale(1.7, 1.7) translateX(-5px);
         text-shadow: 0 12px 5px rgba(50, 0, 0, 0.5);
     }
     100% {  
