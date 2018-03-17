@@ -712,3 +712,20 @@ border-color: transparent;
 .fa-money { }
 .fa-gavel { }
 .fa-envelope { color: #ffffff; }
+
+.fa-play {
+    background-color: #26a69a;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-shadow: 0px 1px 1px #0a5;
+    box-shadow: 0px 1px 1px grey;
+    color: #9af5dc;
+    transition: .5s;
+    cursor:pointer;
+    opacity:0.2;
+}
+.fa-play:hover {
+    box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+    opacity:1;
+}

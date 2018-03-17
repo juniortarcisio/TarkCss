@@ -58,8 +58,11 @@
                 <h3>{{wordSubGroup.name}}</h3>
                 <div class="word-pack scrollbar-card">
                     <table>
-                        <tr ng-repeat="word in wordSubGroup.words" class="cursor-pointer" ng-click="Speak(word.word)">
+                        <tr ng-repeat="word in wordSubGroup.words">
                             <td ng-class="{'bold':word.important}">{{word.word}}</td>
+                            <td width="20px" ng-click="Speak(word.word)">
+                                <i class="fa fa-play"></i>
+                            </td>
                         </tr>
                     </table>
                 </div>
