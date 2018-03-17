@@ -1,4 +1,4 @@
-﻿app.controller('flashcardsCtrl', function ($scope, ServerService, VocabularyService, SpeechService) {
+﻿app.controller('flashcardsCtrl', function ($scope, ServerService, VocabularyService, SpeechService, AnimationService) {
     $scope.wordGrups = VocabularyService.getWords(LANGUAGE_ID_ID);
     $scope.lang = 'id-id'
     $scope.selectedWordGroup = $scope.wordGrups[0];
@@ -34,13 +34,15 @@
             return;
         }
 
-        if ($scope.randomWord.word.toUpperCase() == $scope.response.toUpperCase()) {
+        if ($scope.randomWord.word.toUpperCase().trim() == $scope.response.toUpperCase().trim()) {
             $scope.correct++;
             $scope.showSuccess = true;
+            AnimationService.animate('score-right', 'sheen');
         }
         else {
             $scope.wrong++;
             $scope.errorMessage = "The right answer was \"" + $scope.randomWord.word + "\"";
+            AnimationService.animate('score-wrong', 'sheen');
         }
 
         $scope.Speak($scope.randomWord.word);
@@ -59,10 +61,14 @@
 
     $scope.responseKeyPress = function (e) {
         var key = e.which ? e.which : e.keyCode;
-        if (key === 13)
+        if (key === 13) {
+            AnimationService.createWavesByClassName('waves-blue');
             $scope.answer();
-        else if (key === 27)
+        }
+        else if (key === 27) {
+            AnimationService.createWavesByClassName('waves-red');
             $scope.skip();
+        }
         else
             $scope.clearError();
     }

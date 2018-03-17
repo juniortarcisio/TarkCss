@@ -70,7 +70,7 @@ app.service('VocabularyService', function ($http, $q) {
                     words: [
                         { word: "Salad", description: "Salad" },
                         { word: "Tomat", description: "Tomato" },
-                        { word: "Selada ", description: "Lettuce" }
+                        { word: "Selada", description: "Lettuce" }
                     ]
                 }
             ]
@@ -150,7 +150,7 @@ app.service('VocabularyService', function ($http, $q) {
                         { word: "Puluh", description: "Dozen", important: true },
                         { word: "Dua Puluh", description: "Twenty" },
                         { word: "Tiga Puluh", description: "Thirty" },
-                        { word: "Enam Puluh", description: "Fourty" },
+                        { word: "Empat Puluh", description: "Fourty" },
                         { word: "Lima Puluh", description: "Fifty" },
                         { word: "Ratus", description: "Hundred", important: true },
                         { word: "Seratus", description: "One Hundred" },

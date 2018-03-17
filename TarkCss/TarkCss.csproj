@@ -114,6 +114,7 @@
     <Content Include="Responsive\portuguese_exercises.html" />
     <Content Include="Responsive\portuguese_future.html" />
     <Content Include="Responsive\portuguese_home.html" />
+    <Content Include="Responsive\Services\AnimationService.js" />
     <Content Include="Responsive\Services\SpeechService.js" />
     <Content Include="Responsive\Services\VocabularyService.js" />
     <Content Include="Responsive\SignIn\SignInController.js" />
