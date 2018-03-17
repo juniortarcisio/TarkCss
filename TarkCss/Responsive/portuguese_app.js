@@ -450,7 +450,7 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
     
-    SpeechService.Speak('Welcome to INGES, International global educational system, my name is Dory and I will be your guide. You can mute me on top bar anytime you want');
+    SpeechService.Speak('Welcome to INGES');
 
     if ($rootScope.account != null && $rootScope.account.authenticated)
         SpeechService.Speak('Nice to see you again' + $rootScope.account.email + ', you have no new messages.');
@@ -458,21 +458,15 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     $rootScope.$on('$viewContentLoaded', function () {
         $window.document.getElementsByTagName('main')[0].scrollTo(0, 0);
         loadEffectWaves();
-        try {
-            //$window._gaq.push(['_trackPageView', $location.url()]);
-            $window.ga('send', 'pageview', { page: $location.url() });
-        } catch (e) {
-        }
     });
 
     //TODO: move to BreadcrumbService or view/component?
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         $rootScope.mainClass = "";
-        if ($window.ga) {
+        if ($window.gtag) {
             var page = $location.path().replace('#', '');
-            $window.ga('set', 'page', page);
-            $window.ga('send', 'pageview');
-            console.log(page);
+            gtag('config', 'UA-115424551-1', { 'page_path': page });
+            //$window.ga('send', 'pageview', { page: page });
         }
         //ServerSide pushstate... (history) can't work well on github hosting
         $rootScope.sidenavOpen = false;
