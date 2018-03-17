@@ -22,9 +22,13 @@
                     words: [
                         { word: "Air putih", description: "Water" },
                         { word: "Susu", description: "Milk" },
+                        { word: "Milo", description: "Famous milk with chocolat brand" },
                         { word: "Jus buah", description: "Fruits Juice" },
                         { word: "Jus jeruk", description: "Orange Juice" },
-                        { word: "Teh", description: "Tea" }
+                        { word: "Jus mango", description: "Mango Juice" },
+                        { word: "Teh", description: "Tea" },
+                        { word: "Bir", description: "Beer" },
+                        { word: "Anggur", description: "Wine" }
                     ]
                 },
                 {
@@ -33,7 +37,15 @@
                         { word: "Mango", description: "Mango" },
                         { word: "Apel", description: "Apple" },
                         { word: "Pisang", description: "Banana" },
-                        { word: "jeruk", description: "Orange" }
+                        { word: "Jeruk", description: "Orange" },
+                        { word: "Nanas", description: "Pineapple" },
+                        { word: "Buah naga", description: "Dragon Fruit" },
+                        { word: "Pir", description: "Pear" },
+                        { word: "Jambu biji", description: "Guava" },
+                        { word: "Semangka", description: "Watermelon" },
+                        { word: "Nangka", description: "Jackfruit" },
+                        { word: "Durian", description: "Durian" },
+                        { word: "Markisa", description: "Passion Fruit" }
                     ]
                 },
                 {
