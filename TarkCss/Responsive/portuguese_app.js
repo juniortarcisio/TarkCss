@@ -401,6 +401,12 @@ app.config(function ($routeProvider) {
     .when("/Lessons/TensesComparison", {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
     })
+    .when("/Lessons/Vocabulary", {
+        templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
+    })
+    .when("/Exercises/Flashcards", {
+        templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
+    })
     .when("/PrototypeExercises", {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })
@@ -409,9 +415,6 @@ app.config(function ($routeProvider) {
     })
     .when("/Tests", {
         templateUrl: "Tests/tests.html", controller: "testsCtrl"
-    })
-    .when("/Vocabulary", {
-        templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
     })
     .otherwise({
         templateUrl: "notfound.html", controller: "homeCtrl"

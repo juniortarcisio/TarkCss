@@ -70,8 +70,7 @@ app.service('VocabularyService', function ($http, $q) {
                     words: [
                         { word: "Salad", description: "Salad" },
                         { word: "Tomat", description: "Tomato" },
-                        { word: "Selada ", description: "Lettuce" },
-                        { word: "Saya mau makan sesuatu di hari ini, tapi saya tidak punya uang", description: "n/d" }
+                        { word: "Selada ", description: "Lettuce" }
                     ]
                 }
             ]
