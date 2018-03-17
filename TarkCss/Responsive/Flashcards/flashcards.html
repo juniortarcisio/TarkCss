@@ -13,6 +13,22 @@
         top:0px;
         right:10px;
     }
+    .success-box>span {
+        font-size:1.5em;
+        font-weight:bold;
+    }
+    .response {
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        color:#4285f4;
+    }
+    page-footer {
+        display:none
+    }
+    .score-right { background-color:#a7e2a7; font-size:1.5em }
+    .score-wrong { background-color:#fd8f8f; font-size:1.5em }
 </style>
 <div class="container-short margin-auto">
     <h1>Flashcards</h1>
@@ -24,21 +40,27 @@
         <section class="card">
             <div class="card-container">
                 <h4>Answer</h4>
+                <br />
                 <h1>{{randomWord.description}}</h1>
                 <br />
                 <div class="row">
                     <div class="col m12">
-                        <input name="response" type="text" ng-model="response" ng-keypress="responseKeyPress($event)" />
+                        <input name="response" type="text" ng-model="response" class="response" ng-keyup="responseKeyPress($event)" />
                         <label>Response</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col m12">
-                        <button class="btn effect-waves waves-red" type="button" ng-click="skip()">Skip</button>
+                        <button class="btn effect-waves waves-red" type="button" ng-click="skip()">Skip (esc)</button>
                         <button class="btn effect-waves waves-blue float-right" type="button" ng-click="answer()">Answer</button>
                     </div>
                 </div>
                 <br class="clear" />
+                <div class="margin-top-2em clear center success-box fade-in-slide-down" ng-show="showSuccess">
+                    <span>
+                        <i class="fa fa-check"></i> Correct!
+                    </span>
+                </div>
                 <div class="margin-top-2em clear center error-box fade-in-slide-down" ng-show="errorMessage.length > 0">
                     <span>{{ errorMessage }}</span>
                 </div>
@@ -49,8 +71,8 @@
                            <th>Wrong</th> 
                         </tr>
                         <tr>
-                            <td class="center">{{correct}}</td>
-                            <td class="center">{{wrong}}</td>
+                            <td class="center score-right">{{correct}}</td>
+                            <td class="center score-wrong">{{wrong}}</td>
                         </tr>
                     </table>
                 </div>

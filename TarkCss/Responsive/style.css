@@ -432,6 +432,15 @@ select {
     .citation>ul { margin:0px; padding-left: 20px; }
 }
 
+.success-box {
+    padding: 20px;
+    margin: 0px 5px 0px 5px;
+    color: #1c7233;
+    background-color: #d7f8de;
+    border: 1px solid #97e291;
+    border-radius: 5px;
+}
+
 .error-box {
     padding: 20px;
     margin: 0px 5px 0px 5px;
@@ -466,7 +475,7 @@ select {
 .closed-line { line-height:1; }
 .spaced-line { line-height:1.6; }
 .spaced-line-2x { line-height:2; }
-.margin-top-2em { margin-top:1.2em; }
+.margin-top-2em { margin-top:1.2em !important; }
 .noboxshadow { box-shadow:none; }
 .float-right { float:right}
 

@@ -21,6 +21,7 @@
     }
 
     $scope.answer = function (ignoreEmpty) {
+        $scope.clearError();
         if ($scope.response.length === 0 && !ignoreEmpty) {
             document.getElementsByName('response')[0].focus();
             $scope.errorMessage = "Write your response or Skip";
@@ -29,6 +30,7 @@
 
         if ($scope.randomWord.word.toUpperCase() == $scope.response.toUpperCase()) {
             $scope.correct++;
+            $scope.showSuccess = true;
         }
         else {
             $scope.wrong++;
@@ -40,6 +42,7 @@
 
     $scope.clearError = function () {
         $scope.errorMessage = "";
+        $scope.showSuccess = false;
     }
 
     $scope.skip = function () {
@@ -50,6 +53,8 @@
         var key = e.which ? e.which : e.keyCode;
         if (key === 13)
             $scope.answer();
+        else if (key === 27)
+            $scope.skip();
         else
             $scope.clearError();
     }
