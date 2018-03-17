@@ -28,9 +28,11 @@
                         <th>English</th>
                         <th>Noun</th>
                         <th>Verb</th>
+                        <th width="5px"></th>
                     </tr>
                     <tr ng-repeat="verb in engineVerbs">
-                        <td>{{verb.subject}} 
+                        <td>
+                            <span class="cursor-pointer" ng-click="SpeakEng(verb.subject)">{{verb.subject}} </span>
                             <span ng-repeat="tag in verb.tags">
                                 <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
                             </span>
@@ -38,6 +40,9 @@
                         <td>{{verb.targetsubject}}</td>
                         <td>
                             {{verb.targetverb.prefix}}<span ng-show="verb.targetverb.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.targetverb.sufix}}</span>
+                        </td>
+                        <td class="cursor-pointer" ng-click="SpeakPt(verb.targetsubject + ' ' + verb.targetverb.prefix + verb.targetverb.sufix)">
+                            <i class="fa fa-play"></i>
                         </td>
                     </tr>
                 </tbody>

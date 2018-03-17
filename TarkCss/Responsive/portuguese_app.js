@@ -41,7 +41,7 @@ app.controller('regularVerbsCtrl', function ($scope, $http) {
 
 });
 
-app.controller('simplePresentCtrl', function ($scope, $rootScope) {
+app.controller('simplePresentCtrl', function ($scope, $rootScope, SpeechService) {
     $scope.verbs = basicList;
 
     $scope.selectedVerb = $scope.verbs[0];
@@ -56,6 +56,14 @@ app.controller('simplePresentCtrl', function ($scope, $rootScope) {
     };
 
     $scope.loadProcessedVerbs($scope.verbs[0]);
+
+    $scope.SpeakPt = function (text) {
+        SpeechService.Speak(text, 'pt-br');
+    };
+
+    $scope.SpeakEng = function (text) {
+        SpeechService.Speak(text, 'en-us');
+    };
 });
 
 app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
@@ -452,8 +460,8 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     
     SpeechService.Speak('Welcome to INGES');
 
-    if ($rootScope.account != null && $rootScope.account.authenticated)
-        SpeechService.Speak('Nice to see you again' + $rootScope.account.email + ', you have no new messages.');
+    //if ($rootScope.account != null && $rootScope.account.authenticated)
+    //    SpeechService.Speak('Nice to see you again' + $rootScope.account.email + ', you have no new messages.');
     
     $rootScope.$on('$viewContentLoaded', function () {
         $window.document.getElementsByTagName('main')[0].scrollTo(0, 0);
