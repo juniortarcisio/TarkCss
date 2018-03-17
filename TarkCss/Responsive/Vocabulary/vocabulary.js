@@ -68,17 +68,27 @@
                         { word: "Utara", description: "North" },
                         { word: "Timur", description: "East" },
                         { word: "Selatan", description: "South" },
-                        { word: "Barat", description: "West" }
+                        { word: "Barat", description: "West" },
+                        { word: "Depan", description: "Straight Ahead" },
+                        { word: "Kiri", description: "To the left" },
+                        { word: "Belakang", description: "Behind" },
+                        { word: "Kanan", description: "To the right" },
+                        { word: "Dekat", description: "Near" },
+                        { word: "Jauh", description: "Far" }
                     ]
                 },
                 {
                     name: "Geography",
                     words: [
+                        { word: "Alamat", description: "Address" },
                         { word: "Jalam", description: "Street" },
+                        { word: "Jalam Raya", description: "Highway" },
                         { word: "Lingkungan", description: "Neighborhood" },
                         { word: "Kota", description: "City" },
                         { word: "Propinsi", description: "Province" },
-                        { word: "Negara", description: "Country" }
+                        { word: "Negara", description: "Country" },
+                        { word: "Benua", description: "Continent" },
+                        { word: "Planet", description: "Planet" }
                     ]
                 },
                 {
@@ -96,6 +106,8 @@
             ]
         }
     ];
+
+    $scope.selectedWordGroup = $scope.wordGrups[0];
 
     $scope.lang = 'id-id'
 

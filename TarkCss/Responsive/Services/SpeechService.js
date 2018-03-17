@@ -1,4 +1,6 @@
 ﻿app.service('SpeechService', function ($http, $rootScope, $q) {
+    this._currentSpeech = null;
+
     this.Speak = function (text, lang) {
         var msg = new SpeechSynthesisUtterance();
         msg.voiceURI = 'native';
@@ -9,6 +11,7 @@
         if (typeof lang != "undefined")
             msg.lang = lang;
         
+        this._currentSpeech = msg;
         window.speechSynthesis.speak(msg);
     };
 
@@ -25,6 +28,7 @@
             if (typeof lang != "undefined")
                 msg.lang = lang;
 
+            this._currentSpeech = msg;
             window.speechSynthesis.speak(msg);
         }        
     };

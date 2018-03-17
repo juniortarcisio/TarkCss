@@ -468,6 +468,12 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         loadEffectWaves();
     });
 
+    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+        //if (current != null) {
+        //    SpeechService.StopCurrent();
+        //}
+    });
+
     //TODO: move to BreadcrumbService or view/component?
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         $rootScope.mainClass = "";
