@@ -304,6 +304,20 @@ select {
 .l2 { width:16.66666666666667%}
 .l1 { width:8.33333333333333%}
 
+.x12 { width:100%; }
+.x11 { width:91.66666666666667%; }
+.x10 { width:83.33333333333333%; }
+.x9 { width:75%; }
+.x8 { width:66.66666666666667%}
+.x7 { width:58.33333333333333%}
+.x6 { width:50%}
+.x5 { width:41.66666666666667%}
+.x4 { width:33.33333333333333%}
+.x3 { width:25%}
+.x2 { width:16.66666666666667%}
+.x1 { width:8.33333333333333%}
+
+
 
 @media only screen and (min-width: 993px) {
 .l12 { width:100%; }
@@ -319,6 +333,22 @@ select {
 .l2 { width:16.66666666666667%}
 .l1 { width:8.33333333333333%}
 }
+
+@media only screen and (min-width: 1200px) {
+.x12 { width:100%; }
+.x11 { width:91.66666666666667%; }
+.x10 { width:83.33333333333333%; }
+.x9 { width:75%; }
+.x8 { width:66.66666666666667%}
+.x7 { width:58.33333333333333%}
+.x6 { width:50%}
+.x5 { width:41.66666666666667%}
+.x4 { width:33.33333333333333%}
+.x3 { width:25%}
+.x2 { width:16.66666666666667%}
+.x1 { width:8.33333333333333%}
+}
+
 
 @media only screen and (max-width: 992px) { /*(min-width:600px) and **/
 .m12 { width:100%; }
