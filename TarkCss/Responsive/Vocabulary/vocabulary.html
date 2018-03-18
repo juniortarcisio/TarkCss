@@ -35,9 +35,16 @@
     .wordTo { }
     .wordFrom { padding-top:3px; font-size:12px; color:#bbb; transition:.3s; filter: blur(2px); }
     .word:hover .wordFrom { color:#888; filter:unset; font-weight:bold}
+    .word:hover .fa-play {
+        box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+        transform: translateY(-1px);
+        opacity:1;
+    }
 </style>
-<br class="clear hide-on-keyboard-opened" />
+
 <div class="container">
+    <h1 class="hide-on-keyboard-opened">Vocabulary</h1>
+    <br class="clear hide-on-keyboard-opened" />
     <section class="hide-on-keyboard-opened">
         <div class="col s4 m4 l2">
             <span class="selectLabel">Album</span>
@@ -53,14 +60,14 @@
         </div>
     </section>
     <br class="clear hide-on-keyboard-opened" />
-    <div class="margin-top-2em col s12 m6 l4 x3" ng-repeat="wordSubGroup in selectedWordGroup.wordSubGroups">
+    <div class="margin-top-2em col s12 m12 l6 x4 xx3" ng-repeat="wordSubGroup in selectedWordGroup.wordSubGroups">
         <section class="card">
             <div class="card-container">
                 <h3>{{wordSubGroup.name}}</h3>
                 <div class="word-pack scrollbar-card">
                     <table>
-                        <tr ng-repeat="word in wordSubGroup.words">
-                            <td class="word" ng-class="{'bold':word.important}">
+                        <tr class="word" ng-repeat="word in wordSubGroup.words">
+                            <td ng-class="{'bold':word.important}">
                                 <div class="wordTo">{{word[langTo.id]}}</div>
                                 <div class="wordFrom">{{word[langFrom.id]}}</div>
                             </td>
