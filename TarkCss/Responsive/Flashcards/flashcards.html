@@ -1,10 +1,10 @@
 ﻿<style type="text/css">
     h2 { padding-top:0px; margin-top:0px;}
     .selectWordGroup {
-        font-size: 24px;
+        font-size: 15px;
         font-weight: bold;
         color: #129880;
-        width: auto;
+        width: 100%;
         border-bottom: 2px solid #129880;
     }
     .container-short { max-width:400px; }
@@ -44,6 +44,15 @@
       left: 0;
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5) 50%, transparent);
       transform: rotateZ(90deg) translate(-1em, 4em);
+    }
+
+    .selectLabel {
+        color: #4f9888;
+        position: absolute;
+        top: -10px;
+        left: 21px;
+        font-size: 12px;
+        font-weight: bold;
     }
 
     @media only screen and (max-width:599px) {
@@ -99,22 +108,31 @@
         .below-top-nav { top: 0px; }
         main>section { padding-top:0px; }
         .breadcrumb { display: none; }
-            .error-box, .success-box { padding:5px; }
-*/
+        .error-box, .success-box { padding:5px; }*/
         .score td, .score th { padding:2px; }
-        
     }
 </style>
 <div class="container-short margin-auto">
-    <h2 class="tab-1x hide-on-keyboard-opened">
-        <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
-    </h2> 
+    <section class="hide-on-keyboard-opened">
+        <div class="col s4">
+            <span class="selectLabel">Album</span>
+            <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
+        </div>
+        <div class="col s4">
+            <span class="selectLabel">Learning</span>
+            <select class="selectWordGroup" ng-model="langTo" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
+        </div>
+        <div class="col s4">
+            <span class="selectLabel">From</span>
+            <select class="selectWordGroup" ng-model="langFrom" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
+        </div>
+    </section>
     <div class="col s12 m12 l12">
         <section class="card">
             <div class="card-container">
-                <h4 class="hide-on-keyboard-opened">Translate the word</h4>
+                <h5 class="hide-on-keyboard-opened">Translate the word to {{langTo.name}}</h5>
                 <br class="hide-on-keyboard-opened" />
-                <h1>{{randomWord.description}}</h1>
+                <h1>{{randomWord[langFrom.id]}}</h1>
                 <div class="row row-response">
                     <div class="col m12">
                         <input name="response" type="text" ng-model="response" class="response" ng-keyup="responseKeyPress($event)" />

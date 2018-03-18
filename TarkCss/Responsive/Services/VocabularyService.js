@@ -8,34 +8,38 @@ app.service('VocabularyService', function ($http, $q) {
 
     this.languages[LANGUAGE_EN_US] = new Object();
     this.languages[LANGUAGE_EN_US].name = 'English';
+    this.languages[LANGUAGE_EN_US].id = LANGUAGE_EN_US;
 
     this.languages[LANGUAGE_PT_BR] = new Object();
     this.languages[LANGUAGE_PT_BR].name = 'Portuguese';
+    this.languages[LANGUAGE_PT_BR].id = LANGUAGE_PT_BR;
 
     this.languages[LANGUAGE_ID_ID] = new Object();
-    this.languages[LANGUAGE_ID_ID].name = 'Bahasa Indonesian';
+    this.languages[LANGUAGE_ID_ID].name = 'Bahasa';
+    this.languages[LANGUAGE_ID_ID].id = LANGUAGE_ID_ID;
 
     //TODO: Gather all languages into a unique object??
-    this.languages[LANGUAGE_ID_ID].words = [
+    this.words = [
         {
             name: "Cousine", icon: "fa-coffee",
             wordSubGroups: [
                 {
                     name: "Food",
                     words: [
-                        { word: "Daging Ayam", description: "Chicken Meat" },
-                        { word: "Daging Sapi", description: "Cow Meat" },
-                        { word: "Daging Babi", description: "Pork Meat" },
-                        { word: "Ikan", description: "Fish" },
-                        { word: "Bakar", description: "Grilled" },
-                        { word: "Panggang", description: "Roasted" },
-                        { word: "Masak", description: "Cooked" },
-                        { word: "Matang", description: "Cooked" },
-                        { word: "Pedas", description: "Spicy" },
-                        { word: "Mi", description: "Noodles" },
-                        { word: "Nasi", description: "Rice" }
+                        ["Chicken Meat", "Carne de Frango", "Daging Ayam"],
+                        ["Cow Meat", "Carne de Vaca", "Daging Sapi"],
+                        ["Pork Meat", "Carne de Porco", "Daging Babi"],
+                        ["Fried Fish", "Peixe Frito", "Ikan Goreng"],
+                        ["Grilled", "Grelhado", "Bakar"],
+                        ["Roasted", "Assado", "Panggang"],
+                        ["Cooked", "Cozido", "Masak"],
+                        //{ word: "Matang", description: "Cooked" }, create an array object on this situation??? and work on service interfaces?
+                        ["Spicy", "Apimentado", "Pedas"],
+                        ["Noodles", "Miojo", "Mi"],
+                        ["Rice", "Arroz", "Nasi"]
                     ]
-                },
+                }
+                /*,
                 {
                     name: "Drink",
                     words: [
@@ -78,9 +82,10 @@ app.service('VocabularyService', function ($http, $q) {
                         { word: "Timun", description: "Cucumber" },
                         { word: "Kentang", description: "Potato" }
                     ]
-                }
+                } */
             ]
-        },
+        }
+        /*,
         {
             name: "Places", icon: "fa-map",
             wordSubGroups: [
@@ -221,10 +226,14 @@ app.service('VocabularyService', function ($http, $q) {
                     ]
                 }
             ]
-        }
+        } */
     ];
 
-    this.getWords = function (langId) {
-        return this.languages[langId].words;
+    this.getWords = function () {
+        return this.words;
     };
+
+    this.getLanguages = function () {
+        return this.languages;
+    }
 });

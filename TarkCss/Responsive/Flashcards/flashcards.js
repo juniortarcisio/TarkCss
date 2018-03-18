@@ -1,12 +1,15 @@
 ﻿app.controller('flashcardsCtrl', function ($scope, ServerService, VocabularyService, SpeechService, AnimationService) {
-    $scope.wordGrups = VocabularyService.getWords(LANGUAGE_ID_ID);
-    $scope.lang = 'id-id'
+    $scope.languages = VocabularyService.getLanguages();
+    $scope.wordGrups = VocabularyService.getWords();
+    $scope.langFrom = $scope.languages[LANGUAGE_EN_US];
+    $scope.langTo = $scope.languages[LANGUAGE_ID_ID];
+
     $scope.selectedWordGroup = $scope.wordGrups[0];
     $scope.correct = 0;
     $scope.wrong = 0;
 
     $scope.Speak = function (msg) {
-        SpeechService.Speak(msg, $scope.lang);
+        SpeechService.Speak(msg, $scope.langTo.id);
     }
 
     $scope.nextWord = function () {
@@ -15,7 +18,7 @@
 
         randomIndex = Math.floor(Math.random() * subGroup.words.length);
         
-        if ($scope.randomWord != null && subGroup.words.length > 1 && $scope.randomWord.word === subGroup.words[randomIndex].word) {
+        if ($scope.randomWord != null && subGroup.words.length > 1 && $scope.randomWord[$scope.langTo.id] === subGroup.words[randomIndex][$scope.langTo.id]) {
             $scope.nextWord();
             return;
         }
@@ -34,18 +37,20 @@
             return;
         }
 
-        if ($scope.randomWord.word.toUpperCase().trim() == $scope.response.toUpperCase().trim()) {
+        if ($scope.randomWord[$scope.langTo.id].toUpperCase().trim() == $scope.response.toUpperCase().trim()) {
             $scope.correct++;
             $scope.showSuccess = true;
             AnimationService.animate('score-right', 'sheen');
         }
         else {
             $scope.wrong++;
-            $scope.errorMessage = "The right answer was \"" + $scope.randomWord.word + "\"";
+            $scope.errorMessage = "The right answer was \"" + $scope.randomWord[$scope.langTo.id] + "\". ";
+            if (!ignoreEmpty)
+                $scope.errorMessage += "Your answer was \"" + $scope.response + "\".";
             AnimationService.animate('score-wrong', 'sheen');
         }
 
-        $scope.Speak($scope.randomWord.word);
+        $scope.Speak($scope.randomWord[$scope.langTo.id]);
 
         $scope.nextWord();
     }

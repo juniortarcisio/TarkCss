@@ -7,33 +7,14 @@
         background-color: #f5f5f5;
         border-radius: 5px;
     }
-    .word-pack table tr {
-        background-color:inherit;
-    }
-    .word-pack table tr:hover {
-        background-color: #e5e5e5;
-    }
-    .scrollbar-card::-webkit-scrollbar-track
-    {
-	    border-radius: 10px;
-    }
+    .word-pack table tr { background-color:inherit; }
+    .word-pack table tr:hover { background-color: #e5e5e5; }
 
-    .scrollbar-card::-webkit-scrollbar
-    {
-	    width: 10px;
-	    background-color: #ececec;
-    }
+    .scrollbar-card::-webkit-scrollbar-track { border-radius: 10px; }
+    .scrollbar-card::-webkit-scrollbar { width: 10px; background-color: #ececec; }
 
-    .scrollbar-card::-webkit-scrollbar-thumb
-    {
-	    border-radius: 15px;
-	    background-color: #ddd;
-        transition: .5s;
-    }
-    .scrollbar-card:hover::-webkit-scrollbar-thumb
-    {
-	    background-color: #b7b7b7;
-    }
+    .scrollbar-card::-webkit-scrollbar-thumb { border-radius: 15px; background-color: #ddd; transition: .5s; }
+    .scrollbar-card:hover::-webkit-scrollbar-thumb { background-color: #b7b7b7; }
     .selectWordGroup {
         font-size: 24px;
         font-weight: bold;
@@ -41,9 +22,11 @@
         width:auto;
         border-bottom:2px solid #129880;
     }
-    page-footer {
-        display:none
-    }
+
+    page-footer { display:none }
+    .wordTo { }
+    .wordFrom { padding-top:3px; font-size:12px; color:#eee; transition:.3s }
+    .word:hover .wordFrom { color:#888}
 </style>
 <div class="container">
     <h1>Vocabulary</h1>
@@ -58,8 +41,11 @@
                 <div class="word-pack scrollbar-card">
                     <table>
                         <tr ng-repeat="word in wordSubGroup.words">
-                            <td ng-class="{'bold':word.important}">{{word.word}}</td>
-                            <td width="20px" ng-click="Speak(word.word)">
+                            <td class="word" ng-class="{'bold':word.important}">
+                                <div class="wordTo">{{word[langTo]}}</div>
+                                <div class="wordFrom">{{word[langFrom]}}</div>
+                            </td>
+                            <td width="20px" ng-click="Speak(word[langTo])">
                                 <i class="fa fa-play"></i>
                             </td>
                         </tr>
