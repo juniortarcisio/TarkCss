@@ -26,12 +26,14 @@ app.service('VocabularyService', function ($http, $q) {
                         { word: "Daging Ayam", description: "Chicken Meat" },
                         { word: "Daging Sapi", description: "Cow Meat" },
                         { word: "Daging Babi", description: "Pork Meat" },
+                        { word: "Ikan", description: "Fish" },
                         { word: "Bakar", description: "Grilled" },
                         { word: "Panggang", description: "Roasted" },
                         { word: "Masak", description: "Cooked" },
                         { word: "Matang", description: "Cooked" },
                         { word: "Pedas", description: "Spicy" },
-                        { word: "Mi", description: "Noodles" }
+                        { word: "Mi", description: "Noodles" },
+                        { word: "Nasi", description: "Rice" }
                     ]
                 },
                 {
@@ -44,7 +46,7 @@ app.service('VocabularyService', function ($http, $q) {
                         { word: "Jus mangga", description: "Mangga Juice" },
                         { word: "Teh", description: "Tea" },
                         { word: "Bir", description: "Beer" },
-                        { word: "Anggur", description: "Wine" }
+                        { word: "Anggur merah", description: "Wine" }
                     ]
                 },
                 {
@@ -69,7 +71,12 @@ app.service('VocabularyService', function ($http, $q) {
                     words: [
                         { word: "Salad", description: "Salad" },
                         { word: "Tomat", description: "Tomato" },
-                        { word: "Selada", description: "Lettuce" }
+                        { word: "Selada", description: "Lettuce" },
+                        { word: "Singkong", description: "Cassava" },
+                        { word: "Wortel", description: "Carrot" },
+                        { word: "Terong", description: "Eggplant" },
+                        { word: "Timun", description: "Cucumber" },
+                        { word: "Kentang", description: "Potato" }
                     ]
                 }
             ]
@@ -145,31 +152,72 @@ app.service('VocabularyService', function ($http, $q) {
                         { word: "Tujuh belas", description: "Seventeen" },
                         { word: "Delapan belas", description: "Eightteen" },
                         { word: "Sembilan belas", description: "Nineteen" },
-                        { word: "Sepuluh belas", description: "Teenteen" },
-                        { word: "Dua Puluh", description: "Twenty" },
+                        { word: "Dua Puluh", description: "Twenty", important: true },
                         { word: "Tiga Puluh", description: "Thirty" },
                         { word: "Empat Puluh", description: "Fourty" },
                         { word: "Lima Puluh", description: "Fifty" },
-                        { word: "Ratus", description: "Hundred", important: true },
-                        { word: "Seratus", description: "One Hundred" },
+                        { word: "Seratus", description: "One Hundred", important: true },
                         { word: "Dua Ratus", description: "Two Hundred" },
                         { word: "Tiga Ratus", description: "Three Hundred" },
-                        { word: "Ribu", description: "Thousand", important: true },
-                        { word: "Seribu", description: "One Thousand" },
+                        { word: "Seribu", description: "One Thousand", important: true  },
                         { word: "Dua Ribu", description: "Two Thousand" },
                         { word: "Tiga Ribu", description: "Three Thousand" },
-                        { word: "Juta", description: "Million", important: true },
-                        { word: "Satu Juta", description: "One Million" },
+                        { word: "Satu Juta", description: "One Million", important: true },
                         { word: "Dua Juta", description: "Two Million" },
                         { word: "Tiga Juta", description: "Three Million" },
-                        { word: "Miliar", description: "Billion", important: true },
-                        { word: "Satu Miliar", description: "One Billion" },
+                        { word: "Satu Miliar", description: "One Billion", important: true },
                         { word: "Dua Miliar", description: "Two Billion" },
                         { word: "Tiga Miliar", description: "Three Billion" },
-                        { word: "Triliun", description: "Trillion", important: true },
-                        { word: "Satu Triliun", description: "One Trillion" },
+                        { word: "Satu Triliun", description: "One Trillion", important: true },
                         { word: "Dua Triliun", description: "Two Trillion" },
                         { word: "Tiga Triliun", description: "Three Trillion" }
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Biology", icon: "fa-leaf",
+            wordSubGroups: [
+                {
+                    name: "Animals",
+                    words: [
+                        { word: "Anjing", description: "Dog" },
+                        { word: "Kucing", description: "Cat" },
+                        { word: "Burung", description: "Bird" },
+                        { word: "Harimau", description: "Tiger" },
+                        { word: "Kuda", description: "Horse" },
+                        { word: "Naga", description: "Dragon" },
+                        { word: "Gajah", description: "Elephant" },
+                        { word: "Bebek", description: "Duck" },
+                        { word: "Monyet", description: "Monkey" },
+                        { word: "Buaya", description: "Crocodile" },
+                        { word: "Sapi", description: "Cow" },
+                        { word: "Ayam", description: "Chicken" },
+                        { word: "Babi", description: "Pig" },
+                        { word: "Kerbau", description: "Buffalo" },
+                        { word: "Gorila", description: "Gorilla" },
+                        { word: "jerapah", description: "Giraffe" }
+                    ]
+                }
+            ]
+        },
+        {
+            name: "General", icon: "fa-archive",
+            wordSubGroups : [
+                {
+                    name: "Colors",
+                    words: [
+                        { word: "Biru", description: "Blue" },
+                        { word: "Merah", description: "Red" },
+                        { word: "Kuning", description: "Yellow" },
+                        { word: "Hijau", description: "Green" },
+                        { word: "Putih", description: "White" },
+                        { word: "Hitam", description: "Black" },
+                        { word: "Ungu", description: "Purple" },
+                        { word: "Oranye", description: "Orange" },
+                        { word: "Coklat", description: "Brown" },
+                        { word: "Merah muda", description: "Pink" },
+                        { word: "Abu-abu", description: "Grey" }
                     ]
                 }
             ]

@@ -1,7 +1,5 @@
 ﻿<style type="text/css">
-    h2 {
-        padding-top:0px;
-    }
+    h2 { padding-top:0px; margin-top:0px;}
     .selectWordGroup {
         font-size: 24px;
         font-weight: bold;
@@ -10,16 +8,14 @@
         border-bottom: 2px solid #129880;
     }
     .container-short { max-width:400px; }
-    .card-container { position:relative }
+    .card-container { position:relative;  }
     .score {
         position:absolute;
         top:0px;
         right:10px;
     }
     .score tr:not(:first-child) { box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); }
-    .success-box>span {
-        font-size:1.5em;
-    }
+    /*.success-box>span { font-size:1.5em; }*/
     .response {
         font-size: 20px;
         font-weight: bold;
@@ -27,17 +23,12 @@
         letter-spacing: 5px;
         color:#4285f4;
     }
-    page-footer {
-        display:none
-    }
     .score-right { background-color:#66bb6a; color:white; font-size:1.5em }
     .score-wrong { background-color:#ff7684; color:white; font-size:1.5em }
+    .score td, .score th { padding:5px; }        
+    .error-box, .success-box { padding:15px; }
     
-    @keyframes sheen {
-      100% {
-        transform: rotateZ(60deg) translate(0, -4em);
-      }
-    }
+    @keyframes sheen { 100% { transform: rotateZ(60deg) translate(0, -4em); } }
     .sheen {
       position: relative;
       overflow: hidden;
@@ -55,28 +46,63 @@
       transform: rotateZ(90deg) translate(-1em, 4em);
     }
 
+    @media only screen and (max-width:599px) {
+        h1 { font-size:2em }
+        page-footer { display:none }
+
+        .row-response {
+            position: fixed;
+            bottom: 10px;
+            left: 55px;
+            background-color: white;
+            padding: 5px 5px;
+            width: calc(100% - 110px);
+            border-radius: 29px;
+            height:45px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
+        .row-response input { border:none !important; }
+
+        .btn-skip {
+            position: fixed;
+            bottom: 10px;
+            left: 5px;
+            border-radius: 50px;
+            width: 45px;
+            height: 45px;
+            padding: 8px;
+            font-size: 27px;
+        }
+
+        .btn-answer {
+            position: fixed;
+            bottom: 10px;
+            right: 5px;
+            width: 45px;
+            height: 45px;
+            padding-top: 10px;
+            padding-bottom: 6px;
+            padding-left:10px;
+            padding-right:6px;
+            border-radius: 50px;
+            font-size: 25px;
+        }
+
+        .row { padding-top:5px; }
+        main>section { padding-top:0px; }
+        .margin-top-2em { margin-top:0px !important; }
+        input:focus+label,input:not(.ng-empty)+label{ display:none; }
+        input { font-weight:normal !important }
+    }
     @media only screen and (max-width:599px) and (max-height:500px) {
-        page-header {
-            display: none;
-        }
-
-        .below-top-nav {
-            top: 0px;
-        }
-
-        .breadcrumb {
-            display: none;
-        }
-
-        main>section {
-            padding-top:0px;
-        }
-        .score td, .score th {
-            padding:2px;
-        }
-        .error-box, .success-box {
-            padding:5px;
-        }
+        /*page-header { display: none; }
+        .below-top-nav { top: 0px; }
+        main>section { padding-top:0px; }
+        .breadcrumb { display: none; }
+            .error-box, .success-box { padding:5px; }
+*/
+        .score td, .score th { padding:2px; }
+        
     }
 </style>
 <div class="container-short margin-auto">
@@ -89,20 +115,25 @@
                 <h4 class="hide-on-keyboard-opened">Translate the word</h4>
                 <br class="hide-on-keyboard-opened" />
                 <h1>{{randomWord.description}}</h1>
-                <br class="hide-on-mobile" />
-                <div class="row">
+                <div class="row row-response">
                     <div class="col m12">
                         <input name="response" type="text" ng-model="response" class="response" ng-keyup="responseKeyPress($event)" />
-                        <label>Response</label>
+                        <label>Answer</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col m12">
-                        <button class="btn effect-waves waves-red" type="button" ng-click="skip()">Skip <span class="hide-on-mobile">(esc)</span></button>
-                        <button class="btn effect-waves waves-blue float-right" type="button" ng-click="answer()">Answer</button>
+                        <button class="btn btn-skip effect-waves waves-red" type="button" ng-click="skip()">
+                            <span class="hide-on-mobile">Skip (esc)</span>
+                            <span class="show-only-on-mobile"><i class="fa fa-question"></i></span>
+                        </button>
+                        <button class="btn btn-answer effect-waves waves-blue float-right" type="button" ng-click="answer()">
+                            <span class="hide-on-mobile">Answer</span>
+                            <i class="fa fa-chevron-right show-only-on-mobile"></i>
+                        </button>
                     </div>
                 </div>
-                <br class="clear" />
+                <br class="clear hide-on-keyboard-opened" />
                 <div class="margin-top-2em clear center success-box fade-in-slide-down" ng-show="showSuccess">
                     <span>
                         <i class="fa fa-check"></i> Correct!

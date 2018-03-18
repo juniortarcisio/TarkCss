@@ -10,6 +10,8 @@
 
         if (typeof lang != "undefined")
             msg.lang = lang;
+        else
+            msg.lang = 'en-us';
         
         this._currentSpeech = msg;
         window.speechSynthesis.speak(msg);
