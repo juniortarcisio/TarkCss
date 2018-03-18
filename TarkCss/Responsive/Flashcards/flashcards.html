@@ -15,7 +15,6 @@
         right:10px;
     }
     .score tr:not(:first-child) { box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); }
-    /*.success-box>span { font-size:1.5em; }*/
     .response {
         font-size: 20px;
         font-weight: bold;
@@ -29,11 +28,7 @@
     .error-box, .success-box { padding:15px; }
     
     @keyframes sheen { 100% { transform: rotateZ(60deg) translate(0, -4em); } }
-    .sheen {
-      position: relative;
-      overflow: hidden;
-    }
-
+    .sheen { position: relative; overflow: hidden; }
     .sheen:after {
       animation: sheen 1s 0s forwards;
       content: '';

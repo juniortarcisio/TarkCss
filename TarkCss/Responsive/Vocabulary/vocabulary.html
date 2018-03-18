@@ -1,4 +1,19 @@
 ﻿<style type="text/css">
+    .selectWordGroup {
+        font-size: 15px;
+        font-weight: bold;
+        color: #129880;
+        width: 100%;
+        border-bottom: 2px solid #129880;
+    }
+    .selectLabel {
+        color: #4f9888;
+        position: absolute;
+        top: -10px;
+        left: 21px;
+        font-size: 12px;
+        font-weight: bold;
+    }
     table tr { transition-duration: .0s; }
 
     .word-pack {
@@ -15,26 +30,30 @@
 
     .scrollbar-card::-webkit-scrollbar-thumb { border-radius: 15px; background-color: #ddd; transition: .5s; }
     .scrollbar-card:hover::-webkit-scrollbar-thumb { background-color: #b7b7b7; }
-    .selectWordGroup {
-        font-size: 24px;
-        font-weight: bold;
-        color: #129880;
-        width:auto;
-        border-bottom:2px solid #129880;
-    }
 
     page-footer { display:none }
     .wordTo { }
-    .wordFrom { padding-top:3px; font-size:12px; color:#eee; transition:.3s }
-    .word:hover .wordFrom { color:#888}
+    .wordFrom { padding-top:3px; font-size:12px; color:#bbb; transition:.3s; filter: blur(2px); }
+    .word:hover .wordFrom { color:#888; filter:unset; font-weight:bold}
 </style>
+<br class="clear hide-on-keyboard-opened" />
 <div class="container">
-    <h1>Vocabulary</h1>
-    <h2>
-        <i class="fa" ng-class="selectedWordGroup.icon"></i>
-        <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups"></select>
-    </h2> 
-    <div class="col s12 m6 l4 x3" ng-repeat="wordSubGroup in selectedWordGroup.wordSubGroups">
+    <section class="hide-on-keyboard-opened">
+        <div class="col s4 m4 l2">
+            <span class="selectLabel">Album</span>
+            <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
+        </div>
+        <div class="col s4 m4 l2">
+            <span class="selectLabel">Learning</span>
+            <select class="selectWordGroup" ng-model="langTo" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
+        </div>
+        <div class="col s4 m4 l2">
+            <span class="selectLabel">From</span>
+            <select class="selectWordGroup" ng-model="langFrom" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
+        </div>
+    </section>
+    <br class="clear hide-on-keyboard-opened" />
+    <div class="margin-top-2em col s12 m6 l4 x3" ng-repeat="wordSubGroup in selectedWordGroup.wordSubGroups">
         <section class="card">
             <div class="card-container">
                 <h3>{{wordSubGroup.name}}</h3>
@@ -42,10 +61,10 @@
                     <table>
                         <tr ng-repeat="word in wordSubGroup.words">
                             <td class="word" ng-class="{'bold':word.important}">
-                                <div class="wordTo">{{word[langTo]}}</div>
-                                <div class="wordFrom">{{word[langFrom]}}</div>
+                                <div class="wordTo">{{word[langTo.id]}}</div>
+                                <div class="wordFrom">{{word[langFrom.id]}}</div>
                             </td>
-                            <td width="20px" ng-click="Speak(word[langTo])">
+                            <td width="20px" ng-click="Speak(word[langTo.id])">
                                 <i class="fa fa-play"></i>
                             </td>
                         </tr>

@@ -2,8 +2,12 @@
 var LANGUAGE_PT_BR = 1;
 var LANGUAGE_ID_ID = 2;
 
-app.service('VocabularyService', function ($http, $q) {
+app.service('VocabularyService', function ($http, $q, $rootScope) {
  
+    $rootScope.LANGUAGE_EN_US = 0;
+    $rootScope.LANGUAGE_PT_BR = 1;
+    $rootScope.LANGUAGE_ID_ID = 2;
+
     this.languages = new Array();
 
     this.languages[LANGUAGE_EN_US] = new Object();
@@ -38,96 +42,94 @@ app.service('VocabularyService', function ($http, $q) {
                         ["Noodles", "Miojo", "Mi"],
                         ["Rice", "Arroz", "Nasi"]
                     ]
-                }
-                /*,
+                },
                 {
                     name: "Drink",
                     words: [
-                        { word: "Air putih", description: "Water" },
-                        { word: "Susu", description: "Milk" },
-                        { word: "Jus buah", description: "Fruits Juice" },
-                        { word: "Jus jeruk", description: "Orange Juice" },
-                        { word: "Jus mangga", description: "Mangga Juice" },
-                        { word: "Teh", description: "Tea" },
-                        { word: "Bir", description: "Beer" },
-                        { word: "Anggur merah", description: "Wine" }
+                        ["Water", "Água", "Air putih"],
+                        ["Milk", "Leite", "Susu"],
+                        ["Fruits Juice", "Suco de Frutas", "Jus buah"],
+                        ["Orange Juice", "Suco de Laranja", "Jus jeru"],
+                        ["Mango Juice", "Suco de Manga", "Jus mangga"],
+                        ["Tea", "Chá", "Teh"],
+                        ["Beer", "Cerveja", "Bir"],
+                        ["Wine", "Vinho", "Anggur merah"]
                     ]
                 },
                 {
                     name: "Fruits",
                     words: [
-                        { word: "Mangga", description: "Mango" },
-                        { word: "Apel", description: "Apple" },
-                        { word: "Pisang", description: "Banana" },
-                        { word: "Jeruk", description: "Orange" },
-                        { word: "Nanas", description: "Pineapple" },
-                        { word: "Buah naga", description: "Dragon Fruit" },
-                        { word: "Pir", description: "Pear" },
-                        { word: "Jambu biji", description: "Guava" },
-                        { word: "Semangka", description: "Watermelon" },
-                        { word: "Nangka", description: "Jackfruit" },
-                        { word: "Durian", description: "Durian" },
-                        { word: "Markisa", description: "Passion Fruit" }
+                        ["Mango", "Manga", "Mangga"],
+                        ["Apple", "Maçã", "Apel"],
+                        ["Banana", "Banana", "Pisang"],
+                        ["Orange", "Laranja", "Jeruk"],
+                        ["Wine", "Vinho", "Anggur"],
+                        ["Pineapple", "Abacaxi", "Nanas"],
+                        ["Dragon Fruit", "Pitaia", "Buah naga"],
+                        ["Pear", "Pera", "Pir"],
+                        ["Guava", "Goiaba", "Jambu biji"],
+                        ["Watermelon", "Melancia", "Semangka"],
+                        ["Jackfruit", "Jaca", "Nangka"],
+                        ["Durian", "Durian", "Durian"],
+                        ["Passion Fruit", "Maracuja", "Markisa"]
                     ]
                 },
                 {
                     name: "Vegetables",
                     words: [
-                        { word: "Salad", description: "Salad" },
-                        { word: "Tomat", description: "Tomato" },
-                        { word: "Selada", description: "Lettuce" },
-                        { word: "Singkong", description: "Cassava" },
-                        { word: "Wortel", description: "Carrot" },
-                        { word: "Terong", description: "Eggplant" },
-                        { word: "Timun", description: "Cucumber" },
-                        { word: "Kentang", description: "Potato" }
+                        ["Salad", "Salada", "Salad"],
+                        ["Tomato", "Tomate", "Tomat"],
+                        ["Lettuce", "Alface", "Selada"],
+                        ["Cassava", "Mandioca", "Singkong"],
+                        ["Eggplant", "Berinjela", "Terong"],
+                        ["Cucumber", "Pepino", "Timun"],
+                        ["Potato", "Batata", "Kentang"]
                     ]
-                } */
+                } 
             ]
-        }
-        /*,
+        },
         {
             name: "Places", icon: "fa-map",
             wordSubGroups: [
                 {
                     name: "Directions",
                     words: [
-                        { word: "Utara", description: "North" },
-                        { word: "Timur", description: "East" },
-                        { word: "Selatan", description: "South" },
-                        { word: "Barat", description: "West" },
-                        { word: "Depan", description: "Ahead" },
-                        { word: "Kiri", description: "Left" },
-                        { word: "Belakang", description: "Behind" },
-                        { word: "Kanan", description: "Right" },
-                        { word: "Dekat", description: "Near" },
-                        { word: "Jauh", description: "Far" }
+                        ["North", "Norte", "Utara"],
+                        ["East", "Leste", "Timur"],
+                        ["South", "Sul", "Selatan"],
+                        ["West", "Oeste", "Barat"],
+                        ["Ahead", "Frente", "Depan"],
+                        ["Left", "Esquerda", "Kiri"],
+                        ["Behind", "Atrás", "Belakang"],
+                        ["Right", "Direita", "Kanan"],
+                        ["Near", "Perto", "Dekat"],
+                        ["Far", "Longe", "Jauh"]
                     ]
                 },
                 {
                     name: "Geography",
                     words: [
-                        { word: "Alamat", description: "Address" },
-                        { word: "Jalan", description: "Street" },
-                        { word: "Jalan Raya", description: "Highway" },
-                        { word: "Lingkungan", description: "Neighborhood" },
-                        { word: "Kota", description: "City" },
-                        { word: "Propinsi", description: "Province" },
-                        { word: "Negara", description: "Country" },
-                        { word: "Benua", description: "Continent" },
-                        { word: "Planet", description: "Planet" }
+                        ["Address", "Endereço", "Alamat"],
+                        ["Street", "Rua", "Jalan"],
+                        ["Highway", "Rodovia", "Jalan Raya"],
+                        ["Neighborhood", "Bairro", "Lingkungan"],
+                        ["City", "Cidade", "Kota"],
+                        ["Province", "Província", "Propinsi"],
+                        ["State", "Estado", "Negarabagian"],
+                        ["Country", "País", "Negara"],
+                        ["Continent", "Continente", "Benua"],
+                        ["Planet", "País", "Planet"]
                     ]
                 },
                 {
                     name: "Housing",
                     words: [
-                        { word: "Rumah", description: "House" },
-                        { word: "Apartemen", description: "Apartment" },
-                        { word: "Kamar mandi", description: "Bathroom" },
-                        { word: "Kamar kecil", description: "Restroom" },
-                        { word: "Kamar tidur", description: "Bedroom" },
-                        { word: "Ruang tamu", description: "Guest room" },
-                        { word: "Ruang keluarga", description: "Living room" }
+                        ["House", "Casa", "Rumah"],
+                        ["Apartment", "Apartamento", "Apartemen"],
+                        ["Bathroom", "Banheiro", "Kamar mandi"],
+                        ["Restroom", "Toalete", "Kamar kecil"],
+                        ["Bedroom", "Quarto", "Kamar tidur"],
+                        ["Living room", "Sala", "Ruang keluarga"]
                     ]
                 }
             ]
@@ -138,44 +140,44 @@ app.service('VocabularyService', function ($http, $q) {
                 {
                     name: "Basic Numbers",
                     words: [
-                        { word: "Satu", description: "One" },
-                        { word: "Dua", description: "Two" },
-                        { word: "Tiga", description: "Three" },
-                        { word: "Empat", description: "Four" },
-                        { word: "Lima", description: "Five" },
-                        { word: "Enam", description: "Six" },
-                        { word: "Tujuh", description: "Seven" },
-                        { word: "Delapan", description: "Eight" },
-                        { word: "Sembilan", description: "Nine" },
-                        { word: "Sepuluh", description: "Teen", important: true  },
-                        { word: "Sebelas", description: "Eleven"},
-                        { word: "Dua belas", description: "Twelve" },
-                        { word: "Tiga belas", description: "Thirteen" },
-                        { word: "Empat belas", description: "Fourteen" },
-                        { word: "Lima belas", description: "Fifteen" },
-                        { word: "Enam belas", description: "Sixteen" },
-                        { word: "Tujuh belas", description: "Seventeen" },
-                        { word: "Delapan belas", description: "Eightteen" },
-                        { word: "Sembilan belas", description: "Nineteen" },
-                        { word: "Dua Puluh", description: "Twenty", important: true },
-                        { word: "Tiga Puluh", description: "Thirty" },
-                        { word: "Empat Puluh", description: "Fourty" },
-                        { word: "Lima Puluh", description: "Fifty" },
-                        { word: "Seratus", description: "One Hundred", important: true },
-                        { word: "Dua Ratus", description: "Two Hundred" },
-                        { word: "Tiga Ratus", description: "Three Hundred" },
-                        { word: "Seribu", description: "One Thousand", important: true  },
-                        { word: "Dua Ribu", description: "Two Thousand" },
-                        { word: "Tiga Ribu", description: "Three Thousand" },
-                        { word: "Satu Juta", description: "One Million", important: true },
-                        { word: "Dua Juta", description: "Two Million" },
-                        { word: "Tiga Juta", description: "Three Million" },
-                        { word: "Satu Miliar", description: "One Billion", important: true },
-                        { word: "Dua Miliar", description: "Two Billion" },
-                        { word: "Tiga Miliar", description: "Three Billion" },
-                        { word: "Satu Triliun", description: "One Trillion", important: true },
-                        { word: "Dua Triliun", description: "Two Trillion" },
-                        { word: "Tiga Triliun", description: "Three Trillion" }
+                        ["One", "Um", "Satu"],
+                        ["Two", "Dois", "Dua"],
+                        ["Three", "Três", "Tiga"],
+                        ["Four", "Quartro", "Empat"],
+                        ["Five", "Cinco", "Lima"],
+                        ["Six", "Seis", "Enam"],
+                        ["Seven", "Sete", "Tujuh"],
+                        ["Eight", "Oito", "Delapan"],
+                        ["Nine", "Nove", "Sembilan"],
+                        ["Teen", "Dez", "Sepuluh"],
+                        ["Eleven", "Onze", "Sebelas"],
+                        ["Twelve", "Doze", "Dua belas"],
+                        ["Thirteen", "Treze", "Tiga belas"],
+                        ["Fourteen", "Quatorze", "Empat belas"],
+                        ["Fifteen", "Quinze", "Lima belas"],
+                        ["Sixteen", "Dezesseis", "Enam belas"],
+                        ["Seventeen", "Dezessete", "Tujuh belas"],
+                        ["Eightteen", "Dezoito", "Delapan belas"],
+                        ["Nineteen", "Dezenove", "Sembilan belas"],
+                        ["Twenty", "Vinte", "Dua Puluh"],
+                        ["Thirty", "Trinta", "Tiga Puluh"],
+                        ["Fourty", "Quarenta", "Empat Puluh"],
+                        ["Fifty", "Cinquenta", "Lima Puluh"],
+                        ["One Hundred", "Cem", "Seratus"],
+                        ["Two Hundred", "Duzentos", "Dua Ratus"],
+                        ["Three Hundred", "Trezentos", "Tiga Ratus"],
+                        ["One Thousand", "Mil", "Seribu"],
+                        ["Two Thousand", "Dois Mil", "Dua Ribu"],
+                        ["Three Thousand", "Três Mil", "Tiga Ribu"],
+                        ["One Million", "Um Milhão", "Satu Juta"],
+                        ["Two Million", "Dois Milhões", "Dua Juta"],
+                        ["Three Million", "Três Milhões", "Tiga Juta"],
+                        ["One Billion", "Um Bilhão", "Satu Miliar"],
+                        ["Two Billion", "Dois Bilhões", "Dua Miliar"],
+                        ["Three Billion", "Três Bilhões", "Tiga Miliar"],
+                        ["One Trillion", "Um Trilhão", "Satu Triliun"],
+                        ["Two Trillion", "Dois Trilhões", "Dua Triliun"],
+                        ["Three Trillion", "Três Trilhões", "Tiga Triliun"]
                     ]
                 }
             ]
@@ -186,22 +188,22 @@ app.service('VocabularyService', function ($http, $q) {
                 {
                     name: "Animals",
                     words: [
-                        { word: "Anjing", description: "Dog" },
-                        { word: "Kucing", description: "Cat" },
-                        { word: "Burung", description: "Bird" },
-                        { word: "Harimau", description: "Tiger" },
-                        { word: "Kuda", description: "Horse" },
-                        { word: "Naga", description: "Dragon" },
-                        { word: "Gajah", description: "Elephant" },
-                        { word: "Bebek", description: "Duck" },
-                        { word: "Monyet", description: "Monkey" },
-                        { word: "Buaya", description: "Crocodile" },
-                        { word: "Sapi", description: "Cow" },
-                        { word: "Ayam", description: "Chicken" },
-                        { word: "Babi", description: "Pig" },
-                        { word: "Kerbau", description: "Buffalo" },
-                        { word: "Gorila", description: "Gorilla" },
-                        { word: "jerapah", description: "Giraffe" }
+                        ["Dog", "Cachorro", "Anjing"],
+                        ["Cat", "Gato", "Kucing"],
+                        ["Bird", "Pássaro", "Burung"],
+                        ["Tiger", "Tigre", "Harimau"],
+                        ["Horse", "Cavalho", "Kuda"],
+                        ["Dragon", "Dragão", "Naga"],
+                        ["Elephant", "Elefante", "Gajah"],
+                        ["Duck", "Pato", "Bebek"],
+                        ["Monkey", "Macao", "Monyet"],
+                        ["Crocodile", "Crocodilo", "Buaya"],
+                        ["Cow", "Vaca", "Sapi"],
+                        ["Chicken", "Galinha", "Ayam"],
+                        ["Pig", "Porco", "Babi"],
+                        ["Buffalo", "Bufalo", "Kerbau"],
+                        ["Gorilla", "Gorila", "Gorila"],
+                        ["Giraffe", "Girafa", "jerapah"]
                     ]
                 }
             ]
@@ -212,21 +214,21 @@ app.service('VocabularyService', function ($http, $q) {
                 {
                     name: "Colors",
                     words: [
-                        { word: "Biru", description: "Blue" },
-                        { word: "Merah", description: "Red" },
-                        { word: "Kuning", description: "Yellow" },
-                        { word: "Hijau", description: "Green" },
-                        { word: "Putih", description: "White" },
-                        { word: "Hitam", description: "Black" },
-                        { word: "Ungu", description: "Purple" },
-                        { word: "Oranye", description: "Orange" },
-                        { word: "Coklat", description: "Brown" },
-                        { word: "Merah muda", description: "Pink" },
-                        { word: "Abu-abu", description: "Grey" }
+                        ["Blue", "Azul", "Biru"],
+                        ["Red", "Vermelho", "Merah"],
+                        ["Yellow", "Amarelo", "Kuning"],
+                        ["Green", "Verde", "Hijau"],
+                        ["White", "Branco", "Putih"],
+                        ["Black", "Preto", "Hitam"],
+                        ["Purple", "Roxo", "Ungu"],
+                        ["Orange", "Laranja", "Oranye"],
+                        ["Brown", "Marrom", "Coklat"],
+                        ["Pink", "Rosa", "Merah muda"],
+                        ["Grey", "Cinza", "Abu-abu"]
                     ]
                 }
             ]
-        } */
+        } 
     ];
 
     this.getWords = function () {

@@ -56,14 +56,6 @@ app.controller('simplePresentCtrl', function ($scope, $rootScope, SpeechService)
     };
 
     $scope.loadProcessedVerbs($scope.verbs[0]);
-
-    $scope.SpeakPt = function (text) {
-        SpeechService.Speak(text, 'pt-br');
-    };
-
-    $scope.SpeakEng = function (text) {
-        SpeechService.Speak(text, 'en-us');
-    };
 });
 
 app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
@@ -503,5 +495,11 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     $rootScope.home = function () {
         $location.path("/General/Home");
     }
+
+    $rootScope.Speak = function (text, langId) {
+        console.log(langId);
+        SpeechService.Speak(text, langId);
+    };
+
 });
 

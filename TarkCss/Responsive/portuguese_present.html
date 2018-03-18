@@ -32,7 +32,7 @@
                     </tr>
                     <tr ng-repeat="verb in engineVerbs">
                         <td>
-                            <span class="cursor-pointer" ng-click="SpeakEng(verb.subject)">{{verb.subject}} </span>
+                            <span class="cursor-pointer" ng-click="Speak(verb.subject, 0)">{{verb.subject}} </span>
                             <span ng-repeat="tag in verb.tags">
                                 <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
                             </span>
@@ -41,7 +41,7 @@
                         <td>
                             {{verb.targetverb.prefix}}<span ng-show="verb.targetverb.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.targetverb.sufix}}</span>
                         </td>
-                        <td ng-click="SpeakPt(verb.targetsubject + ' ' + verb.targetverb.prefix + verb.targetverb.sufix)">
+                        <td ng-click="Speak(verb.targetsubject + ' ' + verb.targetverb.prefix + verb.targetverb.sufix, 1)">
                             <i class="fa fa-play"></i>
                         </td>
                     </tr>
@@ -62,27 +62,27 @@
                 <tr>
                     <td>Eu ando todos os dias</td>
                     <td>Everyday: Routine</td>
-                    <td ng-click="SpeakPt('Eu ando todos os dias')"><i class="fa fa-play"></i></td>
+                    <td ng-click="Speak('Eu ando todos os dias', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Ele bebe muita água</td>
                     <td>Fact</td>
-                    <td ng-click="SpeakPt('Ele bebe muita água')"><i class="fa fa-play"></i></td>
+                    <td ng-click="Speak('Ele bebe muita água', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Vocês jogam futebol bem</td>
                     <td>Fact</td>
-                    <td ng-click="SpeakPt('Vocês jogam futebol bem')"><i class="fa fa-play"></i></td>
+                    <td ng-click="Speak('Vocês jogam futebol bem', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Nós gostamos de feijão</td>
                     <td>Fact</td>
-                    <td ng-click="SpeakPt('Nós gostamos de feijão')"><i class="fa fa-play"></i></td>
+                    <td ng-click="Speak('Nós gostamos de feijão', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Nós somos altos</td>
                     <td>Attribute: permanent</td>
-                    <td ng-click="SpeakPt('Nós somos altos')"><i class="fa fa-play"></i></td>
+                    <td ng-click="Speak('Nós somos altos', 1)"><i class="fa fa-play"></i></td>
                 </tr>
             </table>
         </div>

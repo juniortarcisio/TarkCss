@@ -55,6 +55,7 @@
     }
 
     $scope.clearError = function () {
+        $scope.lastWord = "";
         $scope.errorMessage = "";
         $scope.showSuccess = false;
     }
