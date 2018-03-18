@@ -1,4 +1,7 @@
 ﻿<style type="text/css">
+    h2 {
+        padding-top:0px;
+    }
     .selectWordGroup {
         font-size: 24px;
         font-weight: bold;
@@ -51,20 +54,42 @@
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5) 50%, transparent);
       transform: rotateZ(90deg) translate(-1em, 4em);
     }
+
+    @media only screen and (max-width:599px) and (max-height:500px) {
+        page-header {
+            display: none;
+        }
+
+        .below-top-nav {
+            top: 0px;
+        }
+
+        .breadcrumb {
+            display: none;
+        }
+
+        main>section {
+            padding-top:0px;
+        }
+        .score td, .score th {
+            padding:2px;
+        }
+        .error-box, .success-box {
+            padding:5px;
+        }
+    }
 </style>
 <div class="container-short margin-auto">
-    <h1>Flashcards</h1>
-    <h2>
-        <i class="fa" ng-class="selectedWordGroup.icon"></i>
+    <h2 class="tab-1x hide-on-keyboard-opened">
         <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
     </h2> 
     <div class="col s12 m12 l12">
         <section class="card">
             <div class="card-container">
-                <h4>Translate the word</h4>
-                <br />
+                <h4 class="hide-on-keyboard-opened">Translate the word</h4>
+                <br class="hide-on-keyboard-opened" />
                 <h1>{{randomWord.description}}</h1>
-                <br />
+                <br class="hide-on-mobile" />
                 <div class="row">
                     <div class="col m12">
                         <input name="response" type="text" ng-model="response" class="response" ng-keyup="responseKeyPress($event)" />
@@ -73,7 +98,7 @@
                 </div>
                 <div class="row">
                     <div class="col m12">
-                        <button class="btn effect-waves waves-red" type="button" ng-click="skip()">Skip (esc)</button>
+                        <button class="btn effect-waves waves-red" type="button" ng-click="skip()">Skip <span class="hide-on-mobile">(esc)</span></button>
                         <button class="btn effect-waves waves-blue float-right" type="button" ng-click="answer()">Answer</button>
                     </div>
                 </div>

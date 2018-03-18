@@ -309,7 +309,13 @@ app.controller('settingsCtrl', function ($scope, $rootScope) {
 });
 
 app.controller('aboutCtrl', function ($scope, SpeechService) {
-    SpeechService.Speak('They are pretty cute ham?');
+    $scope.easterEggExecuted = false;
+    $scope.easterEgg = function () {
+        if ($scope.easterEggExecuted == true)
+            return;
+        SpeechService.Speak('They are pretty cute ham?');
+        $scope.easterEggExecuted = true;
+    }
 });
 
 app.controller('homeCtrl', function ($scope, $rootScope) {

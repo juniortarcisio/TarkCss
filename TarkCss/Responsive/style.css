@@ -403,13 +403,26 @@ select {
 .hide-on-mobile { }
 .show-only-on-mobile { }
 
-@media only screen and (max-width:650px) {
+.hide-on-keyboard-opened { }
+.show-only-on-keyboard-opened { }
+
+@media only screen and (max-width:599px) {
     .hide-on-mobile { display:none !important; }
 }
 
-@media only screen and (min-width:651px) {
+@media only screen and (min-width:600px) {
     .show-only-on-mobile { display:none !important; }
 }
+
+
+@media only screen and (max-height:499px) and (max-width:599px) {
+    .hide-on-keyboard-opened { display:none !important; }
+}
+
+ @media only screen and (min-height:500px) {
+    .show-only-on-keyboard-opened { display:none !important; }
+}
+
 
 .citation {
     border-left: 8px solid #5f9e7f;
@@ -574,6 +587,11 @@ select {
 .textmark.pink, .textmark.female { color:white; background-color:#cb59d4; box-shadow: 1px 1px 2px #632b67; }
 .textmark.blue, .textmark.male { color:white; background-color:#5b70ce; box-shadow: 1px 1px 2px #4a5994; }
 .textmark.gray { color:white; background-color:gray; box-shadow: 1px 1px 2px #333; }
+
+
+.tab-1x { padding-left:15px; }
+.tab-2x { padding-left:30px; }
+.tab-3x { padding-left:45px; }
 
 /***************************** Animation Styles ******************************/
 
