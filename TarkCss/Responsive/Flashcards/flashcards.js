@@ -45,11 +45,10 @@
         else {
             $scope.wrong++;
             $scope.errorMessage = "The right answer was \"" + $scope.randomWord[$scope.langTo.id] + "\". ";
-            if (!ignoreEmpty)
-                $scope.errorMessage += "Your answer was \"" + $scope.response + "\".";
             AnimationService.animate('score-wrong', 'sheen');
         }
 
+        $scope.lastWord = $scope.response;
         $scope.Speak($scope.randomWord[$scope.langTo.id]);
 
         $scope.nextWord();

@@ -98,20 +98,21 @@
         }
 
         .row { padding-top:5px; }
-        main>section { padding-top:0px; }
         .margin-top-2em { margin-top:0px !important; }
         input:focus+label,input:not(.ng-empty)+label{ display:none; }
         input { font-weight:normal !important }
     }
     @media only screen and (max-width:599px) and (max-height:500px) {
+        main>section { padding-top:0px; }
         /*page-header { display: none; }
         .below-top-nav { top: 0px; }
         main>section { padding-top:0px; }
-        .breadcrumb { display: none; }
         .error-box, .success-box { padding:5px; }*/
+        .breadcrumb { display: none; }
         .score td, .score th { padding:2px; }
     }
 </style>
+<br class="clear hide-on-keyboard-opened" />
 <div class="container-short margin-auto">
     <section class="hide-on-keyboard-opened">
         <div class="col s4">
@@ -156,9 +157,11 @@
                     <span>
                         <i class="fa fa-check"></i> Correct!
                     </span>
+                    <span ng-show="lastWord.length > 0"><br />{{ lastWord }}</span>   
                 </div>
                 <div class="margin-top-2em clear center error-box fade-in-slide-down" ng-show="errorMessage.length > 0">
                     <span>{{ errorMessage }}</span>
+                    <span ng-show="lastWord.length > 0"><br />Your answer was "{{ lastWord }}".</span>                    
                 </div>
                 <div class="score center">
                     <table>
