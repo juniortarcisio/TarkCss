@@ -424,6 +424,11 @@ app.config(function ($routeProvider) {
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService) {
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
+
+    if (localStorage.mute)
+        $rootScope.mute = localStorage;
+    else
+        $rootScope.mute = false;
     
     SpeechService.Speak('Welcome to INGES');
 
@@ -500,6 +505,17 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         console.log(langId);
         SpeechService.Speak(text, langId);
     };
+
+    $rootScope.toggleMute = function () {
+        if ($rootScope.mute == null || $rootScope.mute == false) {
+            $rootScope.mute = true;
+            SpeechService.Stop();
+        }
+        else 
+            $rootScope.mute = false;
+
+        localStorage.mute = $rootScope.mute;
+    }
 
 });
 

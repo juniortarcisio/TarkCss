@@ -15,7 +15,7 @@
     }
 
     this.Speak = function (text, langId) {
-        if (!this.BrowseSupported)
+        if (!this.BrowseSupported || $rootScope.mute)
             return;
         var msg = new SpeechSynthesisUtterance();
         msg.voiceURI = 'native';
@@ -33,25 +33,13 @@
     };
 
     this.SpeakSpaced = function (text, langId) {
-        if (!this.BrowseSupported)
+        if (!this.BrowseSupported || $rootScope.mute)
             return;
 
         var words = text.split(' ');
 
         for (var i = 0; i < words.length; i++) {
-            var msg = new SpeechSynthesisUtterance();
-            msg.voiceURI = 'native';
-            msg.volume = 1;
-            msg.rate = 1;
-            msg.text = words[i];
-
-            if (typeof langId != "undefined")
-                msg.lang = this.getLanguageCode(langId);
-            else
-                msg.lang = 'en-us';
-
-            this._currentSpeech = msg;
-            window.speechSynthesis.speak(msg);
+            this.Speak(words[i], langId)
         }        
     };
 

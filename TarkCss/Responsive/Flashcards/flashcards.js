@@ -16,8 +16,8 @@
         var randomIndex = Math.floor(Math.random() * $scope.selectedWordGroup.wordSubGroups.length);
         var subGroup = $scope.selectedWordGroup.wordSubGroups[randomIndex];
 
-        randomIndex = Math.floor(Math.random() * subGroup.words.length);
-        
+        randomIndex = Math.floor(Math.random() * subGroup.words.length);              
+
         if ($scope.randomWord != null && subGroup.words.length > 1 && $scope.randomWord[$scope.langTo.id] === subGroup.words[randomIndex][$scope.langTo.id]) {
             $scope.nextWord();
             return;
@@ -37,7 +37,15 @@
             return;
         }
 
-        if ($scope.randomWord[$scope.langTo.id].toUpperCase().trim() == $scope.response.toUpperCase().trim()) {
+        var response = $scope.response.toUpperCase().trim();
+        var randomWord = $scope.randomWord[$scope.langTo.id].toUpperCase().trim();
+
+        //if (response.normalize) { ES6+
+        //    response = response.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        //    response = response.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        //}
+
+        if (randomWord === response) {
             $scope.correct++;
             $scope.showSuccess = true;
             AnimationService.animate('score-right', 'sheen');

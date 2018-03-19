@@ -163,6 +163,12 @@
 </div>
 <span ng-click="$root.home()">INGES | Portuguese</span>
 <div class="topnav-right">
+    <div class="top-nav-item">
+        <i class="fa" ng-class="{'fa-microphone':!$root.mute, 'fa-microphone-slash':$root.mute}" ng-click="$root.toggleMute()"></i>
+    </div>
+    <div class="top-nav-separator hide-on-mobile">
+        &nbsp;
+    </div>
     <div class="top-nav-item hide-on-mobile">
         <div ng-hide="$root.account.authenticated == true">
             <div>You aren't authenticated</div>

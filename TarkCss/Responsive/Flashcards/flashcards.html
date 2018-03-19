@@ -106,6 +106,8 @@
         .breadcrumb { display: none; }
         .score td, .score th { padding:2px; }
     }
+
+    page-footer .row {padding-top:0px}
 </style>
 <br class="clear hide-on-keyboard-opened" />
 <div class="container-short margin-auto">
@@ -123,7 +125,7 @@
             <select class="selectWordGroup" ng-model="langFrom" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
         </div>
     </section>
-    <div class="col s12 m12 l12">
+    <div class="margin-top-2em col s12 m12 l12">
         <section class="card">
             <div class="card-container">
                 <h5 class="hide-on-keyboard-opened">Translate the word to {{langTo.name}}</h5>
