@@ -103,14 +103,14 @@
         input { font-weight:normal !important }
 
         /*flex trick 1*/
-        .view-container,.container-short,.card { 
+        .view-container,.container-short,.flash-card { 
             flex: 1 0 auto;
             display: flex;
             flex-direction: column;
             width: 100%;
         }
 
-        .card {
+        .flash-card {
             margin-top:10px;
             margin-bottom:60px;
         }
@@ -134,16 +134,8 @@
             <span class="selectLabel">Album</span>
             <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
         </div>
-        <!--<div class="col s4">
-            <span class="selectLabel">Learning</span>
-            <select class="selectWordGroup" ng-model="langTo" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
-        </div>
-        <div class="col s4">
-            <span class="selectLabel">From</span>
-            <select class="selectWordGroup" ng-model="langFrom" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
-        </div>-->
     </section>
-        <section class="col s12 m12 l12 card">
+        <section class="col s12 m12 l12 card flash-card">
             <div class="card-container">
                 <h5>Translate the word to {{langTo.name}}</h5>
                 <br class="hide-on-keyboard-opened" />
