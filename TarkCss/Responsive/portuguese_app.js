@@ -422,6 +422,7 @@ app.config(function ($routeProvider) {
 
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService) {
+
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
 

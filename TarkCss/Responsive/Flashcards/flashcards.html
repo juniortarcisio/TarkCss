@@ -96,6 +96,19 @@
         .margin-top-2em { margin-top:0px !important; }
         input:focus+label,input:not(.ng-empty)+label{ display:none; }
         input { font-weight:normal !important }
+
+        /*flex trick 1*/
+        .view-container,.container-short,.card { 
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .card {
+            margin-top:10px;
+            margin-bottom:60px;
+        }
     }
     @media only screen and (max-width:599px) and (max-height:500px) {
         main>section { padding-top:0px; }
@@ -125,10 +138,9 @@
             <select class="selectWordGroup" ng-model="langFrom" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
         </div>
     </section>
-    <div class="margin-top-2em col s12 m12 l12">
-        <section class="card">
+        <section class="col s12 m12 l12 card">
             <div class="card-container">
-                <h5 class="hide-on-keyboard-opened">Translate the word to {{langTo.name}}</h5>
+                <h5>Translate the word to {{langTo.name}}</h5>
                 <br class="hide-on-keyboard-opened" />
                 <h1>{{randomWord[langFrom.id]}}</h1>
                 <div class="row row-response">
@@ -174,5 +186,4 @@
                 </div>
             </div>
         </section>
-    </div>
 </div>

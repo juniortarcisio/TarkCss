@@ -3,10 +3,10 @@
         position:fixed;
         top: 0px;
         left: 0px;
-        height: 72px;
+        height: 60px;
         width:100%;
         z-index:1000;
-        line-height: 72px;
+        line-height: 60px;
         padding: 0px 20px;
         box-sizing: border-box;
         color:#eee;
@@ -46,9 +46,9 @@
         font-size: 14px;
         font-weight: normal;
         position: absolute;
-        top: 14px;
+        top: 10px;
         right: 10px;
-        line-height: 20px;
+        line-height: 18px;
     }
 
 
@@ -78,7 +78,7 @@
 
         .top-nav-item i {
             margin-top:-3px;
-            font-size:42px;
+            font-size:35px;
             text-shadow: 0px 1px 1px #aaa;
         }
 
@@ -150,6 +150,7 @@
         
         .topnav-right {
             right:5px;
+            top: 16px;
         }
         
         .topnav-button-menu {
@@ -161,7 +162,7 @@
 <div class="topnav-button-menu show-only-on-mobile">
     <a ng-click="$root.toggleSivenav()">&#9776;</a>
 </div>
-<span ng-click="$root.home()">INGES | Portuguese</span>
+<span ng-click="$root.home()">INGES <span class="hide-on-mobile">| Languages</span></span>
 <div class="topnav-right">
     <div class="top-nav-item">
         <i class="fa" ng-class="{'fa-microphone':!$root.mute, 'fa-microphone-slash':$root.mute}" ng-click="$root.toggleMute()"></i>
