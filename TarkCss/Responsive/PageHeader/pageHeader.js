@@ -1,8 +1,11 @@
-app.controller('pageHeaderCtrl', function () {
-
-
+app.controller('pageHeaderCtrl', function ($scope, $rootScope) {
+    $scope.selectLanguageFrom = function (language) {
+        $rootScope.langFrom = language;
+    }
+    $scope.selectLanguageLearn = function (language) {
+        $rootScope.langLearn = language;
+    }
 });
-
 
 app.component('pageHeader', {
     bindings: {

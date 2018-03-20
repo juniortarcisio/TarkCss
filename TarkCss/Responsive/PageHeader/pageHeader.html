@@ -50,8 +50,7 @@
         right: 10px;
         line-height: 18px;
     }
-
-
+    
     .topnav-button-menu {
         line-height: 32px;
         position: absolute;
@@ -86,8 +85,7 @@
         display:inline-block;
         width:20px;
     }
-
-    
+        
     .pop-mob-user {
         position:absolute;
         width:280px;
@@ -114,8 +112,7 @@
         margin: 10px;
         margin-bottom: 20px;
     }
-
-
+    
     .pop-mob-server {
         position:absolute;
         width:280px;
@@ -137,6 +134,7 @@
         padding-bottom: 10px;
     }
 
+
     @media only screen and (max-width:599px) {
         .top-nav-item i {
             font-size: 32px;
@@ -144,25 +142,71 @@
             padding: 0px 3px;
         }
 
-        .top-nav-item {
-            padding:0px;
-        }
+        .top-nav-item { padding:0px; }
         
-        .topnav-right {
-            right:5px;
-            top: 16px;
-        }
+        .topnav-right { right:5px; top: 16px; }
         
-        .topnav-button-menu {
-            display:block;
-        }
+        .topnav-button-menu { display:block; }
     }
-    
+
+    .padleft10 { padding-left:10px;  }
+    .top-nav-flags img {cursor:pointer; opacity: 0.5}
+    .top-nav-flags i {     
+        font-size: 24px !important;
+        color: #777;
+        text-shadow: none !important;
+    }
+    .pop-lang-from {
+        position:absolute;
+        width:180px;
+        padding:20px;
+        top: 45px;
+        left: 0px;
+        box-shadow: 0 2px 10px rgba(0,0,0,.75);
+        background: #fff;
+        border: 1px solid #ccc;
+        border-color: rgba(0,0,0,.2);
+        z-index:1002;
+        display:none;
+    }
+    .top-nav-lang:hover .pop-lang-from {  display:block }
+    .top-nav-lang:hover img { opacity:1 }
+    .pop-lang-from .gb_rb, .pop-lang-from .gb_qb {  left:8px; }
+    .pop-lang-from h5 { margin-top: 0px; margin-bottom:15px; font-size: 20px}
+    .pop-lang-flags {font-size: 18px; line-height:1.6; color:#555; cursor:pointer}
+    .pop-lang-flags img { width:30px; opacity:1; border-radius:0px; margin-bottom: -5px; border: 1px solid #ddd }
 </style>
 <div class="topnav-button-menu show-only-on-mobile">
     <a ng-click="$root.toggleSivenav()">&#9776;</a>
 </div>
 <span ng-click="$root.home()">INGES <span class="hide-on-mobile">| Languages</span></span>
+<div class="top-nav-item top-nav-flags top-nav-lang">
+    <img src="{{$root.langFrom.flag}}" alt="Your language" title="Your language">
+    <div class="card pop-lang-from grow-down-left">
+        <div class="gb_rb"></div>
+        <div class="gb_qb"></div>
+        <h5>Your Language</h5>
+        <div class="pop-lang-flags effect-waves waves-blue" ng-repeat="language in $root.languages" ng-click="selectLanguageFrom(language)">
+            <img src="{{language.flag}}" width="20" />
+            <span>{{language.name}}</span>
+        </div>
+    </div>
+</div>
+<div class="top-nav-item top-nav-flags">
+    <i class="fa fa-random"></i>
+</div>
+<div class="top-nav-item top-nav-flags top-nav-lang">
+    <img src="{{$root.langLearn.flag}}" alt="Learning language" title="Learning language">
+    <div class="card pop-lang-from grow-down-left">
+        <div class="gb_rb"></div>
+        <div class="gb_qb"></div>
+        <h5>Learning</h5>
+        <div class="pop-lang-flags effect-waves waves-blue" ng-repeat="language in $root.languages" ng-click="selectLanguageLearn(language)">
+            <img src="{{language.flag}}" width="20" />
+            <span>{{language.name}}</span>
+        </div>
+    </div>
+</div>
 <div class="topnav-right">
     <div class="top-nav-item">
         <i class="fa" ng-class="{'fa-microphone':!$root.mute, 'fa-microphone-slash':$root.mute}" ng-click="$root.toggleMute()"></i>
@@ -193,18 +237,18 @@
         <div class="popup-mob" ng-show="$root.showMobUser" ng-click="$root.toggleShowMobUser()">
         </div>
         <div class="card pop-mob-user grow-down" ng-show="$root.showMobUser">
-                <div class="gb_rb"></div>
-                <div class="gb_qb"></div>
-                <article>
-                    You aren't authenticated, you may sign up in order to:
-                    <ul>
-                        <li>Get full features access</li>
-                        <li>Record your progress</li>
-                    </ul>
-                </article>
-                <a class="btn effect-waves" href="#!Account/SignIn">Sign In</a>
-                <a class="btn effect-waves" href="#!Account/SignUp">Sign Up</a>
-            </div>
+            <div class="gb_rb"></div>
+            <div class="gb_qb"></div>
+            <article>
+                You aren't authenticated, you may sign up in order to:
+                <ul>
+                    <li>Get full features access</li>
+                    <li>Record your progress</li>
+                </ul>
+            </article>
+            <a class="btn effect-waves" href="#!Account/SignIn">Sign In</a>
+            <a class="btn effect-waves" href="#!Account/SignUp">Sign Up</a>
+        </div>
     </div>
     <div class="top-nav-separator hide-on-mobile">
         &nbsp;
@@ -229,26 +273,26 @@
         <div class="popup-mob" ng-show="$root.showMobServer" ng-click="$root.toggleShowMobServer()">
         </div>
         <div class="card pop-mob-server grow-down" ng-show="$root.showMobServer">
-                <div class="gb_rb"></div>
-                <div class="gb_qb"></div>
-                <article>
-                    <div ng-show="$root.server.Online">
-                        <div>Server Address: {{$root.server.Address}}</div>
-                        <div>
-                            <a class="softlink bold" href="#!Construction">Server</a>
-                            <span>| Latency {{$root.server.Latency}} ms</span>
-                        </div>
+            <div class="gb_rb"></div>
+            <div class="gb_qb"></div>
+            <article>
+                <div ng-show="$root.server.Online">
+                    <div>Server Address: {{$root.server.Address}}</div>
+                    <div>
+                        <a class="softlink bold" href="#!Construction">Server</a>
+                        <span>| Latency {{$root.server.Latency}} ms</span>
                     </div>
-                    <div ng-show="!$root.server.Online">
-                        <div class="bold text-red">Backend off-line or unacessible</div>
-                        <div class="text-gray">
-                            <a class="text-bold nounderline hover-shiny" href="#!Construction">Reconnect</a>
-                        </div>
-                    </div>
-                </article>
-                <div class="center">
-                    <button type="button" class="btn effect-waves" ng-click="$root.toggleShowMobServer()">Close It</button>
                 </div>
+                <div ng-show="!$root.server.Online">
+                    <div class="bold text-red">Backend off-line or unacessible</div>
+                    <div class="text-gray">
+                        <a class="text-bold nounderline hover-shiny" href="#!Construction">Reconnect</a>
+                    </div>
+                </div>
+            </article>
+            <div class="center">
+                <button type="button" class="btn effect-waves" ng-click="$root.toggleShowMobServer()">Close It</button>
             </div>
+        </div>
     </div>
 </div> 

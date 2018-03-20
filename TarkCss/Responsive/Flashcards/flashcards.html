@@ -17,10 +17,11 @@
     .score tr:not(:first-child) { box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); }
     .response {
         font-size: 20px;
-        font-weight: bold;
+        /*font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 5px;
-        color:#4285f4;
+        color:#4285f4;*/
+        color:#555;
     }
     .score-right { background-color:#66bb6a; color:white; font-size:1.5em }
     .score-wrong { background-color:#ff7684; color:white; font-size:1.5em }
@@ -78,6 +79,10 @@
             font-size: 27px;
         }
 
+        .skip-esc {
+            opacity:0.5;
+        }
+
         .btn-answer {
             position: fixed;
             bottom: 10px;
@@ -129,14 +134,14 @@
             <span class="selectLabel">Album</span>
             <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
         </div>
-        <div class="col s4">
+        <!--<div class="col s4">
             <span class="selectLabel">Learning</span>
             <select class="selectWordGroup" ng-model="langTo" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
         </div>
         <div class="col s4">
             <span class="selectLabel">From</span>
             <select class="selectWordGroup" ng-model="langFrom" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
-        </div>
+        </div>-->
     </section>
         <section class="col s12 m12 l12 card">
             <div class="card-container">
@@ -145,14 +150,13 @@
                 <h1>{{randomWord[langFrom.id]}}</h1>
                 <div class="row row-response">
                     <div class="col m12">
-                        <input name="response" type="text" ng-model="response" class="response" ng-keyup="responseKeyPress($event)" />
-                        <label>Answer</label>
+                        <input name="response" type="text" ng-model="response" class="response" ng-keyup="responseKeyPress($event)" placeholder="Type the answer" />                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col m12">
                         <button class="btn btn-skip effect-waves waves-red" type="button" ng-click="skip()">
-                            <span class="hide-on-mobile">Skip (esc)</span>
+                            <span class="hide-on-mobile">Skip <span class="skip-esc">(esc)</span></span>
                             <span class="show-only-on-mobile"><i class="fa fa-question"></i></span>
                         </button>
                         <button class="btn btn-answer effect-waves waves-blue float-right" type="button" ng-click="answer()">

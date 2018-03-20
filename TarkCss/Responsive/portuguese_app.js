@@ -421,7 +421,7 @@ app.config(function ($routeProvider) {
 
 
 
-app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService) {
+app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService, VocabularyService) {
 
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
@@ -430,6 +430,10 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         $rootScope.mute = localStorage;
     else
         $rootScope.mute = false;
+
+    $rootScope.languages = VocabularyService.getLanguages();
+    $rootScope.langFrom = $rootScope.languages[0];
+    $rootScope.langLearn = $rootScope.languages[1];
     
     SpeechService.Speak('Welcome to INGES');
 
@@ -442,18 +446,14 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     });
 
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
-        //if (current != null) {
-        //    SpeechService.StopCurrent();
-        //}
     });
 
-    //TODO: move to BreadcrumbService or view/component?
+    //TODO: move to BreadcrumbService or view/component
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         $rootScope.mainClass = "";
         if ($window.gtag) {
             var page = $location.path().replace('#', '');
             gtag('config', 'UA-115424551-1', { 'page_path': page });
-            //$window.ga('send', 'pageview', { page: page });
         }
         //ServerSide pushstate... (history) can't work well on github hosting
         $rootScope.sidenavOpen = false;

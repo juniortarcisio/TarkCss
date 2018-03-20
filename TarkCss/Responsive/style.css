@@ -624,6 +624,12 @@ select {
     to { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); display:block; }
 }
 
+@keyframes grow-down-left {
+    from {  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0); display:block; }
+    to { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); display:block; }
+}
+
+
 @keyframes shrink-up {
     from { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); display:block; }
     to { transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0); display:none; }
@@ -639,6 +645,13 @@ select {
 
 .grow-down {
     animation: grow-down .5s;
+    will-change: transform;
+    transition: all;
+    animation-fill-mode: forwards;  
+}
+
+.grow-down-left {
+    animation: grow-down-left .5s;
     will-change: transform;
     transition: all;
     animation-fill-mode: forwards;  

@@ -50,14 +50,6 @@
             <span class="selectLabel">Album</span>
             <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
         </div>
-        <div class="col s4 m4 l2">
-            <span class="selectLabel">Learning</span>
-            <select class="selectWordGroup" ng-model="langTo" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
-        </div>
-        <div class="col s4 m4 l2">
-            <span class="selectLabel">From</span>
-            <select class="selectWordGroup" ng-model="langFrom" ng-options="language.name for language in languages" ng-change="nextWord()"></select>
-        </div>
     </section>
     <br class="clear hide-on-keyboard-opened" />
     <div class="margin-top-2em col s12 m12 l6 x4 xx3" ng-repeat="wordSubGroup in selectedWordGroup.wordSubGroups">
@@ -68,10 +60,10 @@
                     <table>
                         <tr class="word" ng-repeat="word in wordSubGroup.words">
                             <td ng-class="{'bold':word.important}">
-                                <div class="wordTo">{{word[langTo.id]}}</div>
+                                <div class="wordTo">{{word[langLearn.id]}}</div>
                                 <div class="wordFrom">{{word[langFrom.id]}}</div>
                             </td>
-                            <td width="20px" ng-click="Speak(word[langTo.id])">
+                            <td width="20px" ng-click="Speak(word[langLearn.id])">
                                 <i class="fa fa-play"></i>
                             </td>
                         </tr>

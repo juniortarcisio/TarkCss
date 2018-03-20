@@ -1,6 +1,5 @@
 ﻿app.controller('pageMenuCtrl', function () {
 
-
 });
 
 
