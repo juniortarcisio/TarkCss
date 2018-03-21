@@ -1,6 +1,21 @@
 ﻿<!--<h2>About</h2>-->
+<style type="text/css">
+    @keyframes grow-about {
+        from {  transform: scale3d(0, 0, 0); display:block; }
+        to { transform: scale3d(1, 1, 1); display:block; }
+    }
+    .col-left .card, .col-left .citation {        
+        animation: grow-about .5s;
+    }
+    .col-mid .card, .col-mid .citation {        
+        animation: grow-about 1s;
+    }
+    .col-right .card, .col-right .citation {        
+        animation: grow-about 1.5s;
+    }
+</style>
 <article>
-    <div class="col l4 m12">
+    <div class="col l4 m12 col-left">
         <section class="citation degrade-light-gray">
             <h1>Author</h1>
             <p>This project is a prototype made by</p>
@@ -46,7 +61,7 @@
             </div>
         </div>
     </div>
-    <div class="col l4 m12">
+    <div class="col l4 m12 col-mid">
         <section class="citation degrade-light-gray">
             <h2>Social networks</h2>
             <a href="https://github.com/juniortarcisio" target="_blank" class="fa fa-round fa-github"></a>
@@ -88,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="col l4 m12">
+    <div class="col l4 m12 col-right">
         <section class="citation degrade-light-gray">
             <h3>Made For & Tested By</h3>
             <h4><i class="fa fa-heart text-red"></i> Fitria Widiastuti (Pipit)</h4>
