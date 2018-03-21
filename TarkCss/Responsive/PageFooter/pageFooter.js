@@ -1,5 +1,7 @@
-﻿app.controller('pageFooterCtrl', function () {
-
+﻿app.controller('pageFooterCtrl', function ($scope, $rootScope) {
+    $scope.selectLanguageFrom = function (index) {
+        $rootScope.langFrom = $rootScope.languages[index];
+    }
 
 });
 

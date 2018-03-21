@@ -14,7 +14,7 @@
         top:0px;
         right:10px;
     }
-    .score tr:not(:first-child) { box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); }
+    .score tr:first-child th { border:none; color:#aaa; padding-top: 10px }
     .response {
         font-size: 20px;
         /*font-weight: bold;
@@ -24,7 +24,7 @@
         color:#555;
     }
     .score-right { background-color:#66bb6a; color:white; font-size:1.5em }
-    .score-wrong { background-color:#ff7684; color:white; font-size:1.5em }
+    .score-wrong { background-color:#ef5a69; color:white; font-size:1.5em }
     .score td, .score th { padding:5px; }        
     .error-box, .success-box { padding:15px; }
     
@@ -50,6 +50,7 @@
         font-size: 12px;
         font-weight: bold;
     }
+    .btn-skip,.btn-skip:hover { background-color:#ef5a69; }
 
     @media only screen and (max-width:599px) {
         h1 { font-size:2em }
@@ -64,8 +65,12 @@
             width: calc(100% - 110px);
             border-radius: 29px;
             height:45px;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            
         }
+        .row-response, .btn.effect-waves {
+            box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
+        }
+
         .row-response input { border:none !important; }
 
         .btn-skip {
@@ -125,6 +130,7 @@
         .score td, .score th { padding:2px; }
     }
 
+    .fa-check { margin-left:-3px;}
     page-footer .row {padding-top:0px}
 </style>
 <br class="clear hide-on-keyboard-opened" />
@@ -137,7 +143,7 @@
     </section>
         <section class="col s12 m12 l12 card flash-card">
             <div class="card-container">
-                <h5>Translate the word to {{langTo.name}}</h5>
+                <h5>Translate to {{langLearn.name}}</h5>
                 <br class="hide-on-keyboard-opened" />
                 <h1>{{randomWord[langFrom.id]}}</h1>
                 <div class="row row-response">
@@ -151,9 +157,9 @@
                             <span class="hide-on-mobile">Skip <span class="skip-esc">(esc)</span></span>
                             <span class="show-only-on-mobile"><i class="fa fa-question"></i></span>
                         </button>
-                        <button class="btn btn-answer effect-waves waves-blue float-right" type="button" ng-click="answer()">
+                        <button class="btn btn-answer effect-waves waves-aqua float-right" type="button" ng-click="answer()">
                             <span class="hide-on-mobile">Answer</span>
-                            <i class="fa fa-chevron-right show-only-on-mobile"></i>
+                            <i class="fa fa-check show-only-on-mobile"></i>
                         </button>
                     </div>
                 </div>

@@ -53,7 +53,7 @@
         width:250px;
     }
 
-    .sidenav .items a {
+    .sidenav .groups a {
         padding: 4px 8px 4px 32px;
         text-decoration: none;
         font-size: 25px;
@@ -61,19 +61,19 @@
         display: block;
     }
 
-    .sidenav .items a:hover {
+    .sidenav .groups a:hover {
         background-color:#333;
     }
 
-    .sidenav .items .small {
+    .sidenav .groups .small {
         font-size:16px;
     }
 
-    .sidenav .items a i {
+    .sidenav .groups a i {
         width:40px;
     }
 
-    .sidenav .items {
+    .sidenav .groups {
         padding-bottom:30px;
     }
 
@@ -193,42 +193,62 @@
         top: 12px;
         right: 30px;
     }
-
-    .menu-group.closed a {
+    
+    .menu-group.closed .itens {
         display: none;
     }
+    .menu-group .fa-chevron-up { transition:.5s; }
+    .menu-group .fa-chevron-up.closed { transform:rotateX(180deg); }
 
 </style>
 <aside id="mySidenav" ng-class="{ 'sidenav' : true, 'open' : $root.sidenavOpen }">
     <article class="sidenav-top-margin"></article>
     <article class="sidenav-content scrollbar-gray">
-        <section class="items">
+        <section class="groups">
             <section ng-init="menuClosed1 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed1 }">
-                <h1 ng-click="menuClosed1 = !menuClosed1">General <i class="fa fa-chevron-up" ng-hide="menuClosed1"></i><i class="fa fa-chevron-down" ng-show="menuClosed1"></i></h1>
-                <a href="#!General/Home" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Home' || $root.currentRoute.name==null}"><i class="fa fa-home"></i>Home</a>
-                <a href="#!General/About" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='About'}"><i class="fa fa-address-card"></i>About</a>
+                <h1 ng-click="menuClosed1 = !menuClosed1">General 
+                    <i class="fa fa-chevron-up" ng-class="{'closed':menuClosed1}"></i>
+                </h1>
+                <div class="itens fade-in-slide-down">
+                    <a href="#!General/Home" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Home' || $root.currentRoute.name==null}"><i class="fa fa-home"></i>Home</a>
+                    <a href="#!General/About" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='About'}"><i class="fa fa-address-card"></i>About</a>
+                </div>
             </section>
             <section ng-init="menuClosed2 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed2 }">
-                <h1 ng-click="menuClosed2 = !menuClosed2">Lessons <i class="fa fa-chevron-up" ng-hide="menuClosed2"></i><i class="fa fa-chevron-down" ng-show="menuClosed2"></i></h1>
-                <a href="#!Lessons/ToBeVerb" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='To Be Verb'}"><i class="fa fa-book"></i>To Be Verb</a>
-                <a href="#!Lessons/SimplePresent" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Simple Present'}"><i class="fa fa-book"></i>Simple Present</a>
-                <a href="#!Lessons/PresentContinuous" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Present Continuous'}"><i class="fa fa-book"></i>Present Continuous</a>
-                <a href="#!Lessons/SimplePast" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Simple Past'}"><i class="fa fa-book"></i>Simple Past</a>
-                <a href="#!Lessons/PastContinuous" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Past Continuous'}"><i class="fa fa-book"></i>Past Continuous</a>
-                <a href="#!Lessons/SimpleFuture" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Simple Future'}"><i class="fa fa-book"></i>Simple Future</a>
-                <a href="#!Lessons/TensesComparison" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Tenses Comparison'}"><i class="fa fa-book"></i>Tenses Comparison</a>
-                <a href="#!Lessons/Vocabulary" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Vocabulary'}"><i class="fa fa-edit"></i>Vocabulary</a>
+                <h1 ng-click="menuClosed2 = !menuClosed2">Lessons 
+                    <i class="fa fa-chevron-up" ng-class="{'closed':menuClosed2}"></i>
+                </h1>
+                <div class="itens fade-in-slide-down">
+                    <a href="#!Lessons/ToBeVerb" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='To Be Verb'}"><i class="fa fa-book"></i>To Be Verb</a>
+                    <a href="#!Lessons/SimplePresent" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Simple Present'}"><i class="fa fa-book"></i>Simple Present</a>
+                    <a href="#!Lessons/PresentContinuous" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Present Continuous'}"><i class="fa fa-book"></i>Present Continuous</a>
+                    <a href="#!Lessons/SimplePast" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Simple Past'}"><i class="fa fa-book"></i>Simple Past</a>
+                    <a href="#!Lessons/PastContinuous" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Past Continuous'}"><i class="fa fa-book"></i>Past Continuous</a>
+                    <a href="#!Lessons/SimpleFuture" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Simple Future'}"><i class="fa fa-book"></i>Simple Future</a>
+                    <a href="#!Lessons/TensesComparison" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Tenses Comparison'}"><i class="fa fa-book"></i>Tenses Comparison</a>
+                    <a href="#!Lessons/Vocabulary" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Vocabulary'}"><i class="fa fa-edit"></i>Vocabulary</a>
+                </div>
             </section>
             <section ng-init="menuClosed3 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed3 }">
-                <h1 ng-click="menuClosed3 = !menuClosed3">Exercises <i class="fa fa-chevron-up" ng-hide="menuClosed3"></i><i class="fa fa-chevron-down" ng-show="menuClosed3"></i></h1>
-                <a href="#!PrototypeExercises" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Prototype Exercises'}"><i class="fa fa-edit"></i>Prototype Exercises</a>
-                <a href="#!Exercises/Flashcards" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Flashcards'}"><i class="fa fa-edit"></i>Flashcards</a>
+                <h1 ng-click="menuClosed3 = !menuClosed3">
+                    Exercises
+                    <i class="fa fa-chevron-up" ng-class="{'closed':menuClosed3}"></i>
+                </h1>
+                <div class="itens fade-in-slide-down">
+                    <a href="#!PrototypeExercises" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Prototype Exercises'}"><i class="fa fa-edit"></i>Prototype Exercises</a>
+                    <a href="#!Exercises/Flashcards" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Flashcards'}"><i class="fa fa-edit"></i>Flashcards</a>
+                </div>
             </section>
             <section ng-init="menuClosed4 = false" ng-class="{ 'menu-group' : true, 'closed' : menuClosed4 }">
-                <h1 ng-click="menuClosed4 = !menuClosed4">Community <i class="fa fa-chevron-up" ng-hide="menuClosed4"></i><i class="fa fa-chevron-down" ng-show="menuClosed4"></i></h1>
-                <a href="#!Construction" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Forum'}"><i class="fa fa-wpforms"></i>Forum</a>
-                <a href="#!Construction" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Chat'}"><i class="fa fa-comments"></i>Chat</a>
-                <a href="#!Construction" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='People'}"><i class="fa fa-users"></i>People</a>
+                <h1 ng-click="menuClosed4 = !menuClosed4">
+                    Community
+                    <i class="fa fa-chevron-up" ng-class="{'closed':menuClosed4}"></i>
+                </h1>
+                <div class="itens fade-in-slide-down">
+                    <a href="#!Construction" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Forum'}"><i class="fa fa-wpforms"></i>Forum</a>
+                    <a href="#!Construction" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='Chat'}"><i class="fa fa-comments"></i>Chat</a>
+                    <a href="#!Construction" ng-class="{'small':true, 'effect-waves':true, 'waves-aqua':true, 'active': $root.currentRoute.name==='People'}"><i class="fa fa-users"></i>People</a>
+                </div>
             </section>
         </section>
     </article>
