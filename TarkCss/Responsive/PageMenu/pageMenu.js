@@ -15,11 +15,11 @@
         {
             name: ['Lessons', 'Lições', 'Pelajaran'], closed: false, items: [
                 { name: ['To Be Verb', 'Verbo To be', 'Kata Kerja To Be'], href: '#!Lessons/ToBeVerb', icon: 'fa-book' },
-                { name: ['Simple Present', 'Presente simples', 'Presentasi Sederhana'], href: '#!Lessons/SimplePresent', icon: 'fa-book' },
-                { name: ['Present Continuous', 'Presente Contínuo', 'Kejadian sekarang yang berkelanjutan'], href: '#!Lessons/PresentContinuous', icon: 'fa-book' },
-                { name: ['Simple Past', 'Passado Simples', 'Masa lalu yang sederhana'], href: '#!Lessons/SimplePast', icon: 'fa-book' },
-                { name: ['Past Continuous', 'Passado Contínuo', 'Past Continuous'], href: '#!Lessons/PastContinuous', icon: 'fa-book' },
-                { name: ['Simple Future', 'Futuro simples', 'Masa Depan Sederhana'], href: '#!Lessons/SimpleFuture', icon: 'fa-book' },
+                { name: ['Simple Present', 'Presente simples', 'Bulang-ulang'], href: '#!Lessons/SimplePresent', icon: 'fa-book' },
+                { name: ['Present Continuous', 'Presente Contínuo', 'Sedang Terjadi'], href: '#!Lessons/PresentContinuous', icon: 'fa-book' },
+                { name: ['Simple Past', 'Passado Simples', 'Lampau'], href: '#!Lessons/SimplePast', icon: 'fa-book' },
+                { name: ['Past Continuous', 'Passado Contínuo', 'Sedang berjadi wkt clulu'], href: '#!Lessons/PastContinuous', icon: 'fa-book' },
+                { name: ['Simple Future', 'Futuro simples', 'Akan berjadi'], href: '#!Lessons/SimpleFuture', icon: 'fa-book' },
                 { name: ['Tenses Comparison', 'Comparação de tempos', 'Perbandingan Tenses'], href: '#!Lessons/TensesComparison', icon: 'fa-book' },
                 { name: ['Vocabulary', 'Vocabulário', 'Kosa kata'], href: '#!Lessons/Vocabulary', icon: 'fa-book' }
             ]
