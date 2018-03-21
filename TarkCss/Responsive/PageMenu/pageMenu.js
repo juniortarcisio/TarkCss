@@ -7,13 +7,13 @@
 
     $scope.menuGroups = [
         {
-            name: 'General', closed:false, items: [
+            name: ['General','Geral','Umum'], closed:false, items: [
                 { name: ['Home', 'Principal', 'Utama'], href: '#!General/Home', icon: 'fa-home' },
                 { name: ['About', 'Sobre', 'Tentang'], href: '#!General/About', icon: 'fa-address-card' }
             ]
         },
         {
-            name: 'Lessons', closed: false, items: [
+            name: ['Lessons', 'Lições', 'Pelajaran'], closed: false, items: [
                 { name: ['To Be Verb', 'Verbo To be', 'Kata Kerja To Be'], href: '#!Lessons/ToBeVerb', icon: 'fa-book' },
                 { name: ['Simple Present', 'Presente simples', 'Presentasi Sederhana'], href: '#!Lessons/SimplePresent', icon: 'fa-book' },
                 { name: ['Present Continuous', 'Presente Contínuo', 'Kejadian sekarang yang berkelanjutan'], href: '#!Lessons/PresentContinuous', icon: 'fa-book' },
@@ -25,13 +25,13 @@
             ]
         },
         {
-            name: 'Lessons', closed: false, items: [
-                { name: ['Prototype Exercises', 'Exercício Protótipos', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' },
+            name: ['Exercises', 'Exercícios', 'Latihan'], closed: false, items: [
+                { name: ['Prototype Exercise', 'Exercício Protótipos', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' },
                 { name: ['Flashcards', 'Flashcards', 'Flashcards'], href: '#!Exercises/Flashcards', icon: 'fa-edit' }
             ]
         },
         {
-            name: 'Community', closed: false, items: [
+            name: ['Community', 'Comunidade', 'Masyarakat'], closed: false, items: [
                 { name: ['Forum', 'Fórum', 'Forum'], href: '#!Construction', icon: 'fa-wpforms' },
                 { name: ['Chat', 'Bate-papo', 'Obrolan'], href: '#!Construction', icon: 'fa-comments' },
                 { name: ['People', 'Pessoas', 'Orang-orang'], href: '#!Construction', icon: 'fa-users' }
