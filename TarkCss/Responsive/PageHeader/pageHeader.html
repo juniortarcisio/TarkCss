@@ -174,7 +174,7 @@
     .pop-lang-from .gb_rb, .pop-lang-from .gb_qb {  left:8px; }
     .pop-lang-from h5 { margin-top: 0px; margin-bottom:15px; font-size: 20px}
     .pop-lang-flags {font-size: 18px; line-height:1.6; color:#555; cursor:pointer}
-    .pop-lang-flags img { width:30px; opacity:1; border-radius:0px; margin-bottom: -5px; border: 1px solid #ddd }
+    .pop-lang-flags img, .pop-lang-flags i { width:30px; opacity:1; border-radius:0px; margin-bottom: -5px; border: 1px solid #ddd }
 </style>
 <div class="topnav-button-menu show-only-on-mobile">
     <a ng-click="$root.toggleSivenav()">&#9776;</a>
@@ -190,6 +190,10 @@
             <img src="{{language.flag}}" width="20" />
             <span>{{language.name}}</span>
         </div>
+        <div class="pop-lang-flags effect-waves waves-blue" ng-click="invertLanguages()">
+            <i class="fa fa-retweet"></i>
+            <span>Alternate</span>
+        </div>
     </div>
 </div>
 <div class="top-nav-item top-nav-flags">
@@ -204,6 +208,10 @@
         <div class="pop-lang-flags effect-waves waves-blue" ng-repeat="language in $root.languages" ng-click="selectLanguageLearn(language)">
             <img src="{{language.flag}}" width="20" />
             <span>{{language.name}}</span>
+        </div>
+        <div class="pop-lang-flags effect-waves waves-blue" ng-click="invertLanguages()">
+            <i class="fa fa-retweet"></i>
+            <span>Alternate</span>
         </div>
     </div>
 </div>

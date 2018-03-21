@@ -14,9 +14,7 @@
         will-change: transform;
     }
 
-    .sidenav.open {
-        transform: translateX(0px);
-    }
+    .sidenav.open { transform: translateX(0px); }
 
     .sidenav-bg
     {
@@ -30,14 +28,6 @@
         z-index: 1;
     } 
 
-    @media only screen and (max-width:650px) {
-        /*performance trick*/
-        .sidenav {
-            box-shadow:none; 
-        }
-    }
-
-
     .sidenav-content {
         overflow-x: hidden;
         overflow-y:scroll;
@@ -45,13 +35,8 @@
         height: calc(100% - 72px);
     }
 
-    .sidenav-top-margin {
-        height:72px
-    }
-
-    .sidenav>article {
-        width:250px;
-    }
+    .sidenav-top-margin { height:72px }
+    .sidenav>article { width:250px; }
 
     .sidenav .groups a {
         padding: 4px 8px 4px 32px;
@@ -61,30 +46,10 @@
         display: block;
     }
 
-    .sidenav .groups a:hover {
-        background-color:#333;
-    }
-
-    .sidenav .groups .small {
-        font-size:16px;
-    }
-
-    .sidenav .groups a i {
-        width:40px;
-    }
-
-    .sidenav .groups {
-        padding-bottom:30px;
-    }
-
-    .sidenav .usericon {
-        padding: 8px 0px 8px 0px;
-        color: #818181;
-        font-size:128px;
-        text-shadow:0px 2px 5px white;
-        text-align:center;  
-        width:100%;
-    }
+    .sidenav .groups a:hover { background-color:#333; }
+    .sidenav .groups .small { font-size:16px; }
+    .sidenav .groups a i { width:40px; }
+    .sidenav .groups { padding-bottom:30px; }
 
     .sidenav h1 {
         text-align:center;
@@ -95,24 +60,6 @@
         font-weight: normal;
         font-size: 1.5em;
     }
-    
-    .sidenav .edit-username {
-        display: block;
-        text-decoration: none;
-        padding:0px;
-        text-align:center;  
-        width:100%;
-        font-size: 0.9em;
-        color:#7a878c;
-        font-weight:bold;
-        transition: 0.3s;
-    }
-
-    
-        .sidenav .edit-username:hover {
-            text-shadow: 0px 0px 11px #7a878c;
-        }
-
 
     .sidenav hr {
         border-top: 1px solid #555;
@@ -125,14 +72,8 @@
         margin-bottom:25px;
     }
 
-        .sidenav a.active {
-        color: #7dffd6;
-        border-left: 3px solid #7dffd6;         
-        }
+    .sidenav a.active { color: #7dffd6; border-left: 3px solid #7dffd6; }
 
-    .sidenav .social {
-        padding-bottom:30px;
-    }
     
     .sidenav .social a {
         display:block;
@@ -150,19 +91,7 @@
         margin-left: 50px;
         text-decoration:none;
     }
-
-    @media only screen and (max-width: 599px) {
-        .sidenav {
-            width:250px!important;
-        }
-        .sidenav .closebtn {
-            display:none;
-        }
-        .sidenav {
-            transform: translateX(-250px);
-        }
-    }
-
+    
     .menu-group h1 {
         font-weight: normal;
         font-size: 18px;
@@ -195,11 +124,18 @@
     }
     
     .itens { overflow:hidden}
-    .menu-group.closed .itens {
-        display: none;
-    }
+    .menu-group.closed .itens { display: none; }
     .menu-group .fa-chevron-up { transition:.5s; }
     .menu-group .fa-chevron-up.closed { transform:rotateX(180deg); }
+    
+    @media only screen and (max-width: 599px) {
+        .sidenav { width:250px!important; }
+        .sidenav .closebtn { display:none; }
+        .sidenav { transform: translateX(-250px); }
+        /*performance trick*/
+        .sidenav { box-shadow:none;  }
+    }
+
 
 </style>
 <aside id="mySidenav" ng-class="{ 'sidenav' : true, 'open' : $root.sidenavOpen }">

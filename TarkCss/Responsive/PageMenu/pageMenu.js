@@ -1,5 +1,7 @@
 ﻿app.controller('pageMenuCtrl', function () {
-
+    //$scope.menuGroups = [
+    //    { name: 'General' }
+    //];
 });
 
 
