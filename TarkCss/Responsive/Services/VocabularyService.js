@@ -28,6 +28,228 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
     //TODO: Gather all languages into a unique object??
     this.words = [
         {
+            name: "Basic Words", icon: "fa-archive",
+            wordSubGroups: [
+                {
+                    name: "Subjects",
+                    words: [
+                        ["I", "Eu", "Saya"],
+                        ["You", "Você", "Kamu"],
+                        ["He", "Ele", "Dia"],
+                        ["She", "Ela", "Dia"],
+                        ["They", "Eles", "Mereka"],
+                        ["This", "Este", "Ini"],
+                        ["That", "Este", "Itu"],
+                        ["We", "Nós", "Kami"]
+                    ]
+                },
+                {
+                    name: "Questions",
+                    words: [
+                        ["What", "O que", "Apa"],
+                        ["Who", "Quem", "Siapa"],
+                        ["Where", "Onde", "Di mana"],
+                        ["When", "Quando", "Kapan"],
+                        ["How", "Como", "Bagaimana"],
+                        ["How long", "Quanto tempo", "Berapa lama"],
+                        ["How much", "Quanto", "Berapa banyak"],
+                        ["How much does it cost", "Quanto custa", "Berapa harganya"],
+                        ["How far", "Quão longe", "Berapa Jauh"]
+                    ]
+                },
+                {
+                    name: "Modal Verbs",
+                    words: [
+                        ["Can", "Posso", "Bisa"],
+                        ["Could", "Poderia", "Bisa (?)"],
+                        ["Will", "Vou", "Akan"],
+                        ["Would", "Iria", "Akan (?)"],
+                        ["Must", "Devo", "Harus"],
+                        ["Should", "Deveria", "Harus (?)"],
+                        ["May", "Posso(?)", "Harus (?)"]
+                    ]
+                },
+                {
+                    name: "Colors",
+                    words: [
+                        ["Blue", "Azul", "Biru"],
+                        ["Red", "Vermelho", "Merah"],
+                        ["Yellow", "Amarelo", "Kuning"],
+                        ["Green", "Verde", "Hijau"],
+                        ["White", "Branco", "Putih"],
+                        ["Black", "Preto", "Hitam"],
+                        ["Purple", "Roxo", "Ungu"],
+                        ["Orange", "Laranja", "Oranye"],
+                        ["Brown", "Marrom", "Coklat"],
+                        ["Pink", "Rosa", "Merah muda"],
+                        ["Grey", "Cinza", "Abu-abu"]
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Basic Actions", icon: "fa-leaf",
+            wordSubGroups: [
+                {
+                    name: "Basic 1",
+                    words: [
+                        ["To Walk", "Andar", "Berjalan"],
+                        ["To Talk", "Falar", "Berbicara"],
+                        ["To Go", "Ir", "Pergi"],
+                        ["To Wait", "Esperar", "Menunggu"],
+                        ["To Ask", "Perguntar", "Bertanya"],
+                        ["To Eat", "Comer", "Makan"],
+                        ["To Drink", "Beber", "Minum"],
+                        ["To Work", "Trabalhar", "Bekerja"],
+                        ["To Study", "Estudar", "Belajar"],
+                        ["To Play", "Jogar", "Bermain"],
+                        ["To Like", "Gostar", "Suka"]
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Mathematics & Time", icon: "fa-calculator",
+            wordSubGroups: [
+                {
+                    name: "Basic Numbers",
+                    words: [
+                        ["One", "Um", "Satu"],
+                        ["Two", "Dois", "Dua"],
+                        ["Three", "Três", "Tiga"],
+                        ["Four", "Quartro", "Empat"],
+                        ["Five", "Cinco", "Lima"],
+                        ["Six", "Seis", "Enam"],
+                        ["Seven", "Sete", "Tujuh"],
+                        ["Eight", "Oito", "Delapan"],
+                        ["Nine", "Nove", "Sembilan"],
+                        ["Teen", "Dez", "Sepuluh"],
+                        ["Eleven", "Onze", "Sebelas"],
+                        ["Twelve", "Doze", "Dua belas"],
+                        ["Thirteen", "Treze", "Tiga belas"],
+                        ["Fourteen", "Quatorze", "Empat belas"],
+                        ["Fifteen", "Quinze", "Lima belas"],
+                        ["Sixteen", "Dezesseis", "Enam belas"],
+                        ["Seventeen", "Dezessete", "Tujuh belas"],
+                        ["Eightteen", "Dezoito", "Delapan belas"],
+                        ["Nineteen", "Dezenove", "Sembilan belas"],
+                        ["Twenty", "Vinte", "Dua Puluh"],
+                        ["Thirty", "Trinta", "Tiga Puluh"],
+                        ["Fourty", "Quarenta", "Empat Puluh"],
+                        ["Fifty", "Cinquenta", "Lima Puluh"],
+                        ["One Hundred", "Cem", "Seratus"],
+                        ["Two Hundred", "Duzentos", "Dua Ratus"],
+                        ["Three Hundred", "Trezentos", "Tiga Ratus"],
+                        ["One Thousand", "Mil", "Seribu"],
+                        ["Two Thousand", "Dois Mil", "Dua Ribu"],
+                        ["Three Thousand", "Três Mil", "Tiga Ribu"],
+                        ["One Million", "Um Milhão", "Satu Juta"],
+                        ["Two Million", "Dois Milhões", "Dua Juta"],
+                        ["Three Million", "Três Milhões", "Tiga Juta"],
+                        ["One Billion", "Um Bilhão", "Satu Miliar"],
+                        ["Two Billion", "Dois Bilhões", "Dua Miliar"],
+                        ["Three Billion", "Três Bilhões", "Tiga Miliar"],
+                        ["One Trillion", "Um Trilhão", "Satu Triliun"],
+                        ["Two Trillion", "Dois Trilhões", "Dua Triliun"],
+                        ["Three Trillion", "Três Trilhões", "Tiga Triliun"]
+                    ]
+                },
+                {
+                    name: "Ordinal Numbers",
+                    words: [
+                        ["First", "Primeiro", "Pertama"],
+                        ["Second", "Segundo", "Kedua"],
+                        ["Third", "Terceiro", "Ketiga"],
+                        ["Fourth", "Quarto", "Keempat"],
+                        ["Fifth", "Quinto", "Kelima"],
+                        ["Sixth", "Sexto", "Keenam"],
+                        ["Seventh", "Setimo", "Ketujuh"],
+                        ["Eighth", "Oitavo", "Kedelapan"],
+                        ["Ninth", "Nono", "Kesembilan"],
+                        ["Tenth", "Décimo", "Kesepuluh"]
+                    ]
+                },
+                {
+                    name: "Ocurrencies",
+                    words: [
+                        ["Once", "Uma Vez", "Satu Kali"],
+                        ["Twice", "Duas Vezes", "Dua Kali"],
+                        ["Three Times", "Três Vezes", "Tiga Kali"]
+                    ]
+                },
+                {
+                    name: "Fractions",
+                    words: [
+                        ["Half", "Metade", "Setengah"],
+                        ["One Third", "Um terço", "Sepertiga"],
+                        ["One Quarter", "Um Quarto", "Seperempat"]
+                    ]
+                },
+                {
+                    name: "Time",
+                    words: [
+                        ["Second", "Segundo", "Kedua"],
+                        ["Minute", "Minuto", "Menit"],
+                        ["Hour", "Hora", "Waktu"],
+                        ["Morning", "Manhã", "Pagi"],
+                        ["Afternoon", "Tarde", "Siang"],
+                        ["Evening", "Anoitecer", "Sore"],
+                        ["Night", "Noite", "Sore"],
+                        ["Day", "Dia", "Hari"],
+                        ["Week", "Semana", "Minggu"],
+                        ["Month", "Mês", "Bulan"],
+                        ["Year", "Ano", "Tahun"]
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Places & Directions", icon: "fa-map",
+            wordSubGroups: [
+                {
+                    name: "Directions",
+                    words: [
+                        ["North", "Norte", "Utara"],
+                        ["East", "Leste", "Timur"],
+                        ["South", "Sul", "Selatan"],
+                        ["West", "Oeste", "Barat"],
+                        ["Ahead", "Frente", "Depan"],
+                        ["Left", "Esquerda", "Kiri"],
+                        ["Behind", "Atrás", "Belakang"],
+                        ["Right", "Direita", "Kanan"],
+                        ["Near", "Perto", "Dekat"],
+                        ["Far", "Longe", "Jauh"]
+                    ]
+                },
+                {
+                    name: "Geography",
+                    words: [
+                        ["Address", "Endereço", "Alamat"],
+                        ["Street", "Rua", "Jalan"],
+                        ["Highway", "Rodovia", "Jalan Raya"],
+                        ["Neighborhood", "Bairro", "Lingkungan"],
+                        ["City", "Cidade", "Kota"],
+                        ["Province", "Província", "Propinsi"],
+                        ["State", "Estado", "Negarabagian"],
+                        ["Country", "País", "Negara"],
+                        ["Continent", "Continente", "Benua"],
+                        ["Planet", "País", "Planet"]
+                    ]
+                },
+                {
+                    name: "Housing",
+                    words: [
+                        ["House", "Casa", "Rumah"],
+                        ["Apartment", "Apartamento", "Apartemen"],
+                        ["Bathroom", "Banheiro", "Kamar mandi"],
+                        ["Restroom", "Toalete", "Kamar kecil"],
+                        ["Bedroom", "Quarto", "Kamar tidur"],
+                        ["Living room", "Sala", "Ruang keluarga"]
+                    ]
+                }
+            ]
+        },
+        {
             name: "Cousine", icon: "fa-coffee",
             wordSubGroups: [
                 {
@@ -92,100 +314,6 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
             ]
         },
         {
-            name: "Places", icon: "fa-map",
-            wordSubGroups: [
-                {
-                    name: "Directions",
-                    words: [
-                        ["North", "Norte", "Utara"],
-                        ["East", "Leste", "Timur"],
-                        ["South", "Sul", "Selatan"],
-                        ["West", "Oeste", "Barat"],
-                        ["Ahead", "Frente", "Depan"],
-                        ["Left", "Esquerda", "Kiri"],
-                        ["Behind", "Atrás", "Belakang"],
-                        ["Right", "Direita", "Kanan"],
-                        ["Near", "Perto", "Dekat"],
-                        ["Far", "Longe", "Jauh"]
-                    ]
-                },
-                {
-                    name: "Geography",
-                    words: [
-                        ["Address", "Endereço", "Alamat"],
-                        ["Street", "Rua", "Jalan"],
-                        ["Highway", "Rodovia", "Jalan Raya"],
-                        ["Neighborhood", "Bairro", "Lingkungan"],
-                        ["City", "Cidade", "Kota"],
-                        ["Province", "Província", "Propinsi"],
-                        ["State", "Estado", "Negarabagian"],
-                        ["Country", "País", "Negara"],
-                        ["Continent", "Continente", "Benua"],
-                        ["Planet", "País", "Planet"]
-                    ]
-                },
-                {
-                    name: "Housing",
-                    words: [
-                        ["House", "Casa", "Rumah"],
-                        ["Apartment", "Apartamento", "Apartemen"],
-                        ["Bathroom", "Banheiro", "Kamar mandi"],
-                        ["Restroom", "Toalete", "Kamar kecil"],
-                        ["Bedroom", "Quarto", "Kamar tidur"],
-                        ["Living room", "Sala", "Ruang keluarga"]
-                    ]
-                }
-            ]
-        },
-        {
-            name: "Mathematics", icon: "fa-calculator",
-            wordSubGroups: [
-                {
-                    name: "Basic Numbers",
-                    words: [
-                        ["One", "Um", "Satu"],
-                        ["Two", "Dois", "Dua"],
-                        ["Three", "Três", "Tiga"],
-                        ["Four", "Quartro", "Empat"],
-                        ["Five", "Cinco", "Lima"],
-                        ["Six", "Seis", "Enam"],
-                        ["Seven", "Sete", "Tujuh"],
-                        ["Eight", "Oito", "Delapan"],
-                        ["Nine", "Nove", "Sembilan"],
-                        ["Teen", "Dez", "Sepuluh"],
-                        ["Eleven", "Onze", "Sebelas"],
-                        ["Twelve", "Doze", "Dua belas"],
-                        ["Thirteen", "Treze", "Tiga belas"],
-                        ["Fourteen", "Quatorze", "Empat belas"],
-                        ["Fifteen", "Quinze", "Lima belas"],
-                        ["Sixteen", "Dezesseis", "Enam belas"],
-                        ["Seventeen", "Dezessete", "Tujuh belas"],
-                        ["Eightteen", "Dezoito", "Delapan belas"],
-                        ["Nineteen", "Dezenove", "Sembilan belas"],
-                        ["Twenty", "Vinte", "Dua Puluh"],
-                        ["Thirty", "Trinta", "Tiga Puluh"],
-                        ["Fourty", "Quarenta", "Empat Puluh"],
-                        ["Fifty", "Cinquenta", "Lima Puluh"],
-                        ["One Hundred", "Cem", "Seratus"],
-                        ["Two Hundred", "Duzentos", "Dua Ratus"],
-                        ["Three Hundred", "Trezentos", "Tiga Ratus"],
-                        ["One Thousand", "Mil", "Seribu"],
-                        ["Two Thousand", "Dois Mil", "Dua Ribu"],
-                        ["Three Thousand", "Três Mil", "Tiga Ribu"],
-                        ["One Million", "Um Milhão", "Satu Juta"],
-                        ["Two Million", "Dois Milhões", "Dua Juta"],
-                        ["Three Million", "Três Milhões", "Tiga Juta"],
-                        ["One Billion", "Um Bilhão", "Satu Miliar"],
-                        ["Two Billion", "Dois Bilhões", "Dua Miliar"],
-                        ["Three Billion", "Três Bilhões", "Tiga Miliar"],
-                        ["One Trillion", "Um Trilhão", "Satu Triliun"],
-                        ["Two Trillion", "Dois Trilhões", "Dua Triliun"],
-                        ["Three Trillion", "Três Trilhões", "Tiga Triliun"]
-                    ]
-                }
-            ]
-        },
-        {
             name: "Biology", icon: "fa-leaf",
             wordSubGroups: [
                 {
@@ -210,28 +338,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     ]
                 }
             ]
-        },
-        {
-            name: "General", icon: "fa-archive",
-            wordSubGroups : [
-                {
-                    name: "Colors",
-                    words: [
-                        ["Blue", "Azul", "Biru"],
-                        ["Red", "Vermelho", "Merah"],
-                        ["Yellow", "Amarelo", "Kuning"],
-                        ["Green", "Verde", "Hijau"],
-                        ["White", "Branco", "Putih"],
-                        ["Black", "Preto", "Hitam"],
-                        ["Purple", "Roxo", "Ungu"],
-                        ["Orange", "Laranja", "Oranye"],
-                        ["Brown", "Marrom", "Coklat"],
-                        ["Pink", "Rosa", "Merah muda"],
-                        ["Grey", "Cinza", "Abu-abu"]
-                    ]
-                }
-            ]
-        } 
+        }
     ];
 
     this.getWords = function () {
