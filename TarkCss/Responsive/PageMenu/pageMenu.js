@@ -9,11 +9,12 @@
         {
             name: ['General','Geral','Umum'], closed:false, items: [
                 { name: ['Home', 'Principal', 'Utama'], href: '#!General/Home', icon: 'fa-home' },
-                { name: ['About', 'Sobre', 'Tentang'], href: '#!General/About', icon: 'fa-address-card' }
+                { name: ['About', 'Sobre', 'Tentang'], href: '#!General/About', icon: 'fa-address-card' },
+                { name: ['Introduction', 'Introdução', 'Pengantar'], href: '#!General/Introduction', icon: 'fa-home' }
             ]
         },
         {
-            name: ['Lessons', 'Lições', 'Pelajaran'], closed: false, items: [
+            name: ['Grammar', 'Gramática', 'Tatabahasa'], closed: false, items: [
                 { name: ['To Be Verb', 'Verbo To be', 'Kata Kerja To Be'], href: '#!Lessons/ToBeVerb', icon: 'fa-book' },
                 { name: ['Simple Present', 'Presente simples', 'Bulang-ulang'], href: '#!Lessons/SimplePresent', icon: 'fa-book' },
                 { name: ['Present Continuous', 'Presente Contínuo', 'Sedang Terjadi'], href: '#!Lessons/PresentContinuous', icon: 'fa-book' },
@@ -21,12 +22,12 @@
                 { name: ['Past Continuous', 'Passado Contínuo', 'Sedang berjadi wkt dulu'], href: '#!Lessons/PastContinuous', icon: 'fa-book' },
                 { name: ['Simple Future', 'Futuro simples', 'Akan berjadi'], href: '#!Lessons/SimpleFuture', icon: 'fa-book' },
                 { name: ['Tenses Comparison', 'Comparação de tempos', 'Perbandingan Tenses'], href: '#!Lessons/TensesComparison', icon: 'fa-book' },
-                { name: ['Vocabulary', 'Vocabulário', 'Kosa kata'], href: '#!Lessons/Vocabulary', icon: 'fa-book' }
+                { name: ['Prototype Exercise', 'Exercício Protótipos', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' }
             ]
         },
         {
-            name: ['Exercises', 'Exercícios', 'Latihan'], closed: false, items: [
-                { name: ['Prototype Exercise', 'Exercício Protótipos', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' },
+            name: ['Vocabulary', 'Vocabulário', 'Kosa kata'], closed: false, items: [
+                { name: ['Vocabulary', 'Vocabulário', 'Kosa kata'], href: '#!Lessons/Vocabulary', icon: 'fa-book' },
                 { name: ['Flashcards', 'Flashcards', 'Flashcards'], href: '#!Exercises/Flashcards', icon: 'fa-edit' }
             ]
         },

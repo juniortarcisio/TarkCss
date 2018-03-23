@@ -609,6 +609,13 @@ select {
 
 /***************************** Animation Styles ******************************/
 
+.animate-duration-x1 { animation-duration:.5s !important; }
+.animate-duration-x2 { animation-duration:1s !important; }
+.animate-duration-x3 { animation-duration:1.5s !important; }
+.animate-duration-x4 { animation-duration:2s !important; }
+.animate-duration-x5 { animation-duration:2.5s !important; }
+.animate-duration-x6 { animation-duration:3s !important; }
+
 @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }

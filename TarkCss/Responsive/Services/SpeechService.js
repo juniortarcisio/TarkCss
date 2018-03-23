@@ -20,7 +20,12 @@
         var msg = new SpeechSynthesisUtterance();
         msg.voiceURI = 'native';
         msg.volume = 1;
-        msg.rate = 1;
+
+        //if (typeof rate != "undefined")
+        //    msg.rate = rate;
+        //else
+            msg.rate = 1;
+
         msg.text = text;
 
         if (typeof langId != "undefined")

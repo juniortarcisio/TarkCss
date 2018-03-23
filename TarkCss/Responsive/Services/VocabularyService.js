@@ -70,6 +70,15 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     ]
                 },
                 {
+                    name: "Key Words",
+                    words: [
+                        ["For", "Para", "Untuk"],
+                        ["But", "Mas", "Tapi"],
+                        ["If", "Se", "Kalau"],
+                        ["Then", "Então", "Kemudian"]
+                    ]
+                },
+                {
                     name: "Colors",
                     words: [
                         ["Blue", "Azul", "Biru"],
