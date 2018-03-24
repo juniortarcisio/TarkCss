@@ -249,11 +249,11 @@
             </div>
         </div>
     </div>
-    <div class="top-nav-item">
+    <div class="top-nav-item"  click-anywhere-but-here="$root.showMobUser = false" is-active="$root.showMobUser">
         <i class="fa fa-user-circle cursor-pointer hover-shiny" ng-click="$root.toggleShowMobUser()"></i>
-        <div class="popup-mob" ng-show="$root.showMobUser" ng-click="$root.toggleShowMobUser()">
-        </div>
-        <div class="card pop-mob-user grow-down" ng-show="$root.showMobUser">
+        <!--<div class="popup-mob" ng-show="$root.showMobUser" ng-click="$root.toggleShowMobUser()">
+        </div>-->
+        <div class="card pop-mob-user grow-down-right" ng-show="$root.showMobUser">
             <div class="gb_rb"></div>
             <div class="gb_qb"></div>
             <article>
@@ -285,11 +285,9 @@
             </div>
         </div>
     </div>
-    <div class="top-nav-item">
+    <div class="top-nav-item" click-anywhere-but-here="$root.showMobServer = false" is-active="$root.showMobServer">
         <i class="fa fa-globe fa-spin cursor-pointer hover-shiny" ng-click="$root.toggleShowMobServer()"></i>
-        <div class="popup-mob" ng-show="$root.showMobServer" ng-click="$root.toggleShowMobServer()">
-        </div>
-        <div class="card pop-mob-server grow-down" ng-show="$root.showMobServer">
+        <div class="card pop-mob-server grow-down-right" ng-show="$root.showMobServer" >
             <div class="gb_rb"></div>
             <div class="gb_qb"></div>
             <article>

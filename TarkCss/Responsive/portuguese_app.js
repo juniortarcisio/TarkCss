@@ -29,6 +29,29 @@ app.directive('startfocus', function ($timeout) {
     };
 });
 
+app.directive('clickAnywhereButHere', function ($document) {
+    return {
+        link: function postLink(scope, element, attrs) {
+            var onClick = function (event) {
+                var isChild = element[0].contains(event.target);
+                var isSelf = element[0] == event.target;
+                var isInside = isChild || isSelf;
+                if (!isInside) {
+                    scope.$apply(attrs.clickAnywhereButHere)
+                }
+            }
+            scope.$watch(attrs.isActive, function (newValue, oldValue) {
+                if (newValue !== oldValue && newValue == true) {
+                    $document.bind('click', onClick);
+                }
+                else if (newValue !== oldValue && newValue == false) {
+                    $document.unbind('click', onClick);
+                }
+            });
+        }
+    };
+});
+
 app.filter('RemoveLastChar', function () {
     return function (x, q) {
         if (typeof q == "undefined")
@@ -444,8 +467,12 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     //if ($rootScope.account != null && $rootScope.account.authenticated)
     //    SpeechService.Speak('Nice to see you again' + $rootScope.account.email + ', you have no new messages.');
     
-    $rootScope.$on('$viewContentLoaded', function () {
-        $window.document.getElementsByTagName('main')[0].scrollTo(0, 0);
+    $rootScope.$on('$viewContentLoaded', function () {        
+        if ($location.hash())
+            $anchorScroll();
+        else
+            $window.document.getElementsByTagName('main')[0].scrollTo(0, 0);
+
         AnimationService.loadEffectWaves();
     });
 
