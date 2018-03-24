@@ -50,6 +50,8 @@ app.controller('simplePresentCtrl', function ($scope, $rootScope, SpeechService)
         var gp_tp = new GrammarProcessorPT();
         $scope.selectedVerb = verb;
         $scope.engineVerbs = gp_tp.getSimplePresent(verb.Portuguese);
+        $rootScope.Speak(verb.English, 0);
+        $rootScope.Speak(verb.Portuguese, 1);
     };
 
     $scope.format = function (verb) {
@@ -428,8 +430,8 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();
 
-    if (localStorage.mute)
-        $rootScope.mute = localStorage;
+    if (typeof localStorage.mute != "undefined")
+        $rootScope.mute = localStorage.mute == "true";
     else
         $rootScope.mute = false;
 

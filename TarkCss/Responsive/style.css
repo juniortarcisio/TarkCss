@@ -225,6 +225,18 @@ select {
 .scrollbar-gray:hover::-webkit-scrollbar-thumb { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2); background-color: #555; }
 
 
+.scrollbar-card::-webkit-scrollbar-track { border-radius: 10px; }
+.scrollbar-card::-webkit-scrollbar { width: 10px; background-color: #ececec; }
+.scrollbar-card::-webkit-scrollbar-thumb { border-radius: 15px; background-color: #ddd; transition: .5s; }
+.scrollbar-card:hover::-webkit-scrollbar-thumb { background-color: #b7b7b7; }
+
+
+.scrollbar-lst::-webkit-scrollbar-track { border-radius: 10px; }
+.scrollbar-lst::-webkit-scrollbar { width: 7px; background-color: transparent; }
+.scrollbar-lst::-webkit-scrollbar-thumb { border-radius: 15px; background-color: #ececec; transition: .5s; }
+.scrollbar-lst:hover::-webkit-scrollbar-thumb { background-color: #c7c7c7; }
+
+
 @media only screen and (max-width: 599px) {
     .below-top-nav {
         left:0px;
