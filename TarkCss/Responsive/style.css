@@ -138,15 +138,15 @@ main.bgmv {
 
 
 
-input {
+input[type='text'], input[type='password'], input[type='email'] {
     padding: 5px;
     border: none;
-    border-bottom:1px solid #b5b5b5;
-    border-top:1px solid transparent;
     font-family: 'Roboto', sans-serif;
     width:100%;
-    background-color: transparent;    
     transition: .25s border-bottom-color ease-in-out;
+    border-bottom:1px solid #b5b5b5;
+    border-top:1px solid transparent;
+    background-color: transparent;    
 }
 
 
@@ -159,14 +159,16 @@ label {
     
 }
 
-input:focus, select:focus {
+
+
+input[type=text]:focus, input[type=password]:focus,input[type=email]:focus, select:focus {
     border-bottom: 2px solid #4285f4 !important;
     outline: 0 !important;
     border-top:none;
 }
 
 
-input+label {
+input[type=text]+label, input[type=password]+label, input[type=email]+label {
   display: block;
   position: absolute;
   bottom: 5px;
@@ -182,7 +184,9 @@ input+label {
   transition: .25s all ease-in-out;
 }
 
-input:focus+label,input:not(.ng-empty)+label{
+input[type=text]:focus+label,input[type=text]:not(.ng-empty)+label,
+input[type=password]:focus+label,input[type=password]:not(.ng-empty)+label,
+input[type=email]:focus+label,input[type=email]:not(.ng-empty)+label{
   position: absolute;
   font-size: 14px;
   color: #4285f4;
@@ -232,9 +236,9 @@ select {
 
 
 .scrollbar-lst::-webkit-scrollbar-track { border-radius: 10px; }
-.scrollbar-lst::-webkit-scrollbar { width: 7px; background-color: transparent; }
-.scrollbar-lst::-webkit-scrollbar-thumb { border-radius: 15px; background-color: #ececec; transition: .5s; }
-.scrollbar-lst:hover::-webkit-scrollbar-thumb { background-color: #c7c7c7; }
+.scrollbar-lst::-webkit-scrollbar { width: 7px; background-color: #eee; }
+.scrollbar-lst::-webkit-scrollbar-thumb { border-radius: 15px; background-color: #ddd; transition: .5s; }
+.scrollbar-lst:hover::-webkit-scrollbar-thumb { background-color: #bbb; }
 
 
 @media only screen and (max-width: 599px) {
@@ -652,7 +656,7 @@ select {
 }
 
 @keyframes grow-down {
-    from {  transform: translate3d(0%, -50%, 0) scale3d(0, 0, 0); display:block; }
+    from {  transform: translate3d(0%, -50%, 0) scale3d(1, 0, 1); display:block; }
     to { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); display:block; }
 }
 
@@ -694,6 +698,14 @@ select {
     transition: all;
     animation-fill-mode: forwards;  
 }
+
+.grow-down-right {
+    animation: grow-down-right .5s;
+    will-change: transform;
+    transition: all;
+    animation-fill-mode: forwards;  
+}
+
 
 .shrink-up {
     animation: shrink-up .5s;
