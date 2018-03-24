@@ -1,4 +1,33 @@
-﻿<section class="container-short">
+﻿<style type="text/css">
+    .lst {
+        position:relative;
+        height:30px;
+        line-height:30px;
+        border-bottom: 1px solid #aaa;
+        color:#06a271;
+        font-weight:bold;
+        transition: .3s;
+    }
+    .lst ul {
+        list-style-type: none;
+        margin:0px;
+        padding:0px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+        position: absolute;
+        top: 30px;
+        background-color: white;
+        padding: 10px 0px;
+        border-radius: 3px;
+        display:none;
+        animation: grow-down-left .5s;
+    }
+    .lst:hover { border-bottom: 2px solid #4285f4 !important}
+    .lst:hover ul { display:block; }
+    .lst li { cursor:pointer; padding: 5px 15px; }
+    .lst li:hover { background-color:#eee }
+    .lst li:active { background-color:#ddd }
+</style>
+<section class="container-short">
     <h1>Simple present</h1>
     <h2 class="margin-top-2em">1. Objective</h2>
     <section class="card col l12 slide-down animate-duration-x1">
@@ -20,8 +49,14 @@
     <h2 class="margin-top-2em">3. Grammar table</h2>
     <div class="card col l12 m12 s12 slide-down animate-duration-x3">
         <div class="card-container">
-            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(selectedVerb)"></select>
-            <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+            <!--<select ng-model="selectedVerb" ng-options="format(x) for x in verbs" ng-change="loadProcessedVerbs(selectedVerb)"></select>-->
+            <div class="lst">
+                <span>{{selectedVerb.English}} <i class="fa fa-arrow-right"></i> {{selectedVerb.Portuguese}}</span>
+                <ul>
+                    <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb)">{{verb.English}} <i class="fa fa-arrow-right"></i> {{verb.Portuguese}}</li>
+                </ul>
+            </div>
+            <h3>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
             <table>
                 <tbody>
                     <tr>

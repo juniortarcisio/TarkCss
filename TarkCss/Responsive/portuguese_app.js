@@ -48,6 +48,7 @@ app.controller('simplePresentCtrl', function ($scope, $rootScope, SpeechService)
 
     $scope.loadProcessedVerbs = function (verb) {
         var gp_tp = new GrammarProcessorPT();
+        $scope.selectedVerb = verb;
         $scope.engineVerbs = gp_tp.getSimplePresent(verb.Portuguese);
     };
 
