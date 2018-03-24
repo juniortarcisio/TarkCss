@@ -106,6 +106,14 @@ main.bgstr {
     animation-timing-function:linear;
 }
 
+main.bgmv {
+    animation: bgmovehorizontal;
+    animation-duration:20s;
+    animation-direction:normal;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+
 @keyframes bgmovedown {
     from {
         background-position-y:0px;
@@ -609,16 +617,21 @@ select {
 
 /***************************** Animation Styles ******************************/
 
-.animate-duration-x1 { animation-duration:.5s !important; }
-.animate-duration-x2 { animation-duration:1s !important; }
-.animate-duration-x3 { animation-duration:1.5s !important; }
-.animate-duration-x4 { animation-duration:2s !important; }
-.animate-duration-x5 { animation-duration:2.5s !important; }
-.animate-duration-x6 { animation-duration:3s !important; }
+.animate-duration-x1 { animation-duration:.3s !important; }
+.animate-duration-x2 { animation-duration:.6s !important; }
+.animate-duration-x3 { animation-duration:.9s !important; }
+.animate-duration-x4 { animation-duration:1.2s !important; }
+.animate-duration-x5 { animation-duration:1.5s !important; }
+.animate-duration-x6 { animation-duration:1.8s !important; }
 
 @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes grow {
+    from {  transform: scale3d(0, 0, 0); }
+    to { transform: scale3d(1, 1, 1); }
 }
 
 @keyframes slide-down {
@@ -636,7 +649,6 @@ select {
     to { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); display:block; }
 }
 
-
 @keyframes shrink-up {
     from { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); display:block; }
     to { transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0); display:none; }
@@ -649,6 +661,8 @@ select {
 .slide-down { animation: slide-down .5s; }
 .slide-up { animation:slide-down .5s; animation-direction:reverse; }
 .slide-down-slow { animation: slide-down 2.5s; }
+
+.grow { animation: grow-down .5s; }
 
 .grow-down {
     animation: grow-down .5s;
