@@ -9,8 +9,7 @@
         {
             name: ['General','Geral','Umum'], closed:false, items: [
                 { name: ['Home', 'Principal', 'Utama'], href: '#!General/Home', icon: 'fa-home' },
-                { name: ['About', 'Sobre', 'Tentang'], href: '#!General/About', icon: 'fa-address-card' },
-                { name: ['Introduction', 'Introdução', 'Pengantar'], href: '#!General/Introduction', icon: 'fa-home' }
+                { name: ['About', 'Sobre', 'Tentang'], href: '#!General/About', icon: 'fa-address-card' }
             ]
         },
         {
