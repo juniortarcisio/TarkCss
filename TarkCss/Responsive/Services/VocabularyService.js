@@ -61,7 +61,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     name: "Modal Verbs",
                     words: [
                         ["Can", "Posso", "Bisa"],
-                        ["Could", "Poderia", "Bisa (?)"],
+                        ["Could", "Poderia", "Bisa"],// thisWordAlsoMeans: [][][0]
                         ["Will", "Vou", "Akan"],
                         ["Would", "Iria", "Akan (?)"],
                         ["Must", "Devo", "Harus"],
@@ -332,11 +332,11 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Cat", "Gato", "Kucing"],
                         ["Bird", "Pássaro", "Burung"],
                         ["Tiger", "Tigre", "Harimau"],
-                        ["Horse", "Cavalho", "Kuda"],
+                        ["Horse", "Cavalo", "Kuda"],
                         ["Dragon", "Dragão", "Naga"],
                         ["Elephant", "Elefante", "Gajah"],
                         ["Duck", "Pato", "Bebek"],
-                        ["Monkey", "Macao", "Monyet"],
+                        ["Monkey", "Macaco", "Monyet"],
                         ["Crocodile", "Crocodilo", "Buaya"],
                         ["Cow", "Vaca", "Sapi"],
                         ["Chicken", "Galinha", "Ayam"],

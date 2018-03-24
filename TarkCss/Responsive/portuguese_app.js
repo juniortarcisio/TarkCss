@@ -300,7 +300,8 @@ app.controller('toBeCtrl', function ($scope, $rootScope) {
 app.controller('settingsCtrl', function ($scope, $rootScope) {
 });
 
-app.controller('aboutCtrl', function ($scope, SpeechService) {
+app.controller('aboutCtrl', function ($scope, $rootScope, SpeechService) {
+    $rootScope.mainClass = "bgmv";
     $scope.easterEggExecuted = false;
     $scope.easterEgg = function () {
         if ($scope.easterEggExecuted == true)
