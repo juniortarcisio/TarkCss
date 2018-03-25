@@ -62,8 +62,8 @@
         box-shadow: 0 0 2px rgba(0,0,0,1);
     }
     
-    input[type=checkbox]:checked+label { background-color:#2ae2c1; }
-    input[type=checkbox]:checked+label .ball { left: 26px; background-color:#129880; }
+    input[type=checkbox]:checked+label { background-color:#659484; }
+    input[type=checkbox]:checked+label .ball { left: 26px; background-color:#72ffd0; }
 
     input[type=checkbox]+label .text {
         position: absolute;
@@ -76,28 +76,26 @@
 </style>
 <section class="container-short">
     <h1>Simple present</h1>
-    <h2 class="margin-top-2em">1. Objective</h2>
     <section class="card col l12 slide-down animate-duration-x1">
         <div class="card-container">
+            <h2><i class="fa fa-bullseye"></i> Objective</h2>
             Explain and give some examples of <b>Simple Presente Tense</b>, using <b>regular verbs</b>
         </div>
     </section>
-    <br class="clear" />
-    <h2 class="margin-top-2em">2. Use Cases</h2>
     <section class="card col l12 slide-down animate-duration-x2">
         <div class="card-container">
+            <h2><i class="fa fa-comments"></i> Use Cases</h2>
             <ul class="spaced-line-2x">
                 <li>The action is a <b>fact</b></li>
                 <li>The action is a <b>routine</b> (everyday or eventually)</li>
             </ul>
         </div>
     </section>
-    <br class="clear" />
-    <h2 class="margin-top-2em">3. Grammar table</h2>
     <div class="card col l12 m12 s12 slide-down animate-duration-x3">
         <div class="card-container">
+            <h2><i class="fa fa-table"></i> Grammar table</h2>
             <div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
-                <span>{{selectedVerb.English}} <i class="fa fa-arrow-right"></i> {{selectedVerb.Portuguese}} <i class="fa fa-chevron-down"></i></span>                
+                <span>{{selectedVerb.English}} <i class="fa fa-arrow-right"></i> {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span> <i class="fa fa-chevron-down"></i></span>                
                 <ul class="scrollbar-lst" ng-show="lstOpen">
                     <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb)">{{verb.English}} <i class="fa fa-arrow-right"></i> {{verb.Portuguese}}</li>
                 </ul>
@@ -117,8 +115,7 @@
                 </label>
             </div>
             <br class="clear" />
-            <h3>{{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
-            <table>
+            <table class="margin-top-2em">
                 <tbody>
                     <tr>
                         <th>English</th>
@@ -145,10 +142,9 @@
             </table>
         </div>
     </div>
-    <br class="clear" />
-    <h2>4. Examples</h2>
     <div class="card col l12 m12 s12 slide-down animate-duration-x4">
         <div class="card-container">
+            <h2><i class="fa fa-eye"></i> Examples</h2>
             <table>
                 <tr>
                     <th>Statement</th>
@@ -183,4 +179,13 @@
             </table>
         </div>
     </div>
+    <section class="card col l12 slide-down animate-duration-x2">
+        <div class="card-container">
+            <h2><i class="fa fa-user-secret"></i> Secret tips</h2>
+            <ul class="spaced-line-2x">
+                <li>...</li>
+                <li>...</li>
+            </ul>
+        </div>
+    </section>
 </section>
