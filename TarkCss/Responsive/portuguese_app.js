@@ -512,7 +512,7 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         $rootScope.breadcrumbs = breadcrumbs;
         $rootScope.currentRoute = breadcrumbs[breadcrumbs.length - 1];
 
-        if (current != null) {
+        if ($rootScope.currentRoute != null) {
             SpeechService.Speak($rootScope.currentRoute.name);
         }
     });

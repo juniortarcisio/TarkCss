@@ -1,80 +1,4 @@
-﻿<style type="text/css">
-    .lst {
-        position:relative;
-        height:35px;
-        line-height:30px;
-        border-bottom: 1px solid #aaa;
-        color:#06a271;
-        font-weight:bold;
-        transition: .5s;
-        cursor:pointer;
-    }
-    .lst ul {
-        list-style-type: none;
-        margin:0px;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
-        position: absolute;
-        top: 35px;
-        right:0px;
-        background-color: white;
-        padding: 6px 3px 6px 2px;
-        border-radius: 3px;
-        animation: grow-down-right .5s;
-        max-height:300px;
-        overflow-y:scroll;
-        z-index:1;
-    }
-    .lst:hover { border-bottom: 2px solid #4285f4 !important}
-    .lst li { padding: 5px 15px; }
-    .lst li:hover { background-color:#eee }
-    .lst li:active { background-color:#ddd }
-    .lst .fa-chevron-down {     
-        position: absolute;
-        font-size: 19px;
-        font-weight: normal;
-        right: 5px;
-        top: 5px;
-    }
-
-    input[type=checkbox] { display:none; }
-    input[type=checkbox]+label {
-        width: 49px;
-        margin: 5px;
-        height: 23px;
-        border-radius: 30px;
-        background-color: #aaa;
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        box-shadow: 0 1px 2px rgba(0,0,0,.4);
-    }
-    
-    input[type=checkbox]+label .ball {
-        display: inline-block;
-        background-color: white;
-        position: absolute;
-        top: 2px;
-        height: 19px;
-        left: 3px;
-        width: 19px;
-        border-radius: 19px;
-        transition: .3s;
-        box-shadow: 0 0 2px rgba(0,0,0,1);
-    }
-    
-    input[type=checkbox]:checked+label { background-color:#659484; }
-    input[type=checkbox]:checked+label .ball { left: 26px; background-color:#72ffd0; }
-
-    input[type=checkbox]+label .text {
-        position: absolute;
-        left: 58px;
-        color: #888;
-        font-weight:bold;
-    }
-    input[type=checkbox]:checked+label .text { color: #129880; }
-
-</style>
-<section class="container-short">
+﻿<section class="container-short">
     <h1>Simple present</h1>
     <section class="card col l12 slide-down animate-duration-x1">
         <div class="card-container">
@@ -96,7 +20,7 @@
             <h2><i class="fa fa-table"></i> Grammar table</h2>
             <div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
                 <span>{{selectedVerb.English}} <i class="fa fa-arrow-right"></i> {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span> <i class="fa fa-chevron-down"></i></span>                
-                <ul class="scrollbar-lst" ng-show="lstOpen">
+                <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}"> <!--ng-show="lstOpen"-->
                     <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb)">{{verb.English}} <i class="fa fa-arrow-right"></i> {{verb.Portuguese}}</li>
                 </ul>
             </div>

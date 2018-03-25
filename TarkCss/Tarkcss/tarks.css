@@ -249,6 +249,7 @@ table {
         padding:10px 10px 10px 10px;
         margin:0px;
         text-align:left;
+        border:1px solid transparent;
     }
     
     table th {
@@ -281,17 +282,24 @@ table {
     }
 
     table tr:nth-child(2n+2) {
-        background-color:#eee;
+        background-color:#ebf3f2;
     }
     
     table tr:nth-child(2n+3) {
-        /*background-color:white;*/
     }
     
-    table tr:nth-child(2n+2):hover, table tr:nth-child(2n+3):hover {
-        background-color:#e5e5e5;
+    /*table tr:nth-child(2n+2):hover td, table tr:nth-child(2n+3):hover td {
+        border-top:1px solid #8bc;
+        border-bottom:1px solid #8bc;
     }
-
+    
+    table tr:nth-child(2n+2):hover td:first-child, table tr:nth-child(2n+3):hover td:first-child {
+        border-left:1px solid #8bc;
+    }
+    
+    table tr:nth-child(2n+2):hover td:last-child, table tr:nth-child(2n+3):hover td:last-child {
+        border-right:1px solid #8bc;
+    }*/
 
 .table-edit tr td:last-child {
     width:20px;

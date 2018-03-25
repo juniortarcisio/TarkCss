@@ -17,29 +17,26 @@
     }
     
     page-header>span {
+        position:relative;
         font-weight: normal;
         font-size:24px;
         color: #00ffae;
         cursor: pointer;
     }
+    .nav-subtitle {
+        position: absolute;
+        font-size: 12px;
+        color: #00ffae;
+        top: 5px;
+        left: 2px;
+        white-space:nowrap;
+    }
 
     @media only screen and (max-width:599px) {
-        page-header {
-            height: 56px;
-            line-height: 56px;
-        }
-
-        page-header>span {
-            margin-left:35px;
-        }
-
-        .topnav-right{
-            top:7px;
-        }
-
-        .below-top-nav {
-            top:56px;
-        }
+        page-header { height: 56px; line-height: 56px; }
+        page-header>span { margin-left:35px; }
+        .topnav-right{ top:7px; }
+        .below-top-nav { top:56px; }
     }
 
     .topnav-right {
@@ -141,9 +138,7 @@
         }
 
         .top-nav-item { padding:0px; }
-        
         .topnav-right { right:5px; top: 16px; }
-        
         .topnav-button-menu { display:block; }
     }
 
@@ -185,7 +180,10 @@
 <div class="topnav-button-menu show-only-on-mobile">
     <a ng-click="$root.toggleSivenav()">&#9776;</a>
 </div>
-<span ng-click="$root.home()">INGES <span class="hide-on-mobile">| Languages</span></span>
+<span class="hover-shiny" ng-click="$root.home()">W.I.T.P.
+    <span class="hide-on-mobile" style="color:#dadada"> | Languages</span>
+    <span class="nav-subtitle">Where in The Planet <i class="fa fa-globe"></i></span>
+</span>
 <div class="top-nav-item top-nav-flags top-nav-lang">
     <img src="{{$root.langFrom.flag}}" alt="Your language" title="Your language">
     <div class="card pop-lang-from grow-down-left">
@@ -193,7 +191,7 @@
         <div class="gb_qb"></div>
         <h5>Your Language</h5>
         <div class="pop-lang-flags effect-waves waves-blue" ng-repeat="language in $root.languages" ng-click="selectLanguageFrom(language)">
-            <img src="{{language.flag}}" width="20" />
+            <img ng-src="{{language.flag}}" width="20" />
             <span>{{language.name}}</span>
         </div>
         <div class="pop-lang-flags effect-waves waves-blue" ng-click="invertLanguages()">
@@ -248,9 +246,7 @@
     </div>
     <div class="top-nav-item"  click-anywhere-but-here="$root.showMobUser = false" is-active="$root.showMobUser">
         <i class="fa fa-user-circle cursor-pointer hover-shiny" ng-click="$root.toggleShowMobUser()"></i>
-        <!--<div class="popup-mob" ng-show="$root.showMobUser" ng-click="$root.toggleShowMobUser()">
-        </div>-->
-        <div class="card pop-mob-user grow-down-right" ng-show="$root.showMobUser">
+        <div class="card pop-mob-user grow-down-right" ng-class="{'shrink-up':!$root.showMobUser}">
             <div class="gb_rb"></div>
             <div class="gb_qb"></div>
             <article>
@@ -284,7 +280,7 @@
     </div>
     <div class="top-nav-item" click-anywhere-but-here="$root.showMobServer = false" is-active="$root.showMobServer">
         <i class="fa fa-globe fa-spin cursor-pointer hover-shiny" ng-click="$root.toggleShowMobServer()"></i>
-        <div class="card pop-mob-server grow-down-right" ng-show="$root.showMobServer" >
+        <div class="card pop-mob-server grow-down-right" ng-class="{'shrink-up':!$root.showMobServer}">
             <div class="gb_rb"></div>
             <div class="gb_qb"></div>
             <article>
