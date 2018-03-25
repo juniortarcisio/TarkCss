@@ -101,6 +101,7 @@
     <Content Include="Responsive\account.html" />
     <Content Include="Responsive\construction.html" />
     <Content Include="Responsive\Flashcards\flashcards.html" />
+    <Content Include="Responsive\Grammar\presentController.js" />
     <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
     <Content Include="Responsive\notfound.html" />
@@ -134,7 +135,7 @@
     <Content Include="Responsive\SignIn\sign_in.html" />
     <Content Include="Responsive\portuguese_past.html" />
     <Content Include="Responsive\portuguese_pastContinuous.html" />
-    <Content Include="Responsive\portuguese_present.html" />
+    <Content Include="Responsive\Grammar\portuguese_present.html" />
     <Content Include="Responsive\portuguese_presentContinuous.html" />
     <Content Include="Responsive\portuguese_settings.html" />
     <Content Include="Responsive\portuguese_tenseComparison.html" />

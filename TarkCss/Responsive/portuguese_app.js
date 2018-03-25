@@ -60,30 +60,6 @@ app.filter('RemoveLastChar', function () {
     };
 });
 
-app.controller('regularVerbsCtrl', function ($scope, $http) {
-
-});
-
-app.controller('simplePresentCtrl', function ($scope, $rootScope, SpeechService) {
-    $scope.verbs = basicList;
-
-    $scope.selectedVerb = $scope.verbs[0];
-
-    $scope.loadProcessedVerbs = function (verb) {
-        var gp_tp = new GrammarProcessorPT();
-        $scope.selectedVerb = verb;
-        $scope.engineVerbs = gp_tp.getSimplePresent(verb.Portuguese);
-        $rootScope.Speak(verb.English, 0);
-        $rootScope.Speak(verb.Portuguese, 1);
-    };
-
-    $scope.format = function (verb) {
-        return verb.English + ' -> ' + verb.Portuguese;
-    };
-
-    $scope.loadProcessedVerbs($scope.verbs[0]);
-});
-
 app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Present Continuous";
     $scope.verbs = basicList;
@@ -409,7 +385,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_tobe.html", controller: "toBeCtrl"
     })
     .when("/Lessons/SimplePresent", {
-        templateUrl: "portuguese_present.html", controller: "simplePresentCtrl"
+        templateUrl: "Grammar/portuguese_present.html", controller: "simplePresentCtrl"
     })
     .when("/Lessons/PresentContinuous", {
         templateUrl: "portuguese_presentContinuous.html", controller: "presentContinuousCtrl"
@@ -462,7 +438,7 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
     $rootScope.langFrom = $rootScope.languages[0];
     $rootScope.langLearn = $rootScope.languages[1];
     
-    SpeechService.Speak('Welcome to INGES');
+    SpeechService.Speak('Welcome to Where In The Planet');
 
     //if ($rootScope.account != null && $rootScope.account.authenticated)
     //    SpeechService.Speak('Nice to see you again' + $rootScope.account.email + ', you have no new messages.');
@@ -512,7 +488,7 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         $rootScope.breadcrumbs = breadcrumbs;
         $rootScope.currentRoute = breadcrumbs[breadcrumbs.length - 1];
 
-        if ($rootScope.currentRoute != null) {
+        if ($rootScope.currentRoute != null && current != null) {
             SpeechService.Speak($rootScope.currentRoute.name);
         }
     });
@@ -548,6 +524,5 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
 
         localStorage.mute = $rootScope.mute;
     }
-
 });
 
