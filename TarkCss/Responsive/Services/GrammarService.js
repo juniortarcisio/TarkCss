@@ -103,13 +103,17 @@ var GrammarProcessorPT = function () {
         addItem: function (item) {
             items.push(item);
         },
-        getSimplePresent: function (verb) {
+        getSimplePresent: function (verb, negative, interrogative) {
             _verb = verb;
             var model = _createModelBase();
 
             for (var i = 0; i < model.length; i++) {
+
+                if (negative)
+                    model[i].targetsubject += ' não';
+
                 switch (model[i].tags[0]) {
-                    case 'myself':
+                    case 'myself':                        
                         model[i].targetverb = getSP_Myself(verb);
                         break;
                     case 'singular':
@@ -122,6 +126,9 @@ var GrammarProcessorPT = function () {
                         model[i].targetverb = getSP_Ourselves(verb);
                         break;
                 }
+
+                if (interrogative)
+                    model[i].afterVerb = '?';
             }
 
             return model;

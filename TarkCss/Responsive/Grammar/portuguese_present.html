@@ -21,18 +21,18 @@
             <div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
                 <span>{{selectedVerb.English}} <i class="fa fa-arrow-right"></i> {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span> <i class="fa fa-chevron-down"></i></span>                
                 <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}"> <!--ng-show="lstOpen"-->
-                    <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb)">{{verb.English}} <i class="fa fa-arrow-right"></i> {{verb.Portuguese}}</li>
+                    <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true)">{{verb.English}} <i class="fa fa-arrow-right"></i> {{verb.Portuguese}}</li>
                 </ul>
             </div>
             <div class="col l3 m6">
-                <input type="checkbox" id="negative" />
+                <input type="checkbox" id="negative" ng-model="negative" ng-change="loadProcessedVerbs(selectedVerb,false)" />
                 <label for="negative">
                     <span class="ball"></span>
                     <span class="text">Negative</span>
                 </label>
             </div>
             <div class="col l3 m6">
-                <input type="checkbox" id="interrogative" /> 
+                <input type="checkbox" id="interrogative" ng-model="interrogative" ng-change="loadProcessedVerbs(selectedVerb,false)" /> 
                 <label for="interrogative">
                     <span class="ball"></span>
                     <span class="text">Interrogative</span>
@@ -56,9 +56,9 @@
                         </td>
                         <td>{{verb.targetsubject}}</td>
                         <td>
-                            {{verb.targetverb.prefix}}<span ng-show="verb.targetverb.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.targetverb.sufix}}</span>
+                            {{verb.targetverb.prefix}}<span ng-show="verb.targetverb.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.targetverb.sufix}}</span> {{verb.afterVerb}}
                         </td>
-                        <td ng-click="Speak(verb.targetsubject + ' ' + verb.targetverb.prefix + verb.targetverb.sufix, 1)">
+                        <td ng-click="Speak(verb.targetsubject + ' ' + verb.targetverb.prefix + verb.targetverb.sufix + verb.afterVerb, 1)">
                             <i class="fa fa-play"></i>
                         </td>
                     </tr>
