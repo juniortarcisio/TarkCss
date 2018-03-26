@@ -56,19 +56,44 @@ var ProcessedVerb = function (prefix, sufix, aux) {
 /*TODO: Irregular verbs exception*/
 var GrammarProcessor = function () {
 
+    function isVowel(c) {
+        console.log('isVowel');
+        console.log(c);
+        return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1
+    }
+
     var processors = [
         {
-            processSimplePresent: function (verb, model, negative, interrogative) {
+            processSimplePresent: function (verb, model, modelIndex, negative, interrogative) {
+                var sufix = null;
                 verb = verb.replace('To ', '');
 
-                if (negative)
-                    model.subjectTo += ' ' + _baseNotWord[0];
+                var _3rdPersonSingular = model.tags.indexOf('singular') >= 0 && modelIndex > 1;
+
+                if (_3rdPersonSingular) {
+                    var verbToTest = verb.toLowerCase();
+
+                    if (/(o$)|(s$)|(sh$)|(ch$)|(x$)|(z$)/.test(verbToTest))
+                        sufix = 'es';
+                    else if (/y$/.test(verbToTest) && !isVowel(verbToTest.substring(verb.length - 2, verb.length - 1))) {
+                        verb = verb.substring(0, verb.length - 1);
+                        sufix = 'ies';
+                    }
+                    else if (verb == 'have')
+                        verb = 'has';
+                    else
+                        sufix = 's';
+                }
+
                 
-                return ProcessedVerb(verb, null, null);
+                if (negative)
+                    model.subjectTo += ' ' + (_3rdPersonSingular ? 'doesn\'t' : 'don\'t');
+
+                return ProcessedVerb(verb, sufix, null);
             }
         },
         {
-            processSimplePresent: function (verb, model, negative, interrogative) {
+            processSimplePresent: function (verb, model, modelIndex, negative, interrogative) {
 
                 var getSP_Myself = function (verb) {
                     var prefix = verb.substr(0, verb.length - 2);
@@ -110,7 +135,7 @@ var GrammarProcessor = function () {
             }
         },
         {
-            processSimplePresent: function (verb, model, negative, interrogative) {
+            processSimplePresent: function (verb, model, modelIndex, negative, interrogative) {
 
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[2];
@@ -133,7 +158,7 @@ var GrammarProcessor = function () {
                 model[i].subjectFrom = _baseModelLanguages[i][langFrom];
                 model[i].subjectTo = _baseModelLanguages[i][langTo];
 
-                model[i].verbTo = processors[langTo].processSimplePresent(verb, model[i], negative, interrogative);
+                model[i].verbTo = processors[langTo].processSimplePresent(verb, model[i], i, negative, interrogative);
 
                 if (interrogative)
                     model[i].verbTo.after = '?';

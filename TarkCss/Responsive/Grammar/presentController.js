@@ -8,7 +8,7 @@
         ["To Sing", "Cantar", "Bernyanyi"],
         ["To Speak", "Falar", "Bicara"],
         ["To Understand", "Entender", "Mergenti"],
-        ["To Work", "Trabalhar", "bekerja"],
+        ["To Work", "Trabalhar", "Bekerja"],
         ["To Study", "Estudar", "Belajar"],
         ["To Learn", "Aprender", "Belajar"],
         ["To Play", "Jogar", "Bermain"]
