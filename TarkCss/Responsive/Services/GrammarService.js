@@ -58,13 +58,17 @@ var GrammarProcessor = function () {
 
     var processors = [
         {
-            processSimplePresent: function (verb) {
+            processSimplePresent: function (verb, model, negative, interrogative) {
                 verb = verb.replace('To ', '');
+
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[0];
+                
                 return ProcessedVerb(verb, null, null);
             }
         },
         {
-            processSimplePresent: function (verb, model) {
+            processSimplePresent: function (verb, model, negative, interrogative) {
 
                 var getSP_Myself = function (verb) {
                     var prefix = verb.substr(0, verb.length - 2);
@@ -90,6 +94,9 @@ var GrammarProcessor = function () {
                     return ProcessedVerb(prefix, sufix, null);
                 }
 
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[1];
+                
                 switch (model.tags[0]) {
                     case 'myself':
                         return getSP_Myself(verb);
@@ -103,7 +110,12 @@ var GrammarProcessor = function () {
             }
         },
         {
-            processSimplePresent: function (verb) {
+            processSimplePresent: function (verb, model, negative, interrogative) {
+
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[2];
+
+
                 return ProcessedVerb(verb, null, null);
             }
         }
@@ -121,32 +133,10 @@ var GrammarProcessor = function () {
                 model[i].subjectFrom = _baseModelLanguages[i][langFrom];
                 model[i].subjectTo = _baseModelLanguages[i][langTo];
 
-                if (negative) {
-                    model[i].subjectFrom += ' ' + _baseNotWord[langFrom];
-                    model[i].subjectTo += ' ' + _baseNotWord[langTo];
-                }
-
-
-                //switch (model[i].tags[0]) {
-                //    case 'myself':                        
-                //        model[i].verbTo = getSP_Myself(verb);
-                //        break;
-                //    case 'singular':
-                //        model[i].verbTo = getSP_Singular(verb);
-                //        break;
-                //    case 'plural':
-                //        model[i].verbTo = getSP_Plural(verb);
-                //        break;
-                //    case 'ourselves':
-                //        model[i].verbTo = getSP_Ourselves(verb);
-                //        break;
-                //}
-                
-                model[i].verbTo = processors[langTo].processSimplePresent(verb, model[i]);
+                model[i].verbTo = processors[langTo].processSimplePresent(verb, model[i], negative, interrogative);
 
                 if (interrogative)
                     model[i].verbTo.after = '?';
-                
             }
 
             return model;
