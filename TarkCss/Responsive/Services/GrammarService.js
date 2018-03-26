@@ -11,23 +11,35 @@ var SUBJECT_NEAR_PLURAL = 9;
 var SUBJECT_FAR_PLURAL = 10;
 var SUBJECT_1P_PLURAL = 11;
 
-var createModelBase = function () {
-    var _arr = new Array();
-    _arr[SUBJECT_1P] = { subject: "I", tags: ["myself"] };
-    _arr[SUBJECT_2P] = { subject: "You", tags: ["singular"] };
-    _arr[SUBJECT_MALE] = { subject: "He", tags: ["singular", "male"] };
-    _arr[SUBJECT_FEMALE] = { subject: "She", tags: ["singular", "female"] };
-    _arr[SUBJECT_NEAR] = { subject: "It/This", tags: ["singular", "near"] };
-    _arr[SUBJECT_FAR] = { subject: "It/That", tags: ["singular", "far"] };
-    _arr[SUBJECT_2P_PLURAL] = { subject: "You", tags: ["plural"] };
-    _arr[SUBJECT_MALE_PLURAL] = { subject: "They/He", tags: ["plural", "male"] };
-    _arr[SUBJECT_FEMALE_PLURAL] = { subject: "They/She", tags: ["plural", "female"] };
-    _arr[SUBJECT_NEAR_PLURAL] = { subject: "It/These", tags: ["plural", "near"] };
-    _arr[SUBJECT_FAR_PLURAL] = { subject: "It/Those", tags: ["plural", "far"] };
-    _arr[SUBJECT_1P_PLURAL] = { subject: "We", tags: ["ourselves"] };
+var _baseModelLanguages = new Array();
+_baseModelLanguages[SUBJECT_1P] = ["I", "Eu", "Saya"];
+_baseModelLanguages[SUBJECT_2P]=["You", "Você", "Kamu"];
+_baseModelLanguages[SUBJECT_MALE] = ["He", "Ele", "Dia"];
+_baseModelLanguages[SUBJECT_FEMALE]=["She", "Ela", "Dia"];
+_baseModelLanguages[SUBJECT_NEAR] = ["It/This", "Isto", "Ini"];
+_baseModelLanguages[SUBJECT_FAR] = ["It/That", "Aquilo", "Itu"];
+_baseModelLanguages[SUBJECT_2P_PLURAL] = ["You", "Vocês", "Kamu"];
+_baseModelLanguages[SUBJECT_MALE_PLURAL] = ["They", "Eles", "Mereka"];
+_baseModelLanguages[SUBJECT_FEMALE_PLURAL]=["They", "Elas", "Mereka"];
+_baseModelLanguages[SUBJECT_NEAR_PLURAL] = ["These", "Estes", "Ini"];
+_baseModelLanguages[SUBJECT_FAR_PLURAL] = ["Those", "Aqueles", "Itu"];
+_baseModelLanguages[SUBJECT_1P_PLURAL] = ["We", "Nós", "Kami"];
 
-    return _arr;
-};
+var _baseNotWord = ['don\'t', 'não', 'tidak'];
+
+var _baseTags = new Array();
+_baseTags[SUBJECT_1P] = ["myself"];
+_baseTags[SUBJECT_2P] = ["singular"];
+_baseTags[SUBJECT_MALE] = ["singular", "male"];
+_baseTags[SUBJECT_FEMALE] = ["singular", "female"];
+_baseTags[SUBJECT_NEAR] = ["singular", "near"];
+_baseTags[SUBJECT_FAR] = ["singular", "far"];
+_baseTags[SUBJECT_2P_PLURAL] = ["plural"];
+_baseTags[SUBJECT_MALE_PLURAL] = ["plural", "male"];
+_baseTags[SUBJECT_FEMALE_PLURAL] = ["plural", "female"];
+_baseTags[SUBJECT_NEAR_PLURAL] = ["plural", "near"];
+_baseTags[SUBJECT_FAR_PLURAL] = ["plural", "far"];
+_baseTags[SUBJECT_1P_PLURAL] = ["ourselves"];
 
 //TODO: conditions for each language, eg: maybe some types of model grammar aren't interesting for some languages?
 var ProcessedVerb = function (prefix, sufix, aux) {
@@ -42,94 +54,102 @@ var ProcessedVerb = function (prefix, sufix, aux) {
 }
 
 /*TODO: Irregular verbs exception*/
-var GrammarProcessorPT = function () {
-    var _verb = new String();
+var GrammarProcessor = function () {
 
-    var _createModelBase = function () {
-        var arr = createModelBase();
-        arr[SUBJECT_1P].targetsubject = 'Eu';
-        arr[SUBJECT_2P].targetsubject = 'Você';
-        arr[SUBJECT_MALE].targetsubject = 'Ele';
-        arr[SUBJECT_FEMALE].targetsubject = 'Ela';
-        arr[SUBJECT_NEAR].targetsubject = 'Isto';
-        arr[SUBJECT_FAR].targetsubject = 'Aquilo';
-        arr[SUBJECT_2P_PLURAL].targetsubject = 'Vocês';
-        arr[SUBJECT_MALE_PLURAL].targetsubject = 'Eles';
-        arr[SUBJECT_FEMALE_PLURAL].targetsubject = 'Elas';
-        arr[SUBJECT_NEAR_PLURAL].targetsubject = 'Estes';
-        arr[SUBJECT_FAR_PLURAL].targetsubject = 'Aqueles';
-        arr[SUBJECT_1P_PLURAL].targetsubject = 'Nós';
-        return arr;
-    }
-
-    /*PT verb must have at least 3 characters and ends with r*/
-    var validadeVerb = function (verb) {
-        if (verb.length < 3)
-            return false;
-
-        return _verb.lastIndexOf('r', 0) != _verb.length - 1? false : true;
-    }
-
-    var getSP_Myself = function (verb) {
-        var prefix = verb.substr(0, verb.length - 2);
-        var sufix = 'o';
-        return ProcessedVerb(prefix, sufix, null);
-    }
-
-    var getSP_Singular = function (verb) {
-        var prefix = verb.substr(0, verb.length - 1);
-        var sufix = '';
-        return ProcessedVerb(prefix, sufix, null);
-    }
-
-    var getSP_Plural = function (verb) {
-        var prefix = verb.substr(0, verb.length - 1);
-        var sufix = 'm';
-        return ProcessedVerb(prefix, sufix, null);
-    }
-
-    var getSP_Ourselves = function (verb) {
-        var prefix = verb.substr(0, verb.length - 1);
-        var sufix = 'mos';
-        return ProcessedVerb(prefix, sufix, null);
-    }
-    
-    return {
-        addItem: function (item) {
-            items.push(item);
+    var processors = [
+        {
+            processSimplePresent: function (verb) {
+                verb = verb.replace('To ', '');
+                return ProcessedVerb(verb, null, null);
+            }
         },
-        getSimplePresent: function (verb, negative, interrogative) {
-            _verb = verb;
-            var model = _createModelBase();
+        {
+            processSimplePresent: function (verb, model) {
 
-            for (var i = 0; i < model.length; i++) {
-
-                if (negative)
-                    model[i].targetsubject += ' não';
-
-                switch (model[i].tags[0]) {
-                    case 'myself':                        
-                        model[i].targetverb = getSP_Myself(verb);
-                        break;
-                    case 'singular':
-                        model[i].targetverb = getSP_Singular(verb);
-                        break;
-                    case 'plural':
-                        model[i].targetverb = getSP_Plural(verb);
-                        break;
-                    case 'ourselves':
-                        model[i].targetverb = getSP_Ourselves(verb);
-                        break;
+                var getSP_Myself = function (verb) {
+                    var prefix = verb.substr(0, verb.length - 2);
+                    var sufix = 'o';
+                    return ProcessedVerb(prefix, sufix, null);
                 }
 
+                var getSP_Singular = function (verb) {
+                    var prefix = verb.substr(0, verb.length - 1);
+                    var sufix = '';
+                    return ProcessedVerb(prefix, sufix, null);
+                }
+
+                var getSP_Plural = function (verb) {
+                    var prefix = verb.substr(0, verb.length - 1);
+                    var sufix = 'm';
+                    return ProcessedVerb(prefix, sufix, null);
+                }
+
+                var getSP_Ourselves = function (verb) {
+                    var prefix = verb.substr(0, verb.length - 1);
+                    var sufix = 'mos';
+                    return ProcessedVerb(prefix, sufix, null);
+                }
+
+                switch (model.tags[0]) {
+                    case 'myself':
+                        return getSP_Myself(verb);
+                    case 'singular':
+                        return model.verbTo = getSP_Singular(verb);
+                    case 'plural':
+                        return model.verbTo = getSP_Plural(verb);
+                    case 'ourselves':
+                        return model.verbTo = getSP_Ourselves(verb);
+                }
+            }
+        },
+        {
+            processSimplePresent: function (verb) {
+                return ProcessedVerb(verb, null, null);
+            }
+        }
+    ];
+
+    
+    return {
+        getSimplePresent: function (langFrom, langTo, verb, negative, interrogative) {
+            var model = new Array(_baseModelLanguages.length);
+
+            for (var i = 0; i < _baseModelLanguages.length; i++) {
+                model[i] = new Object();
+                model[i].tags = _baseTags[i];
+
+                model[i].subjectFrom = _baseModelLanguages[i][langFrom];
+                model[i].subjectTo = _baseModelLanguages[i][langTo];
+
+                if (negative) {
+                    model[i].subjectFrom += ' ' + _baseNotWord[langFrom];
+                    model[i].subjectTo += ' ' + _baseNotWord[langTo];
+                }
+
+
+                //switch (model[i].tags[0]) {
+                //    case 'myself':                        
+                //        model[i].verbTo = getSP_Myself(verb);
+                //        break;
+                //    case 'singular':
+                //        model[i].verbTo = getSP_Singular(verb);
+                //        break;
+                //    case 'plural':
+                //        model[i].verbTo = getSP_Plural(verb);
+                //        break;
+                //    case 'ourselves':
+                //        model[i].verbTo = getSP_Ourselves(verb);
+                //        break;
+                //}
+                
+                model[i].verbTo = processors[langTo].processSimplePresent(verb, model[i]);
+
                 if (interrogative)
-                    model[i].afterVerb = '?';
+                    model[i].verbTo.after = '?';
+                
             }
 
             return model;
-        },
-        getCompleteVerbTenses: function () {
-            return items.pop();
         }
     }
 };
