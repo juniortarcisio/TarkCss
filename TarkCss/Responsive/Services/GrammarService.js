@@ -86,8 +86,18 @@ var GrammarProcessor = function () {
                 }
 
                 
-                if (negative)
+                if (negative && !interrogative)
                     model.subjectTo += ' ' + (_3rdPersonSingular ? 'doesn\'t' : 'don\'t');
+
+                else if (interrogative) {
+                    if (modelIndex > 0)
+                        model.subjectTo = model.subjectTo.toLowerCase();
+
+                    if (!negative)
+                        model.subjectTo = (_3rdPersonSingular ? 'Does' : 'Do') + ' ' + model.subjectTo;
+                    else 
+                        model.subjectTo = (_3rdPersonSingular ? 'Doesn\'t' : 'Don\'t') + ' ' + model.subjectTo;
+                }
 
                 return ProcessedVerb(verb, sufix, null);
             }
