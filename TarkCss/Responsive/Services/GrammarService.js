@@ -70,7 +70,7 @@ var GrammarProcessor = function () {
 
                 var _3rdPersonSingular = model.tags.indexOf('singular') >= 0 && modelIndex > 1;
 
-                if (_3rdPersonSingular) {
+                if (_3rdPersonSingular && !negative && !interrogative) {
                     var verbToTest = verb.toLowerCase();
 
                     if (/(o$)|(s$)|(sh$)|(ch$)|(x$)|(z$)/.test(verbToTest))
