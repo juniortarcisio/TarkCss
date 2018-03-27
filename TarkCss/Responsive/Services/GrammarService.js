@@ -100,6 +100,54 @@ var GrammarProcessor = function () {
                 }
 
                 return ProcessedVerb(verb, sufix, null);
+            },
+            processPresentContinuous: function (verb, model, modelIndex, negative, interrogative) {
+
+                if (modelIndex == 0) {
+                    if (!interrogative && !negative)
+                        model.subjectTo += '\'m';
+                    else if (interrogative && !negative)
+                        model.subjectTo = 'Am ' + model.subjectTo;
+                    else if (!interrogative && negative)
+                        model.subjectTo += '\'m not';
+                    else if (interrogative && negative)
+                        model.subjectTo = 'Am not ' + model.subjectTo;
+                }
+                else if (modelIndex == 1 || model.tags[0] == 'plural' || model.tags[0] == 'ourselves') {
+                    if (!interrogative && !negative)
+                        model.subjectTo += ' are';
+                    else if (interrogative && !negative)
+                        model.subjectTo = 'Are ' + model.subjectTo.toLowerCase();
+                    else if (!interrogative && negative)
+                        model.subjectTo += ' aren\'t';
+                    else if (interrogative && negative)
+                        model.subjectTo = 'Aren\'t ' + model.subjectTo.toLowerCase();
+                }
+                    
+                else if (model.tags[0] == 'singular') {
+                    if (!interrogative && !negative)
+                        model.subjectTo += ' is';
+                    else if (interrogative && !negative)
+                        model.subjectTo = 'Is ' + model.subjectTo.toLowerCase();
+                    else if (!interrogative && negative)
+                        model.subjectTo += ' isn\'t';
+                    else if (interrogative && negative)
+                        model.subjectTo = 'Isn\'t ' + model.subjectTo.toLowerCase();
+                }
+
+                verb = verb.replace('To ', '');
+                verb += 'ing';
+
+                return ProcessedVerb(verb, null, null);
+            },
+            processSimplePast: function () {
+
+            },
+            processPastContinuous: function () {
+
+            },
+            processSimpleFuture: function () {
+
             }
         },
         {
@@ -142,23 +190,77 @@ var GrammarProcessor = function () {
                     case 'ourselves':
                         return model.verbTo = getSP_Ourselves(verb);
                 }
+            },
+            processPresentContinuous: function (verb, model, modelIndex, negative, interrogative) {
+
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[1];
+
+                switch (model.tags[0]) {
+                    case 'myself':
+                        model.subjectTo += ' estou';
+                        break;
+                    case 'singular':
+                        model.subjectTo += ' está';
+                        break;
+                    case 'plural':
+                        model.subjectTo += ' estão';
+                        break;
+                    case 'ourselves':
+                        model.subjectTo += ' estamos';
+                        break;
+                }
+
+                verb = verb.substring(0, verb.length - 1) + 'ndo';
+
+                return ProcessedVerb(verb, null, null);
+            },
+            processSimplePast: function () {
+
+            },
+            processPastContinuous: function () {
+
+            },
+            processSimpleFuture: function () {
+
             }
+
         },
         {
             processSimplePresent: function (verb, model, modelIndex, negative, interrogative) {
+                if (interrogative)
+                    model.subjectTo = 'Apakah ' + model.subjectTo;
 
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[2];
 
-
                 return ProcessedVerb(verb, null, null);
+            },
+            processPresentContinuous: function (verb, model, modelIndex, negative, interrogative) {
+                if (interrogative)
+                    model.subjectTo = 'Apakah ' + model.subjectTo;
+
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[2];
+
+                model.subjectTo += ' sedang';
+                return ProcessedVerb(verb, null, null);
+            },
+            processSimplePast: function () {
+
+            },
+            processPastContinuous: function () {
+
+            },
+            processSimpleFuture: function () {
+
             }
         }
     ];
 
     
     return {
-        getSimplePresent: function (langFrom, langTo, verb, negative, interrogative) {
+        getSimplePresent: function (langFrom, langTo, verb, negative, interrogative, tense) {
             var model = new Array(_baseModelLanguages.length);
 
             for (var i = 0; i < _baseModelLanguages.length; i++) {
@@ -168,7 +270,14 @@ var GrammarProcessor = function () {
                 model[i].subjectFrom = _baseModelLanguages[i][langFrom];
                 model[i].subjectTo = _baseModelLanguages[i][langTo];
 
-                model[i].verbTo = processors[langTo].processSimplePresent(verb, model[i], i, negative, interrogative);
+                switch (tense) {
+                    case 1:
+                        model[i].verbTo = processors[langTo].processSimplePresent(verb, model[i], i, negative, interrogative);
+                        break;
+                    case 2:
+                        model[i].verbTo = processors[langTo].processPresentContinuous(verb, model[i], i, negative, interrogative);
+                        break;
+                }
 
                 if (interrogative)
                     model[i].verbTo.after = '?';
