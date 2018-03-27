@@ -16,8 +16,8 @@ _baseModelLanguages[SUBJECT_1P] = ["I", "Eu", "Saya"];
 _baseModelLanguages[SUBJECT_2P]=["You", "Você", "Kamu"];
 _baseModelLanguages[SUBJECT_MALE] = ["He", "Ele", "Dia"];
 _baseModelLanguages[SUBJECT_FEMALE]=["She", "Ela", "Dia"];
-_baseModelLanguages[SUBJECT_NEAR] = ["It/This", "Isto", "Ini"];
-_baseModelLanguages[SUBJECT_FAR] = ["It/That", "Aquilo", "Itu"];
+_baseModelLanguages[SUBJECT_NEAR] = ["This", "Isto", "Ini"];
+_baseModelLanguages[SUBJECT_FAR] = ["That", "Aquilo", "Itu"];
 _baseModelLanguages[SUBJECT_2P_PLURAL] = ["You", "Vocês", "Kamu"];
 _baseModelLanguages[SUBJECT_MALE_PLURAL] = ["They", "Eles", "Mereka"];
 _baseModelLanguages[SUBJECT_FEMALE_PLURAL]=["They", "Elas", "Mereka"];
@@ -111,7 +111,7 @@ var GrammarProcessor = function () {
                     else if (!interrogative && negative)
                         model.subjectTo += '\'m not';
                     else if (interrogative && negative)
-                        model.subjectTo = 'Am not ' + model.subjectTo;
+                        model.subjectTo = 'Am ' + model.subjectTo + ' not';
                 }
                 else if (modelIndex == 1 || model.tags[0] == 'plural' || model.tags[0] == 'ourselves') {
                     if (!interrogative && !negative)
