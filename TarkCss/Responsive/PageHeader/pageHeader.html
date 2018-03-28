@@ -185,7 +185,7 @@
     <span class="nav-subtitle">Where in The Planet <i class="fa fa-globe"></i></span>
 </span>
 <div class="top-nav-item top-nav-flags top-nav-lang">
-    <img src="{{$root.langFrom.flag}}" alt="Your language" title="Your language">
+    <img src="{{$root.langFrom.flag}}" alt="Your language" title="Your language" class="hover-bright">
     <div class="card pop-lang-from grow-down-left">
         <div class="gb_rb"></div>
         <div class="gb_qb"></div>
@@ -194,17 +194,13 @@
             <img ng-src="{{language.flag}}" width="20" />
             <span>{{language.name}}</span>
         </div>
-        <div class="pop-lang-flags effect-waves waves-blue" ng-click="invertLanguages()">
-            <i class="fa fa-retweet"></i>
-            <span>Alternate</span>
-        </div>
     </div>
 </div>
 <div class="top-nav-item top-nav-flags">
-    <i class="fa fa-random"></i>
+    <i class="fa fa-retweet cursor-pointer hover-shiny" ng-click="invertLanguages()"></i>
 </div>
 <div class="top-nav-item top-nav-flags top-nav-lang">
-    <img src="{{$root.langLearn.flag}}" alt="Learning language" title="Learning language">
+    <img src="{{$root.langLearn.flag}}" alt="Learning language" title="Learning language" class="hover-bright">
     <div class="card pop-lang-from grow-down-left">
         <div class="gb_rb"></div>
         <div class="gb_qb"></div>
@@ -212,10 +208,6 @@
         <div class="pop-lang-flags effect-waves waves-blue" ng-repeat="language in $root.languages" ng-click="selectLanguageLearn(language)">
             <img src="{{language.flag}}" width="20" />
             <span>{{language.name}}</span>
-        </div>
-        <div class="pop-lang-flags effect-waves waves-blue" ng-click="invertLanguages()">
-            <i class="fa fa-retweet"></i>
-            <span>Alternate</span>
         </div>
     </div>
 </div>

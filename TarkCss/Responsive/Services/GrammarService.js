@@ -141,9 +141,37 @@ var GrammarProcessor = function () {
                 return ProcessedVerb(verb, null, null);
             },
             processSimplePast: function (verb, model, modelIndex, negative, interrogative) {
+                verb = verb.replace('To ', '').toLowerCase();
 
-                verb = verb.replace('To ', '');
-                verb += 'ed';
+                var _3rdPersonSingular = model.tags.indexOf('singular') >= 0 && modelIndex > 1;
+
+                var irregularVerbs = [
+                    ["eat","ate"],
+                    ["drink", "drank"],
+                    ["swim", "swam"],
+                    ["sing", "sang"],
+                    ["speak", "spoke"],
+                    ["understand", "understood"],
+                    ["study", "studied"],
+                    ["learn", "learnt"]
+                ];
+
+                //TODO: add irregular verbs
+                if (!negative && !interrogative) {
+                    var irregularVerb = irregularVerbs.filter(function (el) { return el[0] == verb; });
+
+                    if (irregularVerb.length > 0)
+                        verb = irregularVerb[0][1];
+                    else
+                        verb += 'ed';
+                }
+                else if (negative && !interrogative)                    
+                    model.subjectTo += _3rdPersonSingular ? ' does\'t ' : ' don\'t';
+                else if (!negative && interrogative)
+                    model.subjectTo = (_3rdPersonSingular ? 'Does' : 'Do') + ' ' + model.subjectTo;
+                else if (negative && interrogative)
+                    model.subjectTo = (_3rdPersonSingular ? 'Doesn\'t' : 'Don\'t') + ' ' + model.subjectTo;
+
                 return ProcessedVerb(verb, null, null);
             },
             processPastContinuous: function (verb, model, modelIndex, negative, interrogative) {
@@ -176,7 +204,16 @@ var GrammarProcessor = function () {
             },
             processSimpleFuture: function (verb, model, modelIndex, negative, interrogative) {
                 verb = verb.replace('To ', '');
-                model.subjectTo += ' will';
+
+                if (!negative && !interrogative)
+                    model.subjectTo += ' will';
+                else if (negative && !interrogative)
+                    model.subjectTo += ' won\'t';
+                else if (!negative && interrogative)
+                    model.subjectTo = 'Will ' + model.subjectTo;
+                else if (negative && interrogative)
+                    model.subjectTo = 'Won\'t ' + model.subjectTo;
+
                 return ProcessedVerb(verb, null, null);
             }
         },
