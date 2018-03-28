@@ -1,4 +1,4 @@
-﻿app.controller('simplePresentCtrl', function ($scope, $rootScope, SpeechService) {
+﻿app.controller('verbalTensesCtrl', function ($scope, $rootScope, SpeechService) {
     $scope.verbalTenses = [
         { id: 1, name: 'Simple Present' },
         { id: 2, name: 'Present Continuous' },
@@ -19,7 +19,8 @@
         ["To Work", "Trabalhar", "Bekerja"],
         ["To Study", "Estudar", "Belajar"],
         ["To Learn", "Aprender", "Belajar"],
-        ["To Play", "Jogar", "Bermain"]
+        ["To Play", "Jogar", "Bermain"],
+        ["To Ask", "Pedir", "Minta"]
     ];
 
     $scope.negative = false;

@@ -74,7 +74,15 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["For", "Para", "Untuk"],
                         ["But", "Mas", "Tapi"],
                         ["If", "Se", "Kalau"],
-                        ["Then", "Então", "Kemudian"]
+                        ["Then", "Então", "Kemudian"],
+                        ["Or", "Ou", "Atau"],
+                        ["And", "E", "Dan"],
+                        ["Already", "Já", "Sudah"],
+                        ["Yet", "Ainda", "Namun"],
+                        ["Not yet", "Ainda não", "Belum"],
+                        ["Ever", "Sempre", "Pernah"],
+                        ["Never", "Nunca", "Tak pernah"],
+                        ["Again", "De novo", "Lagi"]
                     ]
                 },
                 {
@@ -111,7 +119,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["To Work", "Trabalhar", "Bekerja"],
                         ["To Study", "Estudar", "Belajar"],
                         ["To Play", "Jogar", "Bermain"],
-                        ["To Like", "Gostar", "Suka"]
+                        ["To Like", "Gostar", "Suka"],
+                        ["To Ask", "Pedir", "Minta"]
                     ]
                 }
             ]
@@ -208,6 +217,18 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Month", "Mês", "Bulan"],
                         ["Year", "Ano", "Tahun"]
                     ]
+                },
+                {
+                    name: "Size",
+                    words: [
+                        ["Big", "Grande", "Besar"],
+                        ["Small", "Pequeno", "Kecil"],
+                        ["Tall", "Alto", "Tinggi"],
+                        ["Short", "Baixo", "Pendek"],
+                        ["Long", "Longo", "Panjang"],
+                        ["Narrow", "Estreito", "Sempit"],
+                        ["Wide", "Estreito", "Lebar"]
+                    ]
                 }
             ]
         },
@@ -241,7 +262,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["State", "Estado", "Negarabagian"],
                         ["Country", "País", "Negara"],
                         ["Continent", "Continente", "Benua"],
-                        ["Planet", "País", "Planet"]
+                        ["Planet", "País", "Planet"],
+                        ["Galaxy", "Galaxia", "Galaksi"]
                     ]
                 },
                 {
@@ -253,6 +275,42 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Restroom", "Toalete", "Kamar kecil"],
                         ["Bedroom", "Quarto", "Kamar tidur"],
                         ["Living room", "Sala", "Ruang keluarga"]
+                    ]
+                },
+                {
+                    name: "Vehicles",
+                    words: [
+                        ["Bicycle", "Moto", "Sepeda"],
+                        ["Scooter", "Lambreta", "Skuter"],
+                        ["Bike", "Moto", "Sepeda Motor"],
+                        ["Car", "Carro", "Mobil"],
+                        ["Truck", "Caminhão", "Truk"],
+                        ["Tractor", "Trator", "Traktor"],
+                        ["Bus", "Ônibus", "Bus"],
+                        ["Train", "Trem", "Melatih"],
+                        ["Subway", "Metrô", "Kereta bawah tanah"],
+                        ["Boat", "Barco", "Peharu"],
+                        ["Ship", "Navio", "Kapal"],
+                        ["Helicopter", "Helicóptero", "Helikopter"],
+                        ["Airplane", "Avião", "Pesawat terbang"],
+                        ["Rocket", "Foguete", "Roket"]
+                    ]
+                },
+                {
+                    name: "Universe",
+                    words: [
+                        ["Sun", "Sol", "Matahari"],
+                        ["Moon", "Lua", "Moon"],
+                        ["Sky", "Céu", "Langit"],
+                        ["Star", "Estrela", "Bintang"]
+                    ]
+                },
+                {
+                    name: "Climate",
+                    words: [
+                        ["Suny", "Ensolarado", "Cerah"],
+                        ["Rain", "Chuva", "Hujan"],
+                        ["Snow", "Neve", "Snow"]
                     ]
                 }
             ]

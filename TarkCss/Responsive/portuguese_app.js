@@ -385,7 +385,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_tobe.html", controller: "toBeCtrl"
     })
     .when("/Lessons/SimplePresent", {
-        templateUrl: "Grammar/portuguese_present.html", controller: "simplePresentCtrl"
+        templateUrl: "VerbalTenses/verbal_tenses.html", controller: "verbalTensesCtrl"
     })
     .when("/Lessons/PresentContinuous", {
         templateUrl: "portuguese_presentContinuous.html", controller: "presentContinuousCtrl"
