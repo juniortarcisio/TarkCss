@@ -1,7 +1,10 @@
 ﻿app.controller('simplePresentCtrl', function ($scope, $rootScope, SpeechService) {
     $scope.verbalTenses = [
         { id: 1, name: 'Simple Present' },
-        { id: 2, name: 'Present Continuous' }
+        { id: 2, name: 'Present Continuous' },
+        { id: 3, name: 'Simple Past' },
+        { id: 4, name: 'Past Continuous' },
+        { id: 5, name: 'Simple Future' }
     ];
 
     $scope.verbs = [

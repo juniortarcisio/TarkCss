@@ -140,14 +140,44 @@ var GrammarProcessor = function () {
 
                 return ProcessedVerb(verb, null, null);
             },
-            processSimplePast: function () {
+            processSimplePast: function (verb, model, modelIndex, negative, interrogative) {
 
+                verb = verb.replace('To ', '');
+                verb += 'ed';
+                return ProcessedVerb(verb, null, null);
             },
-            processPastContinuous: function () {
+            processPastContinuous: function (verb, model, modelIndex, negative, interrogative) {
 
+                if (modelIndex == 0 || model.tags[0] == 'singular') {
+                    if (!interrogative && !negative)
+                        model.subjectTo += ' was';
+                    else if (interrogative && !negative)
+                        model.subjectTo = 'Was ' + model.subjectTo;
+                    else if (!interrogative && negative)
+                        model.subjectTo += ' Wasn\'t ';
+                    else if (interrogative && negative)
+                        model.subjectTo = 'Wasn\'t ' + model.subjectTo;
+                }
+                else if (modelIndex == 1 || model.tags[0] == 'plural' || model.tags[0] == 'ourselves') {
+                    if (!interrogative && !negative)
+                        model.subjectTo += ' were';
+                    else if (interrogative && !negative)
+                        model.subjectTo = 'Were ' + model.subjectTo.toLowerCase();
+                    else if (!interrogative && negative)
+                        model.subjectTo += ' weren\'t';
+                    else if (interrogative && negative)
+                        model.subjectTo = 'Weren\'t ' + model.subjectTo.toLowerCase();
+                }
+
+                verb = verb.replace('To ', '');
+                verb += 'ing';
+
+                return ProcessedVerb(verb, null, null);
             },
-            processSimpleFuture: function () {
-
+            processSimpleFuture: function (verb, model, modelIndex, negative, interrogative) {
+                verb = verb.replace('To ', '');
+                model.subjectTo += ' will';
+                return ProcessedVerb(verb, null, null);
             }
         },
         {
@@ -215,14 +245,85 @@ var GrammarProcessor = function () {
 
                 return ProcessedVerb(verb, null, null);
             },
-            processSimplePast: function () {
+            processSimplePast: function (verb, model, modelIndex, negative, interrogative) {
 
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[1];
+
+                var verbLowerCase = verb.toLowerCase();
+
+                switch (model.tags[0]) {
+                    case 'myself':
+                        if (/(gar$)/.test(verbLowerCase))  //jogar, joguei
+                            verb = verb.substr(0, verb.length - 2) + 'uei';
+                        else if (/(ar$)/.test(verbLowerCase))  //andar, andei
+                            verb = verb.substr(0, verb.length - 2) + 'ei';
+                        else if (/(er$)|(ir$)/.test(verbLowerCase))  //correr-corri, fugir-fugi
+                            verb = verb.substr(0, verb.length - 2) + 'i';
+                        break;
+                    case 'singular':
+                        if (/(ar$)/.test(verbLowerCase))  //andar, andou
+                            verb = verb.substr(0, verb.length - 2) + 'ou';
+                        else if (/(er$)/.test(verbLowerCase))  //correr, correu
+                            verb = verb.substr(0, verb.length - 2) + 'eu';
+                        else if (/(ir$)/.test(verbLowerCase))  //fugir, fugiu
+                            verb = verb.substr(0, verb.length - 1) + 'u';
+                        break;
+                    case 'plural':
+                        verb = verb.substr(0, verb.length - 1) + 'ram';
+                        break;
+                    case 'ourselves':
+                        verb = verb.substr(0, verb.length - 1) + 'mos';
+                        break;
+                }
+
+                return ProcessedVerb(verb, null, null);
             },
-            processPastContinuous: function () {
+            processPastContinuous: function (verb, model, modelIndex, negative, interrogative) {
 
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[1];
+
+                switch (model.tags[0]) {
+                    case 'myself':
+                        model.subjectTo += ' estava';
+                        break;
+                    case 'singular':
+                        model.subjectTo += ' estava';
+                        break;
+                    case 'plural':
+                        model.subjectTo += ' estavão';
+                        break;
+                    case 'ourselves':
+                        model.subjectTo += ' estavamos';
+                        break;
+                }
+
+                verb = verb.substring(0, verb.length - 1) + 'ndo';
+
+                return ProcessedVerb(verb, null, null);
             },
-            processSimpleFuture: function () {
+            processSimpleFuture: function (verb, model, modelIndex, negative, interrogative) {
 
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[1];
+
+                switch (model.tags[0]) {
+                    case 'myself':
+                        model.subjectTo += ' vou';
+                        break;
+                    case 'singular':
+                        model.subjectTo += ' vai';
+                        break;
+                    case 'plural':
+                        model.subjectTo += ' vão';
+                        break;
+                    case 'ourselves':
+                        model.subjectTo += ' vamos';
+                        break;
+                }
+
+                return ProcessedVerb(verb, null, null);
             }
 
         },
@@ -246,14 +347,36 @@ var GrammarProcessor = function () {
                 model.subjectTo += ' sedang';
                 return ProcessedVerb(verb, null, null);
             },
-            processSimplePast: function () {
+            processSimplePast: function (verb, model, modelIndex, negative, interrogative) {
+                if (interrogative)
+                    model.subjectTo = 'Apakah ' + model.subjectTo;
+
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[2];
+
+                model.subjectTo += ' telah';
+                return ProcessedVerb(verb, null, null);
+            },
+            processPastContinuous: function (verb, model, modelIndex, negative, interrogative) {
+                if (interrogative)
+                    model.subjectTo = 'Apakah ' + model.subjectTo;
+
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[2];
+
+                model.subjectTo += ' telah sedang';
+                return ProcessedVerb(verb, null, null);
 
             },
-            processPastContinuous: function () {
+            processSimpleFuture: function (verb, model, modelIndex, negative, interrogative) {
+                if (interrogative)
+                    model.subjectTo = 'Apakah ' + model.subjectTo;
 
-            },
-            processSimpleFuture: function () {
+                if (negative)
+                    model.subjectTo += ' ' + _baseNotWord[2];
 
+                model.subjectTo += ' akan';
+                return ProcessedVerb(verb, null, null);
             }
         }
     ];
@@ -276,6 +399,15 @@ var GrammarProcessor = function () {
                         break;
                     case 2:
                         model[i].verbTo = processors[langTo].processPresentContinuous(verb, model[i], i, negative, interrogative);
+                        break;
+                    case 3:
+                        model[i].verbTo = processors[langTo].processSimplePast(verb, model[i], i, negative, interrogative);
+                        break;
+                    case 4:
+                        model[i].verbTo = processors[langTo].processPastContinuous(verb, model[i], i, negative, interrogative);
+                        break;
+                    case 5:
+                        model[i].verbTo = processors[langTo].processSimpleFuture(verb, model[i], i, negative, interrogative);
                         break;
                 }
 
