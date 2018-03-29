@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:site_name" content="INGES | Portuguese">
-    <meta property="og:title" content="INGES | Portuguese" />
-    <meta property="og:description" content="Portal for learning portuguese language using a different style of study" />
+    <meta property="og:site_name" content="Where In The Planet | Languages">
+    <meta property="og:title" content="Where In The Planet | Languages" />
+    <meta property="og:description" content="An multilingual international global educational system, language learning, habits, flash cards, smart community profiles" />
     <meta property="og:image" itemprop="image" content="https://s-media-cache-ak0.pinimg.com/originals/95/0f/82/950f82666ee0031d948c7f5352c87337.jpg">
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1440432930" />
@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../Tarkcss/tarks.css?v=201803150011" rel="stylesheet" />
     <link href="./style.css?v=201803150011" rel="stylesheet" />
-    <link id="page_favicon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAABYlh0AAAAAAF2ZJQAe1N4ApVQ/AHytTwBS6O4Afq1PADP6/wCSLAsAf69SAFyaIwBp1t4AgaxKAIKsSgCMjYAAoMN8AGKXGwBzpkMAibRdAJkqCQBk0KUAjdu2AGyeOQBo3csAjLFVACnr8QBI3tIAu4ReADfBhwBSsWAAjIFxAHK9dwAf2+UAYZccAH2tUQCJtF4AXZAPAFmVGgBWqGEAV4d8AFilWQBflRoARHUSAFOHIQAn7fUARnIKAJ/DfgCQPRgAplg/AF2ZIABLp0QAcmBMAFmVGwCIgGUAocJ5AHS8cwBflRsALM+1AEbg1wCZKAkAE/P/AA35/wAO+f8AKtC7AFPi6gByi4IAZc2gADC/ygB/wHkAsH9fAEmrSwCO2rQAjLNbAKl1SgB/wnwAa2BOAH+uUQCMMw0AmlgxAD7BggCgwnsAQ3YSADH2/wBXlyAAItzVAJW9cQBUr1kAeatKAFyZIwBp1d4ANMWRAHGilgBDdhMAFvH/AHNfSgAT9P8AJdnOADzFiQBLfxsAjycHAIywVQC7knYAkSoHAH69tgBo3s4AL8DKAEV5FABajygAW48oAIwxDQChwXgAqk4uAH+vUQAY6vsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAV1dXV1dUi4uK11dXV1dAQFrWVlZOTJQYgsqWVlZawEBYwI1JTM6akRARyUmAmMBASwiAB0hTGRnXwNbVBEsAQFtV2E+KDxObhRcP1UebAEBKRo9XjQJME9KNnJgLScBARc4G1NoHGZGcEIIOyAXAQESSQdDBg8xBB9BFSNJEgEBWFYTGUUYDFppS2UkVlgBAQUvLy83UUgWEG8vLy8FAQEKCgoKCnENDk0KCgoKCgEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf//AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAA=" rel="icon" type="image/x-icon">
-    <title>Brazilian Portuguese lessons - Verb Conjugation</title>
+    <link id="page_favicon"  ng-href="{{$root.langLearn.flag}}" rel="icon" type="image/x-icon">
+    <title>Where In The Planet - {{$root.langLearn.name}}</title>
 </head>
-<body class="fade-in-slide-down-slow-2x" ng-app="myApp">
+<body class="fade-in-slide-down-slow-2x">
     <page-header></page-header>
     <page-menu></page-menu>
     <div class="below-top-nav">

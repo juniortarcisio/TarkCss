@@ -435,9 +435,18 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         $rootScope.mute = false;
 
     $rootScope.languages = VocabularyService.getLanguages();
-    $rootScope.langFrom = $rootScope.languages[0];
-    $rootScope.langLearn = $rootScope.languages[1];
-    
+
+    if (typeof localStorage.langFrom != "undefined")
+        $rootScope.langFrom = $rootScope.languages[localStorage.langFrom];
+    else
+        $rootScope.langFrom = $rootScope.languages[0];
+
+    if (typeof localStorage.langLearn != "undefined")
+        $rootScope.langLearn = $rootScope.languages[localStorage.langLearn];
+    else
+        $rootScope.langLearn = $rootScope.languages[1];
+        
+
     SpeechService.Speak('Welcome to Where In The Planet');
 
     //if ($rootScope.account != null && $rootScope.account.authenticated)
