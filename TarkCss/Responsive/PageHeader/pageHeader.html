@@ -143,11 +143,12 @@
     }
 
     .padleft10 { padding-left:10px;  }
-    .top-nav-flags img {cursor:pointer; opacity: 0.5}
+    .top-nav-flags img {cursor:pointer; opacity: 0.65}
     .top-nav-flags i {     
         font-size: 24px !important;
         color: #777;
         text-shadow: none !important;
+        position:relative;
     }
     .pop-lang-from {
         position:absolute;
@@ -176,6 +177,15 @@
         transform: rotateY(180deg);
         transition: .3s;
     }
+    .flag-label {
+        position:absolute;
+        font-size:12px;
+        color:#00ffae;
+        bottom:-17px;
+        left:3px;
+        font-weight:normal;
+    }
+    .top-nav-flags .fa-retweet:hover { color:#eee; } 
 </style>
 <div class="topnav-button-menu show-only-on-mobile">
     <a ng-click="$root.toggleSivenav()">&#9776;</a>
@@ -185,7 +195,8 @@
     <span class="nav-subtitle">Where in The Planet <i class="fa fa-globe"></i></span>
 </span>
 <div class="top-nav-item top-nav-flags top-nav-lang">
-    <img src="{{$root.langFrom.flag}}" alt="Your language" title="Your language" class="hover-bright">
+    <img src="{{$root.langFrom.flag}}" alt="Your language" title="Your language">
+    <span class="flag-label hide-on-mobile">From</span>
     <div class="card pop-lang-from grow-down-left">
         <div class="gb_rb"></div>
         <div class="gb_qb"></div>
@@ -197,10 +208,11 @@
     </div>
 </div>
 <div class="top-nav-item top-nav-flags">
-    <i class="fa fa-retweet cursor-pointer hover-shiny" ng-click="invertLanguages()"></i>
+    <i class="fa fa-retweet cursor-pointer" ng-click="invertLanguages()" title="Invert languages"></i>
 </div>
 <div class="top-nav-item top-nav-flags top-nav-lang">
-    <img src="{{$root.langLearn.flag}}" alt="Learning language" title="Learning language" class="hover-bright">
+    <img src="{{$root.langLearn.flag}}" alt="Learning language" title="Learning language">
+    <span class="flag-label hide-on-mobile">Learn</span>
     <div class="card pop-lang-from grow-down-left">
         <div class="gb_rb"></div>
         <div class="gb_qb"></div>
