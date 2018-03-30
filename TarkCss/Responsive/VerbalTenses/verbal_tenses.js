@@ -29,10 +29,10 @@
     $scope.selectedTense = $scope.verbalTenses[0];
 
     this.$onInit = function () {
-        if (typeof $scope.$ctrl.tense != "undefined")
+        if (typeof $scope.$ctrl.tense != "undefined") {
+            $scope.hideTenses = true;        
             $scope.selectedTense = $scope.verbalTenses[$scope.$ctrl.tense];
-
-        $scope.hideTenses = true;
+        }
     }
 
     $scope.loadProcessedVerbs = function (verb, speak) {

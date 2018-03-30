@@ -21,7 +21,7 @@
                 { name: ['Past Continuous', 'Passado Contínuo', 'Sedang terjadi waktu dulu'], href: '#!Lessons/PastContinuous', icon: 'fa-book' },
                 { name: ['Simple Future', 'Futuro simples', 'Akan terjadi'], href: '#!Lessons/SimpleFuture', icon: 'fa-book' },
                 { name: ['Tenses Comparison', 'Comparação de tempos', 'Perbandingan Tenses'], href: '#!Lessons/TensesComparison', icon: 'fa-book' },
-                { name: ['Prototype Exercise', 'Exercício Protótipos', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' }
+                { name: ['Prototype Exercise', 'Exercício Protótipo', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' }
             ]
         },
         {
@@ -35,6 +35,11 @@
                 { name: ['Forum', 'Fórum', 'Forum'], href: '#!Construction', icon: 'fa-wpforms' },
                 { name: ['Chat', 'Bate-papo', 'Obrolan'], href: '#!Construction', icon: 'fa-comments' },
                 { name: ['People', 'Pessoas', 'Orang-orang'], href: '#!Construction', icon: 'fa-users' }
+            ]
+        },
+        {
+            name: ['Tests', 'Testes', 'Tes'], closed: false, items: [
+                { name: ['Test Page', 'Página de testes', 'Halaman tes'], href: '#!Tests', icon: 'fa-wrench' }
             ]
         }
     ];

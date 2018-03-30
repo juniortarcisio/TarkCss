@@ -1,21 +1,6 @@
 ﻿//This app is a very kiss prototype, I am gonna refactor it if I decide it's a good and viable project
 var app = angular.module('myApp', ["ngRoute"]);
 
-var basicList = [
-        { Portuguese: "Andar", English: "To Walk" },
-        { Portuguese: "Comer", English: "To Eat" },
-        { Portuguese: "Beber", English: "To Drink" },
-        { Portuguese: "Comprar", English: "To Buy" },
-        { Portuguese: "Nadar", English: "To Swim" },
-        { Portuguese: "Cantar", English: "To Sing" },
-        { Portuguese: "Falar", English: "To Speak" },
-        { Portuguese: "Entender", English: "To Understand" },
-        { Portuguese: "Trabalhar", English: "To Work" },
-        { Portuguese: "Estudar", English: "To Study" },
-        { Portuguese: "Aprender", English: "To Learn" },
-        { Portuguese: "Jogar", English: "To Play" }
-];
-
 app.directive('startfocus', function ($timeout) {
     return {
         restrict: 'AC',
@@ -59,60 +44,6 @@ app.filter('RemoveLastChar', function () {
         return x.substr(0, x.length - q);
     };
 });
-
-app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
-});
-
-app.controller('simplePastCtrl', function ($scope, $rootScope) {
-    $scope.verbs = [
-        { Portuguese: "Andar", English: "To Walk" },
-        { Portuguese: "Comprar", English: "To Buy" },
-        { Portuguese: "Nadar", English: "To Swim" },
-        { Portuguese: "Cantar", English: "To Sing" },
-        { Portuguese: "Falar", English: "To Speak" },
-        { Portuguese: "Trabalhar", English: "To Work" },
-        { Portuguese: "Estudar", English: "To Study" },
-        { Portuguese: "Jogar", English: "To Play" }
-    ];
-
-    $scope.selectedVerb = $scope.verbs[0];
-
-    $scope.verbsE = [
-        { Portuguese: "Comer", English: "To Eat" },
-        { Portuguese: "Beber", English: "To Drink" },
-        { Portuguese: "Entender", English: "To Understand" },
-        { Portuguese: "Aprender", English: "To Learn" }
-    ];
-
-    $scope.selectedVerbE = $scope.verbsE[0];
-
-
-    $scope.format = function (verb) {
-        return verb.English + ' -> ' + verb.Portuguese;
-    };
-});
-
-
-app.controller('pastContinuousCtrl', function ($scope, $rootScope) {
-    $scope.verbs = basicList;
-
-    $scope.selectedVerb = $scope.verbs[0];
-
-    $scope.format = function (verb) {
-        return verb.English + ' -> ' + verb.Portuguese;
-    };
-});
-
-app.controller('simpleFutureCtrl', function ($scope, $rootScope) {
-    $scope.verbs = basicList;
-
-    $scope.selectedVerb = $scope.verbs[0];
-
-    $scope.format = function (verb) {
-        return verb.English + ' -> ' + verb.Portuguese;
-    };
-});
-
 
 app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
     $rootScope.title = "Tenses Comparison";
@@ -288,11 +219,6 @@ app.controller('exercisesCtrl', function ($scope, $rootScope, SpeechService) {
     
 });
 
-app.controller('toBeCtrl', function ($scope, $rootScope) {
-});
-
-app.controller('settingsCtrl', function ($scope, $rootScope) {
-});
 
 app.controller('aboutCtrl', function ($scope, $rootScope, SpeechService) {
     $rootScope.mainClass = "bgmv";
@@ -303,9 +229,6 @@ app.controller('aboutCtrl', function ($scope, $rootScope, SpeechService) {
         SpeechService.Speak('They are pretty cute ham?');
         $scope.easterEggExecuted = true;
     }
-});
-
-app.controller('homeCtrl', function ($scope, $rootScope) {
 });
 
 app.controller('constructionCtrl', function ($scope, $rootScope) {
@@ -356,7 +279,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_about.html", controller: "aboutCtrl"
     })
     .when("/General/Home", {
-        templateUrl: "portuguese_home.html", controller: "homeCtrl"
+        templateUrl: "portuguese_home.html"
     })
     .when("/Account", {
         templateUrl: "construction.html", controller: "aboutCtrl"
@@ -371,25 +294,25 @@ app.config(function ($routeProvider) {
         templateUrl: "SignOut/sign_out.html", controller: "signOutCtrl"
     })
     .when("/Lessons", {
-        templateUrl: "construction.html", controller: "toBeCtrl"
+        templateUrl: "construction.html"
     })
     .when("/Lessons/ToBeVerb", {
-        templateUrl: "portuguese_tobe.html", controller: "toBeCtrl"
+        templateUrl: "portuguese_tobe.html"
     })
     .when("/Lessons/SimplePresent", {
-        templateUrl: "portuguese_present.html", controller: "presentContinuousCtrl"
+        templateUrl: "portuguese_present.html"
     })
     .when("/Lessons/PresentContinuous", {
-        templateUrl: "portuguese_presentContinuous.html", controller: "presentContinuousCtrl" //presentContinuousCtrl
+        templateUrl: "portuguese_presentContinuous.html"
     })    
     .when("/Lessons/SimplePast", {
-        templateUrl: "portuguese_past.html", controller: "simplePastCtrl"
+        templateUrl: "portuguese_past.html"
     })
     .when("/Lessons/PastContinuous", {
-        templateUrl: "portuguese_pastContinuous.html", controller: "pastContinuousCtrl"
+        templateUrl: "portuguese_pastContinuous.html"
     })
     .when("/Lessons/SimpleFuture", {
-        templateUrl: "portuguese_future.html", controller: "simpleFutureCtrl"
+        templateUrl: "portuguese_future.html"
     })
     .when("/Lessons/TensesComparison", {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
@@ -410,11 +333,9 @@ app.config(function ($routeProvider) {
         templateUrl: "Tests/tests.html", controller: "testsCtrl"
     })
     .otherwise({
-        templateUrl: "notfound.html", controller: "homeCtrl"
+        templateUrl: "notfound.html"
     });
 });
-
-
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService, VocabularyService) {
 

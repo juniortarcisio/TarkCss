@@ -1,122 +1,52 @@
-﻿<!--<section class="container-short">
-    <h1>Simple present</h1>
-    <section class="card col l12 slide-down animate-duration-x1" ng-hide="hideObjective">
-        <div class="card-container">
-            <h2><i class="fa fa-bullseye"></i> Objective</h2>
-            Explain and give some examples of <b>Simple Presente Tense</b>, using <b>regular verbs</b>
-            <h2 class="cursor-pointer" style="position:absolute;top:0px;right:20px" ng-click="hideObjective=true"><i class="fa fa-times"></i></h2>
-        </div>
-    </section>
-    <section class="card col l12 slide-down animate-duration-x2" ng-hide="hideUseCases">
-        <div class="card-container">
-            <h2><i class="fa fa-comments"></i> Use Cases</h2>
-            <ul class="spaced-line-2x">
-                <li>The action is a <b>fact</b></li>
-                <li>The action is a <b>routine</b> (everyday or eventually)</li>
-            </ul>
-            <h2 class="cursor-pointer" style="position:absolute;top:0px;right:20px" ng-click="hideUseCases=true"><i class="fa fa-times"></i></h2>
-        </div>
-    </section>-->
-    <!--<div class="card col l12 m12 s12 slide-down animate-duration-x3">
-        <div class="card-container">--> 
-            <div class="col l6">
-                <h2><i class="fa fa-table"></i> Grammar table</h2>
-            </div>
-            <div class="col l6" ng-hide="hideTenses">
-                <select ng-model="selectedTense" ng-options="verbalTense.name for verbalTense in verbalTenses" ng-change="loadProcessedVerbs(selectedVerb,false)">
-                </select>
-            </div>
-            <br class="clear" />
-            <div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
-                <span>{{selectedVerb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{selectedVerb[$root.langLearn.id]}} <i class="fa fa-chevron-down"></i></span>                
-                <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}">
-                    <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true)">{{verb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[$root.langLearn.id]}}</li>
-                </ul>
-            </div>
-            <div class="col l3 m6">
-                <input type="checkbox" id="negative" ng-model="negative" ng-change="loadProcessedVerbs(selectedVerb,false)" />
-                <label for="negative">
-                    <span class="ball"></span>
-                    <span class="text">Negative</span>
-                </label>
-            </div>
-            <div class="col l3 m6">
-                <input type="checkbox" id="interrogative" ng-model="interrogative" ng-change="loadProcessedVerbs(selectedVerb,false)" /> 
-                <label for="interrogative">
-                    <span class="ball"></span>
-                    <span class="text">Interrogative</span>
-                </label>
-            </div>
-            <br class="clear" />
-            <table class="margin-top-2em">
-                <tbody>
-                    <tr>
-                        <th>{{$root.langFrom.name}}</th>
-                        <th width="50%">{{$root.langLearn.name}}</th>
-                        <th width="5px"></th>
-                    </tr>
-                    <tr ng-repeat="verb in engineVerbs">
-                        <td>
-                            <span class="cursor-pointer" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}} </span>
-                            <span ng-repeat="tag in verb.tags">
-                                <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
-                            </span>
-                        </td>
-                        <td>{{verb.subjectTo}}
-                            {{verb.verbTo.prefix.toLowerCase()}}<span ng-show="verb.verbTo.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.verbTo.sufix}}</span> {{verb.verbTo.after}}
-                        </td>
-                        <td ng-click="$root.Speak(verb.subjectTo + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, $root.langLearn.id)">
-                            <i class="fa fa-play"></i>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        <!--</div>
-    </div>-->
-    <!--<div class="card col l12 m12 s12 slide-down animate-duration-x4">
-        <div class="card-container">
-            <h2><i class="fa fa-eye"></i> Examples</h2>
-            <table>
-                <tr>
-                    <th>Statement</th>
-                    <th width="50%">Reason</th>
-                    <th width="10px"></th>
-                </tr>
-                <tr>
-                    <td>Eu ando todos os dias</td>
-                    <td>Everyday: Routine</td>
-                    <td ng-click="$root.Speak('Eu ando todos os dias', 1)"><i class="fa fa-play"></i></td>
-                </tr>
-                <tr>
-                    <td>Ele bebe muita água</td>
-                    <td>Fact</td>
-                    <td ng-click="$root.Speak('Ele bebe muita água', 1)"><i class="fa fa-play"></i></td>
-                </tr>
-                <tr>
-                    <td>Vocês jogam futebol bem</td>
-                    <td>Fact</td>
-                    <td ng-click="$root.Speak('Vocês jogam futebol bem', 1)"><i class="fa fa-play"></i></td>
-                </tr>
-                <tr>
-                    <td>Nós gostamos de feijão</td>
-                    <td>Fact</td>
-                    <td ng-click="$root.Speak('Nós gostamos de feijão', 1)"><i class="fa fa-play"></i></td>
-                </tr>
-                <tr>
-                    <td>Nós somos altos</td>
-                    <td>Attribute: permanent</td>
-                    <td ng-click="$root.Speak('Nós somos altos', 1)"><i class="fa fa-play"></i></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <section class="card col l12 slide-down animate-duration-x2">
-        <div class="card-container">
-            <h2><i class="fa fa-user-secret"></i> Secret tips</h2>
-            <ul class="spaced-line-2x">
-                <li>Portuguese questions only will change the accent of the whole phrase, but won't change any word.</li>
-                <li>...</li>
-            </ul>
-        </div>
-    </section>
-</section>-->
+﻿<div class="col l6">
+    <h2><i class="fa fa-table"></i> Grammar table</h2>
+</div>
+<div class="col l6" ng-hide="hideTenses">
+    <select ng-model="selectedTense" ng-options="verbalTense.name for verbalTense in verbalTenses" ng-change="loadProcessedVerbs(selectedVerb,false)">
+    </select>
+</div>
+<br class="clear" />
+<div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
+    <span>{{selectedVerb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{selectedVerb[$root.langLearn.id]}} <i class="fa fa-chevron-down"></i></span>                
+    <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}">
+        <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true)">{{verb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[$root.langLearn.id]}}</li>
+    </ul>
+</div>
+<div class="col l3 m6">
+    <input type="checkbox" id="negative" ng-model="negative" ng-change="loadProcessedVerbs(selectedVerb,false)" />
+    <label for="negative">
+        <span class="ball"></span>
+        <span class="text">Negative</span>
+    </label>
+</div>
+<div class="col l3 m6">
+    <input type="checkbox" id="interrogative" ng-model="interrogative" ng-change="loadProcessedVerbs(selectedVerb,false)" /> 
+    <label for="interrogative">
+        <span class="ball"></span>
+        <span class="text">Interrogative</span>
+    </label>
+</div>
+<br class="clear" />
+<table class="margin-top-2em">
+    <tbody>
+        <tr>
+            <th>{{$root.langFrom.name}}</th>
+            <th width="50%">{{$root.langLearn.name}}</th>
+            <th width="5px"></th>
+        </tr>
+        <tr ng-repeat="verb in engineVerbs">
+            <td>
+                <span class="cursor-pointer" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}} </span>
+                <span ng-repeat="tag in verb.tags">
+                    <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
+                </span>
+            </td>
+            <td>{{verb.subjectTo}}
+                {{verb.verbTo.prefix.toLowerCase()}}<span ng-show="verb.verbTo.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.verbTo.sufix}}</span> {{verb.verbTo.after}}
+            </td>
+            <td ng-click="$root.Speak(verb.subjectTo + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, $root.langLearn.id)">
+                <i class="fa fa-play"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>
