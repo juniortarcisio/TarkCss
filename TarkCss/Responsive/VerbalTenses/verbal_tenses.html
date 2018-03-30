@@ -1,4 +1,4 @@
-﻿<section class="container-short">
+﻿<!--<section class="container-short">
     <h1>Simple present</h1>
     <section class="card col l12 slide-down animate-duration-x1" ng-hide="hideObjective">
         <div class="card-container">
@@ -16,21 +16,21 @@
             </ul>
             <h2 class="cursor-pointer" style="position:absolute;top:0px;right:20px" ng-click="hideUseCases=true"><i class="fa fa-times"></i></h2>
         </div>
-    </section>
-    <div class="card col l12 m12 s12 slide-down animate-duration-x3">
-        <div class="card-container">
+    </section>-->
+    <!--<div class="card col l12 m12 s12 slide-down animate-duration-x3">
+        <div class="card-container">--> 
             <div class="col l6">
                 <h2><i class="fa fa-table"></i> Grammar table</h2>
             </div>
-            <div class="col l6">
+            <div class="col l6" ng-hide="hideTenses">
                 <select ng-model="selectedTense" ng-options="verbalTense.name for verbalTense in verbalTenses" ng-change="loadProcessedVerbs(selectedVerb,false)">
                 </select>
             </div>
             <br class="clear" />
             <div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
-                <span>{{selectedVerb[langFrom.id]}} <i class="fa fa-arrow-right"></i> {{selectedVerb[langLearn.id]}} <i class="fa fa-chevron-down"></i></span>                
+                <span>{{selectedVerb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{selectedVerb[$root.langLearn.id]}} <i class="fa fa-chevron-down"></i></span>                
                 <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}">
-                    <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true)">{{verb[langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[langLearn.id]}}</li>
+                    <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true)">{{verb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[$root.langLearn.id]}}</li>
                 </ul>
             </div>
             <div class="col l3 m6">
@@ -51,13 +51,13 @@
             <table class="margin-top-2em">
                 <tbody>
                     <tr>
-                        <th>{{langFrom.name}}</th>
-                        <th width="50%">{{langLearn.name}}</th>
+                        <th>{{$root.langFrom.name}}</th>
+                        <th width="50%">{{$root.langLearn.name}}</th>
                         <th width="5px"></th>
                     </tr>
                     <tr ng-repeat="verb in engineVerbs">
                         <td>
-                            <span class="cursor-pointer" ng-click="Speak(verb.subjectFrom, langFrom.id)">{{verb.subjectFrom}} </span>
+                            <span class="cursor-pointer" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}} </span>
                             <span ng-repeat="tag in verb.tags">
                                 <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
                             </span>
@@ -65,15 +65,15 @@
                         <td>{{verb.subjectTo}}
                             {{verb.verbTo.prefix.toLowerCase()}}<span ng-show="verb.verbTo.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.verbTo.sufix}}</span> {{verb.verbTo.after}}
                         </td>
-                        <td ng-click="Speak(verb.subjectTo + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, langLearn.id)">
+                        <td ng-click="$root.Speak(verb.subjectTo + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, $root.langLearn.id)">
                             <i class="fa fa-play"></i>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="card col l12 m12 s12 slide-down animate-duration-x4">
+        <!--</div>
+    </div>-->
+    <!--<div class="card col l12 m12 s12 slide-down animate-duration-x4">
         <div class="card-container">
             <h2><i class="fa fa-eye"></i> Examples</h2>
             <table>
@@ -85,27 +85,27 @@
                 <tr>
                     <td>Eu ando todos os dias</td>
                     <td>Everyday: Routine</td>
-                    <td ng-click="Speak('Eu ando todos os dias', 1)"><i class="fa fa-play"></i></td>
+                    <td ng-click="$root.Speak('Eu ando todos os dias', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Ele bebe muita água</td>
                     <td>Fact</td>
-                    <td ng-click="Speak('Ele bebe muita água', 1)"><i class="fa fa-play"></i></td>
+                    <td ng-click="$root.Speak('Ele bebe muita água', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Vocês jogam futebol bem</td>
                     <td>Fact</td>
-                    <td ng-click="Speak('Vocês jogam futebol bem', 1)"><i class="fa fa-play"></i></td>
+                    <td ng-click="$root.Speak('Vocês jogam futebol bem', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Nós gostamos de feijão</td>
                     <td>Fact</td>
-                    <td ng-click="Speak('Nós gostamos de feijão', 1)"><i class="fa fa-play"></i></td>
+                    <td ng-click="$root.Speak('Nós gostamos de feijão', 1)"><i class="fa fa-play"></i></td>
                 </tr>
                 <tr>
                     <td>Nós somos altos</td>
                     <td>Attribute: permanent</td>
-                    <td ng-click="Speak('Nós somos altos', 1)"><i class="fa fa-play"></i></td>
+                    <td ng-click="$root.Speak('Nós somos altos', 1)"><i class="fa fa-play"></i></td>
                 </tr>
             </table>
         </div>
@@ -119,4 +119,4 @@
             </ul>
         </div>
     </section>
-</section>
+</section>-->

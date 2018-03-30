@@ -28,6 +28,13 @@
     $scope.selectedVerb = $scope.verbs[0];
     $scope.selectedTense = $scope.verbalTenses[0];
 
+    this.$onInit = function () {
+        if (typeof $scope.$ctrl.tense != "undefined")
+            $scope.selectedTense = $scope.verbalTenses[$scope.$ctrl.tense];
+
+        $scope.hideTenses = true;
+    }
+
     $scope.loadProcessedVerbs = function (verb, speak) {
         var gp_tp = new GrammarProcessor();
         $scope.selectedVerb = verb;
@@ -53,8 +60,17 @@
         $scope.loadProcessedVerbs($scope.selectedVerb, false);
     }
 
-    $scope.$watch('langFrom', $scope.reload);
-    $scope.$watch('langLearn', $scope.reload);
+    $scope.$watch('$root.langFrom', $scope.reload);
+    $scope.$watch('$root.langLearn', $scope.reload);
     
     $scope.loadProcessedVerbs($scope.verbs[0], false);
+});
+
+app.component('verbalTenses', {
+    bindings: {
+        tense: '<'
+    },
+    scope: true,
+    templateUrl: 'VerbalTenses/verbal_tenses.html',
+    controller: 'verbalTensesCtrl'
 });

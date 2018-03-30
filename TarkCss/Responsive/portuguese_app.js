@@ -61,14 +61,6 @@ app.filter('RemoveLastChar', function () {
 });
 
 app.controller('presentContinuousCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Present Continuous";
-    $scope.verbs = basicList;
-
-    $scope.selectedVerb = $scope.verbs[0];
-
-    $scope.format = function (verb) {
-        return verb.English + ' -> ' + verb.Portuguese;
-    };
 });
 
 app.controller('simplePastCtrl', function ($scope, $rootScope) {
@@ -385,10 +377,10 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_tobe.html", controller: "toBeCtrl"
     })
     .when("/Lessons/SimplePresent", {
-        templateUrl: "VerbalTenses/verbal_tenses.html", controller: "verbalTensesCtrl"
+        templateUrl: "portuguese_present.html", controller: "presentContinuousCtrl"
     })
     .when("/Lessons/PresentContinuous", {
-        templateUrl: "portuguese_presentContinuous.html", controller: "presentContinuousCtrl"
+        templateUrl: "portuguese_presentContinuous.html", controller: "presentContinuousCtrl" //presentContinuousCtrl
     })    
     .when("/Lessons/SimplePast", {
         templateUrl: "portuguese_past.html", controller: "simplePastCtrl"

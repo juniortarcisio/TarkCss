@@ -101,6 +101,7 @@
     <Content Include="Responsive\account.html" />
     <Content Include="Responsive\construction.html" />
     <Content Include="Responsive\Flashcards\flashcards.html" />
+    <Content Include="Responsive\portuguese_present.html" />
     <Content Include="Responsive\VerbalTenses\verbal_tenses.js" />
     <Content Include="Responsive\index.html" />
     <Content Include="packages.config" />
