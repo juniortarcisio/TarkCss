@@ -37,6 +37,10 @@
                 </label>
             </div>
             <br class="clear" />
+            <div class="col s12 margin-top-2em">
+                <b style="color:#129880">Pronoun: {{selectedPronoun.name[$root.langLearn.id]}}</b>
+                <span ng-repeat="tag in selectedPronoun.tags" ng-class="{'textmark':true,'{{tag}}':true}">{{tag}}</span>
+            </div>
             <table class="table-tenses margin-top-2em">
                 <tbody>
                     <tr>

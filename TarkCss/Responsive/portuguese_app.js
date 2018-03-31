@@ -67,6 +67,7 @@ app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
         $scope.pronouns[i] = new Object();
         $scope.pronouns[i].id = i;
         $scope.pronouns[i].name = _baseModelLanguages[i];
+        $scope.pronouns[i].tags = _baseTags[i];
     }
 
     $scope.negative = false;
@@ -92,7 +93,15 @@ app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
     };
 
     $scope.formatPronoun = function (pronoun) {
-        return pronoun.name[$rootScope.langFrom.id] + ' -> ' + pronoun.name[$rootScope.langLearn.id];
+        var tagsDescription = "";
+        for (var i = 0; i < pronoun.tags.length; i++) {
+            if (i > 0)
+                tagsDescription += ", ";
+
+            tagsDescription += pronoun.tags[i];
+        }
+
+        return pronoun.name[$rootScope.langFrom.id] + ' -> ' + pronoun.name[$rootScope.langLearn.id] + ' (' + tagsDescription + ')';
     }
 
     $scope.reload = function () {
