@@ -697,25 +697,26 @@ input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
 .textmark {
     font-weight:bold;
     background-color:#f7f78a;
-    border-radius:4px;
-    padding-left:3px;
-    padding-right:3px;
-    box-shadow: 1px 1px 2px #cccc4e;
+    border-radius:3px;
+    padding-left:2px;
+    padding-right:2px;
+    box-shadow: 1px 1px 1px #cccc4e;
+    color:#000;
 }
 
-.textmark.aqua, .textmark.myself { background-color:#b8f5f5; box-shadow: 1px 1px 2px #79d0d0; }
-.textmark.green, .textmark.singular { background-color:#bbffa9; box-shadow: 1px 1px 2px #82d870; }
-.textmark.red, .textmark.ourselves { background-color: #ff8080; box-shadow: 1px 1px 2px #d86868; }
+.textmark.aqua, .textmark.myself { background-color:#b8f5f5; box-shadow: 1px 1px 1px #79d0d0; }
+.textmark.green, .textmark.singular { background-color:#bbffa9; box-shadow: 1px 1px 1px #82d870; }
+.textmark.red, .textmark.ourselves { background-color: #ff8080; box-shadow: 1px 1px 1px #d86868; }
 .text-red { color:red; }
 .text-green { color:green; }
 .text-justify { text-align:justify; }
 .textmark.linethrough { text-decoration: line-through; }
-.textmark.purple { background-color:#ca95fd; box-shadow: 1px 1px 2px #8a49ca; }
-.textmark.black, .textmark.far { color:white; background-color: #6d6c6c; box-shadow: 1px 1px 2px #191818; }
-.textmark.white, .textmark.near { background-color:#fff; box-shadow: 1px 1px 2px #bbb; }
-.textmark.pink, .textmark.female { color:white; background-color:#cb59d4; box-shadow: 1px 1px 2px #632b67; }
-.textmark.blue, .textmark.male { color:white; background-color:#5b70ce; box-shadow: 1px 1px 2px #4a5994; }
-.textmark.gray { color:white; background-color:gray; box-shadow: 1px 1px 2px #333; }
+.textmark.purple { background-color:#ca95fd; box-shadow: 1px 1px 1px #8a49ca; }
+.textmark.black, .textmark.far { color:white; background-color: #6d6c6c; box-shadow: 1px 1px 1px #191818; }
+.textmark.white, .textmark.near { background-color:#fff; box-shadow: 1px 1px 1px #bbb; }
+.textmark.pink, .textmark.female { color:white; background-color:#cb59d4; box-shadow: 1px 1px 1px #632b67; }
+.textmark.blue, .textmark.male { color:white; background-color:#5b70ce; box-shadow: 1px 1px 1px #4a5994; }
+.textmark.gray { color:white; background-color:gray; box-shadow: 1px 1px 1px #333; }
 
 
 .tab-1x { padding-left:15px; }
