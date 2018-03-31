@@ -229,6 +229,8 @@ app.controller('aboutCtrl', function ($scope, $rootScope, SpeechService) {
         SpeechService.Speak('They are pretty cute ham?');
         $scope.easterEggExecuted = true;
     }
+    var audiost = document.getElementById('audiost');
+    audiost.volume = 0.3;
 });
 
 app.controller('constructionCtrl', function ($scope, $rootScope) {
@@ -276,7 +278,7 @@ app.config(function ($routeProvider) {
         templateUrl: "construction.html"
     })
     .when("/General/About", {
-        templateUrl: "portuguese_about.html"
+        templateUrl: "portuguese_about.html", controller: "aboutCtrl"
     })
     .when("/General/Home", {
         templateUrl: "portuguese_home.html"
@@ -338,7 +340,8 @@ app.config(function ($routeProvider) {
 });
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService, VocabularyService) {
-    new Audio('../Media/start.mp3').play();
+    if ($location.path() == '' || $location.path().indexOf('Home') > 0)
+        new Audio('../Media/start.mp3').play();
 
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();

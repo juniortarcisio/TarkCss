@@ -34,7 +34,8 @@
             name: ['Community', 'Comunidade', 'Masyarakat'], closed: false, items: [
                 { name: ['Forum', 'Fórum', 'Forum'], href: '#!Construction', icon: 'fa-wpforms' },
                 { name: ['Chat', 'Bate-papo', 'Obrolan'], href: '#!Construction', icon: 'fa-comments' },
-                { name: ['People', 'Pessoas', 'Orang-orang'], href: '#!Construction', icon: 'fa-users' }
+                { name: ['People', 'Pessoas', 'Orang-orang'], href: '#!Construction', icon: 'fa-users' },
+                { name: ['Smart profiles', 'Smart profiles', 'Smart profiles'], href: '#!Construction', icon: 'fa-users' }
             ]
         },
         {

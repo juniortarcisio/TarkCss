@@ -9,7 +9,7 @@
 <div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
     <span>{{selectedVerb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{selectedVerb[$root.langLearn.id]}} <i class="fa fa-chevron-down"></i></span>                
     <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}">
-        <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true)">{{verb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[$root.langLearn.id]}}</li>
+        <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true, true)">{{verb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[$root.langLearn.id]}}</li>
     </ul>
 </div>
 <div class="col l3 m6">
