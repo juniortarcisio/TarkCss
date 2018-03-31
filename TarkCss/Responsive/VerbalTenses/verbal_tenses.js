@@ -35,7 +35,14 @@
         }
     }
 
-    $scope.loadProcessedVerbs = function (verb, speak) {
+    $scope.loadProcessedVerbs = function (verb, speak, effect) {
+        
+        if (effect) {
+            var audio = new Audio('../Media/blop.mp3');
+            audio.play();
+        }
+        
+
         var gp_tp = new GrammarProcessor();
         $scope.selectedVerb = verb;
         $scope.engineVerbs = gp_tp.getSimplePresent($rootScope.langFrom.id, $rootScope.langLearn.id, verb[$rootScope.langLearn.id], $scope.negative, $scope.interrogative, $scope.selectedTense.id);

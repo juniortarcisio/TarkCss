@@ -338,6 +338,7 @@ app.config(function ($routeProvider) {
 });
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService, VocabularyService) {
+    new Audio('../Media/start.mp3').play();
 
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();

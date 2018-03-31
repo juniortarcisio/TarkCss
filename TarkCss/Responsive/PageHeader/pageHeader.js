@@ -2,10 +2,16 @@ app.controller('pageHeaderCtrl', function ($scope, $rootScope) {
     $scope.selectLanguageFrom = function (language) {
         $rootScope.langFrom = language;
         localStorage.langFrom = $rootScope.langFrom.id;
+
+        var audio = new Audio('../Media/blop.mp3');
+        audio.play();
     }
     $scope.selectLanguageLearn = function (language) {
         $rootScope.langLearn = language;
         localStorage.langLearn = $rootScope.langLearn.id;
+
+        var audio = new Audio('../Media/blop.mp3');
+        audio.play();
     }
 
     $scope.invertLanguages = function () {
@@ -15,6 +21,9 @@ app.controller('pageHeaderCtrl', function ($scope, $rootScope) {
 
         localStorage.langFrom = $rootScope.langFrom.id;
         localStorage.langLearn = $rootScope.langLearn.id;
+
+        var audio = new Audio('../Media/blop.mp3');
+        audio.play();
     }
 });
 
