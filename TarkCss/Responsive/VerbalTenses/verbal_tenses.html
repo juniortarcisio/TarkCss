@@ -1,4 +1,4 @@
-﻿<style type="text/css"> .table-tenses td { padding: 8px } </style>
+﻿<style type="text/css"> .table-tenses td { padding: 8px; color:#000 } </style>
 <div class="col l6">
     <h2><i class="fa fa-table"></i> Grammar table</h2>
 </div>
@@ -7,7 +7,7 @@
     </select>
 </div>
 <br class="clear" />
-<div class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
+<div ng-hide="selectedTense.id == 0" class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
     <span>{{selectedVerb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{selectedVerb[$root.langLearn.id]}} <i class="fa fa-chevron-down"></i></span>                
     <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}">
         <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true, true)">{{verb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[$root.langLearn.id]}}</li>

@@ -702,6 +702,7 @@ input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
     padding-right:2px;
     box-shadow: 1px 1px 1px #cccc4e;
     color:#000;
+    margin-left: 1px;
 }
 
 .textmark.aqua, .textmark.myself { background-color:#b8f5f5; box-shadow: 1px 1px 1px #79d0d0; }
@@ -712,11 +713,11 @@ input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
 .text-justify { text-align:justify; }
 .textmark.linethrough { text-decoration: line-through; }
 .textmark.purple { background-color:#ca95fd; box-shadow: 1px 1px 1px #8a49ca; }
-.textmark.black, .textmark.far { color:white; background-color: #6d6c6c; box-shadow: 1px 1px 1px #191818; }
+.textmark.black, .textmark.far { color:white; background-color: #444; box-shadow: 1px 1px 1px #191818; }
 .textmark.white, .textmark.near { background-color:#fff; box-shadow: 1px 1px 1px #bbb; }
 .textmark.pink, .textmark.female { color:white; background-color:#cb59d4; box-shadow: 1px 1px 1px #632b67; }
 .textmark.blue, .textmark.male { color:white; background-color:#5b70ce; box-shadow: 1px 1px 1px #4a5994; }
-.textmark.gray { color:white; background-color:gray; box-shadow: 1px 1px 1px #333; }
+.textmark.gray { color:white; background-color:#444; box-shadow: 1px 1px 1px #333; }
 
 
 .tab-1x { padding-left:15px; }

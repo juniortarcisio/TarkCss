@@ -1,5 +1,6 @@
 ﻿app.controller('verbalTensesCtrl', function ($scope, $rootScope, SpeechService) {
     $scope.verbalTenses = [
+        { id: 0, name: 'To Be' },
         { id: 1, name: 'Simple Present' },
         { id: 2, name: 'Present Continuous' },
         { id: 3, name: 'Simple Past' },
@@ -41,11 +42,10 @@
             var audio = new Audio('../Media/blop.mp3');
             audio.play();
         }
-        
 
         var gp_tp = new GrammarProcessor();
         $scope.selectedVerb = verb;
-        $scope.engineVerbs = gp_tp.getSimplePresent($rootScope.langFrom.id, $rootScope.langLearn.id, verb[$rootScope.langLearn.id], $scope.negative, $scope.interrogative, $scope.selectedTense.id);
+        $scope.engineVerbs = gp_tp.getVerbalTense($rootScope.langFrom.id, $rootScope.langLearn.id, verb[$rootScope.langLearn.id], $scope.negative, $scope.interrogative, $scope.selectedTense.id);
 
         if (speak) {
             $rootScope.Speak(verb[$rootScope.langFrom.id], $rootScope.langFrom.id);

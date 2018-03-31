@@ -3,7 +3,7 @@
     <section class="card col l12 slide-down animate-duration-x1" ng-hide="hideObjective">
         <div class="card-container">
             <h2><i class="fa fa-bullseye"></i> Objective</h2>
-            Explain and give some examples of <b>Simple Future Tense</b>, for any verb
+            Explain and give some examples of <b>Simple Future Tense</b>
             <h2 class="cursor-pointer" style="position:absolute;top:0px;right:20px" ng-click="hideObjective=true"><i class="fa fa-times"></i></h2>
         </div>
     </section>
@@ -11,15 +11,15 @@
         <div class="card-container">
             <h2><i class="fa fa-comments"></i> Use Cases</h2>
             <ul class="spaced-line-2x">
-                <li>The action <b>will happens</b></li>
-                <li>The action is a <b>certain or uncertain</b> future</li>
-                <li>The action is a <b>near or far</b> future</li>
-                <li>Usually is complemented by a time description like now, in one hour, at 6pm, tomorrow, next week, next month, etc...</li>
+                <li>The action <b>will happens</b> in a future</li>
+                <!--<li>The action is a <b>certain or uncertain</b> future</li>-->
+                <!--<li>The action is a <b>near or far</b> future</li>-->
+                <li>Frequently complemented by a time description: now, in one hour, at 6pm, tomorrow, next week...</li>
             </ul>
             <h2 class="cursor-pointer" style="position:absolute;top:0px;right:20px" ng-click="hideUseCases=true"><i class="fa fa-times"></i></h2>
         </div>
     </section>
-    <br class="clear" />
+    <!--<br class="clear" />
     <section class="card col l12 slide-down animate-duration-x3">
         <div class="card-container">
             <p>The auxiliar verb "Ir" can be used in <b>two forms</b>:</p>
@@ -36,170 +36,13 @@
             <p class="bold margin-top-2em">*The most of people ignore these rules above and just use "vou, vai vão, vamos" always, so I personally recommend beginner foreigners to just learn basics of "irei, irá, irão, iremos" and do not worry about using it at beginning, you will be well understood, then at a higher language level you can investigate Portuguese 1001 details that even natives don't understand well...</p>
         </div>
     </section>
-    <br class="clear" />
+    <br class="clear" />-->
     <div class="card col l12 m12 s12 slide-down animate-duration-x3">
         <div class="card-container">
             <verbal-tenses tense="4"></verbal-tenses>
         </div>
     </div>
-    <!--<div class="col l6 m12 s12 slide-down animate-duration-x4">
-        <div class="card">
-            <div class="card-container">
-                <h2><i class="fa fa-table"></i> Grammar table</h2>
-                <select ng-model="selectedVerb" ng-options="format(x) for x in verbs"></select>
-                <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
-                <p>Using the auxiliar verb ir on present "vou" (the most common) <br />It's equivalent to "going to", explain a sure or close future</p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>English</th>
-                            <th>Noun</th>
-                            <th>Verb</th>
-                        </tr>
-                        <tr>
-                            <td>I <span class="textmark aqua autoresize">Myself</span></td>
-                            <td>Eu <span class="textmark aqua">vou</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>You <span class="textmark green autoresize">Singular</span></td>
-                            <td>Você <span class="textmark green autoresize">vai</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>He <span class="textmark green autoresize">Singular</span></td>
-                            <td>Ele <span class="textmark green autoresize">vai</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>She <span class="textmark green autoresize">Singular</span></td>
-                            <td>Ela <span class="textmark green autoresize">vai</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
-                            <td>Isto <span class="textmark green autoresize">vai</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
-                            <td>Aquilo <span class="textmark green autoresize">vai</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>You <span class="textmark yellow autoresize">Plural</span></td>
-                            <td>Vocês <span class="textmark yellow autoresize">vão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>They/He <span class="textmark yellow autoresize">Plural</span><span class="textmark blue autoresize">Male</span></td>
-                            <td>Eles <span class="textmark yellow autoresize">vão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
-                            <td>Elas <span class="textmark yellow autoresize">vão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
-                            <td>Estes <span class="textmark yellow autoresize">vão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
-                            <td>Aqueles <span class="textmark yellow autoresize">vão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        <tr>
-                            <td>We <span class="textmark red autoresize">Ourselves</span></td>
-                            <td>Nós <span class="textmark red">vamos</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col l6 m12 s12 slide-down animate-duration-x4">
-        <div class="card card-to-be">
-            <div class="card-container">
-                <h2><i class="fa fa-table"></i> Grammar table</h2>
-                <br />
-                <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
-                <p>Using the auxiliar verb ir on future "irei" (not as common as "vou")<br />It's equivalent to "Will", explains a far or incertain future</p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>English</th>
-                            <th>Noun</th>
-                            <th>Verb</th>
-                        </tr>
-                        <tr>
-                            <td>I <span class="textmark aqua autoresize">Myself</span></td>
-                            <td>Eu <span class="textmark aqua">irei</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>You <span class="textmark green autoresize">Singular</span></td>
-                            <td>Você <span class="textmark green autoresize">irá</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>He <span class="textmark green autoresize">Singular</span></td>
-                            <td>Ele <span class="textmark green autoresize">irá</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>She <span class="textmark green autoresize">Singular</span></td>
-                            <td>Ela <span class="textmark green autoresize">irá</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/This <span class="textmark green autoresize">Singular</span> <span class="textmark white autoresize">Near</span></td>
-                            <td>Isto <span class="textmark green autoresize">irá</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/That <span class="textmark green autoresize">Singular</span> <span class="textmark black autoresize">Far</span></td>
-                            <td>Aquilo <span class="textmark green autoresize">irá</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>You <span class="textmark yellow autoresize">Plural</span></td>
-                            <td>Vocês <span class="textmark yellow autoresize">irão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>They/He <span class="textmark yellow autoresize">Plural</span><span class="textmark blue autoresize">Male</span></td>
-                            <td>Eles <span class="textmark yellow autoresize">irão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>They/She <span class="textmark yellow autoresize">Plural</span> <span class="textmark pink autoresize">Female</span></td>
-                            <td>Elas <span class="textmark yellow autoresize">irão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/These <span class="textmark yellow autoresize">Plural</span> <span class="textmark white autoresize">Near</span></td>
-                            <td>Estes <span class="textmark yellow autoresize">irão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                        <tr>
-                            <td>It/Those <span class="textmark yellow autoresize">Plural</span> <span class="textmark black autoresize">Far</span></td>
-                            <td>Aqueles <span class="textmark yellow autoresize">irão</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        <tr>
-                            <td>We <span class="textmark red autoresize">Ourselves</span></td>
-                            <td>Nós <span class="textmark red">iremos</span></td>
-                            <td>{{selectedVerb.Portuguese}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>-->
-    <br class="clear" />
-    <div class="col l12 m12 s12">
+    <!--<div class="col l12 m12 s12">
         <div class="card card-to-be">
             <div class="card-container">
                 <h2><i class="fa fa-eye"></i> Examples</h2>
@@ -266,5 +109,5 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>-->
 </section>
