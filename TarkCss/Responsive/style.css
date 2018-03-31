@@ -700,24 +700,24 @@ input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
     border-radius:3px;
     padding-left:2px;
     padding-right:2px;
-    box-shadow: 1px 1px 1px #cccc4e;
+    border: 1px solid #cc4;
     color:#000;
     margin-left: 1px;
 }
 
-.textmark.aqua, .textmark.myself { background-color:#b8f5f5; box-shadow: 1px 1px 1px #79d0d0; }
-.textmark.green, .textmark.singular { background-color:#bbffa9; box-shadow: 1px 1px 1px #82d870; }
-.textmark.red, .textmark.ourselves { background-color: #ff8080; box-shadow: 1px 1px 1px #d86868; }
+.textmark.aqua, .textmark.myself { background-color:#b8f5f5; border: 1px solid #6cc }
+.textmark.green, .textmark.singular { background-color:#bbffa9; border: 1px solid #7c8 }
+.textmark.red, .textmark.ourselves { background-color: #ff8080; border: 1px solid #c55; }
 .text-red { color:red; }
 .text-green { color:green; }
 .text-justify { text-align:justify; }
 .textmark.linethrough { text-decoration: line-through; }
-.textmark.purple { background-color:#ca95fd; box-shadow: 1px 1px 1px #8a49ca; }
-.textmark.black, .textmark.far { color:white; background-color: #444; box-shadow: 1px 1px 1px #191818; }
-.textmark.white, .textmark.near { background-color:#fff; box-shadow: 1px 1px 1px #bbb; }
-.textmark.pink, .textmark.female { color:white; background-color:#cb59d4; box-shadow: 1px 1px 1px #632b67; }
-.textmark.blue, .textmark.male { color:white; background-color:#5b70ce; box-shadow: 1px 1px 1px #4a5994; }
-.textmark.gray { color:white; background-color:#444; box-shadow: 1px 1px 1px #333; }
+.textmark.purple { background-color:#ca95fd;  border: 1px solid #8a49ca; }
+.textmark.black, .textmark.far { color:white; background-color: #444;  border: 1px solid #191818; }
+.textmark.white, .textmark.near { background-color:#fff; border: 1px solid #bbb;  }
+.textmark.pink, .textmark.female { color:white; background-color:#cb59d4; border: 1px solid #632b67; }
+.textmark.blue, .textmark.male { color:white; background-color:#5b70ce;  border: 1px solid #4a5994;   }
+.textmark.gray { color:white; background-color:#444; border: 1px solid #222; }
 
 
 .tab-1x { padding-left:15px; }
