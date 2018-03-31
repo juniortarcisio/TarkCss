@@ -58,11 +58,6 @@
         $scope.loadProcessedVerbs($scope.selectedVerb, false);
     }
 
-    $scope.format = function (verb) {
-        return verb[$rootScope.langFrom.id] + ' -> ' + verb[$rootScope.langLearn.id];
-    };
-
-    
     $scope.reload = function () {
         $scope.loadProcessedVerbs($scope.selectedVerb, false);
     }

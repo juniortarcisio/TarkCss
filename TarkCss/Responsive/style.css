@@ -705,18 +705,18 @@ input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
     margin-left: 1px;
 }
 
-.textmark.aqua, .textmark.myself { background-color:#b8f5f5; border: 1px solid #6cc }
-.textmark.green, .textmark.singular { background-color:#bbffa9; border: 1px solid #7c8 }
-.textmark.red, .textmark.ourselves { background-color: #ff8080; border: 1px solid #c55; }
+.textmark.aqua, .textmark.myself { background-color:#b8f5f5; border: 1px solid #5feaea }
+.textmark.green, .textmark.singular { background-color:#bbffa9; border: 1px solid #4eea6d }
+.textmark.red, .textmark.ourselves { background-color: #ff8080; border: 1px solid #e26060 }
 .text-red { color:red; }
 .text-green { color:green; }
 .text-justify { text-align:justify; }
 .textmark.linethrough { text-decoration: line-through; }
-.textmark.purple { background-color:#ca95fd;  border: 1px solid #8a49ca; }
+.textmark.purple { background-color:#ca95fd;  border: 1px solid #aa75dd; }
 .textmark.black, .textmark.far { color:white; background-color: #444;  border: 1px solid #191818; }
-.textmark.white, .textmark.near { background-color:#fff; border: 1px solid #bbb;  }
-.textmark.pink, .textmark.female { color:white; background-color:#cb59d4; border: 1px solid #632b67; }
-.textmark.blue, .textmark.male { color:white; background-color:#5b70ce;  border: 1px solid #4a5994;   }
+.textmark.white, .textmark.near { background-color:#fff; border: 1px solid #ccc;  }
+.textmark.pink, .textmark.female { color:white; background-color:#cb59d4; border: 1px solid #a443ab }
+.textmark.blue, .textmark.male { color:white; background-color:#5b70ce;  border: 1px solid #576ab7 }
 .textmark.gray { color:white; background-color:#444; border: 1px solid #222; }
 
 

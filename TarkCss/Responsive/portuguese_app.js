@@ -46,23 +46,63 @@ app.filter('RemoveLastChar', function () {
 });
 
 app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
-    $rootScope.title = "Tenses Comparison";
     $scope.verbs = [
-        { Portuguese: "Andar", English: "To Walk" },
-        { Portuguese: "Comprar", English: "To Buy" },
-        { Portuguese: "Nadar", English: "To Swim" },
-        { Portuguese: "Cantar", English: "To Sing" },
-        { Portuguese: "Falar", English: "To Speak" },
-        { Portuguese: "Trabalhar", English: "To Work" },
-        { Portuguese: "Estudar", English: "To Study" },
-        { Portuguese: "Jogar", English: "To Play" }
+        ["To Walk", "Andar", "Berjalan"],
+        ["To Eat", "Comer", "Makan"],
+        ["To Drink", "Beber", "Minum"],
+        ["To Buy", "Comprar", "Membeli"],
+        ["To Swim", "Nadar", "Berenang"],
+        ["To Sing", "Cantar", "Bernyanyi"],
+        ["To Speak", "Falar", "Berbicara"],
+        ["To Understand", "Entender", "Mergenti"],
+        ["To Work", "Trabalhar", "Bekerja"],
+        ["To Study", "Estudar", "Belajar"],
+        ["To Learn", "Aprender", "Belajar"],
+        ["To Play", "Jogar", "Bermain"],
+        ["To Ask", "Pedir", "Minta"]
     ];
+    
+    $scope.pronouns = new Array();
+    for (var i = 0; i < _baseModelLanguages.length; i++) {
+        $scope.pronouns[i] = new Object();
+        $scope.pronouns[i].id = i;
+        $scope.pronouns[i].name = _baseModelLanguages[i];
+    }
 
+    $scope.negative = false;
+    $scope.interrogative = false;
     $scope.selectedVerb = $scope.verbs[0];
+    $scope.selectedPronoun = $scope.pronouns[0];
 
-    $scope.format = function (verb) {
-        return verb.English + ' -> ' + verb.Portuguese;
+    $scope.loadProcessedVerbs = function (verb, speak, effect) {
+
+        if (effect) {
+            var audio = new Audio('../Media/blop.mp3');
+            audio.play();
+        }
+
+        var gp_tp = new GrammarProcessor();
+        $scope.selectedVerb = verb;
+        $scope.engineVerbs = gp_tp.getAllVerbalTensesByPronoun($rootScope.langFrom.id, $rootScope.langLearn.id, verb[$rootScope.langLearn.id], $scope.negative, $scope.interrogative, $scope.selectedPronoun.id);
+
+        if (speak) {
+            $rootScope.Speak(verb[$rootScope.langFrom.id], $rootScope.langFrom.id);
+            $rootScope.Speak(verb[$rootScope.langLearn.id], $rootScope.langLearn.id);
+        }
     };
+
+    $scope.formatPronoun = function (pronoun) {
+        return pronoun.name[$rootScope.langFrom.id] + ' -> ' + pronoun.name[$rootScope.langLearn.id];
+    }
+
+    $scope.reload = function () {
+        $scope.loadProcessedVerbs($scope.selectedVerb, false);        
+    }
+
+    $scope.$watch('$root.langFrom', $scope.reload);
+    $scope.$watch('$root.langLearn', $scope.reload);
+
+    $scope.loadProcessedVerbs($scope.verbs[0], false);
 });
 
 function shuffle(array) {
@@ -340,8 +380,11 @@ app.config(function ($routeProvider) {
 });
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService, VocabularyService) {
-    if ($location.path() == '' || $location.path().indexOf('Home') > 0)
-        new Audio('../Media/start.mp3').play();
+    if ($location.path() == '' || $location.path().indexOf('Home') > 0) {
+        var audio = new Audio('../Media/start.mp3');
+        audio.volume = 0.3;
+        audio.play();
+    }
 
     ServerService.GetLastServer();
     AuthenticationService.TryLoadStorageSession();

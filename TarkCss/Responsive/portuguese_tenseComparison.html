@@ -1,15 +1,65 @@
 ﻿<section class="container-short">
     <h1>Tense comparison</h1>
-    <section class="card col l12 slide-down animate-duration-x1">
+    <section class="card col l12 slide-down animate-duration-x1" ng-hide="hideObjective">
         <div class="card-container">
-            Regular verbs are verbs which follow a same pattern when conjugating, following there are some examples comparing all of the taught tenses
+            <h2><i class="fa fa-bullseye"></i> Objective</h2>
+            Here you can look all of the tenses side by side grouped by pronouns
+            <h2 class="cursor-pointer" style="position:absolute;top:0px;right:20px" ng-click="hideObjective=true"><i class="fa fa-times"></i></h2>
         </div>
     </section>
     <div class="card col l12 m12 s12 slide-down animate-duration-x2">
         <div class="card-container">
-            <select ng-model="selectedVerb" ng-options="format(x) for x in verbs">
-            </select>
-            <h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
+            <div class="col l6">
+                <h2><i class="fa fa-table"></i> Grammar table</h2>
+            </div>
+            <div class="col l6">
+                <select ng-model="selectedPronoun" ng-options="formatPronoun(pronoun) for pronoun in pronouns" ng-change="loadProcessedVerbs(selectedVerb,false,true)"></select>
+            </div>
+            <br class="clear" />
+            <div ng-hide="selectedTense.id == 0" class="lst col l6 m12" ng-click="lstOpen = !lstOpen" click-anywhere-but-here="lstOpen = false" is-active="lstOpen">
+                <span>{{selectedVerb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{selectedVerb[$root.langLearn.id]}} <i class="fa fa-chevron-down"></i></span>
+                <ul class="scrollbar-lst" ng-class="{'closed':!lstOpen}">
+                    <li ng-repeat="verb in verbs" ng-click="loadProcessedVerbs(verb,true, true)">{{verb[$root.langFrom.id]}} <i class="fa fa-arrow-right"></i> {{verb[$root.langLearn.id]}}</li>
+                </ul>
+            </div>
+            <div class="col l3 m6">
+                <input type="checkbox" id="negative" ng-model="negative" ng-change="loadProcessedVerbs(selectedVerb,false, true)" />
+                <label for="negative">
+                    <span class="ball"></span>
+                    <span class="text">Negative</span>
+                </label>
+            </div>
+            <div class="col l3 m6">
+                <input type="checkbox" id="interrogative" ng-model="interrogative" ng-change="loadProcessedVerbs(selectedVerb,false, true)" />
+                <label for="interrogative">
+                    <span class="ball"></span>
+                    <span class="text">Interrogative</span>
+                </label>
+            </div>
+            <br class="clear" />
+            <table class="table-tenses margin-top-2em">
+                <tbody>
+                    <tr>
+                        <th>Verbal Tense</th>
+                        <th width="60%">{{$root.langLearn.name}}</th>
+                        <th width="5px"></th>
+                    </tr>
+                    <tr ng-repeat="verb in engineVerbs">
+                        <td>{{verb.tenseName}}</td>
+                        <td>
+                            <span ng-class="{'{{verb.tagSubjectToAuxBefore}}':true}">{{verb.subjectToAuxBefore}}</span>
+                            {{verb.subjectTo}}
+                            <span ng-class="{'{{verb.tagSubjectToAuxAfter}}':true}">{{verb.subjectToAuxAfter}}</span>
+                            <span ng-class="{'{{verb.verbTo.tagPrefix}}':true}">{{verb.verbTo.prefix.toLowerCase()}}</span><span ng-class="{'{{verb.verbTo.tagSufix}}':true}">{{verb.verbTo.sufix}}</span>
+                            {{verb.verbTo.after}}
+                        </td>
+                        <td ng-click="$root.Speak(verb.subjectToAuxBefore + ' ' + verb.subjectTo + ' ' + verb.subjectToAuxAfter + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, $root.langLearn.id)">
+                            <i class="fa fa-play"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<h3>{{selectedVerb.English}} verb - {{selectedVerb.Portuguese | RemoveLastChar:1}}<span class="textmark purple">r</span></h3>
             <table>
                 <tbody>
                     <tr>
@@ -487,15 +537,8 @@
                         <td>{{selectedVerb.Portuguese}}</td>
                     </tr>
                 </tbody>
-            </table>
-            <p class="card-subtitle">
-                <a class="btn-bookmark" href="#">
-                    <i class="fa fa-bookmark" aria-hidden="true"></i>
-                    <span>Bookmark</span>
-                    <i class="fa fa-comment" aria-hidden="true"></i>
-                    <span>Comment</span>
-                </a>
-            </p>
+            </table>-->
         </div>
     </div>
+
 </section>

@@ -604,14 +604,42 @@ var GrammarProcessor = function () {
                         break;
                 }
 
-                if (interrogative) {
+                if (interrogative)
                     model[i].verbTo.after = '?';
-                }
 
-                if (typeof verb.subjectToAuxBefore == "undefined")
-                    verb.subjectToAuxBefore = '';
-                if (typeof verb.subjectToAuxAfter == "undefined")
-                    verb.subjectToAuxAfter = '';
+                //if (typeof verb.subjectToAuxBefore == "undefined")
+                //    verb.subjectToAuxBefore = '';
+                //if (typeof verb.subjectToAuxAfter == "undefined")
+                //    verb.subjectToAuxAfter = '';
+            }
+
+            return model;
+        },
+        getAllVerbalTensesByPronoun: function (langFrom, langTo, verb, negative, interrogative, pronoun) {
+            var model = new Array(5);
+
+            for (var i = 0; i < model.length; i++) {
+                model[i] = new Object();
+                model[i].subjectFrom = _baseModelLanguages[pronoun][langFrom];
+                model[i].subjectTo = _baseModelLanguages[pronoun][langTo];
+                model[i].tags = _baseTags[pronoun];
+            }
+
+            model[0].verbTo = processors[langTo].processSimplePresent(verb, model[0], pronoun, negative, interrogative);
+            model[1].verbTo = processors[langTo].processPresentContinuous(verb, model[1], pronoun, negative, interrogative);
+            model[2].verbTo = processors[langTo].processSimplePast(verb, model[2], pronoun, negative, interrogative);
+            model[3].verbTo = processors[langTo].processPastContinuous(verb, model[3], pronoun, negative, interrogative);
+            model[4].verbTo = processors[langTo].processSimpleFuture(verb, model[4], pronoun, negative, interrogative);
+
+            model[0].tenseName = 'Simple Present';
+            model[1].tenseName = 'Present Continuous';
+            model[2].tenseName = 'Simple Past';
+            model[3].tenseName = 'Past Continuous';
+            model[4].tenseName = 'Simple Future';
+
+            for (var i = 0; i < model.length; i++) {
+                if (interrogative)
+                    model[i].verbTo.after = '?';
             }
 
             return model;
