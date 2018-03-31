@@ -270,19 +270,19 @@ app.filter('to_trusted', ['$sce', function ($sce) {
 app.config(function ($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl: "portuguese_home.html", controller: "homeCtrl"
+        templateUrl: "portuguese_home.html"
     })
     .when("/General", {
-        templateUrl: "construction.html", controller: "aboutCtrl"
+        templateUrl: "construction.html"
     })
     .when("/General/About", {
-        templateUrl: "portuguese_about.html", controller: "aboutCtrl"
+        templateUrl: "portuguese_about.html"
     })
     .when("/General/Home", {
         templateUrl: "portuguese_home.html"
     })
     .when("/Account", {
-        templateUrl: "construction.html", controller: "aboutCtrl"
+        templateUrl: "construction.html"
     })
     .when("/Account/SignUp", {
         templateUrl: "SignUp/sign_up.html", controller: "signUpCtrl"
@@ -327,7 +327,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })
     .when("/Construction", {
-        templateUrl: "construction.html", controller: "constructionCtrl"
+        templateUrl: "construction.html"
     })
     .when("/Tests", {
         templateUrl: "Tests/tests.html", controller: "testsCtrl"

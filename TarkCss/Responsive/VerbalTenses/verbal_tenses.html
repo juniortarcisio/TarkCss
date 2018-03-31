@@ -36,15 +36,19 @@
         </tr>
         <tr ng-repeat="verb in engineVerbs">
             <td>
-                <span class="cursor-pointer" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}} </span>
+                <span class="cursor-pointer" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}}</span>
                 <span ng-repeat="tag in verb.tags">
                     <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
                 </span>
             </td>
-            <td>{{verb.subjectTo}}
-                {{verb.verbTo.prefix.toLowerCase()}}<span ng-show="verb.verbTo.sufix.length > 0" ng-class="{'textmark':true,'{{verb.tags[0]}}':true}">{{verb.verbTo.sufix}}</span> {{verb.verbTo.after}}
+            <td>
+                <span ng-class="{'{{verb.tagSubjectToAuxBefore}}':true}">{{verb.subjectToAuxBefore}}</span>
+                {{verb.subjectTo}}
+                <span ng-class="{'{{verb.tagSubjectToAuxAfter}}':true}">{{verb.subjectToAuxAfter}}</span>
+                <span ng-class="{'{{verb.verbTo.tagPrefix}}':true}">{{verb.verbTo.prefix.toLowerCase()}}</span><span ng-class="{'{{verb.verbTo.tagSufix}}':true}">{{verb.verbTo.sufix}}</span>
+                {{verb.verbTo.after}}
             </td>
-            <td ng-click="$root.Speak(verb.subjectTo + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, $root.langLearn.id)">
+            <td ng-click="$root.Speak(verb.subjectToAuxBefore + ' ' + verb.subjectTo + ' ' + verb.subjectToAuxAfter + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, $root.langLearn.id)">
                 <i class="fa fa-play"></i>
             </td>
         </tr>

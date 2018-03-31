@@ -42,14 +42,17 @@ _baseTags[SUBJECT_FAR_PLURAL] = ["plural", "far"];
 _baseTags[SUBJECT_1P_PLURAL] = ["ourselves"];
 
 //TODO: conditions for each language, eg: maybe some types of model grammar aren't interesting for some languages?
-var ProcessedVerb = function (prefix, sufix, aux) {
-    if (sufix == null)
-        sufix = '';
+var ProcessedVerb = function (prefix, sufix, tagPrefix, tagSufix) {
+    if (prefix == null) prefix = '';
+    if (sufix == null) sufix = '';
+    if (tagPrefix != null) tagPrefix = 'textmark ' + tagPrefix;
+    if (tagSufix != null) tagSufix = 'textmark ' + tagSufix;
+
     return {
-        verb: prefix + sufix,
         prefix: prefix,
         sufix: sufix,
-        aux: aux
+        tagPrefix: tagPrefix,
+        tagSufix: tagSufix
     }
 }
 
@@ -66,6 +69,7 @@ var GrammarProcessor = function () {
         {
             processSimplePresent: function (verb, model, modelIndex, negative, interrogative) {
                 var sufix = null;
+                var tagSufix = null;
                 verb = verb.replace('To ', '');
 
                 var _3rdPersonSingular = model.tags.indexOf('singular') >= 0 && modelIndex > 1;
@@ -83,64 +87,85 @@ var GrammarProcessor = function () {
                         verb = 'has';
                     else
                         sufix = 's';
+
+                    tagSufix = model.tags[0];
                 }
 
                 
                 if (negative && !interrogative)
-                    model.subjectTo += ' ' + (_3rdPersonSingular ? 'doesn\'t' : 'don\'t');
+                    model.subjectToAuxAfter = ' ' + (_3rdPersonSingular ? 'doesn\'t' : 'don\'t');
 
                 else if (interrogative) {
                     if (modelIndex > 0)
                         model.subjectTo = model.subjectTo.toLowerCase();
 
                     if (!negative)
-                        model.subjectTo = (_3rdPersonSingular ? 'Does' : 'Do') + ' ' + model.subjectTo;
+                        model.subjectToAuxBefore = (_3rdPersonSingular ? 'Does' : 'Do');
                     else 
-                        model.subjectTo = (_3rdPersonSingular ? 'Doesn\'t' : 'Don\'t') + ' ' + model.subjectTo;
+                        model.subjectToAuxBefore = (_3rdPersonSingular ? 'Doesn\'t' : 'Don\'t') ;
                 }
 
-                return ProcessedVerb(verb, sufix, null);
+                if (interrogative)
+                    model.tagSubjectToAuxBefore = 'textmark ' + model.tags[0];
+                else if (negative)
+                    model.tagSubjectToAuxAfter = 'textmark ' + model.tags[0];
+
+                return ProcessedVerb(verb, sufix, null, tagSufix);
             },
             processPresentContinuous: function (verb, model, modelIndex, negative, interrogative) {
 
-                if (modelIndex == 0) {
-                    if (!interrogative && !negative)
-                        model.subjectTo += '\'m';
-                    else if (interrogative && !negative)
-                        model.subjectTo = 'Am ' + model.subjectTo;
-                    else if (!interrogative && negative)
-                        model.subjectTo += '\'m not';
-                    else if (interrogative && negative)
-                        model.subjectTo = 'Am ' + model.subjectTo + ' not';
+                if (!interrogative && !negative) {
+                    if (modelIndex == 0) 
+                        model.subjectToAuxAfter = 'am';
+                    else if (model.tags[0] == 'singular' && modelIndex != 1)
+                        model.subjectToAuxAfter = 'is';
+                    else
+                        model.subjectToAuxAfter = 'are';
                 }
-                else if (modelIndex == 1 || model.tags[0] == 'plural' || model.tags[0] == 'ourselves') {
-                    if (!interrogative && !negative)
-                        model.subjectTo += ' are';
-                    else if (interrogative && !negative)
-                        model.subjectTo = 'Are ' + model.subjectTo.toLowerCase();
-                    else if (!interrogative && negative)
-                        model.subjectTo += ' aren\'t';
-                    else if (interrogative && negative)
-                        model.subjectTo = 'Aren\'t ' + model.subjectTo.toLowerCase();
+                else if (interrogative && !negative) {
+
+                    if (modelIndex == 0)
+                        model.subjectToAuxBefore = 'Am';
+                    else if (model.tags[0] == 'singular' && modelIndex != 1)
+                        model.subjectToAuxBefore = 'Is';
+                    else
+                        model.subjectToAuxBefore = 'Are';
                 }
-                    
-                else if (model.tags[0] == 'singular') {
-                    if (!interrogative && !negative)
-                        model.subjectTo += ' is';
-                    else if (interrogative && !negative)
-                        model.subjectTo = 'Is ' + model.subjectTo.toLowerCase();
-                    else if (!interrogative && negative)
-                        model.subjectTo += ' isn\'t';
-                    else if (interrogative && negative)
-                        model.subjectTo = 'Isn\'t ' + model.subjectTo.toLowerCase();
+                else if (!interrogative && negative) {
+                    if (modelIndex == 0)
+                        model.subjectToAuxAfter = 'am not';
+                    else if (model.tags[0] == 'singular' && modelIndex != 1)
+                        model.subjectToAuxAfter = 'isn\'t';
+                    else
+                        model.subjectToAuxAfter = 'aren\'t';
                 }
+                else if (interrogative && negative) {
+
+                    if (modelIndex == 0) {
+                        model.subjectToAuxBefore = 'Am';
+                        model.subjectToAuxAfter = 'not';
+                    }
+                    else if (model.tags[0] == 'singular' && modelIndex != 1)
+                        model.subjectToAuxBefore = 'Isn\'t';
+                    else
+                        model.subjectToAuxBefore = 'Aren\'t';
+                }
+
+                if (interrogative && modelIndex > 0)
+                    model.subjectTo = model.subjectTo.toLowerCase();
+
+                if (interrogative)
+                    model.tagSubjectToAuxBefore = 'textmark ' + model.tags[0];
+                else
+                    model.tagSubjectToAuxAfter = 'textmark ' + model.tags[0];
 
                 verb = verb.replace('To ', '');
-                verb += 'ing';
 
-                return ProcessedVerb(verb, null, null);
+                return ProcessedVerb(verb, 'ing', null, 'gray');
             },
             processSimplePast: function (verb, model, modelIndex, negative, interrogative) {
+                var sufix = null;
+                var tagSufix = null;
                 verb = verb.replace('To ', '').toLowerCase();
 
                 var _3rdPersonSingular = model.tags.indexOf('singular') >= 0 && modelIndex > 1;
@@ -160,102 +185,110 @@ var GrammarProcessor = function () {
                 if (!negative && !interrogative) {
                     var irregularVerb = irregularVerbs.filter(function (el) { return el[0] == verb; });
 
-                    if (irregularVerb.length > 0)
-                        verb = irregularVerb[0][1];
-                    else
-                        verb += 'ed';
+                    if (irregularVerb.length > 0) {
+                        verb = '';
+                        sufix = irregularVerb[0][1];
+                    }
+                    else {
+                        sufix = 'ed';
+                    }
+                    tagSufix = 'gray';
                 }
                 else if (negative && !interrogative)                    
-                    model.subjectTo += _3rdPersonSingular ? ' does\'t ' : ' don\'t';
-                else if (!negative && interrogative)
-                    model.subjectTo = (_3rdPersonSingular ? 'Does' : 'Do') + ' ' + model.subjectTo;
-                else if (negative && interrogative)
-                    model.subjectTo = (_3rdPersonSingular ? 'Doesn\'t' : 'Don\'t') + ' ' + model.subjectTo;
+                    model.subjectToAuxAfter = _3rdPersonSingular ? ' doesn\'t' : ' don\'t';
+                else if (interrogative) {
+                    if (modelIndex > 0)
+                        model.subjectTo = model.subjectTo.toLowerCase();
 
-                return ProcessedVerb(verb, null, null);
+                    if (!negative)
+                        model.subjectToAuxBefore = (_3rdPersonSingular ? 'Does' : 'Do');
+                    else if (negative)
+                        model.subjectToAuxBefore = (_3rdPersonSingular ? 'Doesn\'t' : 'Don\'t');
+                }
+
+                if (interrogative)
+                    model.tagSubjectToAuxBefore = 'textmark ' + model.tags[0];
+                else if (negative)
+                    model.tagSubjectToAuxAfter = 'textmark ' + model.tags[0];
+
+                return ProcessedVerb(verb, sufix, null, tagSufix);
             },
             processPastContinuous: function (verb, model, modelIndex, negative, interrogative) {
 
-                if (modelIndex == 0 || model.tags[0] == 'singular') {
-                    if (!interrogative && !negative)
-                        model.subjectTo += ' was';
-                    else if (interrogative && !negative)
-                        model.subjectTo = 'Was ' + model.subjectTo;
-                    else if (!interrogative && negative)
-                        model.subjectTo += ' Wasn\'t ';
-                    else if (interrogative && negative)
-                        model.subjectTo = 'Wasn\'t ' + model.subjectTo;
+                if (!interrogative && !negative) {
+                    if (model.tags[0] == 'singular' || modelIndex == 0)
+                        model.subjectToAuxAfter = 'was';
+                    else
+                        model.subjectToAuxAfter = 'were';
                 }
-                else if (modelIndex == 1 || model.tags[0] == 'plural' || model.tags[0] == 'ourselves') {
-                    if (!interrogative && !negative)
-                        model.subjectTo += ' were';
-                    else if (interrogative && !negative)
-                        model.subjectTo = 'Were ' + model.subjectTo.toLowerCase();
-                    else if (!interrogative && negative)
-                        model.subjectTo += ' weren\'t';
-                    else if (interrogative && negative)
-                        model.subjectTo = 'Weren\'t ' + model.subjectTo.toLowerCase();
+                else if (interrogative && !negative) {
+                    if (model.tags[0] == 'singular' || modelIndex == 0)
+                        model.subjectToAuxBefore = 'Was';
+                    else
+                        model.subjectToAuxBefore = 'Were';
                 }
+                else if (!interrogative && negative) {
+                    if (model.tags[0] == 'singular' || modelIndex == 0)
+                        model.subjectToAuxAfter = 'wasn\'t';
+                    else
+                        model.subjectToAuxAfter = 'weren\'t';
+                }
+                else if (interrogative && negative) {
+                    if (model.tags[0] == 'singular' || modelIndex == 0)
+                        model.subjectToAuxBefore = 'Wasn\'t';
+                    else
+                        model.subjectToAuxBefore = 'Weren\'t';
+                }
+
+                if (interrogative && modelIndex > 0)
+                    model.subjectTo = model.subjectTo.toLowerCase();
+
+                if (interrogative)
+                    model.tagSubjectToAuxBefore = 'textmark ' + model.tags[0];
+                else
+                    model.tagSubjectToAuxAfter = 'textmark ' + model.tags[0];
 
                 verb = verb.replace('To ', '');
-                verb += 'ing';
 
-                return ProcessedVerb(verb, null, null);
+                return ProcessedVerb(verb, 'ing', null, 'gray');
             },
             processSimpleFuture: function (verb, model, modelIndex, negative, interrogative) {
                 verb = verb.replace('To ', '');
 
-                if (!negative && !interrogative)
-                    model.subjectTo += ' will';
-                else if (negative && !interrogative)
-                    model.subjectTo += ' won\'t';
-                else if (!negative && interrogative)
-                    model.subjectTo = 'Will ' + model.subjectTo;
-                else if (negative && interrogative)
-                    model.subjectTo = 'Won\'t ' + model.subjectTo;
+                if (!interrogative) {
+                    model.tagSubjectToAuxAfter = 'textmark gray';
+
+                    if (!negative && !interrogative)
+                        model.subjectToAuxAfter = 'will';
+                    else if (negative && !interrogative)
+                        model.subjectToAuxAfter = 'won\'t';
+                }
+                else {
+                    model.tagSubjectToAuxBefore = 'textmark gray';
+
+                    if (!negative && interrogative)
+                        model.subjectToAuxBefore = 'Will';
+                    else if (negative && interrogative)
+                        model.subjectToAuxBefore = 'Won\'t';
+                }
 
                 return ProcessedVerb(verb, null, null);
             }
         },
         {
             processSimplePresent: function (verb, model, modelIndex, negative, interrogative) {
-
-                var getSP_Myself = function (verb) {
-                    var prefix = verb.substr(0, verb.length - 2);
-                    var sufix = 'o';
-                    return ProcessedVerb(prefix, sufix, null);
-                }
-
-                var getSP_Singular = function (verb) {
-                    var prefix = verb.substr(0, verb.length - 1);
-                    var sufix = '';
-                    return ProcessedVerb(prefix, sufix, null);
-                }
-
-                var getSP_Plural = function (verb) {
-                    var prefix = verb.substr(0, verb.length - 1);
-                    var sufix = 'm';
-                    return ProcessedVerb(prefix, sufix, null);
-                }
-
-                var getSP_Ourselves = function (verb) {
-                    var prefix = verb.substr(0, verb.length - 1);
-                    var sufix = 'mos';
-                    return ProcessedVerb(prefix, sufix, null);
-                }
-
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[1];
                 
                 switch (model.tags[0]) {
                     case 'myself':
-                        return getSP_Myself(verb);
+                        return ProcessedVerb(verb.substr(0, verb.length - 2), 'o', null, model.tags[0]);
                     case 'singular':
-                        return model.verbTo = getSP_Singular(verb);
+                        return ProcessedVerb(verb.substr(0, verb.length - 1), null, model.tags[0]);
                     case 'plural':
-                        return model.verbTo = getSP_Plural(verb);
+                        return ProcessedVerb(verb.substr(0, verb.length - 1), 'm', null, model.tags[0]);
                     case 'ourselves':
-                        return model.verbTo = getSP_Ourselves(verb);
+                        return ProcessedVerb(verb.substr(0, verb.length - 1), 'mos', null, model.tags[0]);
                 }
             },
             processPresentContinuous: function (verb, model, modelIndex, negative, interrogative) {
@@ -265,24 +298,28 @@ var GrammarProcessor = function () {
 
                 switch (model.tags[0]) {
                     case 'myself':
-                        model.subjectTo += ' estou';
+                        model.subjectToAuxAfter = ' estou';
                         break;
                     case 'singular':
-                        model.subjectTo += ' está';
+                        model.subjectToAuxAfter = ' está';
                         break;
                     case 'plural':
-                        model.subjectTo += ' estão';
+                        model.subjectToAuxAfter = ' estão';
                         break;
                     case 'ourselves':
-                        model.subjectTo += ' estamos';
+                        model.subjectToAuxAfter = ' estamos';
                         break;
                 }
 
-                verb = verb.substring(0, verb.length - 1) + 'ndo';
+                model.tagSubjectToAuxAfter = 'textmark ' + model.tags[0];
 
-                return ProcessedVerb(verb, null, null);
+                verb = verb.substring(0, verb.length - 1);
+
+                return ProcessedVerb(verb, 'ndo', null, 'gray');
             },
             processSimplePast: function (verb, model, modelIndex, negative, interrogative) {
+                var sufix = null;
+                var tagSufix = null;
 
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[1];
@@ -291,30 +328,40 @@ var GrammarProcessor = function () {
 
                 switch (model.tags[0]) {
                     case 'myself':
+                        verb = verb.substr(0, verb.length - 2);
+
                         if (/(gar$)/.test(verbLowerCase))  //jogar, joguei
-                            verb = verb.substr(0, verb.length - 2) + 'uei';
+                            sufix = 'uei';
                         else if (/(ar$)/.test(verbLowerCase))  //andar, andei
-                            verb = verb.substr(0, verb.length - 2) + 'ei';
+                            sufix = 'ei';
                         else if (/(er$)|(ir$)/.test(verbLowerCase))  //correr-corri, fugir-fugi
-                            verb = verb.substr(0, verb.length - 2) + 'i';
+                            sufix = 'i';
+
                         break;
                     case 'singular':
-                        if (/(ar$)/.test(verbLowerCase))  //andar, andou
-                            verb = verb.substr(0, verb.length - 2) + 'ou';
-                        else if (/(er$)/.test(verbLowerCase))  //correr, correu
-                            verb = verb.substr(0, verb.length - 2) + 'eu';
-                        else if (/(ir$)/.test(verbLowerCase))  //fugir, fugiu
-                            verb = verb.substr(0, verb.length - 1) + 'u';
+                        verb = verb.substr(0, verb.length - 2);
+
+                        if (/(ar$)/.test(verbLowerCase)) //andar, andou
+                            sufix = 'ou';
+                        else if (/(er$)/.test(verbLowerCase)) //correr, correu
+                            sufix = 'eu';
+                        else if (/(ir$)/.test(verbLowerCase)) //fugir, fugiu
+                            sufix = 'iu';
+
                         break;
                     case 'plural':
-                        verb = verb.substr(0, verb.length - 1) + 'ram';
+                        verb = verb.substr(0, verb.length - 1);
+                        sufix = 'ram';
                         break;
                     case 'ourselves':
-                        verb = verb.substr(0, verb.length - 1) + 'mos';
+                        verb = verb.substr(0, verb.length - 1);
+                        sufix = 'mos';
                         break;
                 }
 
-                return ProcessedVerb(verb, null, null);
+                tagSufix = model.tags[0];
+
+                return ProcessedVerb(verb, sufix, null, tagSufix);
             },
             processPastContinuous: function (verb, model, modelIndex, negative, interrogative) {
 
@@ -323,42 +370,45 @@ var GrammarProcessor = function () {
 
                 switch (model.tags[0]) {
                     case 'myself':
-                        model.subjectTo += ' estava';
+                        model.subjectToAuxAfter = ' estava';
                         break;
                     case 'singular':
-                        model.subjectTo += ' estava';
+                        model.subjectToAuxAfter = ' estava';
                         break;
                     case 'plural':
-                        model.subjectTo += ' estavão';
+                        model.subjectToAuxAfter = ' estavão';
                         break;
                     case 'ourselves':
-                        model.subjectTo += ' estavamos';
+                        model.subjectToAuxAfter = ' estavamos';
                         break;
                 }
 
-                verb = verb.substring(0, verb.length - 1) + 'ndo';
+                model.tagSubjectToAuxAfter = 'textmark ' + model.tags[0];
 
-                return ProcessedVerb(verb, null, null);
+                verb = verb.substring(0, verb.length - 1);
+
+                return ProcessedVerb(verb, 'ndo', null, 'gray');
             },
             processSimpleFuture: function (verb, model, modelIndex, negative, interrogative) {
-
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[1];
 
                 switch (model.tags[0]) {
                     case 'myself':
-                        model.subjectTo += ' vou';
+                        model.subjectToAuxAfter = ' vou';
                         break;
                     case 'singular':
-                        model.subjectTo += ' vai';
+                        model.subjectToAuxAfter = ' vai';
                         break;
                     case 'plural':
-                        model.subjectTo += ' vão';
+                        model.subjectToAuxAfter = ' vão';
                         break;
                     case 'ourselves':
-                        model.subjectTo += ' vamos';
+                        model.subjectToAuxAfter = ' vamos';
                         break;
                 }
+
+                model.tagSubjectToAuxAfter = 'textmark ' + model.tags[0];
 
                 return ProcessedVerb(verb, null, null);
             }
@@ -381,7 +431,9 @@ var GrammarProcessor = function () {
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[2];
 
-                model.subjectTo += ' sedang';
+                model.subjectToAuxAfter = 'sedang';
+                model.tagSubjectToAuxAfter = 'textmark gray';
+
                 return ProcessedVerb(verb, null, null);
             },
             processSimplePast: function (verb, model, modelIndex, negative, interrogative) {
@@ -391,7 +443,9 @@ var GrammarProcessor = function () {
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[2];
 
-                model.subjectTo += ' telah';
+                model.subjectToAuxAfter = 'telah';
+                model.tagSubjectToAuxAfter = 'textmark gray';
+
                 return ProcessedVerb(verb, null, null);
             },
             processPastContinuous: function (verb, model, modelIndex, negative, interrogative) {
@@ -401,7 +455,9 @@ var GrammarProcessor = function () {
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[2];
 
-                model.subjectTo += ' telah sedang';
+                model.subjectToAuxAfter = 'telah sedang';
+                model.tagSubjectToAuxAfter = 'textmark gray';
+
                 return ProcessedVerb(verb, null, null);
 
             },
@@ -412,12 +468,13 @@ var GrammarProcessor = function () {
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[2];
 
-                model.subjectTo += ' akan';
+                model.subjectToAuxAfter = 'akan';
+                model.tagSubjectToAuxAfter = 'textmark gray';
+
                 return ProcessedVerb(verb, null, null);
             }
         }
     ];
-
     
     return {
         getSimplePresent: function (langFrom, langTo, verb, negative, interrogative, tense) {
@@ -448,16 +505,17 @@ var GrammarProcessor = function () {
                         break;
                 }
 
-                if (interrogative)
+                if (interrogative) {
                     model[i].verbTo.after = '?';
+                }
+
+                if (typeof verb.subjectToAuxBefore == "undefined")
+                    verb.subjectToAuxBefore = '';
+                if (typeof verb.subjectToAuxAfter == "undefined")
+                    verb.subjectToAuxAfter = '';
             }
 
             return model;
         }
     }
 };
-
-
-var modelGrammarResult = [
-
-];
