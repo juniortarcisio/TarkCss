@@ -389,6 +389,8 @@ app.config(function ($routeProvider) {
 });
 
 app.run(function ($window, $rootScope, $location, ServerService, AuthenticationService, SpeechService, AnimationService, VocabularyService) {
+    console.log('$location.path()');
+    console.log($location.path());
     if ($location.path() == '' || $location.path().indexOf('Home') > 0) {
         var audio = new Audio('../Media/start.mp3');
         audio.volume = 0.3;

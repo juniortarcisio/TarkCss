@@ -549,10 +549,10 @@ var GrammarProcessor = function () {
                 if (negative)
                     model.subjectTo += ' ' + _baseNotWord[2];
 
-                model.subjectToAuxAfter = 'telah sedang';
+                model.subjectToAuxAfter = 'sedang';
                 model.tagSubjectToAuxAfter = 'textmark gray';
 
-                return ProcessedVerb(verb, null, null);
+                return ProcessedVerb(verb, 'kemarin', null, 'gray');
 
             },
             processSimpleFuture: function (verb, model, modelIndex, negative, interrogative) {
@@ -606,11 +606,6 @@ var GrammarProcessor = function () {
 
                 if (interrogative)
                     model[i].verbTo.after = '?';
-
-                //if (typeof verb.subjectToAuxBefore == "undefined")
-                //    verb.subjectToAuxBefore = '';
-                //if (typeof verb.subjectToAuxAfter == "undefined")
-                //    verb.subjectToAuxAfter = '';
             }
 
             return model;
