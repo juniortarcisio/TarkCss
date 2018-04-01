@@ -101,7 +101,7 @@ app.controller('tenseComparisonCtrl', function ($scope, $rootScope) {
             tagsDescription += pronoun.tags[i];
         }
 
-        return pronoun.name[$rootScope.langFrom.id] + ' -> ' + pronoun.name[$rootScope.langLearn.id] + ' (' + tagsDescription + ')';
+        return pronoun.name[$rootScope.langFrom.id] + ' -> ' + pronoun.name[$rootScope.langLearn.id] + ' [' + tagsDescription + ']';
     }
 
     $scope.reload = function () {

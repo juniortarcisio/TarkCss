@@ -13,15 +13,19 @@
             ]
         },
         {
-            name: ['Grammar', 'Gramática', 'Tatabahasa'], closed: false, items: [
-                { name: ['To Be Verb', 'Verbo To be', 'Kata Kerja To Be'], href: '#!Lessons/ToBeVerb', icon: 'fa-book' },
+            name: ['Beginning', 'Iniciando', 'Awal'], closed: false, items: [
+                { name: ['How to Learn', 'Como Aprender', 'Bagaimana belajar'], href: '#!Construction', icon: 'fa-book' },
+                { name: ['To Be Verb', 'Verbo To be', 'Kata Kerja To Be'], href: '#!Lessons/ToBeVerb', icon: 'fa-book' }
+            ]
+        },
+        {
+            name: ['Verbal tenses', 'Tempos Verbais', 'Verbal tenses'], closed: false, items: [
                 { name: ['Simple Present', 'Presente simples', 'Bulang-ulang'], href: '#!Lessons/SimplePresent', icon: 'fa-book' },
                 { name: ['Present Continuous', 'Presente Contínuo', 'Sedang Terjadi'], href: '#!Lessons/PresentContinuous', icon: 'fa-book' },
                 { name: ['Simple Past', 'Passado Simples', 'Lampau'], href: '#!Lessons/SimplePast', icon: 'fa-book' },
                 { name: ['Past Continuous', 'Passado Contínuo', 'Sedang terjadi waktu dulu'], href: '#!Lessons/PastContinuous', icon: 'fa-book' },
                 { name: ['Simple Future', 'Futuro simples', 'Akan terjadi'], href: '#!Lessons/SimpleFuture', icon: 'fa-book' },
-                { name: ['Tenses Comparison', 'Comparação de tempos', 'Perbandingan Tenses'], href: '#!Lessons/TensesComparison', icon: 'fa-book' },
-                { name: ['Prototype Exercise', 'Exercício Protótipo', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' }
+                { name: ['Tenses Comparison', 'Comparação de tempos', 'Perbandingan Tenses'], href: '#!Lessons/TensesComparison', icon: 'fa-book' }
             ]
         },
         {
@@ -39,8 +43,9 @@
             ]
         },
         {
-            name: ['Tests', 'Testes', 'Tes'], closed: false, items: [
-                { name: ['Test Page', 'Página de testes', 'Halaman tes'], href: '#!Tests', icon: 'fa-wrench' }
+            name: ['Tests/Prototypes', 'Testes e Protótipos', 'Tes'], closed: false, items: [
+                { name: ['Test Page', 'Página de testes', 'Halaman tes'], href: '#!Tests', icon: 'fa-wrench' },
+                { name: ['Prototype Exercise', 'Exercício Protótipo', 'Latihan Prototype'], href: '#!PrototypeExercises', icon: 'fa-edit' }
             ]
         }
     ];

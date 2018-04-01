@@ -52,7 +52,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["How", "Como", "Bagaimana"],
                         ["How long", "Quanto tempo", "Berapa lama"],
                         ["How much", "Quanto", "Berapa banyak"],
-                        ["How much does it cost", "Quanto custa", "Berapa harganya"],
+                        //["How much does it cost", "Quanto custa", "Berapa harganya"],
                         ["How far", "Quão longe", "Berapa Jauh"]
                     ]
                 },
@@ -62,10 +62,13 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Can", "Posso", "Bisa"],
                         ["Could", "Poderia", "Bisa"],// Polite thisWordAlsoMeans: [][][0]
                         ["Will", "Vou", "Akan"],
-                        ["Would", "Iria", "Akan (?)"], //Hypotetical / polite, would you like -> gostaria
+                        ["Would", "Iria", "Akan"], //Hypotetical / polite, would you like -> gostaria
                         ["Must", "Devo", "Harus"],
-                        ["Should", "Deveria", "Harus (?)"],
-                        ["May", "Posso(?)", "Harus (?)"]
+                        ["Should", "Deveria", "Harus"],
+                        ["Need", "Precisar", "Perlu"],
+                        ["Want", "Querer", "Mau"],
+                        ["Know", "Saber", "Tau"]
+                        //["May", "Posso", "Bisa"]
                     ]
                 },
                 {
@@ -82,7 +85,21 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Not yet", "Ainda não", "Belum"],
                         ["Ever", "Sempre", "Pernah"],
                         ["Never", "Nunca", "Tak pernah"],
-                        ["Again", "De novo", "Lagi"]
+                        ["Again", "De novo", "Lagi"],
+                        ["Really", "Realmente", "Yang Benar"],
+                        ["Alone", "Sozinho", "Sendiri"],
+                        ["With", "Com", "Dengan"],
+                        ["Give", "Dar", "Berikan"],
+                        ["Only", "Somente", "Saja"],
+                        ["Maybe", "Talvez", "Mungkin"],
+                        ["More", "Mais", "Lebih"],
+                        ["Very", "Muito", "Sangat"], //uncountable
+                        ["A lot", "Muito", "Banyak"],
+                        ["Together", "Juntos", "Bersama"],
+                        ["Join", "Juntar-se", "Ikut"],
+                        ["As", "Como", "Seperti"],
+                        ["Like", "Como", "Suka"]
+                        //["Suka", "Como", "Berdua"]
                     ]
                 },
                 {
@@ -99,6 +116,12 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Brown", "Marrom", "Coklat"],
                         ["Pink", "Rosa", "Merah muda"],
                         ["Grey", "Cinza", "Abu-abu"]
+                    ]
+                },
+                {
+                    name: "Expressions",
+                    words: [
+                        ["Thank you", "Obrigado", "Terima kasih"]
                     ]
                 }
             ]
@@ -215,7 +238,11 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Day", "Dia", "Hari"],
                         ["Week", "Semana", "Minggu"],
                         ["Month", "Mês", "Bulan"],
-                        ["Year", "Ano", "Tahun"]
+                        ["Year", "Ano", "Tahun"],
+                        ["Tomorrow", "Amanhã", "Besok"],
+                        ["Yesterday", "Ontem", "Kemaren"],
+                        ["Later", "Mais tarde", "Nanti"]//,
+                        //["Early", "Cedo", "Nanti"]
                     ]
                 },
                 {
@@ -338,6 +365,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     name: "Drink",
                     words: [
                         ["Water", "Água", "Air putih"],
+                        ["Coffee", "Café", "Kopi"],
                         ["Milk", "Leite", "Susu"],
                         ["Fruits Juice", "Suco de Frutas", "Jus buah"],
                         ["Orange Juice", "Suco de Laranja", "Jus jeruk"],
@@ -401,6 +429,43 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Buffalo", "Bufalo", "Kerbau"],
                         ["Gorilla", "Gorila", "Gorila"],
                         ["Giraffe", "Girafa", "jerapah"]
+                    ]
+                },
+                {
+                    name: "Body Level 1",
+                    words: [
+                        ["Head", "Cabeça", "Kepala"],
+                        ["Hair", "Cabelo", "Rambut"],
+                        ["Nose", "Nariz", "Hidung"],
+                        ["Eye", "Olho", "Mata"],
+                        ["Ear", "Orelha", "Telinga"],
+                        ["Neck", "Pescoço", "Leher"],
+                        ["Shoulder", "Ombro", "Bahu"],
+                        ["Chest", "Peito", "Dada"],
+                        ["Belly", "Barriga", "Perut"],
+                        ["Back", "Costas", "Kembali"],
+                        ["Arm", "Braço", "Lengan"],
+                        ["Finger", "Dedo", "Jari"],
+                        ["Leg", "Perna", "Kaki"],
+                        ["Foot", "Pé", "Telapak kaki"]
+                    ]
+                },
+                {
+                    name: "Body Level 2",
+                    words: [
+                        ["Eyebrow", "Sombrancelha", "Alis"],
+                        ["Eyelashes", "Cilhos", "Bulu mata"],
+                        ["Cheek", "Bochecha", "Pipi"],
+                        ["Chin", "Queixo", "Dagu"],
+                        ["Moustache", "Bigode", "Kumis"],
+                        ["Elbow", "Cotovelo", "Siku"],
+                        ["Nail", "Unha", "Paku"],
+                        ["Butt", "Bunda", "Bokong"],
+                        ["Toe", "Dedo do pé", "Jari kaki"],
+                        ["Knee", "Joelho", "Lutut"],
+                        ["Thigh", "Coxa", "Paha"],
+                        ["Calf", "Panturrilha", "Betis"],
+                        ["Ankle", "Tornozelo", "Pergelangan kaki"]
                     ]
                 }
             ]
