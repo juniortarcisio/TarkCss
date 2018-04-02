@@ -30,14 +30,14 @@
 <br class="clear" />
 <table class="table-tenses margin-top-2em">
     <tbody>
-        <tr>
-            <th>{{$root.langFrom.name}}</th>
-            <th width="50%">{{$root.langLearn.name}}</th>
+        <tr class="hide-on-mobile">
+            <th><span>{{$root.langFrom.name}}</span></th>
+            <th>{{$root.langLearn.name}}</th>
             <th width="5px"></th>
         </tr>
         <tr ng-repeat="verb in engineVerbs">
             <td>
-                <span class="cursor-pointer" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}}</span>
+                <span class="cursor-pointer hide-on-mobile" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}}</span>
                 <span ng-repeat="tag in verb.tags">
                     <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
                 </span>
