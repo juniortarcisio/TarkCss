@@ -38,10 +38,10 @@
         var response = $scope.response.toUpperCase().trim();
         var randomWord = $scope.randomWord[$rootScope.langLearn.id].toUpperCase().trim();
 
-        //if (response.normalize) { ES6+
-        //    response = response.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        //    response = response.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        //}
+        if (response.normalize) { //ES6
+            response = response.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+            randomWord = randomWord.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        }
 
         if (randomWord === response) {
             $scope.correct++;

@@ -344,11 +344,14 @@ app.config(function ($routeProvider) {
     .when("/Account/SignOut", {
         templateUrl: "SignOut/sign_out.html", controller: "signOutCtrl"
     })
+    .when("/Beginning/HowToLearn", {
+        templateUrl: "howto.html"
+    })
+    .when("/Beginning/ToBeVerb", {
+        templateUrl: "portuguese_tobe.html"
+    })
     .when("/Lessons", {
         templateUrl: "construction.html"
-    })
-    .when("/Lessons/ToBeVerb", {
-        templateUrl: "portuguese_tobe.html"
     })
     .when("/Lessons/SimplePresent", {
         templateUrl: "portuguese_present.html"

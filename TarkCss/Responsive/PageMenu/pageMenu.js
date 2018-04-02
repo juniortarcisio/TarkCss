@@ -14,8 +14,8 @@
         },
         {
             name: ['Beginning', 'Iniciando', 'Awal'], closed: false, items: [
-                //{ name: ['How to Learn', 'Como Aprender', 'Bagaimana belajar'], href: '#!Construction', icon: 'fa-book' },
-                { name: ['To Be Verb', 'Verbo To be', 'Kata Kerja To Be'], href: '#!Lessons/ToBeVerb', icon: 'fa-book' }
+                { name: ['How to Learn', 'Como Aprender', 'Bagaimana belajar'], href: '#!Beginning/HowToLearn', icon: 'fa-book' },
+                { name: ['To Be Verb', 'Verbo To be', 'Kata Kerja To Be'], href: '#!Beginning/ToBeVerb', icon: 'fa-book' }
             ]
         },
         {
