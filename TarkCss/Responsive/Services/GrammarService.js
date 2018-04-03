@@ -63,6 +63,8 @@ function isVowel(c) {
 
 var CND_EQUALS = 0;
 var CND_ENDSWITH = 1;
+var CND_VOWEL_POSITION_REVERSE = 2;
+var CND_ENDSWITH_LIST = 3;
 
 var conditions = [
     {
@@ -76,11 +78,32 @@ var conditions = [
         func: function (str, value) {
             return new RegExp(value + "$").test(str);
         }
+    },
+    {
+        desc: 'IsVowelOnPositionInverted',
+        func: function (str, value) {
+            return isVowel(str.substring(str.length - 2, str.length - 1));
+        }
+    },
+    {
+        desc: 'Ends with in list',
+        func: function (str, value) {
+            var regexStr = "";
+            for (var i = 0; i < value.length; i++) {
+                regexStr += "(" + value + "$)";
+
+                if (i != value.length - 1)
+                    regexStr += "|";
+            }
+            console.log(regexStr);
+            return new RegExp(regexStr).test(str);
+        }
     }
 ];
 
 var ACT_REMOVELAST = 0;
 var ACT_ADD = 1;
+var ACT_REPLACEALL = 2;
 
 var actions = [
     {
@@ -94,6 +117,12 @@ var actions = [
         func: function (str, value) {
             return str = str + value;
         }
+    },
+    {
+        desc: 'Replace All',
+        func: function (str, value) {
+            return str = value;
+        }
     }
 ]
 
@@ -102,20 +131,26 @@ var RulesProcessor = function (rules, str) {
 
         var rejected = false;
 
+        if (typeof rules[i].conditions != "undefined")
+        {
+            for (var j = 0; j < rules[i].conditions.length; j++) {
+                console.log('asdasd');
+                var condition = rules[i].conditions[j].condition;
+                var value = rules[i].conditions[j].value;
 
-        console.log(rules[i].conditions.length);
-        for (var j = 0; j < rules[i].conditions.length; j++) {
-            console.log('asdasd');
-            var condition = rules[i].conditions[j].condition;
-            var value = rules[i].conditions[j].value;
+                console.log('condition: ' + condition);
+                console.log('value: ' + value);
 
-            console.log('condition: ' + condition);
-            console.log('value: ' + value);
+                var expectedResult = true;
 
-            if (!conditions[condition].func(str, value)) {
-                rejected = true;
-                console.log('rejected');
-                break;
+                if (rules[i].conditions[j].result === false)
+                    expectedResult = false;
+
+                if (conditions[condition].func(str, value) != expectedResult) {
+                    rejected = true;
+                    console.log('rejected');
+                    break;
+                }
             }
         }
 
@@ -129,6 +164,8 @@ var RulesProcessor = function (rules, str) {
                 str = actions[action].func(str, value);
                 console.log('after: ' + str);
             }
+
+            break;
         }
     }
 
@@ -137,8 +174,6 @@ var RulesProcessor = function (rules, str) {
 
 
 var GrammarProcessor = function () {
-
-
 
     var processors = [
         {
@@ -203,21 +238,32 @@ var GrammarProcessor = function () {
                 if (_3rdPersonSingular && !negative && !interrogative) {
                     var verbToTest = verb.toLowerCase();
 
-                    if (/(o$)|(s$)|(sh$)|(ch$)|(x$)|(z$)/.test(verbToTest))
-                        sufix = 'es';
-                    else if (/y$/.test(verbToTest) && !isVowel(verbToTest.substring(verb.length - 2, verb.length - 1))) {
-                        verb = verb.substring(0, verb.length - 1);
-                        sufix = 'ies';
-                    }
-                    else if (verb == 'have')
-                        verb = 'has';
-                    else
-                        sufix = 's';
+                    //if (/(o$)|(s$)|(sh$)|(ch$)|(x$)|(z$)/.test(verbToTest))
+                    //    sufix = 'es';
+                    //else if (/y$/.test(verbToTest) && !isVowel(verbToTest.substring(verb.length - 2, verb.length - 1))) {
+                    //    verb = verb.substring(0, verb.length - 1);
+                    //    sufix = 'ies';
+                    //}
+                    //else if (verb == 'have')
+                    //    verb = 'has';
+                    //else
+                    //    sufix = 's';
 
                     var rulesList = [
                         {
-                            conditions: [{ condition: CND_ENDSWITH, value: "y" }],
+                            conditions: [{ condition: CND_ENDSWITH_LIST, value: ["o","s","sh","ch","x","z"] }],
+                            actions: [{ action: ACT_ADD, value: 'es' }]
+                        },
+                        {
+                            conditions: [{ condition: CND_ENDSWITH, value: "y" }, { condition: CND_VOWEL_POSITION_REVERSE, value: 1, result: false}],
                             actions: [{ action: ACT_REMOVELAST, value: 1 }, { action: ACT_ADD, value: "ies" }]
+                        },
+                        {
+                            conditions: [{ condition: CND_EQUALS, value: "have" }],
+                            actions: [{ action: ACT_REPLACEALL, value: 'has' }]
+                        },
+                        {
+                            actions: [{ action: ACT_ADD, value: 's' }]
                         }
                     ];
 
@@ -312,7 +358,8 @@ var GrammarProcessor = function () {
                     ["speak", "spoke"],
                     ["understand", "understood"],
                     ["study", "studied"],
-                    ["learn", "learnt"]
+                    ["learn", "learnt"],
+                    ["buy", "bought"]
                 ];
 
                 //TODO: add irregular verbs
