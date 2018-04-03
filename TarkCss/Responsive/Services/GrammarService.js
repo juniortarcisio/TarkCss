@@ -55,13 +55,90 @@ var ProcessedVerb = function (prefix, sufix, tagPrefix, tagSufix) {
     }
 }
 
+function isVowel(c) {
+    console.log('isVowel');
+    console.log(c);
+    return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1
+}
+
+var CND_EQUALS = 0;
+var CND_ENDSWITH = 1;
+
+var conditions = [
+    {
+        desc: 'Equals',
+        func: function (str, value) {
+            return str.toLowerCase() == value.toLowerCase();
+        }
+    },
+    {
+        desc: 'Ends with',
+        func: function (str, value) {
+            return new RegExp(value + "$").test(str);
+        }
+    }
+];
+
+var ACT_REMOVELAST = 0;
+var ACT_ADD = 1;
+
+var actions = [
+    {
+        desc: 'Remove last',
+        func: function (str, value) {
+            return str.substring(0, str.length - value);
+        }
+    },
+    {
+        desc: 'Add',
+        func: function (str, value) {
+            return str = str + value;
+        }
+    }
+]
+
+var RulesProcessor = function (rules, str) {
+    for (var i = 0; i < rules.length; i++) {
+
+        var rejected = false;
+
+
+        console.log(rules[i].conditions.length);
+        for (var j = 0; j < rules[i].conditions.length; j++) {
+            console.log('asdasd');
+            var condition = rules[i].conditions[j].condition;
+            var value = rules[i].conditions[j].value;
+
+            console.log('condition: ' + condition);
+            console.log('value: ' + value);
+
+            if (!conditions[condition].func(str, value)) {
+                rejected = true;
+                console.log('rejected');
+                break;
+            }
+        }
+
+        if (!rejected) {
+            console.log('accepted');
+            for (var j = 0; j < rules[i].actions.length; j++) {
+                var action = rules[i].actions[j].action;
+                var value = rules[i].actions[j].value;
+
+                console.log('before: ' + str);
+                str = actions[action].func(str, value);
+                console.log('after: ' + str);
+            }
+        }
+    }
+
+    return str;
+}
+
+
 var GrammarProcessor = function () {
 
-    function isVowel(c) {
-        console.log('isVowel');
-        console.log(c);
-        return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1
-    }
+
 
     var processors = [
         {
@@ -136,6 +213,15 @@ var GrammarProcessor = function () {
                         verb = 'has';
                     else
                         sufix = 's';
+
+                    var rulesList = [
+                        {
+                            conditions: [{ condition: CND_ENDSWITH, value: "y" }],
+                            actions: [{ action: ACT_REMOVELAST, value: 1 }, { action: ACT_ADD, value: "ies" }]
+                        }
+                    ];
+
+                    verb = RulesProcessor(rulesList, verb);
 
                     tagSufix = model.tags[0];
                 }
