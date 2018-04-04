@@ -1,4 +1,23 @@
-﻿<style type="text/css"> .table-tenses td { padding: 8px; color:#000 } </style>
+﻿<style type="text/css"> 
+    .table-tenses td { padding: 8px; color:#000 } 
+    .td-rule {position:relative; cursor:pointer;}    
+    .pop-rule {
+        position:absolute;
+        width:250px;
+        padding:20px;
+        top: 30px;
+        left: -10px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-color: rgba(0,0,0,.2);
+        box-shadow: 10px 16px 20px rgba(0,0,0,.3);
+        font-weight:normal;
+        z-index:1002;
+        display:none;
+    }
+    .pop-rule .gb_rb, .pop-rule .gb_qb {left:8px}
+    .td-rule:hover .pop-rule {display:block}
+</style>
 <div class="col l6">
     <h2><i class="fa fa-table"></i> Grammar table</h2>
 </div>
@@ -46,8 +65,14 @@
                 <span ng-class="{'{{verb.tagSubjectToAuxBefore}}':true}">{{verb.subjectToAuxBefore}}</span>
                 {{verb.subjectTo}}
                 <span ng-class="{'{{verb.tagSubjectToAuxAfter}}':true}">{{verb.subjectToAuxAfter}}</span>
-                <span ng-class="{'{{verb.verbTo.tagPrefix}}':true}">{{verb.verbTo.prefix.toLowerCase()}}</span><span ng-class="{'{{verb.verbTo.tagSufix}}':true}">{{verb.verbTo.sufix}}</span>
-                {{verb.verbTo.after}}
+                <span ng-class="{'{{verb.verbTo.tagPrefix}}':true}">{{verb.verbTo.prefix.toLowerCase()}}</span><span class="td-rule" ng-class="{'{{verb.verbTo.tagSufix}}':true}">{{verb.verbTo.sufix}}
+                    <div class="card pop-rule grow-down-left">
+                        <div class="gb_rb"></div>
+                        <div class="gb_qb"></div>
+                        {{verb.ruleMsg}}
+                    </div>
+                </span>
+                {{verb.verbTo.after}} 
             </td>
             <td ng-click="$root.Speak(verb.subjectToAuxBefore + ' ' + verb.subjectTo + ' ' + verb.subjectToAuxAfter + ' ' + verb.verbTo.prefix + verb.verbTo.sufix + verb.verbTo.after, $root.langLearn.id)">
                 <i class="fa fa-play"></i>

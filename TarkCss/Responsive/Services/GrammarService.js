@@ -80,7 +80,7 @@ var conditions = [
         }
     },
     {
-        desc: 'IsVowelOnPositionInverted',
+        desc: 'Is Vowel On Position (From end to start)',
         func: function (str, value) {
             return isVowel(str.substring(str.length - 2, str.length - 1));
         }
@@ -127,6 +127,11 @@ var actions = [
 ]
 
 var RulesProcessor = function (rules, str) {
+    var result = new Object();
+    result.verb = str;
+    result.sufix = '';
+    result.msg = null;
+
     for (var i = 0; i < rules.length; i++) {
 
         var rejected = false;
@@ -134,7 +139,6 @@ var RulesProcessor = function (rules, str) {
         if (typeof rules[i].conditions != "undefined")
         {
             for (var j = 0; j < rules[i].conditions.length; j++) {
-                console.log('asdasd');
                 var condition = rules[i].conditions[j].condition;
                 var value = rules[i].conditions[j].value;
 
@@ -159,19 +163,22 @@ var RulesProcessor = function (rules, str) {
             for (var j = 0; j < rules[i].actions.length; j++) {
                 var action = rules[i].actions[j].action;
                 var value = rules[i].actions[j].value;
+                var on = rules[i].actions[j].on;
 
-                console.log('before: ' + str);
-                str = actions[action].func(str, value);
-                console.log('after: ' + str);
+                if (typeof on == "undefined" || on == null)
+                    on = 'verb';
+                
+                result[on] = actions[action].func(result[on], value);
             }
+
+            result.msg = rules[i].msg;
 
             break;
         }
     }
 
-    return str;
+    return result;
 }
-
 
 var GrammarProcessor = function () {
 
@@ -252,22 +259,30 @@ var GrammarProcessor = function () {
                     var rulesList = [
                         {
                             conditions: [{ condition: CND_ENDSWITH_LIST, value: ["o","s","sh","ch","x","z"] }],
-                            actions: [{ action: ACT_ADD, value: 'es' }]
+                            actions: [{ action: ACT_ADD, on: 'sufix', value: 'es', /*value_var:'verb'*/ }],
+                            msg: 'Singular 3rd person pronoun/noun and ends with: "o, s, sh, ch, x or z". Rule: Add "es"'
                         },
                         {
                             conditions: [{ condition: CND_ENDSWITH, value: "y" }, { condition: CND_VOWEL_POSITION_REVERSE, value: 1, result: false}],
-                            actions: [{ action: ACT_REMOVELAST, value: 1 }, { action: ACT_ADD, value: "ies" }]
+                            actions: [{ action: ACT_REMOVELAST, on: 'verb', value: 1 }, { action: ACT_ADD, on: 'sufix', value: "ies" }],
+                            msg: 'Ends with some vowel followed by "y". Rule replace the "y" to "ies"'
                         },
                         {
                             conditions: [{ condition: CND_EQUALS, value: "have" }],
-                            actions: [{ action: ACT_REPLACEALL, value: 'has' }]
+                            actions: [{ action: ACT_REPLACEALL, on: 'verb', value: 'has' }],
+                            msg: 'Irregular verb'
                         },
                         {
-                            actions: [{ action: ACT_ADD, value: 's' }]
+                            actions: [{ action: ACT_ADD, on: 'sufix', value: 's' }],
+                            msg: 'Singular 3rd person pronoun/noun. Rule add "s"'
                         }
                     ];
 
-                    verb = RulesProcessor(rulesList, verb);
+                    var result = RulesProcessor(rulesList, verb, model);
+
+                    verb = result.verb;
+                    sufix = result.sufix;
+                    model.ruleMsg = result.msg;
 
                     tagSufix = model.tags[0];
                 }
