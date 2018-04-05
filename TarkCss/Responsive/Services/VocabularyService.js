@@ -52,6 +52,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["How", "Como", "Bagaimana"],
                         ["How long", "Quanto tempo", "Berapa lama"],
                         ["How much", "Quanto", "Berapa banyak"],
+                        ["How old", "Quantos anos", "Berapa umur"],
                         //["How much does it cost", "Quanto custa", "Berapa harganya"],
                         ["How far", "Quão longe", "Berapa Jauh"]
                     ]
@@ -116,6 +117,29 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Brown", "Marrom", "Coklat"],
                         ["Pink", "Rosa", "Merah muda"],
                         ["Grey", "Cinza", "Abu-abu"]
+                    ]
+                },
+                {
+                    name: "Relatives",
+                    words: [
+                        ["Son", "Filho", "Anak laki-laki"],
+                        ["Daughter", "Filha", "Anak Perampuan"],
+                        ["Brother", "Irmão", "kakak laki-laki"],
+                        ["Brother", "Irmão", "adik laki-laki"],
+                        ["Saudara", "Irmãos", "Sibling"],
+                        ["Sibling-in-law", "Cunhado", "ipar"],
+                        ["Parents", "Pais", "Orang tua"],
+                        ["Parent-in-law", "Sogro", "Mertua"],
+                        ["Grandmother", "Pai", "Bapak"],
+                        ["Grandmother", "Mãe", "Ibu"],
+                        ["Grandchild", "Neto", "Cucu"],
+                        ["Grandfather", "Avô", "Kakek"],
+                        ["Grandmother", "Avó", "Nekek"],
+                        ["Great Grandchild", "Bisneto", "Cicit"],
+                        ["Boyfriend", "Namorado", "Pacar"],
+                        ["Wife", "Esposa", "Istri"],
+                        ["Husband", "Marido", "Suami"],
+                        ["Friend", "Amigo", "Teman"]
                     ]
                 },
                 {

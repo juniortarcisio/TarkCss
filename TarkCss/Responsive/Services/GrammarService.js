@@ -13,12 +13,12 @@ var SUBJECT_1P_PLURAL = 11;
 
 var _baseModelLanguages = new Array();
 _baseModelLanguages[SUBJECT_1P] = ["I", "Eu", "Saya"];
-_baseModelLanguages[SUBJECT_2P]=["You", "Você", "Kamu"];
+_baseModelLanguages[SUBJECT_2P]=["You", "Você", "Anda"];
 _baseModelLanguages[SUBJECT_MALE] = ["He", "Ele", "Dia"];
 _baseModelLanguages[SUBJECT_FEMALE]=["She", "Ela", "Dia"];
 _baseModelLanguages[SUBJECT_NEAR] = ["This", "Isto", "Ini"];
 _baseModelLanguages[SUBJECT_FAR] = ["That", "Aquilo", "Itu"];
-_baseModelLanguages[SUBJECT_2P_PLURAL] = ["You", "Vocês", "Kamu"];
+_baseModelLanguages[SUBJECT_2P_PLURAL] = ["You", "Vocês", "Anda sekalian"];
 _baseModelLanguages[SUBJECT_MALE_PLURAL] = ["They", "Eles", "Mereka"];
 _baseModelLanguages[SUBJECT_FEMALE_PLURAL]=["They", "Elas", "Mereka"];
 _baseModelLanguages[SUBJECT_NEAR_PLURAL] = ["These", "Estes", "Ini"];
