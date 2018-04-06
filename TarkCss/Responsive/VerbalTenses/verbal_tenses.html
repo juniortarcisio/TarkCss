@@ -17,9 +17,13 @@
     }
     .pop-rule .gb_rb, .pop-rule .gb_qb {left:8px}
     .td-rule:hover .pop-rule {display:block}
+    
+    @media only screen and (max-width:599px) {
+        .table-tenses td { padding: 3px; color:#000; line-height:14px; } 
+    }
 </style>
 <div class="col l6">
-    <h2><i class="fa fa-table"></i> Grammar table</h2>
+    <h2 class="nowrap"><i class="fa fa-table"></i> Grammar table</h2>
 </div>
 <div class="col l6" ng-hide="hideTenses">
     <select ng-model="selectedTense" ng-options="verbalTense.name for verbalTense in verbalTenses" ng-change="loadProcessedVerbs(selectedVerb,false)">

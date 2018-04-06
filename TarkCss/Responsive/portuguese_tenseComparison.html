@@ -1,4 +1,18 @@
-﻿<section class="container-short">
+﻿<style type="text/css">
+    .table-tenses td {
+        padding: 8px;
+        color: #000;
+    }
+
+    @media only screen and (max-width:599px) {
+        .table-tenses td {
+            padding: 2px;
+            color: #000;
+            line-height: 18px;
+        }
+    }
+</style>
+<section class="container-short">
     <h1>Tense comparison</h1>
     <section class="card col l12 slide-down animate-duration-x1" ng-hide="hideObjective">
         <div class="card-container">
@@ -10,7 +24,7 @@
     <div class="card col l12 m12 s12 slide-down animate-duration-x2">
         <div class="card-container">
             <div class="col l6">
-                <h2><i class="fa fa-table"></i> Grammar table</h2>
+                <h2 class="nowrap"><i class="fa fa-table"></i> Grammar table</h2>
             </div>
             <div class="col l6">
                 <select ng-model="selectedPronoun" ng-options="formatPronoun(pronoun) for pronoun in pronouns" ng-change="loadProcessedVerbs(selectedVerb,false,true)"></select>
