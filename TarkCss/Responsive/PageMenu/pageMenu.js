@@ -1,9 +1,28 @@
-﻿app.controller('pageMenuCtrl', function ($scope, $rootScope) {
+﻿app.controller('pageMenuCtrl', function ($scope, $rootScope, $timeout) {
     if ($rootScope.currentRoute == null)
         $rootScope.currentRoute = new Object();
 
     if ($rootScope.currentRoute.name == null) 
         $rootScope.currentRoute.name = 'Home';
+
+    $rootScope.hideMenuHelp = function (playSound) {
+        $rootScope.menuHelp = false;
+
+        if (playSound)
+            new Audio('../Media/blop.mp3').play();
+    }
+    $rootScope.showMenuHelp = function (playSound) {
+        $rootScope.sidenavOpen = true;
+        $rootScope.menuHelp = true;
+
+        if ($rootScope.prmsHiddingMenuHelp)
+            $timeout.cancel($rootScope.prmsHiddingMenuHelp);
+
+        $rootScope.prmsHiddingMenuHelp = $timeout($rootScope.hideMenuHelp, 7000);
+
+        if (playSound)
+            new Audio('../Media/blop.mp3').play();
+    }
 
     $scope.menuGroups = [
         {

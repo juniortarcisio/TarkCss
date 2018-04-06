@@ -136,7 +136,29 @@
         .sidenav { box-shadow:none;  }
     }
 
-
+    .menu-help { position: fixed; top: 65px; left: 130px; z-index: 2000; cursor:pointer}
+    .menu-help .fa-arrow-left { 
+        color:white; 
+        font-size:52px !important;
+        text-shadow: 2px 2px 1px #f00,-2px 2px 1px #f00, -2px -2px 1px #f00, 2px -2px 1px #f00, 2px 14px 5px rgba(0,0,0,.5) !important;
+        animation: pump-up-shady 1.5s;
+        animation-iteration-count: infinite;
+    }
+    .menu-help span {     
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        font-size: 13px !important;
+        color: black;
+        line-height: 14px;
+        animation: pump-up-soft 1.5s infinite;
+        width: 150px;
+        background-color: white;
+        padding: 8px;
+        border-radius: 10px;
+        border: 2px solid gray;
+        box-shadow: 2px 5px 3px rgba(0,0,0,.5);
+    }
 </style>
 <aside id="mySidenav" ng-class="{ 'sidenav' : true, 'open' : $root.sidenavOpen }">
     <article class="sidenav-top-margin"></article>
@@ -157,3 +179,7 @@
     </article>
 </aside>
 <section class="sidenav-bg show-only-on-mobile" ng-show="$root.sidenavOpen" ng-click="$root.toggleSivenav()"></section>
+<div class="menu-help" ng-show="$root.menuHelp === true" ng-click="$root.hideMenuHelp(true)">
+    <i class="fa fa-arrow-left"></i>
+    <span>Use side menu to choose the lesson of your interest</span>
+</div>
