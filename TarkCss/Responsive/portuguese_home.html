@@ -11,7 +11,6 @@
         background-color: white;
     }
     .personal-obj:hover .h-bold { font-weight:bold }
-    .menu-help { position: fixed; top: 90px; left: 50px; color:white; z-index: 2000}
     .progressbar {
         position:relative;
         display:inline-block;
@@ -35,9 +34,6 @@
         font-weight:bold;
     }
 </style>
-<!--<div class="menu-help">
-    <i class="fa fa-arrow-circle-left"></i>
-</div>-->
 <section class="container-short">
     <h1>Welcome to W.I.T.P</h1>
     <h3>Where in The Planet - an international global educational system</h3>
@@ -65,7 +61,7 @@
         <div class="card-container">
             <h2><i class="fa fa-question-circle"></i> How to use this system?</h2>
             <h3>1. Set your languages</h3>
-            Select one of yours mastered languages and your learning language on topbar <button type="button" class="btn btn-small effect-waves">Show me</button>
+            Select one of yours mastered languages and your learning language on topbar <button type="button" class="btn btn-small effect-waves" ng-click="$root.showLangHelp(true);">Show me</button>
             <h3>2. Browse using the menu</h3>
             Use the side menu to choose the topic of your interest <button type="button" class="btn btn-small effect-waves">Show me</button>
         </div>

@@ -187,6 +187,39 @@
         font-weight:normal;
     }
     .top-nav-flags .fa-retweet:hover { color:#eee; } 
+    .lang-help { position: absolute; top: 50px; left: -10px; z-index: 2000; cursor:pointer}
+    .lang-help .fa-arrow-up { 
+        color:white; 
+        font-size:52px !important;
+        text-shadow: 2px 2px 1px #f00,-2px 2px 1px #f00, -2px -2px 1px #f00, 2px -2px 1px #f00, 2px 14px 5px rgba(0,0,0,.5) !important;
+        animation: pump-up-shady 1.5s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes pump-up-shady {
+        0% { transform: translate3d(0%, 0%, 0) scale(1,1); text-shadow: 2px 2px 1px #fcc,-2px 2px 1px #fcc, -2px -2px 1px #f00, 2px -2px 1px #f00, 2px 5px 2px rgba(0,0,0,.5) !important; }
+        50% { transform: translate3d(0%, -35%, 0) scale(1.3,1.3); text-shadow: 2px 2px 1px #fcc,-2px 2px 1px #fcc, -2px -2px 1px #f00, 2px -2px 1px #f00, 2px 14px 2px rgba(0,0,0,.8) !important; }
+        0% { transform: translate3d(0%, 0%, 0) scale(1,1); text-shadow: 2px 2px 1px #fcc,-2px 2px 1px #fcc, -2px -2px 1px #f00, 2px -2px 1px #f00, 2px 5px 5px rgba(0,0,0,.5) !important; }
+    }
+    .lang-help span {     
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        font-size: 13px !important;
+        color: black;
+        line-height: 14px;
+        animation: pump-up-soft 1.5s infinite;
+        width: 150px;
+        background-color: white;
+        padding: 8px;
+        border-radius: 10px;
+        border: 2px solid gray;
+        box-shadow: 2px 5px 3px gray;
+    }
+    @keyframes pump-up-soft {
+        0% { transform: translate3d(0%, 0%, 0);  }
+        50% { transform: translate3d(0%, -15%, 0); }
+        0% { transform: translate3d(0%, 0%, 0);  }
+    }
 </style>
 <div class="topnav-button-menu show-only-on-mobile">
     <a ng-click="$root.toggleSivenav()">&#9776;</a>
@@ -210,6 +243,10 @@
 </div>
 <div class="top-nav-item top-nav-flags">
     <i class="fa fa-retweet cursor-pointer" ng-click="invertLanguages()" title="Invert languages"></i>
+    <div class="lang-help" ng-show="$root.langHelp === true" ng-click="$root.hideLangHelp(true)">
+        <i class="fa fa-arrow-up"></i>
+        <span>Choose your language settings here</span>
+    </div>
 </div>
 <div class="top-nav-item top-nav-flags top-nav-lang">
     <img src="{{$root.langLearn.flag}}" alt="Learning language" title="Learning language">
