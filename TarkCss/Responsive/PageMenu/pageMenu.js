@@ -24,6 +24,20 @@
             new Audio('../Media/blop.mp3').play();
     }
 
+    $rootScope.toggleShowMobUser = function () {
+        $rootScope.showMobUser = !$rootScope.showMobUser;
+    };
+
+    $rootScope.toggleShowMobServer = function () {
+        $rootScope.showMobServer = !$rootScope.showMobServer;
+    };
+
+    $rootScope.toggleSivenav = function () {
+        $rootScope.menuHelp = false;
+        $rootScope.sidenavOpen = !$rootScope.sidenavOpen;
+    };
+
+
     $scope.menuGroups = [
         {
             name: ['General','Geral','Umum'], closed:false, items: [

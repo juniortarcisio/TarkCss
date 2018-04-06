@@ -476,18 +476,6 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
         }
     });
 
-    $rootScope.toggleShowMobUser = function () {
-        $rootScope.showMobUser = !$rootScope.showMobUser;
-    };
-
-    $rootScope.toggleShowMobServer = function () {
-        $rootScope.showMobServer = !$rootScope.showMobServer;
-    };
-
-    $rootScope.toggleSivenav = function () {
-        $rootScope.sidenavOpen = !$rootScope.sidenavOpen;
-    };
-
     $rootScope.home = function () {
         $location.path("/General/Home");
     }
