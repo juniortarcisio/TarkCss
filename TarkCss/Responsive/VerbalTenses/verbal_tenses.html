@@ -58,7 +58,7 @@
             <td>
                 <span class="cursor-pointer hide-on-mobile" ng-click="$root.Speak(verb.subjectFrom, $root.langFrom.id)">{{verb.subjectFrom}}</span>
                 <span ng-repeat="tag in verb.tags">
-                    <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span>
+                    <span class="textmark autoresize" ng-class="{'{{tag}}':true}">{{tag}}</span><br class="show-only-on-mobile" />
                 </span>
             </td>
             <td>
