@@ -1,4 +1,4 @@
-﻿app.controller('pageMenuCtrl', function ($scope, $rootScope, $timeout) {
+﻿app.controller('pageMenuCtrl', function ($scope, $rootScope, $timeout, $location) {
     if ($rootScope.currentRoute == null)
         $rootScope.currentRoute = new Object();
 
@@ -81,6 +81,19 @@
             ]
         }
     ];
+
+    $scope.currentMenuGroupIndex = function () {
+        for (var i = 0; i < $scope.menuGroups.length; i++) {
+            if ($scope.menuGroups[i].name[0].trim().toLowerCase() == $rootScope.currentRoute.name.trim().toLowerCase())
+                return i;
+        }
+        return -1;
+    }();
+
+    $scope.navigate = function(url) {
+        $location.path(url.replace("#!",""));
+    }
+
 });
 
 

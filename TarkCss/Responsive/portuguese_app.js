@@ -324,7 +324,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_home.html"
     })
     .when("/General", {
-        templateUrl: "construction.html"
+        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/General/About", {
         templateUrl: "portuguese_about.html", controller: "aboutCtrl"
@@ -333,7 +333,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_home.html"
     })
     .when("/Account", {
-        templateUrl: "construction.html"
+        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/Account/SignUp", {
         templateUrl: "SignUp/sign_up.html", controller: "signUpCtrl"
@@ -344,6 +344,9 @@ app.config(function ($routeProvider) {
     .when("/Account/SignOut", {
         templateUrl: "SignOut/sign_out.html", controller: "signOutCtrl"
     })
+    .when("/Beginning", {
+        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
+    })
     .when("/Beginning/HowToLearn", {
         templateUrl: "howto.html"
     })
@@ -351,7 +354,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_tobe.html"
     })
     .when("/VerbalTenses", {
-        templateUrl: "construction.html"
+        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/VerbalTenses/SimplePresent", {
         templateUrl: "portuguese_present.html"
@@ -370,6 +373,9 @@ app.config(function ($routeProvider) {
     })
     .when("/VerbalTenses/TensesComparison", {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
+    })
+    .when("/Vocabulary", {
+        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/Vocabulary/WordAlbuns", {
         templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
@@ -460,7 +466,7 @@ app.run(function ($window, $rootScope, $location, ServerService, AuthenticationS
             route_i.name = routes[i].replace(/([A-Z])/g, ' $1').trim();
             route_i.link = '';
 
-            for (var j = i; j >= 0; j--)                
+            for (var j = i; j >= 0; j--)
                 route_i.link = routes[j] + '/' + route_i.link;
 
             route_i.link = '#!' + route_i.link;

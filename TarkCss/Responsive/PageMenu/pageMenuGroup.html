@@ -1,0 +1,19 @@
+﻿<style>
+    .pmg_item {
+        width: 100%;
+        height: 50px;
+        margin: 10px 0px;
+    }
+</style>
+<section class="container-short">
+    <section class="card col l12 slide-down animate-duration-x1">
+        <div class="card-container">
+            <h1>{{menuGroups[currentMenuGroupIndex].name[$root.langFrom.id]}}</h1>
+            <div ng-repeat="item in menuGroups[currentMenuGroupIndex].items">
+                <button class="btn effect-waves pmg_item" ng-click="navigate(item.href)">
+                    {{item.name[$root.langFrom.id]}}
+                </button>  
+            </div>          
+        </div>
+    </section>
+</section>
