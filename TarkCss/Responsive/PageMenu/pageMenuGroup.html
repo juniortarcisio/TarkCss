@@ -1,8 +1,16 @@
 ﻿<style>
+    .container-short { max-width:600px;}
     .pmg_item {
         width: 100%;
         height: 50px;
         margin: 10px 0px;
+        font-size:20px;
+        position:relative;
+    }
+    .pmg_item i {
+        position: absolute;
+        left: 20px;
+        top: 15px;
     }
 </style>
 <section class="container-short">
@@ -11,7 +19,7 @@
             <h1>{{menuGroups[currentMenuGroupIndex].name[$root.langFrom.id]}}</h1>
             <div ng-repeat="item in menuGroups[currentMenuGroupIndex].items">
                 <button class="btn effect-waves pmg_item" ng-click="navigate(item.href)">
-                    {{item.name[$root.langFrom.id]}}
+                    <i class="fa" ng-class="item.icon"></i> {{item.name[$root.langFrom.id]}}
                 </button>  
             </div>          
         </div>
