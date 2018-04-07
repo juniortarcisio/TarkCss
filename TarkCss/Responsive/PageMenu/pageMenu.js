@@ -37,7 +37,6 @@
         $rootScope.sidenavOpen = !$rootScope.sidenavOpen;
     };
 
-
     $scope.menuGroups = [
         {
             name: ['General','Geral','Umum'], closed:false, items: [
@@ -53,18 +52,18 @@
         },
         {
             name: ['Verbal tenses', 'Tempos Verbais', 'Verbal tenses'], closed: false, items: [
-                { name: ['Simple Present', 'Presente simples', 'Bulang-ulang'], href: '#!Lessons/SimplePresent', icon: 'fa-book' },
-                { name: ['Present Continuous', 'Presente Contínuo', 'Sedang Terjadi'], href: '#!Lessons/PresentContinuous', icon: 'fa-book' },
-                { name: ['Simple Past', 'Passado Simples', 'Lampau'], href: '#!Lessons/SimplePast', icon: 'fa-book' },
-                { name: ['Past Continuous', 'Passado Contínuo', 'Sedang terjadi waktu dulu'], href: '#!Lessons/PastContinuous', icon: 'fa-book' },
-                { name: ['Simple Future', 'Futuro simples', 'Akan terjadi'], href: '#!Lessons/SimpleFuture', icon: 'fa-book' },
-                { name: ['Tenses Comparison', 'Comparação de tempos', 'Perbandingan Tenses'], href: '#!Lessons/TensesComparison', icon: 'fa-book' }
+                { name: ['Simple Present', 'Presente simples', 'Bulang-ulang'], href: '#!VerbalTenses/SimplePresent', icon: 'fa-book' },
+                { name: ['Present Continuous', 'Presente Contínuo', 'Sedang Terjadi'], href: '#!VerbalTenses/PresentContinuous', icon: 'fa-book' },
+                { name: ['Simple Past', 'Passado Simples', 'Lampau'], href: '#!VerbalTenses/SimplePast', icon: 'fa-book' },
+                { name: ['Past Continuous', 'Passado Contínuo', 'Sedang terjadi waktu dulu'], href: '#!VerbalTenses/PastContinuous', icon: 'fa-book' },
+                { name: ['Simple Future', 'Futuro simples', 'Akan terjadi'], href: '#!VerbalTenses/SimpleFuture', icon: 'fa-book' },
+                { name: ['Tenses Comparison', 'Comparação de tempos', 'Perbandingan Tenses'], href: '#!VerbalTenses/TensesComparison', icon: 'fa-book' }
             ]
         },
         {
             name: ['Vocabulary', 'Vocabulário', 'Kosa kata'], closed: false, items: [
-                { name: ['Vocabulary', 'Vocabulário', 'Kosa kata'], href: '#!Lessons/Vocabulary', icon: 'fa-book' },
-                { name: ['Flashcards', 'Flashcards', 'Flashcards'], href: '#!Exercises/Flashcards', icon: 'fa-edit' }
+                { name: ['Word Albuns', 'Album de Palavras', 'Album kata'], href: '#!Vocabulary/WordAlbuns', icon: 'fa-book' },
+                { name: ['Flashcards', 'Flashcards', 'Flashcards'], href: '#!Vocabulary/Flashcards', icon: 'fa-edit' }
             ]
         },
         {

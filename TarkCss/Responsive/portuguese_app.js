@@ -350,31 +350,31 @@ app.config(function ($routeProvider) {
     .when("/Beginning/ToBeVerb", {
         templateUrl: "portuguese_tobe.html"
     })
-    .when("/Lessons", {
+    .when("/VerbalTenses", {
         templateUrl: "construction.html"
     })
-    .when("/Lessons/SimplePresent", {
+    .when("/VerbalTenses/SimplePresent", {
         templateUrl: "portuguese_present.html"
     })
-    .when("/Lessons/PresentContinuous", {
+    .when("/VerbalTenses/PresentContinuous", {
         templateUrl: "portuguese_presentContinuous.html"
     })    
-    .when("/Lessons/SimplePast", {
+    .when("/VerbalTenses/SimplePast", {
         templateUrl: "portuguese_past.html"
     })
-    .when("/Lessons/PastContinuous", {
+    .when("/VerbalTenses/PastContinuous", {
         templateUrl: "portuguese_pastContinuous.html"
     })
-    .when("/Lessons/SimpleFuture", {
+    .when("/VerbalTenses/SimpleFuture", {
         templateUrl: "portuguese_future.html"
     })
-    .when("/Lessons/TensesComparison", {
+    .when("/VerbalTenses/TensesComparison", {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
     })
-    .when("/Lessons/Vocabulary", {
+    .when("/Vocabulary/WordAlbuns", {
         templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
     })
-    .when("/Exercises/Flashcards", {
+    .when("/Vocabulary/Flashcards", {
         templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
     })
     .when("/PrototypeExercises", {
