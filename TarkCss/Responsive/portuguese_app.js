@@ -324,7 +324,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_home.html"
     })
     .when("/General", {
-        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
+        templateUrl: "PageMenu/pageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/General/About", {
         templateUrl: "portuguese_about.html", controller: "aboutCtrl"
@@ -333,7 +333,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_home.html"
     })
     .when("/Account", {
-        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
+        templateUrl: "PageMenu/pageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/Account/SignUp", {
         templateUrl: "SignUp/sign_up.html", controller: "signUpCtrl"
@@ -345,7 +345,7 @@ app.config(function ($routeProvider) {
         templateUrl: "SignOut/sign_out.html", controller: "signOutCtrl"
     })
     .when("/Beginning", {
-        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
+        templateUrl: "PageMenu/pageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/Beginning/HowToLearn", {
         templateUrl: "howto.html"
@@ -354,7 +354,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_tobe.html"
     })
     .when("/VerbalTenses", {
-        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
+        templateUrl: "PageMenu/pageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/VerbalTenses/SimplePresent", {
         templateUrl: "portuguese_present.html"
@@ -375,7 +375,7 @@ app.config(function ($routeProvider) {
         templateUrl: "portuguese_tenseComparison.html", controller: "tenseComparisonCtrl"
     })
     .when("/Vocabulary", {
-        templateUrl: "PageMenu/PageMenuGroup.html", controller: "pageMenuCtrl"
+        templateUrl: "PageMenu/pageMenuGroup.html", controller: "pageMenuCtrl"
     })
     .when("/Vocabulary/WordAlbuns", {
         templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
