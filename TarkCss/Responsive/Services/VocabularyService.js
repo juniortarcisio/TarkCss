@@ -147,14 +147,17 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         ["Husband", "Marido", "Suami"],
                         ["Friend", "Amigo", "Teman"]
                     ]
-                },
-                {
-                    id: 6,
-                    name: "Expressions",
-                    words: [
-                        ["Thank you", "Obrigado", "Terima kasih"]
-                    ]
                 }
+                //,
+                //{
+                //    id: 6,
+                //    name: "Expressions",
+                //    words: [
+                //        ["Thank you", "Obrigado", "Terima kasih"],
+                //        ["Good day", "Bom dia", "Selamat pagi"],
+                //        ["Good afternoon", "Boa tarde", "Selamat sore"]
+                //    ]
+                //}
             ]
         },
         {

@@ -53,31 +53,24 @@
             
             var randomIndex = Math.floor(Math.random() * $scope.albums[currentAlbumId].decks[currentDeckId].words.length);
 
-            //how to filter repeated words and don't cause infinite loop
-            //put many words inside a place, filter repated
             var word = $scope.albums[currentAlbumId].decks[currentDeckId].words[randomIndex]
-
-            //if ($scope.randomWord != null && subGroup.words.length > 1 && $scope.randomWord[$rootScope.langLearn.id] === subGroup.words[randomIndex][$rootScope.langLearn.id]) {
-            //    $scope.nextWord();
-            //    return;
-            //}
 
             //Only validate duplicated if the deck is bigger enough
             if ($scope.albums[currentAlbumId].decks[currentDeckId].words.length >= $scope.WORDS_COUNT) {
                 //console.log('### Validating the word: ' + word[$rootScope.langFrom.id]);
-                var existingWord = false;
+                var repeatedWordFound = false;
 
                 for (var j = 0; j < i; j++) {
                     //console.log($scope.sortedWords[j].langLearn + " - " + word[$rootScope.langLearn.id]);
                     if ($scope.sortedWords[j].langLearn === word[$rootScope.langLearn.id])
                     {
                         //console.log('@@@ já existe, tentando novamente');
-                        existingWord = true;
+                        repeatedWordFound = true;
                         break;
                     }
                 }
 
-                if (existingWord) {
+                if (repeatedWordFound) {
                     i--;
                     continue;
                 }

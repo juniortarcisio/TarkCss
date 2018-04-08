@@ -42,17 +42,17 @@
     <section class="hide-on-keyboard-opened">
         <div class="col s4 m4 l2">
             <span class="selectLabel">Album</span>
-            <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
+            <select class="selectWordGroup" ng-model="selectedAlbum" ng-options="album.name for album in albums"></select>
         </div>
     </section>
     <br class="clear hide-on-keyboard-opened" />
-    <div class="margin-top-2em col s12 m12 l6 x4 xx3" ng-repeat="wordSubGroup in selectedWordGroup.wordSubGroups">
+    <div class="margin-top-2em col s12 m12 l6 x4 xx3" ng-repeat="deck in selectedAlbum.decks">
         <section class="card">
             <div class="card-container">
-                <h3>{{wordSubGroup.name}}</h3>
+                <h3>Deck: {{deck.name}}</h3>
                 <div class="word-pack scrollbar-card">
                     <table>
-                        <tr class="word" ng-repeat="word in wordSubGroup.words">
+                        <tr class="word" ng-repeat="word in deck.words">
                             <td ng-class="{'bold':word.important}">
                                 <div class="wordTo">{{word[langLearn.id]}}</div>
                                 <div class="wordFrom">{{word[langFrom.id]}}</div>

@@ -1,8 +1,8 @@
 ﻿app.controller('vocabularyCtrl', function ($scope, $rootScope, ServerService, VocabularyService, SpeechService) {
     $scope.languages = VocabularyService.getLanguages();
-    $scope.wordGrups = VocabularyService.getWords();
+    $scope.albums = VocabularyService.getWordAlbums();
 
-    $scope.selectedWordGroup = $scope.wordGrups[0];
+    $scope.selectedAlbum = $scope.albums[0];
 
     $scope.Speak = function (msg) {
         SpeechService.Speak(msg, $rootScope.langLearn.id);
