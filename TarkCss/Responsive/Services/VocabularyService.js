@@ -42,9 +42,9 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["They", "Eles", "Mereka"] },
                         { lang: ["They", "Elas", "Mereka"], obs: [null, "Female", null], show: [false, true, false] },
                         { lang: ["This", "Este", "Ini"] },
-                        { lang: ["These", "Estes", "Ini"], obs: ["Plural", "Plural", null] },
+                        { lang: ["These", "Estes", "Ini"], obs: ["Plural", "Plural", null], show: [true, true, false] },
                         { lang: ["That", "Aquele", "Itu"] },
-                        { lang: ["Those", "Aqueles", "Itu"], obs: ["Plural", "Plural", null] },
+                        { lang: ["Those", "Aqueles", "Itu"], obs: ["Plural", "Plural", null], show: [true, true, false] },
                         { lang: ["We", "Nós", "Kami"], obs: [null, null, "Excludes the listener"] },
                         { lang: ["We", "Nós", "Kita"], obs: [null,null,"Includes the listener"], show: [false,false,true] }
                     ]
