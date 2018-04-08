@@ -1,7 +1,9 @@
 ﻿app.service('AnimationService', function ($http, $q) {
 
-    this.focusByName = function(name) {
-        document.getElementsByName(name)[0].focus();
+    this.focusByName = function (name) {
+        var element = document.getElementsByName(name);
+        if (element.length > 0)
+            element[0].focus();
     }
     
     this.animate = function (cssTarget, cssAnimation) {

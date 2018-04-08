@@ -1,34 +1,108 @@
-﻿app.controller('flashcardsCtrl', function ($scope, $rootScope, ServerService, VocabularyService, SpeechService, AnimationService) {
+﻿app.controller('flashcardsCtrl', function ($scope, $rootScope, $timeout, ServerService, VocabularyService, SpeechService, AnimationService) {
     $scope.languages = VocabularyService.getLanguages();
-    $scope.wordGrups = VocabularyService.getWords();
+    $scope.albums = VocabularyService.getWordAlbums();
 
-    $scope.selectedWordGroup = $scope.wordGrups[0];
-    $scope.correct = 0;
-    $scope.wrong = 0;
+    $scope.STAGE_ALBUM_SELECTION = 0;
+    $scope.STAGE_DECK_SELECTION = 1;
+    $scope.STAGE_RUNNING = 2;
+    $scope.STAGE_RESULTS = 3;
+    $scope.selectedStage = $scope.STAGE_ALBUM_SELECTION;
+    this.response = "";
 
-    $scope.Speak = function (msg) {
-        SpeechService.Speak(msg, $rootScope.langLearn.id);
+    $scope.navigateToStage = function (stageId) {
+        new Audio('../Media/blop.mp3').play();
+        $scope.selectedStage = stageId;
+    }
+
+    $scope.selectAlbum = function (album) {
+        new Audio('../Media/blop.mp3').play();
+
+        if (album == null) {
+            $scope.startRunning();
+            return;
+        }
+        
+        $scope.selectedAlbum = album;
+        $scope.selectedStage = $scope.STAGE_DECK_SELECTION;
+    }
+
+    $scope.selectDeck = function (deck) {
+        new Audio('../Media/blop.mp3').play();
+        $scope.selectedDeck = deck;
+        $scope.startRunning();
+    }
+    
+    $scope.startRunning = function () {
+        var currentAlbumId = 0;
+        var currentDeckId = 0;
+
+        //se nao tiver album nem deck, 2 randoms
+        //se tiver album e não tiver deck, somar os decks? ou add mais um random deck
+        //se o deck estiver selecionado, simplesmente 
+        //Uma das tips pode ser album e deck?
+        $scope.sortedWords = new Array(10);
+
+        for (var i = 0; i < $scope.sortedWords.length; i++) {
+            if ($scope.selectedAlbum == null)
+                currentAlbumId = Math.floor(Math.random() * $scope.albums.length)
+            else
+                currentAlbumId = $scope.selectedAlbum.id;
+
+            if ($scope.selectedDeck == null)
+                currentDeckId = Math.floor(Math.random() * $scope.albums[currentAlbumId].decks.length)
+            else
+                currentDeckId = $scope.selectedDeck.id;
+            
+            var randomIndex = Math.floor(Math.random() * $scope.albums[currentAlbumId].decks[currentDeckId].words.length);
+
+            //how to filter repeated words and don't cause infinite loop
+            //put many words inside a place, filter repated
+            var word = $scope.albums[currentAlbumId].decks[currentDeckId].words[randomIndex]
+
+            //if ($scope.randomWord != null && subGroup.words.length > 1 && $scope.randomWord[$rootScope.langLearn.id] === subGroup.words[randomIndex][$rootScope.langLearn.id]) {
+            //    $scope.nextWord();
+            //    return;
+            //}
+            
+            $scope.sortedWords[i] = {
+                langFrom: word[$rootScope.langFrom.id],
+                langLearn: word[$rootScope.langLearn.id]
+            };
+        }
+
+        $scope.correct = 0;
+        $scope.wrong = 0;
+        $scope.response = "";
+        $scope.currentlangLearn = $rootScope.langLearn;
+        $scope.currentSortedWordIndex = 0;
+        $scope.selectedStage = $scope.STAGE_RUNNING;
+        setTimeout(function () {
+            AnimationService.focusByName('response');
+        }, 100);
     }
 
     $scope.nextWord = function () {
-        var randomIndex = Math.floor(Math.random() * $scope.selectedWordGroup.wordSubGroups.length);
-        var subGroup = $scope.selectedWordGroup.wordSubGroups[randomIndex];
-
-        randomIndex = Math.floor(Math.random() * subGroup.words.length);              
-
-        if ($scope.randomWord != null && subGroup.words.length > 1 && $scope.randomWord[$rootScope.langLearn.id] === subGroup.words[randomIndex][$rootScope.langLearn.id]) {
-            $scope.nextWord();
+        if ($scope.currentSortedWordIndex >= 9)
+        {
+            $scope.showResult();
+            $scope.selectedStage = $scope.STAGE_RESULTS;
             return;
         }
 
-        $scope.randomWord = subGroup.words[randomIndex];
-
+        $scope.currentSortedWordIndex++;
         $scope.response = "";
-        AnimationService.focusByName('response');
+        setTimeout(function () {
+            AnimationService.focusByName('response');
+        }, 100);        
+    }
+
+    $scope.Speak = function (msg) {
+        SpeechService.Speak(msg, $scope.currentlangLearn.id);
     }
 
     $scope.answer = function (ignoreEmpty) {
         $scope.clearError();
+
         if ($scope.response.length === 0 && !ignoreEmpty) {
             AnimationService.focusByName('response');
             $scope.errorMessage = "Write your response or Skip";
@@ -36,26 +110,26 @@
         }
 
         var response = $scope.response.toUpperCase().trim();
-        var randomWord = $scope.randomWord[$rootScope.langLearn.id].toUpperCase().trim();
+        var sortedWord = $scope.sortedWords[$scope.currentSortedWordIndex].langLearn.toUpperCase().trim();
 
         if (response.normalize) { //ES6
             response = response.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-            randomWord = randomWord.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+            sortedWord = sortedWord.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
         }
 
-        if (randomWord === response) {
+        if (sortedWord === response) {
             $scope.correct++;
             $scope.showSuccess = true;
             AnimationService.animate('score-right', 'sheen');
         }
         else {
             $scope.wrong++;
-            $scope.errorMessage = "The right answer was \"" + $scope.randomWord[$rootScope.langLearn.id] + "\". ";
+            $scope.errorMessage = "The right answer was \"" + $scope.sortedWords[$scope.currentSortedWordIndex].langLearn + "\". ";
             AnimationService.animate('score-wrong', 'sheen');
         }
 
         $scope.lastWord = $scope.response;
-        $scope.Speak($scope.randomWord[$rootScope.langLearn.id]);
+        $scope.Speak($scope.sortedWords[$scope.currentSortedWordIndex].langLearn);
 
         $scope.nextWord();
     }
@@ -84,6 +158,18 @@
             $scope.clearError();
     }
 
-    $scope.nextWord();
-    AnimationService.focusByName('response');
+    $scope.showResult = function () {
+        $scope.stars = new Array();
+
+        var addStar = function () {
+            var star = new Object();
+            star.class = "fa-star";
+            $scope.stars.push(star);
+            new Audio('../Media/blop.mp3').play();
+        };
+                
+        for (var i = 0; i < $scope.correct - 5; i++)
+            $timeout(addStar, i * 500);
+    };
+
 });

@@ -131,23 +131,97 @@
     }
 
     .fa-check { margin-left:-3px;}
+
+    .pmg_item {
+        width: 100%;
+        height: 50px;
+        margin: 10px 0px;
+        font-size:20px;
+        position:relative;
+    }
+
+    .pmg_item i {
+        position: absolute;
+        left: 20px;
+        top: 15px;
+    }
+    .btn-all { background-color: #2684a6}
+    .btn-all:hover { background-color: #56b4d6}
+    .btn-back { background-color: #a63626}
+    .btn-back:hover { background-color: #c65646}
+
+    i.fa.fa-star {
+        font-size: 45px;
+        color: #e0f100;
+        text-shadow: 2px 2px 5px #da8507, -2px 2px 5px #da8507, 2px -2px 5px #da8507, -2px -2px 5px #da8507, 0px 10px 8px rgba(0,0,0,.4);
+        padding: 4px;
+        animation-name:star-grow;
+        animation-duration:.5s;
+    }
+
+    @keyframes star-grow {
+        0% {  transform: translate3d(0%, 50%, 0) scale3d(0, 0, 0); }
+        70% { transform: translate3d(0%, -20%, 0) scale3d(1.1, 1.1, 1.1); }
+        100% { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); }
+    }
+
 </style>
+
 <br class="clear hide-on-keyboard-opened" />
-<div class="container-short margin-auto">
-    <section class="hide-on-keyboard-opened">
-        <div class="col s12">
-            <span class="selectLabel">Album</span>
-            <select class="selectWordGroup" ng-model="selectedWordGroup" ng-options="wordGrup.name for wordGrup in wordGrups" ng-change="nextWord()"></select>
-        </div>
+<div class="container-short margin-auto" ng-switch="selectedStage">
+    <section ng-switch-when="0">
+        <section class="card col l12 fade-in-slide-down-slow center">
+            <div class="card-container">
+                <h1>Flashcards</h1>
+                <h2>Select your Album</h2>
+                <div ng-repeat="album in albums">
+                    <button class="btn pmg_item" ng-click="selectAlbum(album)">
+                        <i class="fa" ng-class="album.icon"></i> {{album.name}}
+                    </button>
+                </div>
+                <div>
+                    <button class="btn pmg_item btn-all" ng-click="selectAlbum(null)">
+                        <i class="fa fa-globe"></i> All Albums
+                    </button>
+                </div>
+            </div>
+        </section>
     </section>
-    <section class="col s12 m12 l12 card flash-card fade-in-slide-down">
+    <section ng-switch-when="1">
+        <section class="card col l12 fade-in-slide-down-slow center">
+            <div class="card-container">
+                <h2><i class="fa" ng-class="selectedAlbum.icon"></i> {{selectedAlbum.name}}</h2>
+                <h3>Select your deck</h3>
+                <div ng-repeat="deck in selectedAlbum.decks">
+                    <button class="btn pmg_item" ng-click="selectDeck(deck)">
+                        <i class="fa fa-book"></i> {{deck.name}}
+                    </button>
+                </div>
+                <div>
+                    <button class="btn pmg_item btn-all" ng-click="selectDeck(null)" style="font-size:15px">
+                        <i class="fa fa-globe"></i> All decks from this Album
+                    </button>
+                </div>
+                <div>
+                    <button class="btn pmg_item btn-back" ng-click="navigateToStage(0)">
+                        <i class="fa fa-arrow-circle-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section ng-switch-when="2" class="col s12 m12 l12 card flash-card fade-in-slide-down-slow">
+        <button style="position:absolute;top:-45px;right:0px" class="btn effect-waves" ng-click="navigateToStage(0)">
+            <i class="fa fa-arrow-circle-left"></i>
+            Back
+        </button>
         <div class="card-container">
-            <h5>Translate to {{langLearn.name}}</h5>
+            <h5>Translate to {{currentlangLearn.name}}</h5>
             <br class="hide-on-keyboard-opened" />
-            <h1>{{randomWord[langFrom.id]}}</h1>
+            <h1>{{sortedWords[currentSortedWordIndex].langFrom}}</h1>
             <div class="row row-response">
                 <div class="col m12">
-                    <input name="response" type="text" ng-model="response" class="response" ng-keyup="responseKeyPress($event)" placeholder="Type the answer" />                        
+                    <input name="response" type="text" ng-model="$parent.response" class="response" ng-keyup="responseKeyPress($event)" placeholder="Type the answer" />
                 </div>
             </div>
             <div class="row">
@@ -186,5 +260,30 @@
                 </table>
             </div>
         </div>
+    </section>
+    <section ng-switch-when="3">
+        <section class="card col l12 fade-in-slide-down-slow center">
+            <div class="card-container">
+                <h1>Score</h1>
+                <div style="padding:20px">                    
+                    <i class="fa" ng-class="star.class" ng-repeat="star in stars"></i>
+                </div>
+                <div>
+                    <h2>
+                        <i class="fa fa-check"></i> Corret: {{correct}}
+                    </h2>
+                </div>
+                <div>
+                    <h2>
+                        <i class="fa fa-times"></i> Wrong: {{wrong}}
+                    </h2>
+                </div>
+                <div>
+                    <button class="btn pmg_item" ng-click="navigateToStage(0)">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </section>
     </section>
 </div>

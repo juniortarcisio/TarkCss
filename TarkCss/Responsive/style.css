@@ -751,7 +751,7 @@ input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
 }
 
 @keyframes slide-down {
-    from { transform: translate(0px,-50px); }
+    from { transform: translate(0px,50px); }
     to { transform: translate(0px, 0px); }
 }
 
@@ -796,7 +796,8 @@ input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
 .fade-in { animation: fade-in .5s; }
 .fade-in-slow { animation: fade-in 2.5s; }
 .fade-in-slide-down { animation: fade-in .5s, slide-down .3s; }
-.fade-in-slide-down-slow { animation: fade-in 2.0s, slide-down 1.0s; }
+.fade-in-slide-down-slow { animation: fade-in 1.0s, slide-down 1.0s; }
+.fade-in-slide-down-slow-1x { animation: fade-in 2.0s, slide-down 1.0s; }
 .fade-in-slide-down-slow-2x { animation: fade-in 3.0s, slide-down 3.0s; }
 .slide-down { animation: slide-down .5s; }
 .slide-up { animation:slide-down .5s; animation-direction:reverse; }
