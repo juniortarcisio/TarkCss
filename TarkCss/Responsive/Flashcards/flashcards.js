@@ -103,9 +103,7 @@
 
         $scope.currentSortedWordIndex++;
         $scope.response = "";
-        setTimeout(function () {
-            AnimationService.focusByName('response');
-        }, 100);        
+        AnimationService.focusByName('response');
     }
 
     $scope.Speak = function (msg) {
