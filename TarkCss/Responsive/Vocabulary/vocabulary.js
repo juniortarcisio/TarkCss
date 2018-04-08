@@ -12,4 +12,11 @@
         SpeechService.SpeakSpaced(msg, $rootScope.langLearn.id);
     }
 
+    $scope.formatObs = function(obs) {
+        if (obs == null)
+            return "";
+
+        return "(" + obs + ")";
+    }
+
 });

@@ -33,119 +33,124 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     id: 0,
                     name: "Subjects",
                     words: [
-                        ["I", "Eu", "Saya"],
-                        ["You", "Você", "Kamu"],
-                        ["He", "Ele", "Dia"],
-                        ["She", "Ela", "Dia"],
-                        ["They", "Eles", "Mereka"],
-                        ["This", "Este", "Ini"],
-                        ["That", "Este", "Itu"],
-                        ["We", "Nós", "Kami"]
+                        { lang: ["I", "Eu", "Saya"], obs: [null, null, "formal"] },
+                        { lang: ["I", "Eu", "Aku"], obs: [null, null, "informal"], show: [false, false, true] },
+                        { lang: ["You", "Você", "Anda"], obs: [null, null, "formal"] },
+                        { lang: ["You", "Você", "Kamu"], obs: [null, null, "informal"], show: [false, false, true] },
+                        { lang: ["He", "Ele", "Dia"] },
+                        { lang: ["She", "Ela", "Dia"], obs: [null, "Female", null], show: [true, true, false] },
+                        { lang: ["They", "Eles", "Mereka"] },
+                        { lang: ["They", "Elas", "Mereka"], obs: [null, "Female", null], show: [false, true, false] },
+                        { lang: ["This", "Este", "Ini"] },
+                        { lang: ["These", "Estes", "Ini"], obs: ["Plural", "Plural", null] },
+                        { lang: ["That", "Aquele", "Itu"] },
+                        { lang: ["Those", "Aqueles", "Itu"], obs: ["Plural", "Plural", null] },
+                        { lang: ["We", "Nós", "Kami"], obs: [null, null, "Excludes the listener"] },
+                        { lang: ["We", "Nós", "Kita"], obs: [null,null,"Includes the listener"], show: [false,false,true] }
                     ]
                 },
                 {
                     id: 1,
                     name: "Questions",
                     words: [
-                        ["What", "O que", "Apa"],
-                        ["Who", "Quem", "Siapa"],
-                        ["Where", "Onde", "Di mana"],
-                        ["When", "Quando", "Kapan"],
-                        ["How", "Como", "Bagaimana"],
-                        ["How long", "Quanto tempo", "Berapa lama"],
-                        ["How much", "Quanto", "Berapa banyak"],
-                        ["How old", "Quantos anos", "Berapa umur"],
-                        //["How much does it cost", "Quanto custa", "Berapa harganya"],
-                        ["How far", "Quão longe", "Berapa Jauh"]
+                        { lang: ["What", "O que", "Apa"] },
+                        { lang: ["Who", "Quem", "Siapa"] },
+                        { lang: ["Where", "Onde", "Di mana"] },
+                        { lang: ["When", "Quando", "Kapan"] },
+                        { lang: ["How", "Como", "Bagaimana"] },
+                        { lang: ["How long", "Quanto tempo", "Berapa lama"] },
+                        { lang: ["How much", "Quanto", "Berapa banyak"] },
+                        { lang: ["How old", "Quantos anos", "Berapa umur"] },
+                        { lang: ["How far", "Quão longe", "Berapa Jauh"] }
                     ]
                 },
                 {
                     id: 2,
                     name: "Modal Verbs",
                     words: [
-                        ["Can", "Posso", "Bisa"],
-                        ["Could", "Poderia", "Bisa"],// Polite thisWordAlsoMeans: [][][0]
-                        ["Will", "Vou", "Akan"],
-                        ["Would", "Iria", "Akan"], //Hypotetical / polite, would you like -> gostaria
-                        ["Must", "Devo", "Harus"],
-                        ["Should", "Deveria", "Harus"],
-                        ["Need", "Precisar", "Perlu"],
-                        ["Want", "Querer", "Mau"],
-                        ["Know", "Saber", "Tau"]
-                        //["May", "Posso", "Bisa"]
+                        { lang: ["Can", "Posso", "Bisa"] },
+                        { lang: ["Could", "Poderia", "Bisa"] },// Polite thisWordAlsoMeans: [][][0]
+                        { lang: ["Will", "Vou", "Akan"] },
+                        { lang: ["Would", "Iria", "Akan"] }, //Hypotetical / polite, would you like -> gostaria
+                        { lang: ["Must", "Devo", "Harus"] },
+                        { lang: ["Should", "Deveria", "Harus"] },
+                        { lang: ["Need", "Precisar", "Perlu"] },
+                        { lang: ["Want", "Querer", "Mau"] },
+                        { lang: ["Know", "Saber", "Tau"] }
+                        //{ lang: ["May", "Posso", "Bisa"] }
                     ]
                 },
                 {
                     id: 3,
                     name: "Key Words",
                     words: [
-                        ["For", "Para", "Untuk"],
-                        ["But", "Mas", "Tapi"],
-                        ["If", "Se", "Kalau"],
-                        ["Then", "Então", "Kemudian"],
-                        ["Or", "Ou", "Atau"],
-                        ["And", "E", "Dan"],
-                        ["Already", "Já", "Sudah"],
-                        ["Yet", "Ainda", "Namun"],
-                        ["Not yet", "Ainda não", "Belum"],
-                        ["Ever", "Sempre", "Pernah"],
-                        ["Never", "Nunca", "Tak pernah"],
-                        ["Again", "De novo", "Lagi"],
-                        ["Really", "Realmente", "Yang Benar"],
-                        ["Alone", "Sozinho", "Sendiri"],
-                        ["With", "Com", "Dengan"],
-                        ["Give", "Dar", "Berikan"],
-                        ["Only", "Somente", "Saja"],
-                        ["Maybe", "Talvez", "Mungkin"],
-                        ["More", "Mais", "Lebih"],
-                        ["Very", "Muito", "Sangat"], //uncountable
-                        ["A lot", "Muito", "Banyak"],
-                        ["Together", "Juntos", "Bersama"],
-                        ["Join", "Juntar-se", "Ikut"],
-                        ["As", "Como", "Seperti"],
-                        ["Like", "Como", "Suka"]
-                        //["Suka", "Como", "Berdua"]
+                        { lang: ["For", "Para", "Untuk"] },
+                        { lang: ["But", "Mas", "Tapi"] },
+                        { lang: ["If", "Se", "Kalau"] },
+                        { lang: ["Then", "Então", "Kemudian"] },
+                        { lang: ["Or", "Ou", "Atau"] },
+                        { lang: ["And", "E", "Dan"] },
+                        { lang: ["Already", "Já", "Sudah"] },
+                        { lang: ["Yet", "Ainda", "Namun"] },
+                        { lang: ["Not yet", "Ainda não", "Belum"] },
+                        { lang: ["Ever", "Sempre", "Pernah"] },
+                        { lang: ["Never", "Nunca", "Tak pernah"] },
+                        { lang: ["Again", "De novo", "Lagi"] },
+                        { lang: ["Really", "Realmente", "Yang Benar"] },
+                        { lang: ["Alone", "Sozinho", "Sendiri"] },
+                        { lang: ["With", "Com", "Dengan"] },
+                        { lang: ["Give", "Dar", "Berikan"] },
+                        { lang: ["Only", "Somente", "Saja"] },
+                        { lang: ["Maybe", "Talvez", "Mungkin"] },
+                        { lang: ["More", "Mais", "Lebih"] },
+                        { lang: ["Very", "Muito", "Sangat"] }, //uncountable
+                        { lang: ["A lot", "Muito", "Banyak"] },
+                        { lang: ["Together", "Juntos", "Bersama"] },
+                        { lang: ["Join", "Juntar-se", "Ikut"] },
+                        { lang: ["As", "Como", "Seperti"] },
+                        { lang: ["Like", "Como", "Suka"] }
+                        //{ lang: ["Suka", "Como", "Berdua"] }
                     ]
                 },
                 {
                     id: 4,
                     name: "Colors",
                     words: [
-                        ["Blue", "Azul", "Biru"],
-                        ["Red", "Vermelho", "Merah"],
-                        ["Yellow", "Amarelo", "Kuning"],
-                        ["Green", "Verde", "Hijau"],
-                        ["White", "Branco", "Putih"],
-                        ["Black", "Preto", "Hitam"],
-                        ["Purple", "Roxo", "Ungu"],
-                        ["Orange", "Laranja", "Oranye"],
-                        ["Brown", "Marrom", "Coklat"],
-                        ["Pink", "Rosa", "Merah muda"],
-                        ["Grey", "Cinza", "Abu-abu"]
+                        { lang: ["Blue", "Azul", "Biru"] },
+                        { lang: ["Red", "Vermelho", "Merah"] },
+                        { lang: ["Yellow", "Amarelo", "Kuning"] },
+                        { lang: ["Green", "Verde", "Hijau"] },
+                        { lang: ["White", "Branco", "Putih"] },
+                        { lang: ["Black", "Preto", "Hitam"] },
+                        { lang: ["Purple", "Roxo", "Ungu"] },
+                        { lang: ["Orange", "Laranja", "Oranye"] },
+                        { lang: ["Brown", "Marrom", "Coklat"] },
+                        { lang: ["Pink", "Rosa", "Merah muda"] },
+                        { lang: ["Grey", "Cinza", "Abu-abu"] }
                     ]
                 },
                 {
                     id: 5,
                     name: "Relatives",
                     words: [
-                        ["Son", "Filho", "Anak laki-laki"],
-                        ["Daughter", "Filha", "Anak Perampuan"],
-                        ["Brother", "Irmão", "kakak laki-laki"],
-                        ["Brother", "Irmão", "adik laki-laki"],
-                        ["Saudara", "Irmãos", "Sibling"],
-                        ["Sibling-in-law", "Cunhado", "ipar"],
-                        ["Parents", "Pais", "Orang tua"],
-                        ["Parent-in-law", "Sogro", "Mertua"],
-                        ["Grandmother", "Pai", "Bapak"],
-                        ["Grandmother", "Mãe", "Ibu"],
-                        ["Grandchild", "Neto", "Cucu"],
-                        ["Grandfather", "Avô", "Kakek"],
-                        ["Grandmother", "Avó", "Nekek"],
-                        ["Great Grandchild", "Bisneto", "Cicit"],
-                        ["Boyfriend", "Namorado", "Pacar"],
-                        ["Wife", "Esposa", "Istri"],
-                        ["Husband", "Marido", "Suami"],
-                        ["Friend", "Amigo", "Teman"]
+                        { lang: ["Son", "Filho", "Anak laki-laki"] },
+                        { lang: ["Daughter", "Filha", "Anak Perampuan"] },
+                        { lang: ["Brother", "Irmão", "kakak laki-laki"] },
+                        { lang: ["Brother", "Irmão", "adik laki-laki"] },
+                        { lang: ["Saudara", "Irmãos", "Sibling"] },
+                        { lang: ["Sibling-in-law", "Cunhado", "ipar"] },
+                        { lang: ["Parents", "Pais", "Orang tua"] },
+                        { lang: ["Parent-in-law", "Sogro", "Mertua"] },
+                        { lang: ["Grandmother", "Pai", "Bapak"] },
+                        { lang: ["Grandmother", "Mãe", "Ibu"] },
+                        { lang: ["Grandchild", "Neto", "Cucu"] },
+                        { lang: ["Grandfather", "Avô", "Kakek"] },
+                        { lang: ["Grandmother", "Avó", "Nekek"] },
+                        { lang: ["Great Grandchild", "Bisneto", "Cicit"] },
+                        { lang: ["Boyfriend", "Namorado", "Pacar"] },
+                        { lang: ["Wife", "Esposa", "Istri"] },
+                        { lang: ["Husband", "Marido", "Suami"] },
+                        { lang: ["Friend", "Amigo", "Teman"] }
                     ]
                 }
                 //,
@@ -153,9 +158,9 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                 //    id: 6,
                 //    name: "Expressions",
                 //    words: [
-                //        ["Thank you", "Obrigado", "Terima kasih"],
-                //        ["Good day", "Bom dia", "Selamat pagi"],
-                //        ["Good afternoon", "Boa tarde", "Selamat sore"]
+                //        { lang: ["Thank you", "Obrigado", "Terima kasih"] },
+                //        { lang: ["Good day", "Bom dia", "Selamat pagi"] },
+                //        { lang: ["Good afternoon", "Boa tarde", "Selamat sore"] }
                 //    ]
                 //}
             ]
@@ -167,18 +172,18 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     id: 0,
                     name: "Basic 1",
                     words: [
-                        ["To Walk", "Andar", "Berjalan"],
-                        ["To Talk", "Falar", "Berbicara"],
-                        ["To Go", "Ir", "Pergi"],
-                        ["To Wait", "Esperar", "Menunggu"],
-                        ["To Ask", "Perguntar", "Bertanya"],
-                        ["To Eat", "Comer", "Makan"],
-                        ["To Drink", "Beber", "Minum"],
-                        ["To Work", "Trabalhar", "Bekerja"],
-                        ["To Study", "Estudar", "Belajar"],
-                        ["To Play", "Jogar", "Bermain"],
-                        ["To Like", "Gostar", "Suka"],
-                        ["To Ask", "Pedir", "Minta"]
+                        { lang: ["To Walk", "Andar", "Berjalan"] },
+                        { lang: ["To Talk", "Falar", "Berbicara"] },
+                        { lang: ["To Go", "Ir", "Pergi"] },
+                        { lang: ["To Wait", "Esperar", "Menunggu"] },
+                        { lang: ["To Ask", "Perguntar", "Bertanya"] },
+                        { lang: ["To Eat", "Comer", "Makan"] },
+                        { lang: ["To Drink", "Beber", "Minum"] },
+                        { lang: ["To Work", "Trabalhar", "Bekerja"] },
+                        { lang: ["To Study", "Estudar", "Belajar"] },
+                        { lang: ["To Play", "Jogar", "Bermain"] },
+                        { lang: ["To Like", "Gostar", "Suka"] },
+                        { lang: ["To Ask", "Pedir", "Minta"] }
                     ]
                 }
             ]
@@ -190,112 +195,112 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     id: 0,
                     name: "Basic Numbers",
                     words: [
-                        ["One", "Um", "Satu"],
-                        ["Two", "Dois", "Dua"],
-                        ["Three", "Três", "Tiga"],
-                        ["Four", "Quartro", "Empat"],
-                        ["Five", "Cinco", "Lima"],
-                        ["Six", "Seis", "Enam"],
-                        ["Seven", "Sete", "Tujuh"],
-                        ["Eight", "Oito", "Delapan"],
-                        ["Nine", "Nove", "Sembilan"],
-                        ["Teen", "Dez", "Sepuluh"],
-                        ["Eleven", "Onze", "Sebelas"],
-                        ["Twelve", "Doze", "Dua belas"],
-                        ["Thirteen", "Treze", "Tiga belas"],
-                        ["Fourteen", "Quatorze", "Empat belas"],
-                        ["Fifteen", "Quinze", "Lima belas"],
-                        ["Sixteen", "Dezesseis", "Enam belas"],
-                        ["Seventeen", "Dezessete", "Tujuh belas"],
-                        ["Eightteen", "Dezoito", "Delapan belas"],
-                        ["Nineteen", "Dezenove", "Sembilan belas"],
-                        ["Twenty", "Vinte", "Dua Puluh"],
-                        ["Thirty", "Trinta", "Tiga Puluh"],
-                        ["Fourty", "Quarenta", "Empat Puluh"],
-                        ["Fifty", "Cinquenta", "Lima Puluh"],
-                        ["One Hundred", "Cem", "Seratus"],
-                        ["Two Hundred", "Duzentos", "Dua Ratus"],
-                        ["Three Hundred", "Trezentos", "Tiga Ratus"],
-                        ["One Thousand", "Mil", "Seribu"],
-                        ["Two Thousand", "Dois Mil", "Dua Ribu"],
-                        ["Three Thousand", "Três Mil", "Tiga Ribu"],
-                        ["One Million", "Um Milhão", "Satu Juta"],
-                        ["Two Million", "Dois Milhões", "Dua Juta"],
-                        ["Three Million", "Três Milhões", "Tiga Juta"],
-                        ["One Billion", "Um Bilhão", "Satu Miliar"],
-                        ["Two Billion", "Dois Bilhões", "Dua Miliar"],
-                        ["Three Billion", "Três Bilhões", "Tiga Miliar"],
-                        ["One Trillion", "Um Trilhão", "Satu Triliun"],
-                        ["Two Trillion", "Dois Trilhões", "Dua Triliun"],
-                        ["Three Trillion", "Três Trilhões", "Tiga Triliun"]
+                        { lang: ["One", "Um", "Satu"] },
+                        { lang: ["Two", "Dois", "Dua"] },
+                        { lang: ["Three", "Três", "Tiga"] },
+                        { lang: ["Four", "Quartro", "Empat"] },
+                        { lang: ["Five", "Cinco", "Lima"] },
+                        { lang: ["Six", "Seis", "Enam"] },
+                        { lang: ["Seven", "Sete", "Tujuh"] },
+                        { lang: ["Eight", "Oito", "Delapan"] },
+                        { lang: ["Nine", "Nove", "Sembilan"] },
+                        { lang: ["Teen", "Dez", "Sepuluh"] },
+                        { lang: ["Eleven", "Onze", "Sebelas"] },
+                        { lang: ["Twelve", "Doze", "Dua belas"] },
+                        { lang: ["Thirteen", "Treze", "Tiga belas"] },
+                        { lang: ["Fourteen", "Quatorze", "Empat belas"] },
+                        { lang: ["Fifteen", "Quinze", "Lima belas"] },
+                        { lang: ["Sixteen", "Dezesseis", "Enam belas"] },
+                        { lang: ["Seventeen", "Dezessete", "Tujuh belas"] },
+                        { lang: ["Eightteen", "Dezoito", "Delapan belas"] },
+                        { lang: ["Nineteen", "Dezenove", "Sembilan belas"] },
+                        { lang: ["Twenty", "Vinte", "Dua Puluh"] },
+                        { lang: ["Thirty", "Trinta", "Tiga Puluh"] },
+                        { lang: ["Fourty", "Quarenta", "Empat Puluh"] },
+                        { lang: ["Fifty", "Cinquenta", "Lima Puluh"] },
+                        { lang: ["One Hundred", "Cem", "Seratus"] },
+                        { lang: ["Two Hundred", "Duzentos", "Dua Ratus"] },
+                        { lang: ["Three Hundred", "Trezentos", "Tiga Ratus"] },
+                        { lang: ["One Thousand", "Mil", "Seribu"] },
+                        { lang: ["Two Thousand", "Dois Mil", "Dua Ribu"] },
+                        { lang: ["Three Thousand", "Três Mil", "Tiga Ribu"] },
+                        { lang: ["One Million", "Um Milhão", "Satu Juta"] },
+                        { lang: ["Two Million", "Dois Milhões", "Dua Juta"] },
+                        { lang: ["Three Million", "Três Milhões", "Tiga Juta"] },
+                        { lang: ["One Billion", "Um Bilhão", "Satu Miliar"] },
+                        { lang: ["Two Billion", "Dois Bilhões", "Dua Miliar"] },
+                        { lang: ["Three Billion", "Três Bilhões", "Tiga Miliar"] },
+                        { lang: ["One Trillion", "Um Trilhão", "Satu Triliun"] },
+                        { lang: ["Two Trillion", "Dois Trilhões", "Dua Triliun"] },
+                        { lang: ["Three Trillion", "Três Trilhões", "Tiga Triliun"] }
                     ]
                 },
                 {
                     id: 1,
                     name: "Ordinal Numbers",
                     words: [
-                        ["First", "Primeiro", "Pertama"],
-                        ["Second", "Segundo", "Kedua"],
-                        ["Third", "Terceiro", "Ketiga"],
-                        ["Fourth", "Quarto", "Keempat"],
-                        ["Fifth", "Quinto", "Kelima"],
-                        ["Sixth", "Sexto", "Keenam"],
-                        ["Seventh", "Setimo", "Ketujuh"],
-                        ["Eighth", "Oitavo", "Kedelapan"],
-                        ["Ninth", "Nono", "Kesembilan"],
-                        ["Tenth", "Décimo", "Kesepuluh"]
+                        { lang: ["First", "Primeiro", "Pertama"] },
+                        { lang: ["Second", "Segundo", "Kedua"] },
+                        { lang: ["Third", "Terceiro", "Ketiga"] },
+                        { lang: ["Fourth", "Quarto", "Keempat"] },
+                        { lang: ["Fifth", "Quinto", "Kelima"] },
+                        { lang: ["Sixth", "Sexto", "Keenam"] },
+                        { lang: ["Seventh", "Setimo", "Ketujuh"] },
+                        { lang: ["Eighth", "Oitavo", "Kedelapan"] },
+                        { lang: ["Ninth", "Nono", "Kesembilan"] },
+                        { lang: ["Tenth", "Décimo", "Kesepuluh"] }
                     ]
                 },
                 {
                     id: 2,
                     name: "Ocurrencies",
                     words: [
-                        ["Once", "Uma Vez", "Satu Kali"],
-                        ["Twice", "Duas Vezes", "Dua Kali"],
-                        ["Three Times", "Três Vezes", "Tiga Kali"]
+                        { lang: ["Once", "Uma Vez", "Satu Kali"] },
+                        { lang: ["Twice", "Duas Vezes", "Dua Kali"] },
+                        { lang: ["Three Times", "Três Vezes", "Tiga Kali"] }
                     ]
                 },
                 {
                     id: 3,
                     name: "Fractions",
                     words: [
-                        ["Half", "Metade", "Setengah"],
-                        ["One Third", "Um terço", "Sepertiga"],
-                        ["One Quarter", "Um Quarto", "Seperempat"]
+                        { lang: ["Half", "Metade", "Setengah"] },
+                        { lang: ["One Third", "Um terço", "Sepertiga"] },
+                        { lang: ["One Quarter", "Um Quarto", "Seperempat"] }
                     ]
                 },
                 {
                     id: 4,
                     name: "Time",
                     words: [
-                        ["Second", "Segundo", "Kedua"],
-                        ["Minute", "Minuto", "Menit"],
-                        ["Hour", "Hora", "Waktu"],
-                        ["Morning", "Manhã", "Pagi"],
-                        ["Afternoon", "Tarde", "Siang"],
-                        ["Evening", "Anoitecer", "Sore"],
-                        ["Night", "Noite", "Sore"],
-                        ["Day", "Dia", "Hari"],
-                        ["Week", "Semana", "Minggu"],
-                        ["Month", "Mês", "Bulan"],
-                        ["Year", "Ano", "Tahun"],
-                        ["Tomorrow", "Amanhã", "Besok"],
-                        ["Yesterday", "Ontem", "Kemaren"],
-                        ["Later", "Mais tarde", "Nanti"]//,
-                        //["Early", "Cedo", "Nanti"]
+                        { lang: ["Second", "Segundo", "Kedua"] },
+                        { lang: ["Minute", "Minuto", "Menit"] },
+                        { lang: ["Hour", "Hora", "Waktu"] },
+                        { lang: ["Morning", "Manhã", "Pagi"] },
+                        { lang: ["Afternoon", "Tarde", "Siang"] },
+                        { lang: ["Evening", "Anoitecer", "Sore"] },
+                        { lang: ["Night", "Noite", "Sore"] },
+                        { lang: ["Day", "Dia", "Hari"] },
+                        { lang: ["Week", "Semana", "Minggu"] },
+                        { lang: ["Month", "Mês", "Bulan"] },
+                        { lang: ["Year", "Ano", "Tahun"] },
+                        { lang: ["Tomorrow", "Amanhã", "Besok"] },
+                        { lang: ["Yesterday", "Ontem", "Kemaren"] },
+                        { lang: ["Later", "Mais tarde", "Nanti"] }//,
+                        //{ lang: ["Early", "Cedo", "Nanti"] }
                     ]
                 },
                 {
                     id: 5,
                     name: "Size",
                     words: [
-                        ["Big", "Grande", "Besar"],
-                        ["Small", "Pequeno", "Kecil"],
-                        ["Tall", "Alto", "Tinggi"],
-                        ["Short", "Baixo", "Pendek"],
-                        ["Long", "Longo", "Panjang"],
-                        ["Narrow", "Estreito", "Sempit"],
-                        ["Wide", "Estreito", "Lebar"]
+                        { lang: ["Big", "Grande", "Besar"] },
+                        { lang: ["Small", "Pequeno", "Kecil"] },
+                        { lang: ["Tall", "Alto", "Tinggi"] },
+                        { lang: ["Short", "Baixo", "Pendek"] },
+                        { lang: ["Long", "Longo", "Panjang"] },
+                        { lang: ["Narrow", "Estreito", "Sempit"] },
+                        { lang: ["Wide", "Estreito", "Lebar"] }
                     ]
                 }
             ]
@@ -308,84 +313,84 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     id: 0,
                     name: "Directions",
                     words: [
-                        ["North", "Norte", "Utara"],
-                        ["East", "Leste", "Timur"],
-                        ["South", "Sul", "Selatan"],
-                        ["West", "Oeste", "Barat"],
-                        ["Ahead", "Frente", "Depan"],
-                        ["Left", "Esquerda", "Kiri"],
-                        ["Behind", "Atrás", "Belakang"],
-                        ["Right", "Direita", "Kanan"],
-                        ["Near", "Perto", "Dekat"],
-                        ["Far", "Longe", "Jauh"]
+                        { lang: ["North", "Norte", "Utara"] },
+                        { lang: ["East", "Leste", "Timur"] },
+                        { lang: ["South", "Sul", "Selatan"] },
+                        { lang: ["West", "Oeste", "Barat"] },
+                        { lang: ["Ahead", "Frente", "Depan"] },
+                        { lang: ["Left", "Esquerda", "Kiri"] },
+                        { lang: ["Behind", "Atrás", "Belakang"] },
+                        { lang: ["Right", "Direita", "Kanan"] },
+                        { lang: ["Near", "Perto", "Dekat"] },
+                        { lang: ["Far", "Longe", "Jauh"] }
                     ]
                 },
                 {
                     id: 1,
                     name: "Geography",
                     words: [
-                        ["Address", "Endereço", "Alamat"],
-                        ["Street", "Rua", "Jalan"],
-                        ["Highway", "Rodovia", "Jalan Raya"],
-                        ["Neighborhood", "Bairro", "Lingkungan"],
-                        ["City", "Cidade", "Kota"],
-                        ["Province", "Província", "Propinsi"],
-                        ["State", "Estado", "Negarabagian"],
-                        ["Country", "País", "Negara"],
-                        ["Continent", "Continente", "Benua"],
-                        ["Planet", "Planeta", "Planet"],
-                        ["Galaxy", "Galaxia", "Galaksi"]
+                        { lang: ["Address", "Endereço", "Alamat"] },
+                        { lang: ["Street", "Rua", "Jalan"] },
+                        { lang: ["Highway", "Rodovia", "Jalan Raya"] },
+                        { lang: ["Neighborhood", "Bairro", "Lingkungan"] },
+                        { lang: ["City", "Cidade", "Kota"] },
+                        { lang: ["Province", "Província", "Propinsi"] },
+                        { lang: ["State", "Estado", "Negarabagian"] },
+                        { lang: ["Country", "País", "Negara"] },
+                        { lang: ["Continent", "Continente", "Benua"] },
+                        { lang: ["Planet", "Planeta", "Planet"] },
+                        { lang: ["Galaxy", "Galaxia", "Galaksi"] }
                     ]
                 },
                 {
                     id: 2,
                     name: "Housing",
                     words: [
-                        ["House", "Casa", "Rumah"],
-                        ["Apartment", "Apartamento", "Apartemen"],
-                        ["Bathroom", "Banheiro", "Kamar mandi"],
-                        ["Restroom", "Toalete", "Kamar kecil"],
-                        ["Bedroom", "Quarto", "Kamar tidur"],
-                        ["Living room", "Sala", "Ruang keluarga"]
+                        { lang: ["House", "Casa", "Rumah"] },
+                        { lang: ["Apartment", "Apartamento", "Apartemen"] },
+                        { lang: ["Bathroom", "Banheiro", "Kamar mandi"] },
+                        { lang: ["Restroom", "Toalete", "Kamar kecil"] },
+                        { lang: ["Bedroom", "Quarto", "Kamar tidur"] },
+                        { lang: ["Living room", "Sala", "Ruang keluarga"] }
                     ]
                 },
                 {
                     id: 3,
                     name: "Vehicles",
                     words: [
-                        ["Bicycle", "Moto", "Sepeda"],
-                        ["Scooter", "Lambreta", "Skuter"],
-                        ["Bike", "Moto", "Sepeda Motor"],
-                        ["Car", "Carro", "Mobil"],
-                        ["Truck", "Caminhão", "Truk"],
-                        ["Tractor", "Trator", "Traktor"],
-                        ["Bus", "Ônibus", "Bus"],
-                        ["Train", "Trem", "Melatih"],
-                        ["Subway", "Metrô", "Kereta bawah tanah"],
-                        ["Boat", "Barco", "Peharu"],
-                        ["Ship", "Navio", "Kapal"],
-                        ["Helicopter", "Helicóptero", "Helikopter"],
-                        ["Airplane", "Avião", "Pesawat terbang"],
-                        ["Rocket", "Foguete", "Roket"]
+                        { lang: ["Bicycle", "Moto", "Sepeda"] },
+                        { lang: ["Scooter", "Lambreta", "Skuter"] },
+                        { lang: ["Bike", "Moto", "Sepeda Motor"] },
+                        { lang: ["Car", "Carro", "Mobil"] },
+                        { lang: ["Truck", "Caminhão", "Truk"] },
+                        { lang: ["Tractor", "Trator", "Traktor"] },
+                        { lang: ["Bus", "Ônibus", "Bus"] },
+                        { lang: ["Train", "Trem", "Melatih"] },
+                        { lang: ["Subway", "Metrô", "Kereta bawah tanah"] },
+                        { lang: ["Boat", "Barco", "Peharu"] },
+                        { lang: ["Ship", "Navio", "Kapal"] },
+                        { lang: ["Helicopter", "Helicóptero", "Helikopter"] },
+                        { lang: ["Airplane", "Avião", "Pesawat terbang"] },
+                        { lang: ["Rocket", "Foguete", "Roket"] }
                     ]
                 },
                 {
                     id: 4,
                     name: "Universe",
                     words: [
-                        ["Sun", "Sol", "Matahari"],
-                        ["Moon", "Lua", "Moon"],
-                        ["Sky", "Céu", "Langit"],
-                        ["Star", "Estrela", "Bintang"]
+                        { lang: ["Sun", "Sol", "Matahari"] },
+                        { lang: ["Moon", "Lua", "Moon"] },
+                        { lang: ["Sky", "Céu", "Langit"] },
+                        { lang: ["Star", "Estrela", "Bintang"] }
                     ]
                 },
                 {
                     id: 5,
                     name: "Climate",
                     words: [
-                        ["Suny", "Ensolarado", "Cerah"],
-                        ["Rain", "Chuva", "Hujan"],
-                        ["Snow", "Neve", "Snow"]
+                        { lang: ["Suny", "Ensolarado", "Cerah"] },
+                        { lang: ["Rain", "Chuva", "Hujan"] },
+                        { lang: ["Snow", "Neve", "Snow"] }
                     ]
                 }
             ]
@@ -398,64 +403,64 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     id: 0,
                     name: "Food",
                     words: [
-                        ["Chicken Meat", "Carne de Frango", "Daging Ayam"],
-                        ["Cow Meat", "Carne de Vaca", "Daging Sapi"],
-                        ["Pork Meat", "Carne de Porco", "Daging Babi"],
-                        ["Fried Fish", "Peixe Frito", "Ikan Goreng"],
-                        ["Grilled", "Grelhado", "Bakar"],
-                        ["Roasted", "Assado", "Panggang"],
-                        ["Cooked", "Cozido", "Masak"],
+                        { lang: ["Chicken Meat", "Carne de Frango", "Daging Ayam"] },
+                        { lang: ["Cow Meat", "Carne de Vaca", "Daging Sapi"] },
+                        { lang: ["Pork Meat", "Carne de Porco", "Daging Babi"] },
+                        { lang: ["Fried Fish", "Peixe Frito", "Ikan Goreng"] },
+                        { lang: ["Grilled", "Grelhado", "Bakar"] },
+                        { lang: ["Roasted", "Assado", "Panggang"] },
+                        { lang: ["Cooked", "Cozido", "Masak"] },
                         //{ word: "Matang", description: "Cooked" }, create an array object on this situation??? and work on service interfaces?
-                        ["Spicy", "Apimentado", "Pedas"],
-                        ["Noodles", "Miojo", "Mi"],
-                        ["Rice", "Arroz", "Nasi"]
+                        { lang: ["Spicy", "Apimentado", "Pedas"] },
+                        { lang: ["Noodles", "Miojo", "Mi"] },
+                        { lang: ["Rice", "Arroz", "Nasi"] }
                     ]
                 },
                 {
                     id: 1,
                     name: "Drink",
                     words: [
-                        ["Water", "Água", "Air putih"],
-                        ["Coffee", "Café", "Kopi"],
-                        ["Milk", "Leite", "Susu"],
-                        ["Fruits Juice", "Suco de Frutas", "Jus buah"],
-                        ["Orange Juice", "Suco de Laranja", "Jus jeruk"],
-                        ["Mango Juice", "Suco de Manga", "Jus mangga"],
-                        ["Tea", "Chá", "Teh"],
-                        ["Beer", "Cerveja", "Bir"],
-                        ["Wine", "Vinho", "Anggur merah"]
+                        { lang: ["Water", "Água", "Air putih"] },
+                        { lang: ["Coffee", "Café", "Kopi"] },
+                        { lang: ["Milk", "Leite", "Susu"] },
+                        { lang: ["Fruits Juice", "Suco de Frutas", "Jus buah"] },
+                        { lang: ["Orange Juice", "Suco de Laranja", "Jus jeruk"] },
+                        { lang: ["Mango Juice", "Suco de Manga", "Jus mangga"] },
+                        { lang: ["Tea", "Chá", "Teh"] },
+                        { lang: ["Beer", "Cerveja", "Bir"] },
+                        { lang: ["Wine", "Vinho", "Anggur merah"] }
                     ]
                 },
                 {
                     id: 2,
                     name: "Fruits",
                     words: [
-                        ["Mango", "Manga", "Mangga"],
-                        ["Apple", "Maçã", "Apel"],
-                        ["Banana", "Banana", "Pisang"],
-                        ["Orange", "Laranja", "Jeruk"],
-                        ["Wine", "Vinho", "Anggur"],
-                        ["Pineapple", "Abacaxi", "Nanas"],
-                        ["Dragon Fruit", "Pitaia", "Buah naga"],
-                        ["Pear", "Pera", "Pir"],
-                        ["Guava", "Goiaba", "Jambu biji"],
-                        ["Watermelon", "Melancia", "Semangka"],
-                        ["Jackfruit", "Jaca", "Nangka"],
-                        ["Durian", "Durian", "Durian"],
-                        ["Passion Fruit", "Maracuja", "Markisa"]
+                        { lang: ["Mango", "Manga", "Mangga"] },
+                        { lang: ["Apple", "Maçã", "Apel"] },
+                        { lang: ["Banana", "Banana", "Pisang"] },
+                        { lang: ["Orange", "Laranja", "Jeruk"] },
+                        { lang: ["Wine", "Vinho", "Anggur"] },
+                        { lang: ["Pineapple", "Abacaxi", "Nanas"] },
+                        { lang: ["Dragon Fruit", "Pitaia", "Buah naga"] },
+                        { lang: ["Pear", "Pera", "Pir"] },
+                        { lang: ["Guava", "Goiaba", "Jambu biji"] },
+                        { lang: ["Watermelon", "Melancia", "Semangka"] },
+                        { lang: ["Jackfruit", "Jaca", "Nangka"] },
+                        { lang: ["Durian", "Durian", "Durian"] },
+                        { lang: ["Passion Fruit", "Maracuja", "Markisa"] }
                     ]
                 },
                 {
                     id: 3,
                     name: "Vegetables",
                     words: [
-                        ["Salad", "Salada", "Salad"],
-                        ["Tomato", "Tomate", "Tomat"],
-                        ["Lettuce", "Alface", "Selada"],
-                        ["Cassava", "Mandioca", "Singkong"],
-                        ["Eggplant", "Berinjela", "Terong"],
-                        ["Cucumber", "Pepino", "Timun"],
-                        ["Potato", "Batata", "Kentang"]
+                        { lang: ["Salad", "Salada", "Salad"] },
+                        { lang: ["Tomato", "Tomate", "Tomat"] },
+                        { lang: ["Lettuce", "Alface", "Selada"] },
+                        { lang: ["Cassava", "Mandioca", "Singkong"] },
+                        { lang: ["Eggplant", "Berinjela", "Terong"] },
+                        { lang: ["Cucumber", "Pepino", "Timun"] },
+                        { lang: ["Potato", "Batata", "Kentang"] }
                     ]
                 } 
             ]
@@ -468,61 +473,61 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     id: 0,
                     name: "Animals",
                     words: [
-                        ["Dog", "Cachorro", "Anjing"],
-                        ["Cat", "Gato", "Kucing"],
-                        ["Bird", "Pássaro", "Burung"],
-                        ["Tiger", "Tigre", "Harimau"],
-                        ["Horse", "Cavalo", "Kuda"],
-                        ["Dragon", "Dragão", "Naga"],
-                        ["Elephant", "Elefante", "Gajah"],
-                        ["Duck", "Pato", "Bebek"],
-                        ["Monkey", "Macaco", "Monyet"],
-                        ["Crocodile", "Crocodilo", "Buaya"],
-                        ["Cow", "Vaca", "Sapi"],
-                        ["Chicken", "Galinha", "Ayam"],
-                        ["Pig", "Porco", "Babi"],
-                        ["Buffalo", "Bufalo", "Kerbau"],
-                        ["Gorilla", "Gorila", "Gorila"],
-                        ["Giraffe", "Girafa", "jerapah"]
+                        { lang: ["Dog", "Cachorro", "Anjing"] },
+                        { lang: ["Cat", "Gato", "Kucing"] },
+                        { lang: ["Bird", "Pássaro", "Burung"] },
+                        { lang: ["Tiger", "Tigre", "Harimau"] },
+                        { lang: ["Horse", "Cavalo", "Kuda"] },
+                        { lang: ["Dragon", "Dragão", "Naga"] },
+                        { lang: ["Elephant", "Elefante", "Gajah"] },
+                        { lang: ["Duck", "Pato", "Bebek"] },
+                        { lang: ["Monkey", "Macaco", "Monyet"] },
+                        { lang: ["Crocodile", "Crocodilo", "Buaya"] },
+                        { lang: ["Cow", "Vaca", "Sapi"] },
+                        { lang: ["Chicken", "Galinha", "Ayam"] },
+                        { lang: ["Pig", "Porco", "Babi"] },
+                        { lang: ["Buffalo", "Bufalo", "Kerbau"] },
+                        { lang: ["Gorilla", "Gorila", "Gorila"] },
+                        { lang: ["Giraffe", "Girafa", "jerapah"] }
                     ]
                 },
                 {
                     id: 1,
                     name: "Body Level 1",
                     words: [
-                        ["Head", "Cabeça", "Kepala"],
-                        ["Hair", "Cabelo", "Rambut"],
-                        ["Nose", "Nariz", "Hidung"],
-                        ["Eye", "Olho", "Mata"],
-                        ["Ear", "Orelha", "Telinga"],
-                        ["Neck", "Pescoço", "Leher"],
-                        ["Shoulder", "Ombro", "Bahu"],
-                        ["Chest", "Peito", "Dada"],
-                        ["Belly", "Barriga", "Perut"],
-                        ["Back", "Costas", "Kembali"],
-                        ["Arm", "Braço", "Lengan"],
-                        ["Finger", "Dedo", "Jari"],
-                        ["Leg", "Perna", "Kaki"],
-                        ["Foot", "Pé", "Telapak kaki"]
+                        { lang: ["Head", "Cabeça", "Kepala"] },
+                        { lang: ["Hair", "Cabelo", "Rambut"] },
+                        { lang: ["Nose", "Nariz", "Hidung"] },
+                        { lang: ["Eye", "Olho", "Mata"] },
+                        { lang: ["Ear", "Orelha", "Telinga"] },
+                        { lang: ["Neck", "Pescoço", "Leher"] },
+                        { lang: ["Shoulder", "Ombro", "Bahu"] },
+                        { lang: ["Chest", "Peito", "Dada"] },
+                        { lang: ["Belly", "Barriga", "Perut"] },
+                        { lang: ["Back", "Costas", "Kembali"] },
+                        { lang: ["Arm", "Braço", "Lengan"] },
+                        { lang: ["Finger", "Dedo", "Jari"] },
+                        { lang: ["Leg", "Perna", "Kaki"] },
+                        { lang: ["Foot", "Pé", "Telapak kaki"] }
                     ]
                 },
                 {
                     id: 2,
                     name: "Body Level 2",
                     words: [
-                        ["Eyebrow", "Sombrancelha", "Alis"],
-                        ["Eyelashes", "Cilhos", "Bulu mata"],
-                        ["Cheek", "Bochecha", "Pipi"],
-                        ["Chin", "Queixo", "Dagu"],
-                        ["Moustache", "Bigode", "Kumis"],
-                        ["Elbow", "Cotovelo", "Siku"],
-                        ["Nail", "Unha", "Paku"],
-                        ["Butt", "Bunda", "Bokong"],
-                        ["Toe", "Dedo do pé", "Jari kaki"],
-                        ["Knee", "Joelho", "Lutut"],
-                        ["Thigh", "Coxa", "Paha"],
-                        ["Calf", "Panturrilha", "Betis"],
-                        ["Ankle", "Tornozelo", "Pergelangan kaki"]
+                        { lang: ["Eyebrow", "Sombrancelha", "Alis"] },
+                        { lang: ["Eyelashes", "Cilhos", "Bulu mata"] },
+                        { lang: ["Cheek", "Bochecha", "Pipi"] },
+                        { lang: ["Chin", "Queixo", "Dagu"] },
+                        { lang: ["Moustache", "Bigode", "Kumis"] },
+                        { lang: ["Elbow", "Cotovelo", "Siku"] },
+                        { lang: ["Nail", "Unha", "Paku"] },
+                        { lang: ["Butt", "Bunda", "Bokong"] },
+                        { lang: ["Toe", "Dedo do pé", "Jari kaki"] },
+                        { lang: ["Knee", "Joelho", "Lutut"] },
+                        { lang: ["Thigh", "Coxa", "Paha"] },
+                        { lang: ["Calf", "Panturrilha", "Betis"] },
+                        { lang: ["Ankle", "Tornozelo", "Pergelangan kaki"] }
                     ]
                 }
             ]

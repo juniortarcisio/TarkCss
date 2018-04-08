@@ -51,18 +51,21 @@
             else
                 currentDeckId = $scope.selectedDeck.id;
             
-            var randomIndex = Math.floor(Math.random() * $scope.albums[currentAlbumId].decks[currentDeckId].words.length);
-
-            var word = $scope.albums[currentAlbumId].decks[currentDeckId].words[randomIndex]
+            var currentDeckWords = $scope.albums[currentAlbumId].decks[currentDeckId].words.filter(function (word) {
+                return word.show == null || word.show[$rootScope.langLearn.id] == true;
+            });
+            
+            var randomIndex = Math.floor(Math.random() * currentDeckWords.length);
+            var word = currentDeckWords[randomIndex];
 
             //Only validate duplicated if the deck is bigger enough
-            if ($scope.albums[currentAlbumId].decks[currentDeckId].words.length >= $scope.WORDS_COUNT) {
+            if (currentDeckWords.length >= $scope.WORDS_COUNT) {
                 //console.log('### Validating the word: ' + word[$rootScope.langFrom.id]);
                 var repeatedWordFound = false;
 
                 for (var j = 0; j < i; j++) {
                     //console.log($scope.sortedWords[j].langLearn + " - " + word[$rootScope.langLearn.id]);
-                    if ($scope.sortedWords[j].langLearn === word[$rootScope.langLearn.id])
+                    if ($scope.sortedWords[j].langLearn === word.lang[$rootScope.langLearn.id])
                     {
                         //console.log('@@@ já existe, tentando novamente');
                         repeatedWordFound = true;
@@ -76,9 +79,14 @@
                 }
             }
             
+            var obs = "";
+            if (word.obs != null && word.obs[$rootScope.langLearn.id] != null)
+                obs = "(" + word.obs[$rootScope.langLearn.id] + ")";
+            
             $scope.sortedWords[i] = {
-                langFrom: word[$rootScope.langFrom.id],
-                langLearn: word[$rootScope.langLearn.id]
+                langFrom: word.lang[$rootScope.langFrom.id],
+                langLearn: word.lang[$rootScope.langLearn.id],
+                obs: obs
             };
         }
 
@@ -88,6 +96,7 @@
         $scope.currentlangLearn = $rootScope.langLearn;
         $scope.currentSortedWordIndex = 0;
         $scope.selectedStage = $scope.STAGE_RUNNING;
+        $scope.clearError();
         setTimeout(function () {
             AnimationService.focusByName('response');
         }, 100);

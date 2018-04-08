@@ -219,6 +219,7 @@
             <h5>Translate to {{currentlangLearn.name}}</h5>
             <br class="hide-on-keyboard-opened" />
             <h1>{{sortedWords[currentSortedWordIndex].langFrom}}</h1>
+            <h3>{{sortedWords[currentSortedWordIndex].obs}}</h3>
             <div class="row row-response">
                 <div class="col m12">
                     <input name="response" type="text" ng-model="$parent.response" class="response" ng-keyup="responseKeyPress($event)" placeholder="Type the answer" />
