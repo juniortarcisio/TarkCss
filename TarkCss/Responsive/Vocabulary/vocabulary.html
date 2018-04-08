@@ -27,14 +27,15 @@
     
     page-footer { display:none }
     .wordTo { }
-    .wordFrom { padding-top:3px; font-size:12px; color:#bbb; transition:.3s; filter: blur(2px); }
-    .word:hover .wordFrom { color:#888; filter:unset; font-weight:bold}
+    .word-obs { font-size:12px;color:#888 }
+    .wordFrom { padding-top:3px; font-size:12px;color:#888 }
+    .wordFrom .word { transition:.3s; filter: blur(2px); }
+    .word:hover .wordFrom .word { color:#888; filter:unset; font-weight:bold}
     .word:hover .fa-play {
         box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
         transform: translateY(-1px);
         opacity:1;
     }
-    .word-obs { font-size:12px; color:#888 }
 </style>
 
 <div class="container">
@@ -55,8 +56,14 @@
                     <table>
                         <tr class="word" ng-repeat="word in deck.words">
                             <td ng-class="{'bold':word.important}">
-                                <div class="wordTo">{{word.lang[langLearn.id]}} <span class="word-obs">{{formatObs(word.obs[langFrom.id])}}</span></div>
-                                <div class="wordFrom">{{word.lang[langFrom.id]}}</div>
+                                <div class="wordTo">
+                                    {{word.lang[langLearn.id]}} 
+                                    <span class="word-obs">{{formatObs(word.obs[langLearn.id])}}</span>
+                                </div>
+                                <div class="wordFrom">
+                                    <span class="word">{{word.lang[langFrom.id]}}</span>
+                                    <span class="word-obs">{{formatObs(word.obs[langFrom.id])}}</span>
+                                </div>                                
                             </td>
                             <td width="20px" ng-click="Speak(word.lang[langLearn.id])">
                                 <i class="fa fa-play"></i>
