@@ -6,6 +6,7 @@
     $scope.STAGE_DECK_SELECTION = 1;
     $scope.STAGE_RUNNING = 2;
     $scope.STAGE_RESULTS = 3;
+    $scope.WORDS_COUNT = 10;
     $scope.selectedStage = $scope.STAGE_ALBUM_SELECTION;
     this.response = "";
 
@@ -16,13 +17,13 @@
 
     $scope.selectAlbum = function (album) {
         new Audio('../Media/blop.mp3').play();
+        $scope.selectedAlbum = album;
 
         if (album == null) {
             $scope.startRunning();
             return;
         }
         
-        $scope.selectedAlbum = album;
         $scope.selectedStage = $scope.STAGE_DECK_SELECTION;
     }
 
@@ -36,11 +37,8 @@
         var currentAlbumId = 0;
         var currentDeckId = 0;
 
-        //se nao tiver album nem deck, 2 randoms
-        //se tiver album e não tiver deck, somar os decks? ou add mais um random deck
-        //se o deck estiver selecionado, simplesmente 
         //Uma das tips pode ser album e deck?
-        $scope.sortedWords = new Array(10);
+        $scope.sortedWords = new Array($scope.WORDS_COUNT);
 
         for (var i = 0; i < $scope.sortedWords.length; i++) {
             if ($scope.selectedAlbum == null)
@@ -63,6 +61,27 @@
             //    $scope.nextWord();
             //    return;
             //}
+
+            //Only validate duplicated if the deck is bigger enough
+            if ($scope.albums[currentAlbumId].decks[currentDeckId].words.length >= $scope.WORDS_COUNT) {
+                //console.log('### Validating the word: ' + word[$rootScope.langFrom.id]);
+                var existingWord = false;
+
+                for (var j = 0; j < i; j++) {
+                    //console.log($scope.sortedWords[j].langLearn + " - " + word[$rootScope.langLearn.id]);
+                    if ($scope.sortedWords[j].langLearn === word[$rootScope.langLearn.id])
+                    {
+                        //console.log('@@@ já existe, tentando novamente');
+                        existingWord = true;
+                        break;
+                    }
+                }
+
+                if (existingWord) {
+                    i--;
+                    continue;
+                }
+            }
             
             $scope.sortedWords[i] = {
                 langFrom: word[$rootScope.langFrom.id],
