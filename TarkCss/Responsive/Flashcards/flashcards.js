@@ -1,4 +1,4 @@
-﻿app.controller('flashcardsCtrl', function ($scope, $rootScope, $timeout, ServerService, VocabularyService, SpeechService, AnimationService) {
+﻿app.controller('flashcardsCtrl', function ($scope, $rootScope, $timeout, $routeParams, ServerService, VocabularyService, SpeechService, AnimationService) {
     $scope.languages = VocabularyService.getLanguages();
     $scope.albums = VocabularyService.getWordAlbums();
 
@@ -9,7 +9,7 @@
     $scope.WORDS_COUNT = 10;
     $scope.selectedStage = $scope.STAGE_ALBUM_SELECTION;
     this.response = "";
-
+    
     $scope.navigateToStage = function (stageId) {
         new Audio('../Media/blop.mp3').play();
         $scope.selectedStage = stageId;
@@ -191,4 +191,9 @@
             $timeout(addStar, i * 500);
     };
 
+    if ($routeParams.album && $routeParams.deck) {
+        $scope.selectedAlbum = $scope.albums[$routeParams.album];
+        $scope.selectedDeck = $scope.albums[$routeParams.album].decks[$routeParams.deck];
+        $scope.startRunning();
+    }
 });

@@ -1,4 +1,4 @@
-﻿app.controller('vocabularyCtrl', function ($scope, $rootScope, ServerService, VocabularyService, SpeechService) {
+﻿app.controller('vocabularyCtrl', function ($scope, $rootScope, $location, ServerService, VocabularyService, SpeechService) {
     $scope.languages = VocabularyService.getLanguages();
     $scope.albums = VocabularyService.getWordAlbums();
 
@@ -19,6 +19,10 @@
         return "(" + obs + ")";
     }
 
+    $scope.practice = function (albumId, deckId) {
+        $location.path("Vocabulary/Flashcards/" + albumId + "/" + deckId);
+    }
+
     $scope.calculateDeckAndWords = function () {
         $scope.totalDecks = 0;
         $scope.totalWords = 0;
@@ -29,8 +33,6 @@
             for (var j = 0; j < $scope.albums[i].decks.length; j++) 
                 $scope.totalWords += $scope.albums[i].decks[j].words.length;
         }
-
-        
     };
 
     $scope.calculateDeckAndWords();

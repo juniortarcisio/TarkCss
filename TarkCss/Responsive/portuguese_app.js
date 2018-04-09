@@ -383,6 +383,9 @@ app.config(function ($routeProvider) {
     .when("/Vocabulary/Flashcards", {
         templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
     })
+    .when("/Vocabulary/Flashcards/:album/:deck", {
+        templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
+    })
     .when("/PrototypeExercises", {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })

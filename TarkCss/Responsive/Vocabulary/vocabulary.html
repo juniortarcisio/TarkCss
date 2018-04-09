@@ -36,6 +36,11 @@
         transform: translateY(-1px);
         opacity:1;
     }
+    .btn-practice {
+        margin-top: 20px;
+        width: 100%;
+        background-color:#6cbfb0;
+    }
 </style>
 
 <div class="container">
@@ -47,7 +52,8 @@
             <select class="selectWordGroup" ng-model="selectedAlbum" ng-options="album.name for album in albums"></select>
             
         </div>
-        <div class="col s8 m8 l10">
+        <div class="col s8 m8 l10" style="font-size:12px">
+            Total albums: {{albums.length}} <br />
             Total decks: {{totalDecks}} <br />
             Total words: {{totalWords}}
         </div>
@@ -76,6 +82,7 @@
                         </tr>
                     </table>
                 </div>
+                <button class="btn effect-waves btn-practice" ng-click="practice(selectedAlbum.id,deck.id)">Practice</button>
             </div>
         </section>
     </div>
