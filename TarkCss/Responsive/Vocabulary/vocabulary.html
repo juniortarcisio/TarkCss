@@ -45,6 +45,11 @@
         <div class="col s4 m4 l2">
             <span class="selectLabel">Album</span>
             <select class="selectWordGroup" ng-model="selectedAlbum" ng-options="album.name for album in albums"></select>
+            
+        </div>
+        <div class="col s8 m8 l10">
+            Total decks: {{totalDecks}} <br />
+            Total words: {{totalWords}}
         </div>
     </section>
     <br class="clear hide-on-keyboard-opened" />
