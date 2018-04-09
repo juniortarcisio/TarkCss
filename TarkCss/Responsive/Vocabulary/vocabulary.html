@@ -37,10 +37,12 @@
         opacity:1;
     }
     .btn-practice {
-        margin-top: 20px;
-        width: 100%;
-        background-color:#6cbfb0;
+        color: red;
+        line-height: 0px;
+        font-size: 13px;
+        margin-top: 15px;
     }
+    .deck-warning { color:red; line-height:13px; font-size:13px }
 </style>
 
 <div class="container">
@@ -83,6 +85,7 @@
                     </table>
                 </div>
                 <button class="btn effect-waves btn-practice" ng-click="practice(selectedAlbum.id,deck.id)">Practice</button>
+                <div class="deck-warning" ng-show="deck.words.length < 10">This deck have less than 10 words</div>
             </div>
         </section>
     </div>

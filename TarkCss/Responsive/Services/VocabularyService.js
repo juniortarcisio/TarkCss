@@ -61,7 +61,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["How long", "Quanto tempo", "Berapa lama"] },
                         { lang: ["How much", "Quanto", "Berapa banyak"] },
                         { lang: ["How old", "Quantos anos", "Berapa umur"] },
-                        { lang: ["How far", "Quão longe", "Berapa Jauh"] }
+                        { lang: ["How far", "Quão longe", "Berapa Jauh"] },
+                        { lang: ["Question", "Pergunta", "Tanya"] }
                     ]
                 },
                 {
@@ -109,7 +110,6 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Join", "Juntar-se", "Ikut"] },
                         { lang: ["As", "Como", "Seperti"] },
                         { lang: ["Like", "Como", "Suka"] }
-                        //{ lang: ["Suka", "Como", "Berdua"] }
                     ]
                 },
                 {
@@ -135,8 +135,10 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     words: [
                         { lang: ["Son", "Filho", "Anak laki-laki"] },
                         { lang: ["Daughter", "Filha", "Anak Perampuan"] },
-                        { lang: ["Brother", "Irmão", "kakak laki-laki"] },
-                        { lang: ["Brother", "Irmão", "adik laki-laki"] },
+                        { lang: ["Sister", "Irmã", "Kakak Perampuan"], obs: [null, null, "Older"] },
+                        { lang: ["Brother", "Irmão", "Adik Perampuan"], obs: [null, null, "Younger"], show: [false, false, true] },
+                        { lang: ["Brother", "Irmão", "Kakak Laki-laki"], obs: [null, null, "Older"] },
+                        { lang: ["Brother", "Irmão", "Adik Laki-laki"], obs: [null, null, "Younger"], show: [false, false, true] },
                         { lang: ["Saudara", "Irmãos", "Sibling"] },
                         { lang: ["Sibling-in-law", "Cunhado", "ipar"] },
                         { lang: ["Parents", "Pais", "Orang tua"] },
@@ -150,6 +152,9 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Boyfriend", "Namorado", "Pacar"] },
                         { lang: ["Wife", "Esposa", "Istri"] },
                         { lang: ["Husband", "Marido", "Suami"] },
+                        { lang: ["Uncle", "Tio", "Paman"] },
+                        { lang: ["Aunt", "Tia", "Bibi"] },
+                        { lang: ["Cousin", "Primo", "Sepupu"] },
                         { lang: ["Friend", "Amigo", "Teman"] }
                     ]
                 }
@@ -257,7 +262,14 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     words: [
                         { lang: ["Once", "Uma Vez", "Satu Kali"] },
                         { lang: ["Twice", "Duas Vezes", "Dua Kali"] },
-                        { lang: ["Three Times", "Três Vezes", "Tiga Kali"] }
+                        { lang: ["Three Times", "Três Vezes", "Tiga Kali"] },
+                        { lang: ["Four Times", "Quatro Vezes", "Empat Kali"] },
+                        { lang: ["Five Times", "Cinco Vezes", "Lima Kali"] },
+                        { lang: ["Six Times", "Seis Vezes", "Enam Kali"] },
+                        { lang: ["Seven Times", "Sete Vezes", "Tujuh Kali"] },
+                        { lang: ["Eight Times", "Oito Vezes", "Delapan Kali"] },
+                        { lang: ["Nine Times", "Nove Vezes", "Sembilan Kali"] },
+                        { lang: ["Ten Times", "Dez Vezes", "Sepuluh Kali"] }
                     ]
                 },
                 {
@@ -265,8 +277,15 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     name: "Fractions",
                     words: [
                         { lang: ["Half", "Metade", "Setengah"] },
-                        { lang: ["One Third", "Um terço", "Sepertiga"] },
-                        { lang: ["One Quarter", "Um Quarto", "Seperempat"] }
+                        { lang: ["One Third", "Um Terço", "Sepertiga"] },
+                        { lang: ["One Quarter", "Um Quarto", "Seperempat"] },
+                        { lang: ["One Fifth", "Um Quinto", "Seperlima"] },
+                        { lang: ["One Sixth", "Um Sexto", "Seperenam"] },
+                        { lang: ["One Seventh", "Um Sétimo", "Sepertujuh"] },
+                        { lang: ["One Eighth", "Um Oitavo", "Seperdelapan"] },
+                        { lang: ["One Nineth", "Um Nono", "Sepersembilan"] },
+                        { lang: ["One Tenth", "Um Décimo", "Sepersepuluh"] },
+                        { lang: ["One Eleventh", "Onze avos", "???One Eleventh???"] }
                     ]
                 },
                 {
@@ -286,8 +305,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Year", "Ano", "Tahun"] },
                         { lang: ["Tomorrow", "Amanhã", "Besok"] },
                         { lang: ["Yesterday", "Ontem", "Kemaren"] },
-                        { lang: ["Later", "Mais tarde", "Nanti"] }//,
-                        //{ lang: ["Early", "Cedo", "Nanti"] }
+                        { lang: ["Later", "Mais tarde", "Nanti"] }
                     ]
                 },
                 {
@@ -344,14 +362,18 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                 },
                 {
                     id: 2,
-                    name: "Housing",
+                    name: "Home",
                     words: [
                         { lang: ["House", "Casa", "Rumah"] },
                         { lang: ["Apartment", "Apartamento", "Apartemen"] },
                         { lang: ["Bathroom", "Banheiro", "Kamar mandi"] },
                         { lang: ["Restroom", "Toalete", "Kamar kecil"] },
                         { lang: ["Bedroom", "Quarto", "Kamar tidur"] },
-                        { lang: ["Living room", "Sala", "Ruang keluarga"] }
+                        { lang: ["Living room", "Sala", "Ruang keluarga"] },
+                        { lang: ["Kitchen", "Cozinha", "Dapur"] },
+                        { lang: ["Laundry", "Lavanderia", "Laundry"] },
+                        { lang: ["Backyard", "Quintal", "Halaman belakang"] },
+                        { lang: ["Garage", "Garagem", "Kolam Renang"] }
                     ]
                 },
                 {
@@ -376,21 +398,19 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                 },
                 {
                     id: 4,
-                    name: "Universe",
-                    words: [
-                        { lang: ["Sun", "Sol", "Matahari"] },
-                        { lang: ["Moon", "Lua", "Moon"] },
-                        { lang: ["Sky", "Céu", "Langit"] },
-                        { lang: ["Star", "Estrela", "Bintang"] }
-                    ]
-                },
-                {
-                    id: 5,
                     name: "Climate",
                     words: [
                         { lang: ["Suny", "Ensolarado", "Cerah"] },
+                        { lang: ["Cloudy", "Nublado", "Berawan"] },
+                        { lang: ["Rainy", "Chuvoso", "Hujan"] },
+                        { lang: ["Tempest", "Tempestade", "Badai"] },
                         { lang: ["Rain", "Chuva", "Hujan"] },
-                        { lang: ["Snow", "Neve", "Snow"] }
+                        { lang: ["Snow", "Neve", "Salju"] },
+                        { lang: ["Cloud", "Nuvem", "Awan"] },
+                        { lang: ["Sky", "Céu", "Langit"] },
+                        { lang: ["Sun", "Sol", "Matahari"] },
+                        { lang: ["Moon", "Lua", "Bulan"] },
+                        { lang: ["Star", "Estrela", "Bintang"] }
                     ]
                 }
             ]
@@ -410,7 +430,6 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Grilled", "Grelhado", "Bakar"] },
                         { lang: ["Roasted", "Assado", "Panggang"] },
                         { lang: ["Cooked", "Cozido", "Masak"] },
-                        //{ word: "Matang", description: "Cooked" }, create an array object on this situation??? and work on service interfaces?
                         { lang: ["Spicy", "Apimentado", "Pedas"] },
                         { lang: ["Noodles", "Miojo", "Mi"] },
                         { lang: ["Rice", "Arroz", "Nasi"] }
@@ -425,10 +444,12 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Milk", "Leite", "Susu"] },
                         { lang: ["Fruits Juice", "Suco de Frutas", "Jus buah"] },
                         { lang: ["Orange Juice", "Suco de Laranja", "Jus jeruk"] },
+                        { lang: ["Lemonade", "Limonada", "Limonade"] },
                         { lang: ["Mango Juice", "Suco de Manga", "Jus mangga"] },
                         { lang: ["Tea", "Chá", "Teh"] },
                         { lang: ["Beer", "Cerveja", "Bir"] },
-                        { lang: ["Wine", "Vinho", "Anggur merah"] }
+                        { lang: ["Wine", "Vinho", "Anggur merah"] },
+                        { lang: ["Cocktail", "Coquetel", "Koktail"] }
                     ]
                 },
                 {
@@ -460,7 +481,11 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Cassava", "Mandioca", "Singkong"] },
                         { lang: ["Eggplant", "Berinjela", "Terong"] },
                         { lang: ["Cucumber", "Pepino", "Timun"] },
-                        { lang: ["Potato", "Batata", "Kentang"] }
+                        { lang: ["Potato", "Batata", "Kentang"] },
+                        { lang: ["Carrot", "Cenoura", "Wortel"] },
+                        { lang: ["Cauliflower", "Couve flor", "Kembang kol"] },
+                        { lang: ["Cabbage", "Repolho", "Kubis"] },
+                        { lang: ["Corn", "Milho", "Jagung"] }
                     ]
                 } 
             ]

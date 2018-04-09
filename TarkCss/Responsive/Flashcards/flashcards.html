@@ -164,6 +164,8 @@
         100% { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) rotateZ(360deg); }
     }
 
+    .sorted-word-deck { font-size:13px; line-height:13px; color:#888}
+
 </style>
 
 <br class="clear hide-on-keyboard-opened" />
@@ -217,6 +219,7 @@
         <div class="card-container">
             <h5>Translate to {{currentlangLearn.name}}</h5>
             <br class="hide-on-keyboard-opened" />
+            <div class="sorted-word-deck">{{sortedWords[currentSortedWordIndex].album}} - {{sortedWords[currentSortedWordIndex].deck}}</div>
             <h1>{{sortedWords[currentSortedWordIndex].langFrom}}</h1>
             <h3>{{sortedWords[currentSortedWordIndex].obs}}</h3>
             <div class="row row-response">

@@ -84,6 +84,8 @@
                 obs = "(" + word.obs[$rootScope.langLearn.id] + ")";
             
             $scope.sortedWords[i] = {
+                album: $scope.albums[currentAlbumId].name,
+                deck: $scope.albums[currentAlbumId].decks[currentDeckId].name,
                 langFrom: word.lang[$rootScope.langFrom.id],
                 langLearn: word.lang[$rootScope.langLearn.id],
                 obs: obs
