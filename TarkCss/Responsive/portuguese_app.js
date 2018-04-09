@@ -377,7 +377,7 @@ app.config(function ($routeProvider) {
     .when("/Vocabulary", {
         templateUrl: "PageMenu/pageMenuGroup.html", controller: "pageMenuCtrl"
     })
-    .when("/Vocabulary/WordAlbuns", {
+    .when("/Vocabulary/WordAlbums", {
         templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
     })
     .when("/Vocabulary/Flashcards", {

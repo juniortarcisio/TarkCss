@@ -62,7 +62,7 @@
         },
         {
             name: ['Vocabulary', 'Vocabulário', 'Kosa kata'], closed: false, items: [
-                { name: ['Word Albums', 'Album de Palavras', 'Album kata'], href: '#!Vocabulary/WordAlbuns', icon: 'fa-book' },
+                { name: ['Word Albums', 'Album de Palavras', 'Album kata'], href: '#!Vocabulary/WordAlbums', icon: 'fa-book' },
                 { name: ['Flashcards', 'Flashcards', 'Flashcards'], href: '#!Vocabulary/Flashcards', icon: 'fa-edit' }
             ]
         },
