@@ -29,35 +29,45 @@
     .wordTo { }
     .word-obs { font-size:12px;color:#888 }
     .wordFrom { padding-top:3px; font-size:12px;color:#888 }
-    .wordFrom .word { transition:.3s; filter: blur(2px); }
+    .wordFrom .word { transition:.3s; color:#ddd; background-color:#ddd; border-radius: 3px; }
+    .word .fa-play {display:none;}
     .word:hover .wordFrom .word { color:#888; filter:unset; font-weight:bold}
     .word:hover .fa-play {
         box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
-        transform: translateY(-1px);
+        display:block;
         opacity:1;
     }
     .btn-practice {
-        color: red;
-        line-height: 0px;
-        font-size: 13px;
+        line-height: 13px;
+        font-size: 15px;
         margin-top: 15px;
+        width:100%;
+        padding:10px
     }
-    .deck-warning { color:red; line-height:13px; font-size:13px }
+    .deck-warning {     
+        color: red;
+        line-height: 13px;
+        font-size: 13px;
+        position: absolute;
+        bottom: 30px;
+        left: 40px;
+    }
+    .container { position:relative }
+    .word-statistics { position:absolute;top:0px;right:20px;font-size:13px }
 </style>
 
 <div class="container">
     <h1 class="hide-on-mobile">Word Albuns</h1>
     <br class="clear hide-on-keyboard-opened" />
+    <div class="word-statistics">
+        <b>Total albums:</b> {{albums.length}} <br />
+        <b>Total decks:</b> {{totalDecks}} <br />
+        <b>Total words:</b> {{totalWords}}
+    </div>
     <section class="hide-on-keyboard-opened">
         <div class="col s4 m4 l2">
             <span class="selectLabel">Album</span>
             <select class="selectWordGroup" ng-model="selectedAlbum" ng-options="album.name for album in albums"></select>
-            
-        </div>
-        <div class="col s8 m8 l10" style="font-size:12px">
-            Total albums: {{albums.length}} <br />
-            Total decks: {{totalDecks}} <br />
-            Total words: {{totalWords}}
         </div>
     </section>
     <br class="clear hide-on-keyboard-opened" />
