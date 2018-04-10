@@ -70,11 +70,11 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     name: "Modal Verbs",
                     words: [
                         { lang: ["Can", "Posso", "Bisa"] },
-                        { lang: ["Could", "Poderia", "Bisa"] },// Polite thisWordAlsoMeans: [][][0]
+                        { lang: ["Could", "Poderia", "Bisa"], obs: ['Polite', 'Polite', null], show: [true, true, false] },// Polite thisWordAlsoMeans: [][][0]
                         { lang: ["Will", "Vou", "Akan"] },
-                        { lang: ["Would", "Iria", "Akan"] }, //Hypotetical / polite, would you like -> gostaria
+                        { lang: ["Would", "Iria", "Akan"], obs: ['Polite', 'Polite', null], show: [true, true, false] }, //Hypotetical / polite, would you like -> gostaria
                         { lang: ["Must", "Devo", "Harus"] },
-                        { lang: ["Should", "Deveria", "Harus"] },
+                        { lang: ["Should", "Deveria", "Harus"], obs: ['Polite', 'Polite', null], show: [true, true, false] },
                         { lang: ["Need", "Precisar", "Perlu"] },
                         { lang: ["Want", "Querer", "Mau"] },
                         { lang: ["Know", "Saber", "Tau"] }
@@ -467,7 +467,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Guava", "Goiaba", "Jambu biji"] },
                         { lang: ["Watermelon", "Melancia", "Semangka"] },
                         { lang: ["Jackfruit", "Jaca", "Nangka"] },
-                        { lang: ["Durian", "Durian", "Durian"] },
+                        { lang: ["Durian", "Durian", "Durian"], show: [false, false, true] },
                         { lang: ["Passion Fruit", "Maracuja", "Markisa"] }
                     ]
                 },

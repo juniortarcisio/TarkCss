@@ -23,6 +23,13 @@
         $location.path("Vocabulary/Flashcards/" + albumId + "/" + deckId);
     }
 
+    $scope.filterWordShow = function (value, index, array) {
+        if (value.show)
+            return value.show[$rootScope.langLearn.id];
+
+        return true;
+    }
+
     $scope.calculateDeckAndWords = function () {
         $scope.totalDecks = 0;
         $scope.totalWords = 0;

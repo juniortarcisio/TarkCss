@@ -77,7 +77,7 @@
                 <h3>Deck: {{deck.name}}</h3>
                 <div class="word-pack scrollbar-card">
                     <table>
-                        <tr class="word" ng-repeat="word in deck.words">
+                        <tr class="word" ng-repeat="word in deck.words | filter:filterWordShow">
                             <td ng-class="{'bold':word.important}">
                                 <div class="wordTo">
                                     {{word.lang[langLearn.id]}} 
