@@ -25,7 +25,7 @@
 
     $scope.filterWordShow = function (value, index, array) {
         if (value.show)
-            return value.show[$rootScope.langLearn.id];
+            return value.show[$rootScope.langLearn.id] || value.show[$rootScope.langFrom.id];
 
         return true;
     }

@@ -77,6 +77,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Should", "Deveria", "Harus"], obs: ['Polite', 'Polite', null], show: [true, true, false] },
                         { lang: ["Need", "Precisar", "Perlu"] },
                         { lang: ["Want", "Querer", "Mau"] },
+                        { lang: ["Would like", "Gostaria", "Ingin"], obs: ['Polite', 'Polite', 'Polite']},
                         { lang: ["Know", "Saber", "Tau"] }
                         //{ lang: ["May", "Posso", "Bisa"] }
                     ]
@@ -128,35 +129,6 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Pink", "Rosa", "Merah muda"] },
                         { lang: ["Grey", "Cinza", "Abu-abu"] }
                     ]
-                },
-                {
-                    id: 5,
-                    name: "Relatives",
-                    words: [
-                        { lang: ["Son", "Filho", "Anak laki-laki"] },
-                        { lang: ["Daughter", "Filha", "Anak Perampuan"] },
-                        { lang: ["Sister", "Irmã", "Kakak Perampuan"], obs: [null, null, "Older"] },
-                        { lang: ["Brother", "Irmão", "Adik Perampuan"], obs: [null, null, "Younger"], show: [false, false, true] },
-                        { lang: ["Brother", "Irmão", "Kakak Laki-laki"], obs: [null, null, "Older"] },
-                        { lang: ["Brother", "Irmão", "Adik Laki-laki"], obs: [null, null, "Younger"], show: [false, false, true] },
-                        { lang: ["Saudara", "Irmãos", "Sibling"] },
-                        { lang: ["Sibling-in-law", "Cunhado", "ipar"] },
-                        { lang: ["Parents", "Pais", "Orang tua"] },
-                        { lang: ["Parent-in-law", "Sogro", "Mertua"] },
-                        { lang: ["Grandmother", "Pai", "Bapak"] },
-                        { lang: ["Grandmother", "Mãe", "Ibu"] },
-                        { lang: ["Grandchild", "Neto", "Cucu"] },
-                        { lang: ["Grandfather", "Avô", "Kakek"] },
-                        { lang: ["Grandmother", "Avó", "Nekek"] },
-                        { lang: ["Great Grandchild", "Bisneto", "Cicit"] },
-                        { lang: ["Boyfriend", "Namorado", "Pacar"] },
-                        { lang: ["Wife", "Esposa", "Istri"] },
-                        { lang: ["Husband", "Marido", "Suami"] },
-                        { lang: ["Uncle", "Tio", "Paman"] },
-                        { lang: ["Aunt", "Tia", "Bibi"] },
-                        { lang: ["Cousin", "Primo", "Sepupu"] },
-                        { lang: ["Friend", "Amigo", "Teman"] }
-                    ]
                 }
                 //,
                 //{
@@ -171,24 +143,56 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
             ]
         },
         {
-            id: 1, name: "Basic Actions", icon: "fa-leaf",
+            id: 1, name: "Verbs & Action", icon: "fa-leaf",
             decks: [
                 {
                     id: 0,
-                    name: "Basic 1",
+                    name: "General Actions",
                     words: [
-                        { lang: ["To Walk", "Andar", "Berjalan"] },
-                        { lang: ["To Talk", "Falar", "Berbicara"] },
-                        { lang: ["To Go", "Ir", "Pergi"] },
-                        { lang: ["To Wait", "Esperar", "Menunggu"] },
-                        { lang: ["To Ask", "Perguntar", "Bertanya"] },
-                        { lang: ["To Eat", "Comer", "Makan"] },
-                        { lang: ["To Drink", "Beber", "Minum"] },
+                        { lang: ["To Be", "Ser", "Menjadi"] },
+                        { lang: ["To Do", "Fazer", "Melakukan"] },
+                        { lang: ["To Have", "Ter", "Punya"] }, //memiliki
+                        { lang: ["To Like", "Gostar", "Suka"] },
+                        { lang: ["To Know", "Saber", "Tahu"] },
+                        { lang: ["To Think", "Pensar", "Berpikir"] },
+                        { lang: ["To Look", "Ver", "Melihat"] },
                         { lang: ["To Work", "Trabalhar", "Bekerja"] },
                         { lang: ["To Study", "Estudar", "Belajar"] },
-                        { lang: ["To Play", "Jogar", "Bermain"] },
-                        { lang: ["To Like", "Gostar", "Suka"] },
-                        { lang: ["To Ask", "Pedir", "Minta"] }
+                        { lang: ["To Use", "Usar", "Menggunakan"] }
+                    ]
+                },
+                {
+                    id: 0,
+                    name: "Physical Actions",
+                    words: [
+                        { lang: ["To Walk", "Andar", "Berjalan"] },
+                        { lang: ["To Go", "Ir", "Pergi"] },
+                        { lang: ["To Swim", "Nadar", "Berang"] },
+                        { lang: ["To Run", "Correr", "Menjalankan"] },
+                        { lang: ["To Wait", "Esperar", "Menunggu"] },
+                        { lang: ["To Get", "Pegar", "Mendapatkan"] },
+                        { lang: ["To Take", "Tomar", "Mengambil"] },
+                        { lang: ["To Give", "Dar", "Memberi"] },
+                        { lang: ["To Eat", "Comer", "Makan"] },
+                        { lang: ["To Drink", "Beber", "Minum"] },
+                        { lang: ["To Play", "Jogar", "Bermain"] }
+                    ]
+                },
+                {
+                    id: 1,
+                    name: "Verbal Actions",
+                    words: [
+                        { lang: ["To Talk", "Falar", "Berbicara"] },
+                        { lang: ["To Ask", "Perguntar", "Bertanya"], obs: ['Question', null, null] },
+                        { lang: ["To Ask", "Pedir", "Minta"], obs: ['Require', null, null], show: [false, true, true] },
+                        { lang: ["To Talk", "Conversar", "Berbicara"], obs: ['conversation', 'conversation', null], show: [true, true, false] },
+                        { lang: ["To Speak", "Falar", "Berbicara"], obs: ['language', 'language', 'language'] },
+                        { lang: ["To Say", "Dizer", "Mengatakan"], obs: ['something', 'something', 'something'] },
+                        { lang: ["To Tell", "Contar", "Menceritakan"], obs: ['story', 'story', 'story'] },
+                        { lang: ["To Call", "Chamar", "Memanggil"]},
+                        { lang: ["To Hear", "Ouvir", "Mendengar"], obs: ['sound', 'sound', 'sound'] },
+                        { lang: ["To Listen", "Escutar", "Mendengarkan"] },
+                        { lang: ["To Understand", "Entender", "Mergenti"] }
                     ]
                 }
             ]
@@ -297,8 +301,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Hour", "Hora", "Waktu"] },
                         { lang: ["Morning", "Manhã", "Pagi"] },
                         { lang: ["Afternoon", "Tarde", "Siang"] },
-                        { lang: ["Evening", "Anoitecer", "Sore"] },
-                        { lang: ["Night", "Noite", "Sore"] },
+                        { lang: ["Evening", "Tarde", "Sore"], show: [true, false, true] },
+                        { lang: ["Night", "Noite", "Malam"] },
                         { lang: ["Day", "Dia", "Hari"] },
                         { lang: ["Week", "Semana", "Minggu"] },
                         { lang: ["Month", "Mês", "Bulan"] },
@@ -310,15 +314,19 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                 },
                 {
                     id: 5,
-                    name: "Size",
+                    name: "Measure",
                     words: [
+                        { lang: ["Measure", "Medida", "Mengukur"] },
                         { lang: ["Big", "Grande", "Besar"] },
                         { lang: ["Small", "Pequeno", "Kecil"] },
                         { lang: ["Tall", "Alto", "Tinggi"] },
-                        { lang: ["Short", "Baixo", "Pendek"] },
+                        { lang: ["Short", "Baixo", "Pendek"], obs: [null,'Height', null], show:[false,true,false] },
                         { lang: ["Long", "Longo", "Panjang"] },
+                        { lang: ["Short", "Curto", "Pendek"], obs: [null, 'Long Opposite', null] },
                         { lang: ["Narrow", "Estreito", "Sempit"] },
-                        { lang: ["Wide", "Estreito", "Lebar"] }
+                        { lang: ["Wide", "Estreito", "Lebar"] },
+                        { lang: ["Heavy", "Pesado", "Berat"] },
+                        { lang: ["Light", "Leve", "Ringan"] }
                     ]
                 }
             ]
@@ -553,6 +561,35 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Thigh", "Coxa", "Paha"] },
                         { lang: ["Calf", "Panturrilha", "Betis"] },
                         { lang: ["Ankle", "Tornozelo", "Pergelangan kaki"] }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Relatives",
+                    words: [
+                        { lang: ["Son", "Filho", "Anak laki-laki"] },
+                        { lang: ["Daughter", "Filha", "Anak Perampuan"] },
+                        { lang: ["Sister", "Irmã", "Kakak Perampuan"], obs: [null, null, "Older"] },
+                        { lang: ["Brother", "Irmão", "Adik Perampuan"], obs: [null, null, "Younger"], show: [false, false, true] },
+                        { lang: ["Brother", "Irmão", "Kakak Laki-laki"], obs: [null, null, "Older"] },
+                        { lang: ["Brother", "Irmão", "Adik Laki-laki"], obs: [null, null, "Younger"], show: [false, false, true] },
+                        { lang: ["Saudara", "Irmãos", "Sibling"] },
+                        { lang: ["Sibling-in-law", "Cunhado", "ipar"] },
+                        { lang: ["Parents", "Pais", "Orang tua"] },
+                        { lang: ["Parent-in-law", "Sogro", "Mertua"] },
+                        { lang: ["Grandmother", "Pai", "Bapak"] },
+                        { lang: ["Grandmother", "Mãe", "Ibu"] },
+                        { lang: ["Grandchild", "Neto", "Cucu"] },
+                        { lang: ["Grandfather", "Avô", "Kakek"] },
+                        { lang: ["Grandmother", "Avó", "Nekek"] },
+                        { lang: ["Great Grandchild", "Bisneto", "Cicit"] },
+                        { lang: ["Boyfriend", "Namorado", "Pacar"] },
+                        { lang: ["Wife", "Esposa", "Istri"] },
+                        { lang: ["Husband", "Marido", "Suami"] },
+                        { lang: ["Uncle", "Tio", "Paman"] },
+                        { lang: ["Aunt", "Tia", "Bibi"] },
+                        { lang: ["Cousin", "Primo", "Sepupu"] },
+                        { lang: ["Friend", "Amigo", "Teman"] }
                     ]
                 }
             ]
