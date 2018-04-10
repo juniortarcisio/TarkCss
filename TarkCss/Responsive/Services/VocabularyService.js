@@ -289,7 +289,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["One Eighth", "Um Oitavo", "Seperdelapan"] },
                         { lang: ["One Nineth", "Um Nono", "Sepersembilan"] },
                         { lang: ["One Tenth", "Um Décimo", "Sepersepuluh"] },
-                        { lang: ["One Eleventh", "Onze avos", "???One Eleventh???"] }
+                        { lang: ["One Eleventh", "Onze avos", "Sepersebelas"] }
                     ]
                 },
                 {
