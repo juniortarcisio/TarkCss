@@ -95,6 +95,10 @@
     <Content Include="Media\blop.mp3" />
     <Content Include="Media\click.mp4" />
     <Content Include="Media\flute_kushal_parikh.mp3" />
+    <Content Include="Media\sms2.mp3" />
+    <Content Include="Media\sms3.mp3" />
+    <Content Include="Media\sms4.mp3" />
+    <Content Include="Media\sms5.mp3" />
     <Content Include="Media\start.mp3" />
     <Content Include="Media\spin.mp3" />
     <Content Include="Prototype\app.js" />

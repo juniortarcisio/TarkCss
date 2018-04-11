@@ -169,7 +169,7 @@
 </style>
 
 <br class="clear hide-on-keyboard-opened" />
-<div class="container-short margin-auto" ng-switch="selectedStage">
+<div class="container-short margin-auto" ng-switch="selectedStage" ng-keypress="generalKeyPress()">
     <section ng-switch-when="0">
         <section class="card col l12 fade-in-slide-down-slow center">
             <div class="card-container">
@@ -212,22 +212,34 @@
         </section>
     </section>
     <section ng-switch-when="2" class="col s12 m12 l12 card flash-card fade-in-slide-down-slow">
-        <button style="position:absolute;top:-45px;right:0px" class="btn effect-waves" ng-click="navigateToStage(0)">
+        <button style="position:absolute;top:-45px;right:0px" class="btn hide-on-keyboard-opened" ng-click="navigateToStage(0)">
             <i class="fa fa-arrow-circle-left"></i>
             Back
         </button>
         <div class="card-container">
+            <div class="score center">
+                <table>
+                    <tr>
+                        <th>Correct</th>
+                        <th>Wrong</th>
+                    </tr>
+                    <tr>
+                        <td class="center score-right">{{correct}}</td>
+                        <td class="center score-wrong">{{wrong}}</td>
+                    </tr>
+                </table>
+            </div>
             <h5>Translate to {{currentlangLearn.name}}</h5>
             <br class="hide-on-keyboard-opened" />
             <div class="sorted-word-deck">{{sortedWords[currentSortedWordIndex].album}} - {{sortedWords[currentSortedWordIndex].deck}}</div>
             <h1>{{sortedWords[currentSortedWordIndex].langFrom}}</h1>
             <h3>{{sortedWords[currentSortedWordIndex].obs}}</h3>
-            <div class="row row-response">
+            <div class="row row-response" ng-hide="answered">
                 <div class="col m12">
-                    <input name="response" type="text" ng-model="$parent.response" class="response" ng-keyup="responseKeyPress($event)" placeholder="Type the answer" />
+                    <input name="response" type="text" ng-model="$parent.response" class="response" ng-keydown="responseKeyPress($event)" placeholder="Type the answer" />
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-hide="answered">
                 <div class="col m12">
                     <button class="btn btn-skip effect-waves waves-red" type="button" ng-click="skip()">
                         <span class="hide-on-mobile">Skip <span class="skip-esc">(esc)</span></span>
@@ -250,17 +262,10 @@
                 <span>{{ errorMessage }}</span>
                 <span ng-show="lastWord.length > 0"><br />Your answer was "{{ lastWord }}".</span>                    
             </div>
-            <div class="score center">
-                <table>
-                    <tr>
-                        <th>Correct</th> 
-                        <th>Wrong</th> 
-                    </tr>
-                    <tr>
-                        <td class="center score-right">{{correct}}</td>
-                        <td class="center score-wrong">{{wrong}}</td>
-                    </tr>
-                </table>
+            <div class="margin-top-2em clear center" ng-show="answered">
+                <button name="continue" class="btn btn-answer effect-waves waves-aqua" type="button" ng-click="nextWord(e)">
+                    <span>Continue</span>
+                </button>
             </div>
         </div>
     </section>

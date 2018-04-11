@@ -1,4 +1,4 @@
-﻿app.controller('flashcardsCtrl', function ($scope, $rootScope, $timeout, $routeParams, ServerService, VocabularyService, SpeechService, AnimationService) {
+﻿app.controller('flashcardsCtrl', function ($scope, $rootScope, $timeout, $routeParams, $document, ServerService, VocabularyService, SpeechService, AnimationService) {
     $scope.languages = VocabularyService.getLanguages();
     $scope.albums = VocabularyService.getWordAlbums();
 
@@ -92,19 +92,18 @@
             };
         }
 
+        $scope.clearError();
+        $scope.answered = false;
         $scope.correct = 0;
         $scope.wrong = 0;
         $scope.response = "";
         $scope.currentlangLearn = $rootScope.langLearn;
         $scope.currentSortedWordIndex = 0;
         $scope.selectedStage = $scope.STAGE_RUNNING;
-        $scope.clearError();
-        setTimeout(function () {
-            AnimationService.focusByName('response');
-        }, 100);
+        AnimationService.focusByName('response');
     }
 
-    $scope.nextWord = function () {
+    $scope.nextWord = function (e) {
         if ($scope.currentSortedWordIndex >= 9)
         {
             $scope.showResult();
@@ -112,9 +111,14 @@
             return;
         }
 
+        $scope.answered = false;
         $scope.currentSortedWordIndex++;
         $scope.response = "";
+        $scope.clearError();
         AnimationService.focusByName('response');
+
+        if (e && e.stopPropagation)
+            e.stopPropagation();
     }
 
     $scope.Speak = function (msg) {
@@ -139,11 +143,13 @@
         }
 
         if (sortedWord === response) {
+            new Audio('../Media/sms5.mp3').play();
             $scope.correct++;
             $scope.showSuccess = true;
             AnimationService.animate('score-right', 'sheen');
         }
         else {
+            new Audio('../Media/sms3.mp3').play();
             $scope.wrong++;
             $scope.errorMessage = "The right answer was \"" + $scope.sortedWords[$scope.currentSortedWordIndex].langLearn + "\". ";
             AnimationService.animate('score-wrong', 'sheen');
@@ -152,7 +158,8 @@
         $scope.lastWord = $scope.response;
         $scope.Speak($scope.sortedWords[$scope.currentSortedWordIndex].langLearn);
 
-        $scope.nextWord();
+        $scope.answered = true;
+        AnimationService.focusByName('continue');
     }
 
     $scope.clearError = function () {
