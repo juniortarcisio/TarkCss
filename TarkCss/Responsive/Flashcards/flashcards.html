@@ -102,6 +102,14 @@
             font-size: 25px;
         }
 
+        .btn-continue {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 150px;
+            margin-top: 10px;
+        }
+
         .row { padding-top:5px; }
         .margin-top-2em { margin-top:0px !important; }
         input:focus+label,input:not(.ng-empty)+label{ display:none; }
@@ -263,7 +271,7 @@
                 <span ng-show="lastWord.length > 0"><br />Your answer was "{{ lastWord }}".</span>                    
             </div>
             <div class="margin-top-2em clear center" ng-show="answered">
-                <button name="continue" class="btn btn-answer effect-waves waves-aqua" type="button" ng-click="nextWord(e)">
+                <button name="continue" class="btn btn-continue effect-waves waves-aqua" type="button" ng-click="nextWord(e)">
                     <span>Continue</span>
                 </button>
             </div>
@@ -287,7 +295,7 @@
                     </h2>
                 </div>
                 <div>
-                    <button class="btn pmg_item" ng-click="navigateToStage(0)">
+                    <button name="continue" class="btn pmg_item" ng-click="navigateToStage(0)">
                         Continue
                     </button>
                 </div>

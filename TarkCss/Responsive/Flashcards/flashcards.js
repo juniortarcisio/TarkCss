@@ -198,6 +198,8 @@
                 
         for (var i = 0; i < $scope.correct - 5; i++)
             $timeout(addStar, i * 500);
+
+        AnimationService.focusByName('continue');
     };
 
     if ($routeParams.album && $routeParams.deck) {
