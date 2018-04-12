@@ -27,7 +27,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
 
     this.albums = [
         {
-            id: 0, name: "Basic Words", icon: "fa-archive",
+            id: 0, name: "Basic Words", icon: "fa-cubes",
             decks: [
                 {
                     id: 0,
@@ -143,7 +143,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
             ]
         },
         {
-            id: 1, name: "Verbs & Action", icon: "fa-leaf",
+            id: 1, name: "Verbs & Actions", icon: "fa-blind",
             decks: [
                 {
                     id: 0,
@@ -198,7 +198,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
             ]
         },
         {
-            id: 2, name: "Mathematics & Time", icon: "fa-calculator",
+            id: 2, name: "Math & Time", icon: "fa-calculator",
             decks: [
                 {
                     id: 0,
@@ -339,7 +339,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
         },
         {
             id: 3,
-            name: "Places & Directions", icon: "fa-map",
+            name: "Places & Routes", icon: "fa-map",
             decks: [
                 {
                     id: 0,
