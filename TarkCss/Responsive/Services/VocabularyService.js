@@ -51,7 +51,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                 },
                 {
                     id: 1,
-                    name: "Questions",
+                    name: "Question Words",
                     words: [
                         { lang: ["What", "O que", "Apa"] },
                         { lang: ["Who", "Quem", "Siapa"] },
@@ -320,13 +320,19 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Big", "Grande", "Besar"] },
                         { lang: ["Small", "Pequeno", "Kecil"] },
                         { lang: ["Tall", "Alto", "Tinggi"] },
-                        { lang: ["Short", "Baixo", "Pendek"], obs: [null,'Height', null], show:[false,true,false] },
+                        { lang: ["Short", "Baixo", "Pendek"], obs: [null,'Tall Opposite', null], show:[false,true,false] },
                         { lang: ["Long", "Longo", "Panjang"] },
                         { lang: ["Short", "Curto", "Pendek"], obs: [null, 'Long Opposite', null] },
+                        { lang: ["Heavy", "Pesado", "Berat"] },
+                        { lang: ["Light", "Leve", "Ringan"] }, 
                         { lang: ["Narrow", "Estreito", "Sempit"] },
                         { lang: ["Wide", "Estreito", "Lebar"] },
-                        { lang: ["Heavy", "Pesado", "Berat"] },
-                        { lang: ["Light", "Leve", "Ringan"] }
+                        { lang: ["Thick", "Grosso", "Tebal"] },
+                        { lang: ["Thin", "Fino", "Tipis"] },
+                        { lang: ["Fast", "Rápido", "Cepat"] },
+                        { lang: ["Slow", "Lento", "Pelan"] },
+                        { lang: ["Far", "Longe", "Jauh"] },
+                        { lang: ["Near", "Perto", "Dekat"] }
                     ]
                 }
             ]
