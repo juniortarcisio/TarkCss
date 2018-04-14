@@ -380,6 +380,9 @@ app.config(function ($routeProvider) {
     .when("/Vocabulary/WordAlbums", {
         templateUrl: "Vocabulary/vocabulary.html", controller: "vocabularyCtrl"
     })
+    .when("/Vocabulary/SimilarWords", {
+        templateUrl: "SortedWords/sortedWords.html", controller: "sortedWordsCtrl"
+    })
     .when("/Vocabulary/Flashcards", {
         templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
     })
