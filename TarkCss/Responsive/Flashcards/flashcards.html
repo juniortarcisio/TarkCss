@@ -267,21 +267,17 @@
             <h1 class="sorted-word">{{sortedWords[currentSortedWordIndex].langFrom}}</h1>
             <h3 class="sorted-word-obs">{{sortedWords[currentSortedWordIndex].obs}}</h3>
             <div class="row row-response" ng-hide="answered">
-                <div class="col m12">
-                    <input name="response" type="text" ng-model="$parent.response" class="response" ng-keydown="responseKeyPress($event)" placeholder="Type the answer" />
-                </div>
+                <input name="response" type="text" ng-model="$parent.response" class="response" ng-keydown="responseKeyPress($event)" placeholder="Type the answer" />
             </div>
             <div class="row" ng-hide="answered">
-                <div class="col m12">
-                    <button class="btn btn-skip effect-waves waves-red" type="button" ng-click="skip()">
-                        <span class="hide-on-mobile">Skip <span class="skip-esc">(esc)</span></span>
-                        <span class="show-only-on-mobile"><i class="fa fa-question"></i></span>
-                    </button>
-                    <button class="btn btn-answer effect-waves waves-aqua float-right" type="button" ng-click="answer()">
-                        <span class="hide-on-mobile">Answer</span>
-                        <i class="fa fa-check show-only-on-mobile"></i>
-                    </button>
-                </div>
+                <button class="btn btn-skip effect-waves waves-red" type="button" ng-click="skip()">
+                    <span class="hide-on-mobile">Skip <span class="skip-esc">(esc)</span></span>
+                    <span class="show-only-on-mobile"><i class="fa fa-question"></i></span>
+                </button>
+                <button class="btn btn-answer effect-waves waves-aqua float-right" type="button" ng-click="answer()">
+                    <span class="hide-on-mobile">Answer</span>
+                    <i class="fa fa-check show-only-on-mobile"></i>
+                </button>
             </div>
             <br class="clear hide-on-keyboard-opened" />
             <div class="margin-top-2em clear center success-box fade-in-slide-down" ng-show="showSuccess">
@@ -310,7 +306,7 @@
                 </div>
                 <div>
                     <h2>
-                        <i class="fa fa-check"></i> Corret: {{correct}}
+                        <i class="fa fa-check"></i> Correct: {{correct}}
                     </h2>
                 </div>
                 <div>

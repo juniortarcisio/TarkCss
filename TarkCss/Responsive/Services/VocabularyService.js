@@ -299,7 +299,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                     id: 4,
                     name: "Time",
                     words: [
-                        { lang: ["Second", "Segundo", "Kedua"] },
+                        { lang: ["Second", "Segundo", "Detik"] },
                         { lang: ["Minute", "Minuto", "Menit"] },
                         { lang: ["Hour", "Hora", "Waktu"] },
                         { lang: ["Morning", "Manhã", "Pagi"] },

@@ -1,13 +1,39 @@
 ﻿<style type="text/css">
+    .album-deck {
+        font-size:11px;
+        color:#888;
+    }
+    .wordTo .word {    
+        color: #0d6b5a;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .wordFrom {
+        color: #0d6b5a;
+    }
+    .card-container { padding:12px 18px }
 </style>
 
 <div class="container">
-    <!--<h1 class="hide-on-mobile">Word Albuns</h1>-->
-    <br class="clear hide-on-keyboard-opened" />
-    <div class="word-statistics">
-        <b>Total albums:</b> {{albums.length}} <br />
-        <b>Total decks:</b> {{totalDecks}} <br />
-        <b>Total words:</b> {{totalWords}}
+    <h1 class="hide-on-mobile">Similar Words</h1>
+    <div class="row" ng-repeat="similarWordGroup in similarWordsGroups">
+        <h3>{{similarWordGroup.prefix}}</h3>
+        <div class="col xx3 l4 m6" ng-repeat="word in similarWordGroup.words">
+            <div class="card">
+                <div class="album-deck">
+                    {{word.albumName}} - {{word.deckName}}
+                </div>
+                <div class="card-container">
+                    <div class="wordTo">
+                        <span class="word">{{word.lang[$root.langLearn.id]}}</span>
+                        <!--<span class="word-obs">{{formatObs(word.obs[langLearn.id])}}</span>-->
+                    </div>
+                    <div class="wordFrom">
+                        <span class="word">{{word.lang[langFrom.id]}}</span>
+                        <span class="word-obs">{{formatObs(word.obs[langFrom.id])}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
