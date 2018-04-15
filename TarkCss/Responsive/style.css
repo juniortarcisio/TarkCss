@@ -150,6 +150,7 @@ input[type='text'], input[type='password'], input[type='email'] {
     border-bottom:1px solid #b5b5b5;
     border-top:1px solid transparent;
     background-color: transparent;    
+    caret-color:#04584a;
 }
 
 
@@ -302,6 +303,15 @@ input[type=checkbox]:checked+label:hover { background-color:#6a9989; }
 input[type=checkbox]:checked+label:hover .ball { transform:translate3d(24px,0,0); background-color:#92fff0; }
 input[type=checkbox]:checked+label:hover .text { color: #32b8a0; }
 
+::selection {
+    background: #00d6af;
+    color: #FFF;
+}
+
+
+b {
+    color:#129880;
+}
 
 /***************************** Structural styles ******************************/
 

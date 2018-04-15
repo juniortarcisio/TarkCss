@@ -17,10 +17,6 @@
     .score tr:first-child th { border:none; color:#aaa; padding-top: 10px }
     .response {
         font-size: 20px;
-        /*font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        color:#4285f4;*/
         color:#555;
     }
     .score-right { background-color:#66bb6a; color:white; font-size:1.5em }
@@ -50,57 +46,64 @@
         font-size: 12px;
         font-weight: bold;
     }
-    .btn-skip,.btn-skip:hover { background-color:#ef5a69; }
+    .btn-skip { background-color:#ef5a69; }
 
     @media only screen and (max-width:599px) {
         h1 { font-size:2em }
         page-footer { display:none }
 
+        .response { font-size:18px; }
         .row-response {
             position: fixed;
             bottom: 10px;
-            left: 55px;
+            left: 7px;
             background-color: white;
             padding: 5px 5px;
-            width: calc(100% - 110px);
+            width: calc(100% - 62px);
             border-radius: 29px;
-            height:45px;
-            
+            height: 42px;
         }
         .row-response, .btn.effect-waves {
             box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
         }
 
-        .row-response input { border:none !important; border-bottom:none !important; padding-left:10px; }
+        .row-response input { border:none !important; border-bottom:none !important; padding-left:40px; }
 
         .btn-skip {
             position: fixed;
-            bottom: 10px;
-            left: 5px;
+            bottom: 15px;
+            left: 14px;
             border-radius: 50px;
-            width: 45px;
-            height: 45px;
-            padding: 8px;
-            font-size: 27px;
+            width: 30px;
+            height: 30px;
+            padding: 0px;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #a5a5a5;
+            box-shadow: none;
+            border: 1px solid #a5a5a5;
         }
+        .btn-skip:hover { background-color:#ffffff; }
+        .btn-skip:active { transform:scale(2, 2); color:white; background-color:#ff7684; border-color:#ff7684 }
 
-        .skip-esc {
-            opacity:0.5;
-        }
+        .skip-esc { opacity:0.5; }
 
         .btn-answer {
             position: fixed;
             bottom: 10px;
             right: 5px;
-            width: 45px;
-            height: 45px;
-            padding-top: 10px;
+            width: 42px;
+            height: 42px;
+            padding-top: 6px;
             padding-bottom: 6px;
-            padding-left:10px;
-            padding-right:6px;
+            padding-left: 3px;
+            padding-right: 6px;
             border-radius: 50px;
-            font-size: 25px;
+            font-size: 18px;
+            transition: .3s;
         }
+
+        .btn-answer:active { transform:scale(1.5, 1.5); }
 
         .btn-continue {
             position: fixed;
@@ -267,7 +270,7 @@
             <h1 class="sorted-word">{{sortedWords[currentSortedWordIndex].langFrom}}</h1>
             <h3 class="sorted-word-obs">{{sortedWords[currentSortedWordIndex].obs}}</h3>
             <div class="row row-response" ng-hide="answered">
-                <input name="response" type="text" ng-model="$parent.response" class="response" ng-keydown="responseKeyPress($event)" placeholder="Type the answer" />
+                <input name="response" type="text" ng-model="$parent.response" class="response" ng-keydown="responseKeyPress($event)" placeholder="Type the answer..." />
             </div>
             <div class="row" ng-hide="answered">
                 <button class="btn btn-skip effect-waves waves-red" type="button" ng-click="skip()">
@@ -276,7 +279,7 @@
                 </button>
                 <button class="btn btn-answer effect-waves waves-aqua float-right" type="button" ng-click="answer()">
                     <span class="hide-on-mobile">Answer</span>
-                    <i class="fa fa-check show-only-on-mobile"></i>
+                    <i class="fa fa-paper-plane show-only-on-mobile"></i>
                 </button>
             </div>
             <br class="clear hide-on-keyboard-opened" />

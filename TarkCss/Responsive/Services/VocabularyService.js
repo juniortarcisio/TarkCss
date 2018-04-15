@@ -75,7 +75,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Can", "Posso", "Bisa"] },
                         { lang: ["Could", "Poderia", "Bisa"], obs: ['Polite', 'Polite', null], show: [true, true, false] },// Polite thisWordAlsoMeans: [][][0]
                         { lang: ["Will", "Vou", "Akan"] },
-                        { lang: ["Would", "Iria", "Akan"], obs: ['Polite', 'Polite', null], show: [true, true, false] }, //Hypotetical / polite, would you like -> gostaria
+                        { lang: ["Would", "Iria", "Akan"], obs: ['Hypothetical', 'Hypothetical', null], show: [true, true, false] }, //Hypotetical / polite, would you like -> gostaria
                         { lang: ["Must", "Devo", "Harus"] },
                         { lang: ["Should", "Deveria", "Harus"], obs: ['Polite', 'Polite', null], show: [true, true, false] },
                         { lang: ["Need", "Precisar", "Perlu"] },
@@ -146,7 +146,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
             ]
         },
         {
-            id: 1, name: "Verbs & Actions", icon: "fa-blind",
+            id: 1, name: "Verbs & Actions", icon: "fa-hand-scissors-o",
             decks: [
                 {
                     id: 0,
