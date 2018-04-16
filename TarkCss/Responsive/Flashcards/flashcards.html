@@ -48,10 +48,18 @@
     }
     .btn-skip { background-color:#ef5a69; }
 
+    .btn-cards-back  { position:absolute;top:-45px;right:0px }
+
+    .fa-check { color:#66bb6a }
+    .fa-times { color:#ef5a69 }
+
     @media only screen and (max-width:599px) {
         h1 { font-size:2em }
         page-footer { display:none }
+        
+        .btn-cards-back { top: -35px; padding: 6px 20px 6px 20px }
 
+        .card { box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3) }
         .response { font-size:18px; }
         .row-response {
             position: fixed;
@@ -59,14 +67,11 @@
             left: 7px;
             background-color: white;
             padding: 5px 5px;
-            width: calc(100% - 62px);
+            width: calc(100% - 64px);
             border-radius: 29px;
             height: 42px;
         }
-        .row-response, .btn.effect-waves {
-            box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
-        }
-
+        .row-response, .btn.effect-waves { box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3); }
         .row-response input { border:none !important; border-bottom:none !important; padding-left:40px; }
 
         .btn-skip {
@@ -84,14 +89,14 @@
             border: 1px solid #a5a5a5;
         }
         .btn-skip:hover { background-color:#ffffff; }
-        .btn-skip:active { transform:scale(2, 2); color:white; background-color:#ff7684; border-color:#ff7684 }
+        .btn-skip:active { transform:scale(3.5, 3.5); color:white; background-color:#ff7684; border-color:#ff7684 }
 
         .skip-esc { opacity:0.5; }
 
         .btn-answer {
             position: fixed;
             bottom: 10px;
-            right: 5px;
+            right: 8px;
             width: 42px;
             height: 42px;
             padding-top: 6px;
@@ -103,15 +108,7 @@
             transition: .3s;
         }
 
-        .btn-answer:active { transform:scale(1.5, 1.5); }
-
-        .btn-continue {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 150px;
-            margin-top: 10px;
-        }
+        .btn-answer:active { transform:scale(3, 3); }
 
         .row { padding-top:5px; }
         .margin-top-2em { margin-top:0px !important; }
@@ -128,17 +125,43 @@
 
         .flash-card {
             margin-top:10px;
-            margin-bottom:60px;
+            margin-bottom:54px;
         }
+
+        .error-box {
+            width: calc(100% - 4px);
+            position: fixed;
+            bottom: 5px;
+            left: 0px;
+            margin: 0px;
+            font-size: 16px;
+            line-height: 20px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 7px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+
+        .error-box .btn { background-color: #ffa5a5; color: #ffffff; }
+
+        .success-box {
+            width: calc(100% - 4px);
+            position: fixed;
+            bottom: 5px;
+            left: 0px;
+            margin: 0px;
+            font-size: 16px;
+            line-height: 20px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 7px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+
     }
     @media only screen and (max-width:599px) {
-        /*h1,h2,h3,h4,h5,h6  {
-            font-weight:bold;
-            margin-top:5px;
-            margin-bottom:5px
-        }*/
         .margin-top-2em {margin-top:2em}
-        .sorted-word { margin-top:15px; margin-left:5px }
+        .sorted-word { margin-top:15px; margin-left:5px; font-size: 38px; }
         .sorted-word-obs { margin-left:5px; margin-bottom:10px }
     }
     @media only screen and (max-width:599px) and (max-height:500px) {
@@ -166,19 +189,20 @@
     .btn-all:hover { background-color: #56b4d6}
     .btn-back { background-color: #a63626}
     .btn-back:hover { background-color: #c65646}
+    
+    @keyframes star-grow {
+        0% {  transform: translate3d(0%, 75%, 0) scale3d(0, 0, 0) rotateZ(0deg);  }
+        75% { transform: translate3d(0%, -25%, 0) scale3d(4, 4, 4) rotateZ(360deg); text-shadow: 5px 5px 50px #da8507, -5px 5px 50px #da8507, 5px -5px 50px #da8507, -5px -5px 50px #da8507 }
+        100% { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) rotateZ(0deg); }
+    }
+
 
     i.fa.fa-star {
         font-size: 45px;
         color: #e0f100;
         text-shadow: 2px 2px 5px #da8507, -2px 2px 5px #da8507, 2px -2px 5px #da8507, -2px -2px 5px #da8507, 0px 10px 8px rgba(0,0,0,.4);
         padding: 4px;
-        animation-name:star-grow;
-        animation-duration:.5s;
-    }
-
-    @keyframes star-grow {
-        0% {  transform: translate3d(0%, 75%, 0) scale3d(0, 0, 0) rotateZ(0deg);  }
-        100% { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) rotateZ(360deg); }
+        animation:star-grow .65s;
     }
 
     .sorted-word-deck { font-size:13px; line-height:13px; color:#888}
@@ -246,17 +270,17 @@
             </section>
         </div>
     </section>
-    <section ng-switch-when="2" class="col s12 m12 l12 card flash-card fade-in margin-top-2em">
-        <button style="position:absolute;top:-45px;right:0px" class="btn hide-on-keyboard-opened" ng-click="navigateToStage(0)">
+    <section ng-switch-when="2" class="col l12 card flash-card fade-in margin-top-2em">
+        <!--<button class="btn btn-cards-back hide-on-keyboard-opened" ng-click="navigateToStage(0)">
             <i class="fa fa-arrow-circle-left"></i>
             Back
-        </button>
+        </button>-->
         <div class="card-container">
             <div class="score center">
                 <table>
                     <tr>
-                        <th>Correct</th>
-                        <th>Wrong</th>
+                        <th class="center" width="40px"><i class="fa fa-check"></i></th>
+                        <th class="center" width="40px"><i class="fa fa-times"></i></th>
                     </tr>
                     <tr>
                         <td class="center score-right">{{correct}}</td>
@@ -264,7 +288,7 @@
                     </tr>
                 </table>
             </div>
-            <h5>Translate to {{currentlangLearn.name}}</h5>
+            <div style="color:#129880;font-size: 11px;padding-bottom: 2px;">Translate to {{currentlangLearn.name}}</div>
             <br class="hide-on-keyboard-opened" />
             <div class="sorted-word-deck">{{sortedWords[currentSortedWordIndex].album}} - {{sortedWords[currentSortedWordIndex].deck}}</div>
             <h1 class="sorted-word">{{sortedWords[currentSortedWordIndex].langFrom}}</h1>
@@ -283,17 +307,29 @@
                 </button>
             </div>
             <br class="clear hide-on-keyboard-opened" />
-            <div class="margin-top-2em clear center success-box fade-in-slide-down" ng-show="showSuccess">
-                <span>
-                    <i class="fa fa-check"></i> Correct!
-                </span>
-                <span ng-show="lastWord.length > 0"><br />{{ lastWord }}</span>   
+            <div class="margin-top-2em clear center success-box fade-in-slide-left" ng-show="showSuccess">
+                <div>
+                    <i class="fa fa-check"></i> Correct Answer!
+                </div>
+                <div ng-show="lastWord.length > 0" style="text-transform:capitalize">{{ lastWord }}</div>   
+                <div class="show-only-on-mobile">
+                    <br />
+                    <button class="btn btn-continue" type="button" ng-click="nextWord(e)">
+                        <span>Continue</span>
+                    </button>
+                </div>       
             </div>
-            <div class="margin-top-2em clear center error-box fade-in-slide-down" ng-show="errorMessage.length > 0">
-                <span>{{ errorMessage }}</span>
-                <span ng-show="lastWord.length > 0"><br />Your answer was "{{ lastWord }}".</span>                    
+            <div class="margin-top-2em clear center error-box fade-in-slide-left" ng-show="errorMessage.length > 0">
+                <div>{{ errorMessage }}</div>
+                <div ng-show="lastWord.length > 0">Your answer was "{{ lastWord }}".</div> 
+                <div class="show-only-on-mobile">
+                    <br />
+                    <button class="btn btn-continue" type="button" ng-click="nextWord(e)">
+                        <span>Continue</span>
+                    </button>     
+                </div>              
             </div>
-            <div class="margin-top-2em clear center" ng-show="answered">
+            <div class="margin-top-2em clear center hide-on-mobile" ng-show="answered">
                 <button name="continue" class="btn btn-continue effect-waves waves-aqua" type="button" ng-click="nextWord(e)">
                     <span>Continue</span>
                 </button>
@@ -307,14 +343,10 @@
                 <div style="padding:20px">                    
                     <i class="fa" ng-class="star.class" ng-repeat="star in stars"></i>
                 </div>
+                <br />
                 <div>
-                    <h2>
-                        <i class="fa fa-check"></i> Correct: {{correct}}
-                    </h2>
-                </div>
-                <div>
-                    <h2>
-                        <i class="fa fa-times"></i> Wrong: {{wrong}}
+                    <h2 style="font-size:38px">
+                        <i class="fa fa-check"></i> {{correct}} x {{wrong}} <i class="fa fa-times"></i> 
                     </h2>
                 </div>
                 <div>

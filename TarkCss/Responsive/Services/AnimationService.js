@@ -7,7 +7,26 @@
                     element[0].focus();
             }, 10);
     }
-    
+
+    this.focusByClass = function (name) {
+        var elements = document.getElementsByClassName(name);
+        var firstVisibleElement = null;
+
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].offsetParent != null)
+                firstVisibleElement = elements[i];
+        }
+
+        if (firstVisibleElement != null)
+            setTimeout(function () {
+                firstVisibleElement.focus();
+                console.log('focused:');
+                console.log(firstVisibleElement);
+            }, 10);
+        else
+            console.log('AnimationService.focusByClass: visibile element not found');
+    }
+
     this.animate = function (cssTarget, cssAnimation) {
         document.getElementsByClassName(cssTarget)[0].classList.remove(cssAnimation);
         setTimeout(function () {

@@ -765,6 +765,11 @@ b {
     to { transform: translate(0px, 0px); }
 }
 
+@keyframes slide-left {
+    from { transform: translate(-30%,0); }
+    to { transform: translate(0, 0); }
+}
+
 @keyframes grow-down {
     from {  transform: translate3d(0%, -50%, 0) scale3d(1, 0, 1); display:block; }
     to { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); display:block; }
@@ -809,6 +814,7 @@ b {
 .fade-in-slide-down-slow { animation: fade-in 1.0s, slide-down 1.0s; }
 .fade-in-slide-down-slow-1x { animation: fade-in 2.0s, slide-down 1.0s; }
 .fade-in-slide-down-slow-2x { animation: fade-in 3.0s, slide-down 3.0s; }
+.fade-in-slide-left { animation: fade-in .5s, slide-left .3s; }
 .slide-down { animation: slide-down .5s; }
 .slide-up { animation:slide-down .5s; animation-direction:reverse; }
 .slide-down-slow { animation: slide-down 2.5s; }

@@ -149,7 +149,7 @@
             AnimationService.animate('score-right', 'sheen');
         }
         else {
-            new Audio('../Media/sms3.mp3').play();
+            new Audio('../Media/jump.mp3').play();
             $scope.wrong++;
             $scope.errorMessage = "The right answer was \"" + $scope.sortedWords[$scope.currentSortedWordIndex].langLearn + "\". ";
             AnimationService.animate('score-wrong', 'sheen');
@@ -193,11 +193,11 @@
             var star = new Object();
             star.class = "fa-star";
             $scope.stars.push(star);
-            new Audio('../Media/blop.mp3').play();
+            new Audio('../Media/coin1.mp3').play();
         };
                 
         for (var i = 0; i < $scope.correct - 5; i++)
-            $timeout(addStar, i * 500);
+            $timeout(addStar, i * 600);
 
         AnimationService.focusByName('continue');
     };
@@ -207,4 +207,10 @@
         $scope.selectedDeck = $scope.albums[$routeParams.album].decks[$routeParams.deck];
         $scope.startRunning();
     }
+
+    //$scope.wrong = 0;
+    //$scope.correct = 10;
+    //$scope.selectedStage = $scope.STAGE_RESULTS;
+    //$scope.showResult();
+
 });
