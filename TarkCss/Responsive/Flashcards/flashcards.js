@@ -149,7 +149,7 @@
             AnimationService.animate('score-right', 'sheen');
         }
         else {
-            new Audio('../Media/jump.mp3').play();
+            new Audio('../Media/error.mp3').play();
             $scope.wrong++;
             $scope.errorMessage = "The right answer was \"" + $scope.sortedWords[$scope.currentSortedWordIndex].langLearn + "\". ";
             AnimationService.animate('score-wrong', 'sheen');
