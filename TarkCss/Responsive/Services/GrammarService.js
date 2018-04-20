@@ -259,7 +259,7 @@ var GrammarProcessor = function () {
                     var rulesList = [
                         {
                             conditions: [{ condition: CND_ENDSWITH_LIST, value: ["o","s","sh","ch","x","z"] }],
-                            actions: [{ action: ACT_ADD, on: 'sufix', value: 'es', /*value_var:'verb'*/ }],
+                            actions: [{ action: ACT_ADD, on: 'sufix', value: 'es' /*,value_var:'verb'*/ }],
                             msg: 'Singular 3rd person pronoun/noun and ends with: "o, s, sh, ch, x or z". Rule: Add "es"'
                         },
                         {
