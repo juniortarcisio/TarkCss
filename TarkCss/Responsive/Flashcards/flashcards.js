@@ -189,15 +189,19 @@
     $scope.showResult = function () {
         $scope.stars = new Array();
 
+        var audio = new Audio('../Media/coin1.mp3');
+
         var addStar = function () {
             var star = new Object();
             star.class = "fa-star";
             $scope.stars.push(star);
-            new Audio('../Media/coin1.mp3').play();
+            audio.pause();
+            audio.currentTime = 0;
+            audio.play();
         };
                 
         for (var i = 0; i < $scope.correct - 5; i++)
-            $timeout(addStar, i * 600);
+            $timeout(addStar, i * 650);
 
         AnimationService.focusByName('continue');
     };

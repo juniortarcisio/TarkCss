@@ -192,7 +192,7 @@
     
     @keyframes star-grow {
         0% {  transform: translate3d(0%, 75%, 0) scale3d(0, 0, 0) rotateZ(0deg);  }
-        75% { transform: translate3d(0%, -25%, 0) scale3d(4, 4, 4) rotateZ(360deg); text-shadow: 5px 5px 50px #da8507, -5px 5px 50px #da8507, 5px -5px 50px #da8507, -5px -5px 50px #da8507 }
+        75% { transform: translate3d(0%, -25%, 0) scale3d(4, 4, 4) rotateZ(360deg);  }
         100% { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) rotateZ(0deg); }
     }
 
@@ -202,8 +202,11 @@
         color: #e0f100;
         text-shadow: 2px 2px 5px #da8507, -2px 2px 5px #da8507, 2px -2px 5px #da8507, -2px -2px 5px #da8507, 0px 10px 8px rgba(0,0,0,.4);
         padding: 4px;
-        animation:star-grow .65s;
-        will-change:all;
+        animation:star-grow .5s;
+        will-change:transform;
+    }
+    @media only screen and (max-width:599px) { /*mobile performance trick*/
+        i.fa.fa-star { text-shadow: 0px 7px 8px #aaa }
     }
 
     .sorted-word-deck { font-size:13px; line-height:13px; color:#888}
