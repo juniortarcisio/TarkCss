@@ -207,6 +207,12 @@
     }
     @media only screen and (max-width:599px) { /*mobile performance trick*/
         i.fa.fa-star { text-shadow: 0px 7px 8px #aaa }
+        @keyframes slide-left {
+            0% { transform: translate(-30%,0); opacity:0 }
+            30% { transform: translate(-30%, 0); opacity:0 }
+            100% { transform: translate(0, 0); opacity:1 }
+        }
+        .fade-in-slide-left { animation: slide-left 1s; }
     }
 
     .sorted-word-deck { font-size:13px; line-height:13px; color:#888}
@@ -305,7 +311,7 @@
                     <span class="hide-on-mobile">Skip <span class="skip-esc">(esc)</span></span>
                     <span class="show-only-on-mobile"><i class="fa fa-question"></i></span>
                 </button>
-                <button class="btn btn-answer effect-waves waves-aqua float-right" type="button" ng-click="answer()">
+                <button class="btn btn-answer effect-waves waves-aqua float-right" type="button" ng-click="answer(false)">
                     <span class="hide-on-mobile">Answer</span>
                     <i class="fa fa-paper-plane show-only-on-mobile"></i>
                 </button>

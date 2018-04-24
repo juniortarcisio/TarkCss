@@ -104,6 +104,10 @@
     }
 
     $scope.nextWord = function (e) {
+        $scope.clearError();
+        if (!$scope.answered)
+            return;
+        
         if ($scope.currentSortedWordIndex >= 9)
         {
             $scope.showResult();
@@ -114,7 +118,6 @@
         $scope.answered = false;
         $scope.currentSortedWordIndex++;
         $scope.response = "";
-        $scope.clearError();
         AnimationService.focusByName('response');
 
         if (e && e.stopPropagation)
@@ -128,7 +131,7 @@
     $scope.answer = function (ignoreEmpty) {
         $scope.clearError();
 
-        if ($scope.response.length === 0 && !ignoreEmpty) {
+        if ($scope.response.length === 0 && ignoreEmpty != true) {
             AnimationService.focusByName('response');
             $scope.errorMessage = "Write your response or Skip";
             return;
