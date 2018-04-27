@@ -501,10 +501,27 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Potato", "Batata", "Kentang"] },
                         { lang: ["Carrot", "Cenoura", "Wortel"] },
                         { lang: ["Cauliflower", "Couve flor", "Kembang kol"] },
-                        { lang: ["Cabbage", "Repolho", "Kubis"] },
-                        { lang: ["Corn", "Milho", "Jagung"] }
+                        { lang: ["Cabbage", "Repolho", "Kubis"] }
                     ]
-                } 
+                },
+                {
+                    id: 4,
+                    name: "Grains and nuts",
+                    words: [
+                        { lang: ["Rice", "Arroz", "Beras"], obs: [null, null, 'Raw'] },
+                        { lang: ["Corn", "Milho", "Jagung"] },
+                        { lang: ["Pea", "Ervilha", "Kacang polong"] },
+                        { lang: ["Peanut", "Amendoim", "Kacang tanah"] },
+                        { lang: ["Walnut", "Noz", "Kenari"] },
+                        { lang: ["Chestnut", "Castanha", "Kacang mete"] },
+                        { lang: ["Hazelnut", "Avelã", "Kacang hazel"] },
+                        { lang: ["Almond", "Amêndoa", "Kacang almond"] },
+                        { lang: ["Beans", "Feijão", "Kacang pool"] }, 
+                        { lang: ["Green beans", "Feijão verde", "Kacang polong"], show: [false, false, true] },
+                        { lang: ["Candlenut", "Nogueira", "Kemiri"], show: [false, false, true] }, //white condiment
+                        { lang: ["Red beans", "Feijão vermelho", "Kacang merah"] }  //nuts= any nuts, kacang = any nuts or beans
+                    ]
+                }
             ]
         },
         {
