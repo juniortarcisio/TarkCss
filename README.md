@@ -5,15 +5,3 @@ Indeed I have been prototyping some front ends using AngularJs here, I am having
 
 http://whereintheplanet.com
 
-http://whereintheplanet.com/TarkCss/Blog/index.html
-
-http://whereintheplanet.com/TarkCss/Responsive/index.html
-
-http://whereintheplanet.com/TarkCss/Responsive/portuguese.html
-
-http://whereintheplanet.com/TarkCss/Prototype/index.html
-
-
-# Usability details at
-
-https://github.com/juniortarcisio/TarkCss/wiki
