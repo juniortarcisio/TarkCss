@@ -449,7 +449,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Cooked", "Cozido", "Masak"] },
                         { lang: ["Spicy", "Apimentado", "Pedas"] },
                         { lang: ["Noodles", "Miojo", "Mi"] },
-                        { lang: ["Rice", "Arroz", "Nasi"] }
+                        { lang: ["Rice", "Arroz", "Nasi"] },
+                        { lang: ["Egg", "Ovo", "Telur"] }
                     ]
                 },
                 {
@@ -511,6 +512,7 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Rice", "Arroz", "Beras"], obs: [null, null, 'Raw'] },
                         { lang: ["Corn", "Milho", "Jagung"] },
                         { lang: ["Pea", "Ervilha", "Kacang polong"] },
+                        { lang: ["Soya", "Soja", "Kedelai"] },
                         { lang: ["Peanut", "Amendoim", "Kacang tanah"] },
                         { lang: ["Walnut", "Noz", "Kenari"] },
                         { lang: ["Chestnut", "Castanha", "Kacang mete"] },
@@ -547,7 +549,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Pig", "Porco", "Babi"] },
                         { lang: ["Buffalo", "Bufalo", "Kerbau"] },
                         { lang: ["Gorilla", "Gorila", "Gorila"] },
-                        { lang: ["Giraffe", "Girafa", "jerapah"] }
+                        { lang: ["Giraffe", "Girafa", "jerapah"] },
+                        { lang: ["Quail", "Codorna", "Puyuh"] }
                     ]
                 },
                 {

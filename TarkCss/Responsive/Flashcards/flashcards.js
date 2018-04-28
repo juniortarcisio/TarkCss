@@ -214,7 +214,7 @@
         $scope.selectedDeck = $scope.albums[$routeParams.album].decks[$routeParams.deck];
         $scope.startRunning();
     }
-
+    
     //$scope.wrong = 0;
     //$scope.correct = 10;
     //$scope.selectedStage = $scope.STAGE_RESULTS;
