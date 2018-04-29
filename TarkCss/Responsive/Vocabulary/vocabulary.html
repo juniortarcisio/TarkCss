@@ -24,16 +24,19 @@
     }
     .word-pack table tr { background-color:inherit; }
     .word-pack table tr:hover { background-color: #e5e5e5; }
+
+
     
     page-footer { display:none }
+    .word td { position:relative }
     .wordTo { }
     .word-obs { font-size:12px;color:#888 }
     .wordFrom { padding-top:3px; font-size:12px;color:#888 }
     .wordFrom .word { transition:.3s; color:#ddd; background-color:#ddd; border-radius: 3px; padding:2px 5px; }
-    .word .fa-play, .word .fa-image {display:none;}
+    .word .fa-play, .word .fa-image, .word .fa-edit {display:none;}
     .word:hover .wordFrom .word { color:#888; filter:unset; font-weight:bold}
-    .word:hover .fa-play, .word:hover .fa-image  {
-        box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+    .word:hover .fa-play, .word:hover .fa-image, .word:hover .fa-edit  {
+        box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 2px 3px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
         display:block;
         opacity:1;
     }
@@ -54,15 +57,56 @@
     }
     .container { position:relative }
     .word-statistics { position:absolute;top:0px;right:20px;font-size:13px }
-    .fa-image {
-        background-color: #26a69a;
+    .word .fa-play {
+        animation: shrink-down .25s;
+        position: absolute;
+        right: 2px;
+        top: 5px;
+        border-radius:15px;
+    }
+    .word .fa-image {
+        animation: shrink-down-w1x .30s;
+        background-color: #ff1b1b;
         padding: 5px 10px;
-        border-radius: 3px;
-        text-shadow: 0px 1px 1px #0a5;
+        border-radius:15px;
         box-shadow: 0px 1px 1px grey;
-        color: #9af5dc;
+        color: #ffc1c1;
         transition: .5s;
         cursor: pointer;
+    }
+    .gimg-lnk {
+        position: absolute;
+        right: 38px;
+        top: 5px;
+    }
+    .word .fa-edit {
+        animation: shrink-down-w2x .35s;
+        background-color: #ffa500;
+        padding: 5px 10px;
+        border-radius:15px;
+        color: #ffe1ab;
+        transition: .5s;
+        cursor: pointer;
+        position: absolute;
+        right: 78px;
+        top: 5px;
+    }
+    .word .fa-image:hover {
+        color:white;
+        background-color: #ff5d5d;
+        box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 8px 12px 2px rgba(0, 0, 0, 0.22), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+        transform:translateY(-1px);
+    }
+    .word .fa-edit:hover {
+        color:white;
+        background-color: #ffc722;
+        box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 8px 12px 2px rgba(0, 0, 0, 0.22), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+        transform:translateY(-1px);
+    }
+    .word .fa-play:hover {
+        background-color: #48c7bd;
+        box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 8px 12px 2px rgba(0, 0, 0, 0.22), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+        transform:translateY(-1px);
     }
 </style>
 
@@ -96,15 +140,12 @@
                                 <div class="wordFrom">
                                     <span class="word">{{word.lang[langFrom.id]}}</span>
                                     <span class="word-obs">{{formatObs(word.obs[langFrom.id])}}</span>
-                                </div>                                
-                            </td>
-                            <td width="20px">
-                                <a ng-href="{{'https://www.google.com/search?tbm=isch&q=' + word.lang[langLearn.id] + '+' + langLearn.countryRef }}" target="_blank">
+                                </div>        
+                                <i class="fa fa-edit" ng-click="practiceWord(selectedAlbum.id,deck.id, $index)"></i>
+                                <i class="fa fa-play" ng-click="Speak(word.lang[langLearn.id])"></i>          
+                                <a class="gimg-lnk" ng-href="{{'https://www.google.com/search?tbm=isch&q=' + word.lang[langLearn.id] + '+' + langLearn.countryRef }}" target="_blank">
                                     <i class="fa fa-image"></i>
-                                </a>
-                            </td>
-                            <td width="20px" ng-click="Speak(word.lang[langLearn.id])">
-                                <i class="fa fa-play"></i>
+                                </a>              
                             </td>
                         </tr>
                     </table>

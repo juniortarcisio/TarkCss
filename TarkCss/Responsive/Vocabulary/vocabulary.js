@@ -23,6 +23,10 @@
         $location.path("Vocabulary/Flashcards/" + albumId + "/" + deckId);
     }
 
+    $scope.practiceWord = function (albumId, deckId, wordId) {
+        $location.path("Vocabulary/Flashcards/" + albumId + "/" + deckId + "/" + wordId);
+    }
+
     $scope.filterWordShow = function (value, index, array) {
         if (value.show)
             return value.show[$rootScope.langLearn.id] || value.show[$rootScope.langFrom.id];
