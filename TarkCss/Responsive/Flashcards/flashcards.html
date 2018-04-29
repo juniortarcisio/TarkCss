@@ -240,7 +240,7 @@
                     </div>
                 </div>
             </section>
-            <section class="col-menu s12">
+            <section class="col-menu s12" ng-class="{'s12':albums.length % 2 == 0, 's6':albums.length % 2 != 0}">
                 <div class="card album cursor-pointer" ng-click="selectAlbum(null)">
                     <div class="card-container">
                         <i class="fa fa-globe"></i>
@@ -262,11 +262,11 @@
                     </div>
                 </div>
             </section>
-            <section class="col-menu s12">
+            <section class="col-menu" ng-class="{'s12':selectedAlbum.decks.length % 2 == 0, 's6' : selectedAlbum.decks.length % 2 != 0}">
                 <div class="card album cursor-pointer" ng-click="selectDeck(null)">
                     <div class="card-container">
                         <i class="fa fa-globe"></i>
-                        <div>All "{{selectedAlbum.name}}" decks random</div>
+                        <div>All words from this deck</div>
                     </div>
                 </div>
             </section>
@@ -350,12 +350,12 @@
         <section class="card col l12 fade-in-slide-down-slow center">
             <div class="card-container">
                 <h1>Score</h1>
-                <div style="padding:20px">                    
+                <div style="padding:10px">                    
                     <i class="fa" ng-class="star.class" ng-repeat="star in stars"></i>
                 </div>
                 <br />
                 <div>
-                    <h2 style="font-size:38px">
+                    <h2 style="font-size:48px">
                         <i class="fa fa-check"></i> {{correct}} x {{wrong}} <i class="fa fa-times"></i> 
                     </h2>
                 </div>

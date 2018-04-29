@@ -389,6 +389,12 @@ app.config(function ($routeProvider) {
     .when("/Vocabulary/Flashcards/:album/:deck", {
         templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
     })
+    .when("/Vocabulary/Flashcards/:album/:deck/:word", {
+        templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
+    })
+    .when("/Vocabulary/Flashcards/:album/:deck/:word/:debug", {
+        templateUrl: "Flashcards/flashcards.html", controller: "flashcardsCtrl"
+    })
     .when("/PrototypeExercises", {
         templateUrl: "portuguese_exercises.html", controller: "exercisesCtrl"
     })

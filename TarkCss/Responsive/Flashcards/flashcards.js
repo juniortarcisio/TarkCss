@@ -37,59 +37,80 @@
         var currentAlbumId = 0;
         var currentDeckId = 0;
 
+        console.log('$scope.selectedWord');
+        console.log($scope.selectedWord);
+
         //Uma das tips pode ser album e deck?
-        $scope.sortedWords = new Array($scope.WORDS_COUNT);
+        if ($scope.selectedWord) {
+            console.log('has selected word')
+            $scope.sortedWords = new Array(5);
 
-        for (var i = 0; i < $scope.sortedWords.length; i++) {
-            if ($scope.selectedAlbum == null)
-                currentAlbumId = Math.floor(Math.random() * $scope.albums.length)
-            else
-                currentAlbumId = $scope.selectedAlbum.id;
+            for (var i = 0; i < $scope.sortedWords.length; i++) {
 
-            if ($scope.selectedDeck == null)
-                currentDeckId = Math.floor(Math.random() * $scope.albums[currentAlbumId].decks.length)
-            else
-                currentDeckId = $scope.selectedDeck.id;
+                var obs = "";
+                if ($scope.selectedWord.obs != null && $scope.selectedWord.obs[$rootScope.langLearn.id] != null)
+                    obs = "(" + $scope.selectedWord.obs[$rootScope.langLearn.id] + ")";
+
+                $scope.sortedWords[i] = {
+                    album: $scope.selectedAlbum.name,
+                    deck: $scope.selectedDeck.name,
+                    langFrom: $scope.selectedWord.lang[$rootScope.langFrom.id],
+                    langLearn: $scope.selectedWord.lang[$rootScope.langLearn.id],
+                    obs: obs
+                };
+            }
+        }
+        else {
+            $scope.sortedWords = new Array($scope.WORDS_COUNT);
+
+            for (var i = 0; i < $scope.sortedWords.length; i++) {
+                if ($scope.selectedAlbum == null)
+                    currentAlbumId = Math.floor(Math.random() * $scope.albums.length)
+                else
+                    currentAlbumId = $scope.selectedAlbum.id;
+
+                if ($scope.selectedDeck == null)
+                    currentDeckId = Math.floor(Math.random() * $scope.albums[currentAlbumId].decks.length)
+                else
+                    currentDeckId = $scope.selectedDeck.id;
             
-            var currentDeckWords = $scope.albums[currentAlbumId].decks[currentDeckId].words.filter(function (word) {
-                return word.show == null || word.show[$rootScope.langLearn.id] == true;
-            });
+                var currentDeckWords = $scope.albums[currentAlbumId].decks[currentDeckId].words.filter(function (word) {
+                    return word.show == null || word.show[$rootScope.langLearn.id] == true;
+                });
             
-            var randomIndex = Math.floor(Math.random() * currentDeckWords.length);
-            var word = currentDeckWords[randomIndex];
+                var randomIndex = Math.floor(Math.random() * currentDeckWords.length);
+                var word = currentDeckWords[randomIndex];
 
-            //Only validate duplicated if the deck is bigger enough
-            if (currentDeckWords.length >= $scope.WORDS_COUNT) {
-                //console.log('### Validating the word: ' + word[$rootScope.langFrom.id]);
-                var repeatedWordFound = false;
+                //Only validate duplicated if the deck is bigger enough
+                if (currentDeckWords.length >= $scope.WORDS_COUNT) {
+                    var repeatedWordFound = false;
 
-                for (var j = 0; j < i; j++) {
-                    //console.log($scope.sortedWords[j].langLearn + " - " + word[$rootScope.langLearn.id]);
-                    if ($scope.sortedWords[j].langLearn === word.lang[$rootScope.langLearn.id])
-                    {
-                        //console.log('@@@ já existe, tentando novamente');
-                        repeatedWordFound = true;
-                        break;
+                    for (var j = 0; j < i; j++) {
+                        if ($scope.sortedWords[j].langLearn === word.lang[$rootScope.langLearn.id])
+                        {
+                            repeatedWordFound = true;
+                            break;
+                        }
+                    }
+
+                    if (repeatedWordFound) {
+                        i--;
+                        continue;
                     }
                 }
-
-                if (repeatedWordFound) {
-                    i--;
-                    continue;
-                }
+            
+                var obs = "";
+                if (word.obs != null && word.obs[$rootScope.langLearn.id] != null)
+                    obs = "(" + word.obs[$rootScope.langLearn.id] + ")";
+            
+                $scope.sortedWords[i] = {
+                    album: $scope.albums[currentAlbumId].name,
+                    deck: $scope.albums[currentAlbumId].decks[currentDeckId].name,
+                    langFrom: word.lang[$rootScope.langFrom.id],
+                    langLearn: word.lang[$rootScope.langLearn.id],
+                    obs: obs
+                };
             }
-            
-            var obs = "";
-            if (word.obs != null && word.obs[$rootScope.langLearn.id] != null)
-                obs = "(" + word.obs[$rootScope.langLearn.id] + ")";
-            
-            $scope.sortedWords[i] = {
-                album: $scope.albums[currentAlbumId].name,
-                deck: $scope.albums[currentAlbumId].decks[currentDeckId].name,
-                langFrom: word.lang[$rootScope.langFrom.id],
-                langLearn: word.lang[$rootScope.langLearn.id],
-                obs: obs
-            };
         }
 
         $scope.clearError();
@@ -108,7 +129,7 @@
         if (!$scope.answered)
             return;
         
-        if ($scope.currentSortedWordIndex >= 9)
+        if ($scope.currentSortedWordIndex >= $scope.sortedWords.length - 1)
         {
             $scope.showResult();
             $scope.selectedStage = $scope.STAGE_RESULTS;
@@ -202,22 +223,29 @@
             audio.currentTime = 0;
             audio.play();
         };
-                
+
         for (var i = 0; i < $scope.correct - 5; i++)
             $timeout(addStar, i * 650);
 
         AnimationService.focusByName('continue');
     };
 
+
     if ($routeParams.album && $routeParams.deck) {
         $scope.selectedAlbum = $scope.albums[$routeParams.album];
         $scope.selectedDeck = $scope.albums[$routeParams.album].decks[$routeParams.deck];
+
+        if ($routeParams.word)
+            $scope.selectedWord = $scope.selectedDeck.words[$routeParams.word];
+
         $scope.startRunning();
     }
     
-    //$scope.wrong = 0;
-    //$scope.correct = 10;
-    //$scope.selectedStage = $scope.STAGE_RESULTS;
-    //$scope.showResult();
+    if ($routeParams.debug) {
+        $scope.wrong = 0;
+        $scope.correct = 10;
+        $scope.selectedStage = $scope.STAGE_RESULTS;
+        $scope.showResult();
+    }
 
 });
