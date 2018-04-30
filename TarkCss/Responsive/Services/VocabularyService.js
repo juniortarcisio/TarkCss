@@ -113,7 +113,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Together", "Juntos", "Bersama"] },
                         { lang: ["Join", "Juntar-se", "Ikut"] },
                         { lang: ["As", "Como", "Seperti"] },
-                        { lang: ["Like", "Como", "Suka"] }
+                        { lang: ["Like", "Como", "Suka"] },
+                        { lang: ["Continue", "Continuar", "Terus"] }
                     ]
                 },
                 {

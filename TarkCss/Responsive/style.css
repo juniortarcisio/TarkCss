@@ -760,6 +760,12 @@ b {
     to { transform: scale3d(1, 1, 1); }
 }
 
+@keyframes grow-w1x {
+    0% { transform: scale3d(0, 0, 0); }
+    50% { transform: scale3d(0, 0, 0); }
+    100% { transform: scale3d(1, 1, 1); }
+}
+
 @keyframes slide-down {
     from { transform: translate(0px,-30px); }
     to { transform: translate(0px, 0px); }
@@ -807,7 +813,6 @@ b {
     50% { transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0); opacity:.5 }
     100% { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); opacity:1 }
 }
-
 
 @keyframes pump-up {
     0% { transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1); }
