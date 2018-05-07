@@ -29,4 +29,37 @@
 
     $scope.selectTheme();
 
+    $scope.msglog = [];
+    $scope.ws = new WebSocket("ws://localhost:8080/");
+    $scope.ws.onopen = function () {
+        $scope.msglog.push({
+            sender: 'server',
+            time: new Date(),
+            content: 'connected'
+        });
+    };
+
+    $scope.sendChat = function () {
+        $scope.ws.send($scope.chatText);
+    }
+
+    $scope.ws.onmessage = function (evt) {
+        var received_msg = evt.data;
+        $scope.msglog.push({
+            sender : 'unnamed',
+            time : new Date(),
+            content : received_msg
+        });
+        $scope.$apply();
+        console.log(evt);
+    };
+
+    $scope.ws.onclose = function () {
+        $scope.msglog.push({
+            sender: 'server',
+            time: new Date(),
+            content: 'disconnected'
+        });
+    };
+
 });

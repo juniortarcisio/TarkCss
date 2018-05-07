@@ -23,6 +23,23 @@ pre {
 <div class="card col s12">
     <div class="card-container row">
         <div class="col s12">
+            <input ng-model="chatText" type="text" />
+            <label>Chat message</label>
+        </div>
+        <div class="row">
+            <button class="btn effect-waves" type="button" ng-click="sendChat()">SEND</button>
+        </div>
+        <div class="row">
+            <h3>Message log</h3>
+            <ul>
+                <li ng-repeat="msg in msglog">{{msg.time|date:'yyyy-MM-dd HH:mm:ss'}} [{{msg.sender}}]: {{msg.content}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card col s12">
+    <div class="card-container row">
+        <div class="col s12">
             <input ng-model="textToSpeak" type="text" />
             <label>Text To Speak</label>
         </div>
@@ -63,6 +80,7 @@ https://ayundadamai.com/tag/cerita-anak-2/
         </div>
     </div>
 </div>
+
 <img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="original">
 <img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="saturate" class="saturate">
 <img alt="Mona Lisa" src="http://i.stack.imgur.com/OyP0g.jpg" title="grayscale" class="grayscale">
