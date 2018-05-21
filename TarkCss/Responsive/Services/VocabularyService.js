@@ -162,7 +162,8 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["To Look", "Ver", "Melihat"] },
                         { lang: ["To Work", "Trabalhar", "Bekerja"] },
                         { lang: ["To Study", "Estudar", "Belajar"] },
-                        { lang: ["To Use", "Usar", "Menggunakan"] }
+                        { lang: ["To Use", "Usar", "Menggunakan"] },
+                        { lang: ["To Help", "Ajudar", "Membantu"] }
                     ]
                 },
                 {
@@ -620,6 +621,28 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Aunt", "Tia", "Bibi"] },
                         { lang: ["Cousin", "Primo", "Sepupu"] },
                         { lang: ["Friend", "Amigo", "Teman"] }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 6,
+            name: "General Adjectives", icon: "fa-leaf",
+            decks: [
+                {
+                    id: 0,
+                    name: "General 1",
+                    words: [
+                        { lang: ["Hard", "Difícil", "Keras"] },
+                        { lang: ["Easy", "Fácil", "Mudah"] }
+                    ]
+                },
+                {
+                    id: 0,
+                    name: "Appearance",
+                    words: [
+                        { lang: ["Beautiful", "Linda", "Cantik"] },
+                        { lang: ["Handsome", "Lindo", "Tampan"] }
                     ]
                 }
             ]

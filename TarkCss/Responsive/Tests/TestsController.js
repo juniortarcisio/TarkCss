@@ -48,7 +48,7 @@
         $scope.msglog.push({
             sender : 'unnamed',
             time : new Date(),
-            content : received_msg
+            content: received_msg
         });
         $scope.$apply();
         console.log(evt);
@@ -60,6 +60,6 @@
             time: new Date(),
             content: 'disconnected'
         });
-    };
+    }; 
 
 });
