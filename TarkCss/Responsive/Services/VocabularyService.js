@@ -339,6 +339,19 @@ app.service('VocabularyService', function ($http, $q, $rootScope) {
                         { lang: ["Far", "Longe", "Jauh"] },
                         { lang: ["Near", "Perto", "Dekat"] }
                     ]
+                },
+                {
+                    id: 6,
+                    name: "Weekdays",
+                    words: [
+                        { lang: ["Sunday", "Domingo", "Minggu"] },
+                        { lang: ["Monday", "Segunda-feira", "Senin"] },
+                        { lang: ["Tuesday", "Terça-feira", "Selasa"] },
+                        { lang: ["Wednesday", "Quarta-feira", "Rabu"] },
+                        { lang: ["Thursday", "Quinta-feira", "Kamis"] },
+                        { lang: ["Friday", "Sexta-feira", "Jumat"] },
+                        { lang: ["Saturday", "Sabado", "Sabtu"] }
+                    ]
                 }
             ]
         },
